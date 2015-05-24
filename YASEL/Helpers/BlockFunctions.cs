@@ -49,10 +49,21 @@ namespace YASEL
             return lst;
         }
 
+        /// <summary>
+        /// Checks if a functional block is enabled and working (ie. Turned on and powered)
+        /// Also checks if terminal block is a functional block, returning true if not
+        /// </summary>
+        /// <param name="b">The terminal block to check</param>
+        /// <param name="checkIsWorking">Optional (Default:True) - Set to false if you don't want to check block is working</param>
+        /// <returns>
+        /// true - Enabled (and working)
+        /// false - Is not enabled (or not working)
+        /// </returns>
         public static bool IsEnabled(IMyTerminalBlock b, bool checkIsWorking = true)
         {
             return (checkIsWorking ? b.IsWorking : true) && ((b is IMyFunctionalBlock) ? ((IMyFunctionalBlock)b).Enabled : true);
         }
+
         public static string GetDetail(IMyTerminalBlock b, string match)
         {
             string requestedDetail = "";
