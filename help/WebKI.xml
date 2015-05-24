@@ -1,745 +1,745 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpKI>
-  <HelpKINode Title="Act method" Url="html/9586329f-02fe-780b-cff2-d25fa74088e8.htm" />
-  <HelpKINode Title="ActionButton field" Url="html/48c22dba-13ba-eee3-b9d9-31c08bc9a1dc.htm" />
-  <HelpKINode Title="ActionTick field" Url="html/294eb3f2-bb23-ed01-a2f6-6860f7914d0c.htm" />
-  <HelpKINode Title="AddOption method" Url="html/bf12c5f2-fbe5-e0c3-4d1d-acf4d60c79ff.htm" />
-  <HelpKINode Title="AddPage method" Url="html/73b27921-b574-2117-9681-7149a9a39cec.htm" />
-  <HelpKINode Title="AdjustSpeed method" Url="html/f7799490-b980-3515-bb1f-a57fa2b794d8.htm" />
-  <HelpKINode Title="AirlockHangarDoorWaitTime field" Url="html/a823edcf-fbba-5f27-469d-f83891ecd482.htm" />
-  <HelpKINode Title="align method" Url="html/f76cc760-b5fb-76f5-c4ca-c94f42ad2067.htm" />
-  <HelpKINode Title="aligned field" Url="html/c22fe1a2-25df-86fa-0a4a-91416eaf31a0.htm" />
-  <HelpKINode Title="alignFirst field" Url="html/786d9666-63d6-8fb8-9e05-1e5785072a1b.htm" />
-  <HelpKINode Title="alignForMining method" Url="html/5c521960-37fa-2624-834f-4342b76881d3.htm" />
-  <HelpKINode Title="AlignMargin field" Url="html/4e988c84-75a2-1a17-06bd-7516ef551f01.htm" />
-  <HelpKINode Title="AlignTo method" Url="html/15c35031-9b86-9a86-fab7-a5ed887bd24e.htm" />
-  <HelpKINode Title="angle field" Url="html/320e36c4-61f2-8944-d204-5073554a5ea2.htm" />
-  <HelpKINode Title="asteroidInFront method" Url="html/4268a092-366f-f023-686c-a0ab50e94cf6.htm" />
-  <HelpKINode Title="AsteroidSensorName field" Url="html/a1f08df1-8b5f-380a-f8cf-0116dded1a30.htm" />
-  <HelpKINode Title="avgSpeed field" Url="html/5872fd8f-c044-f609-1c73-4322aa2cf13c.htm" />
-  <HelpKINode Title="batteryFull method" Url="html/6d7deba6-b47e-4ead-e4cd-e0a52b5c0513.htm" />
-  <HelpKINode Title="batteryLow method" Url="html/47c6d03d-2470-f98c-586f-a54bea9c3d2a.htm" />
-  <HelpKINode Title="batteryPercent method" Url="html/b084e725-c63e-0cb5-2de3-985ad34e52b0.htm" />
-  <HelpKINode Title="BelongsToGrid method" Url="html/1bcbc6b7-ac03-27fd-d858-3e8f4289fa43.htm" />
-  <HelpKINode Title="bottomBlock field" Url="html/88313f41-a104-a1cb-63b7-602884a8dba2.htm" />
-  <HelpKINode Title="BottomBlockName field" Url="html/e8dacaf0-a1f3-c83a-bb90-a85c88d7850e.htm" />
-  <HelpKINode Title="bPos field" Url="html/f8f7b5bd-23c7-f88e-4c2a-6bef7cd9b579.htm" />
-  <HelpKINode Title="BreakingDistMultiplier field" Url="html/223623d0-2e4c-06c0-721f-0db11f0c6b2a.htm" />
-  <HelpKINode Title="ButtonSensorName field" Url="html/3a27ecfe-e44a-bf4c-c059-477b91ea9ab5.htm" />
-  <HelpKINode Title="CallbackMethod field" Url="html/c5d009a6-011a-a41a-87a0-9854c6b33a30.htm" />
-  <HelpKINode Title="cargoEmpty method" Url="html/ecfd7a61-166b-56cf-435e-e74aaf784a73.htm" />
-  <HelpKINode Title="cargoFull method" Url="html/cf7a581a-97a1-bf58-4528-b1d3cbcbda93.htm" />
-  <HelpKINode Title="CargoGroups field" Url="html/0ced0ab0-cb7f-5452-ef59-096a0f210328.htm" />
-  <HelpKINode Title="cargoPercent method" Url="html/92f3f0d6-250c-4509-a5bd-bf17b287842a.htm" />
-  <HelpKINode Title="CargoStatusLCDName field" Url="html/41b56199-9c1c-9e5b-6e45-559572cc1588.htm" />
-  <HelpKINode Title="center method" Url="html/f165a6ab-ab4a-e693-15e8-f6226299ae67.htm" />
-  <HelpKINode Title="centered field" Url="html/5fbcd1ca-ffe9-0940-fc65-bdcc8e24c498.htm" />
-  <HelpKINode Title="CenterOn method" Url="html/4b6f3f24-8421-abc0-2b4a-83e7b04ff2dc.htm" />
-  <HelpKINode Title="CentreBlock field" Url="html/125adc76-87ac-a69e-6858-c78ff27601dd.htm" />
-  <HelpKINode Title="CheckStatics method" Url="html/fbf56f43-41ec-3684-90db-a73e97e0cb74.htm" />
-  <HelpKINode Title="CockpitName field" Url="html/1f73d1b3-d8e7-4e9e-03d0-e8be1cfcb858.htm" />
-  <HelpKINode Title="ConnectorSpeed field" Url="html/701f23f6-273c-6fff-68f8-841c296e7c1f.htm" />
-  <HelpKINode Title="controller field" Url="html/0b964672-4dd1-18c3-b247-544126a183f5.htm" />
-  <HelpKINode Title="cross field" Url="html/25e67055-1f49-0ff1-0db6-db68f87529ce.htm" />
-  <HelpKINode Title="curPage field" Url="html/dec4c920-7f76-b51a-04e4-548b00722205.htm" />
-  <HelpKINode Title="curShaftCount field" Url="html/f19bc518-3717-0cf5-e6c0-ff55bf592453.htm" />
-  <HelpKINode Title="curShaftEnd field" Url="html/c7555130-4ffa-f187-8ea1-0591d8afb81c.htm" />
-  <HelpKINode Title="curShaftStart field" Url="html/b1dc8423-d2f7-e9b5-00f3-03a9687abc20.htm" />
+  <HelpKINode Title="Act method" Url="html/Overload_YASEL_Program_NavManager_Act.htm" />
+  <HelpKINode Title="ActionButton field" Url="html/F_YASEL_Program_SE_MenuOption_ActionButton.htm" />
+  <HelpKINode Title="ActionTick field" Url="html/F_YASEL_Program_NavSettings_ActionTick.htm" />
+  <HelpKINode Title="AddOption method" Url="html/M_YASEL_Program_SE_MenuPage_AddOption.htm" />
+  <HelpKINode Title="AddPage method" Url="html/M_YASEL_Program_SE_Menu_AddPage.htm" />
+  <HelpKINode Title="AdjustSpeed method" Url="html/M_YASEL_Program_NavManager_AdjustSpeed.htm" />
+  <HelpKINode Title="AirlockHangarDoorWaitTime field" Url="html/F_YASEL_Program_StationManagerSettings_AirlockHangarDoorWaitTime.htm" />
+  <HelpKINode Title="align method" Url="html/M_YASEL_Program_NavManager_align.htm" />
+  <HelpKINode Title="aligned field" Url="html/F_YASEL_Program_WpInfo_aligned.htm" />
+  <HelpKINode Title="alignFirst field" Url="html/F_YASEL_Program_WpInfo_alignFirst.htm" />
+  <HelpKINode Title="alignForMining method" Url="html/M_YASEL_Program_DrillerNav_alignForMining.htm" />
+  <HelpKINode Title="AlignMargin field" Url="html/F_YASEL_Program_NavSettings_AlignMargin.htm" />
+  <HelpKINode Title="AlignTo method" Url="html/M_YASEL_Program_WpInfo_AlignTo.htm" />
+  <HelpKINode Title="angle field" Url="html/F_YASEL_Program_WpInfo_angle.htm" />
+  <HelpKINode Title="asteroidInFront method" Url="html/M_YASEL_Program_DrillerNav_asteroidInFront.htm" />
+  <HelpKINode Title="AsteroidSensorName field" Url="html/F_YASEL_Program_DrillerNavSettings_AsteroidSensorName.htm" />
+  <HelpKINode Title="avgSpeed field" Url="html/F_YASEL_Program_NavManager_avgSpeed.htm" />
+  <HelpKINode Title="batteryFull method" Url="html/M_YASEL_Program_DrillerNav_batteryFull.htm" />
+  <HelpKINode Title="batteryLow method" Url="html/M_YASEL_Program_DrillerNav_batteryLow.htm" />
+  <HelpKINode Title="batteryPercent method" Url="html/M_YASEL_Program_DrillerNav_batteryPercent.htm" />
+  <HelpKINode Title="BelongsToGrid method" Url="html/M_YASEL_Program_BelongsToGrid.htm" />
+  <HelpKINode Title="bottomBlock field" Url="html/F_YASEL_Program_NavManager_bottomBlock.htm" />
+  <HelpKINode Title="BottomBlockName field" Url="html/F_YASEL_Program_NavSettings_BottomBlockName.htm" />
+  <HelpKINode Title="bPos field" Url="html/F_YASEL_Program_NavManager_bPos.htm" />
+  <HelpKINode Title="BreakingDistMultiplier field" Url="html/F_YASEL_Program_NavSettings_BreakingDistMultiplier.htm" />
+  <HelpKINode Title="ButtonSensorName field" Url="html/F_YASEL_Program_DrillerNavSettings_ButtonSensorName.htm" />
+  <HelpKINode Title="CallbackMethod field" Url="html/F_YASEL_Program_WpInfo_CallbackMethod.htm" />
+  <HelpKINode Title="cargoEmpty method" Url="html/M_YASEL_Program_DrillerNav_cargoEmpty.htm" />
+  <HelpKINode Title="cargoFull method" Url="html/M_YASEL_Program_DrillerNav_cargoFull.htm" />
+  <HelpKINode Title="CargoGroups field" Url="html/F_YASEL_Program_StationManagerSettings_CargoGroups.htm" />
+  <HelpKINode Title="cargoPercent method" Url="html/M_YASEL_Program_DrillerNav_cargoPercent.htm" />
+  <HelpKINode Title="CargoStatusLCDName field" Url="html/F_YASEL_Program_StationManagerSettings_CargoStatusLCDName.htm" />
+  <HelpKINode Title="center method" Url="html/M_YASEL_Program_NavManager_center.htm" />
+  <HelpKINode Title="centered field" Url="html/F_YASEL_Program_WpInfo_centered.htm" />
+  <HelpKINode Title="CenterOn method" Url="html/M_YASEL_Program_WpInfo_CenterOn.htm" />
+  <HelpKINode Title="CentreBlock field" Url="html/F_YASEL_Program_NavSettings_CentreBlock.htm" />
+  <HelpKINode Title="CheckStatics method" Url="html/M_YASEL_Program_CheckStatics.htm" />
+  <HelpKINode Title="CockpitName field" Url="html/F_YASEL_Program_NavSettings_CockpitName.htm" />
+  <HelpKINode Title="ConnectorSpeed field" Url="html/F_YASEL_Program_NavSettings_ConnectorSpeed.htm" />
+  <HelpKINode Title="controller field" Url="html/F_YASEL_Program_NavManager_controller.htm" />
+  <HelpKINode Title="cross field" Url="html/F_YASEL_Program_WpInfo_cross.htm" />
+  <HelpKINode Title="curPage field" Url="html/F_YASEL_Program_SE_Menu_curPage.htm" />
+  <HelpKINode Title="curShaftCount field" Url="html/F_YASEL_Program_DrillerNav_curShaftCount.htm" />
+  <HelpKINode Title="curShaftEnd field" Url="html/F_YASEL_Program_DrillerNav_curShaftEnd.htm" />
+  <HelpKINode Title="curShaftStart field" Url="html/F_YASEL_Program_DrillerNav_curShaftStart.htm" />
   <HelpKINode Title="dbug method">
-    <HelpKINode Title="debug.dbug Method " Url="html/7e2d266e-c46d-5d2f-94b1-da2a57e69a63.htm" />
-    <HelpKINode Title="Program.dbug Method " Url="html/3d00417f-6829-21f9-c61c-4fb19d3f2dac.htm" />
+    <HelpKINode Title="debug.dbug Method " Url="html/M_YASEL_debug_debug_dbug.htm" />
+    <HelpKINode Title="Program.dbug Method " Url="html/M_YASEL_Program_dbug.htm" />
   </HelpKINode>
   <HelpKINode Title="debug class">
-    <HelpKINode Title="debug Class" Url="html/f2da413f-79a1-57cf-db2b-0319b0a429b5.htm" />
-    <HelpKINode Title="about debug class" Url="html/f2da413f-79a1-57cf-db2b-0319b0a429b5.htm" />
-    <HelpKINode Title="constructor" Url="html/654bd761-7182-4a2f-b121-36d612037a12.htm" />
-    <HelpKINode Title="fields" Url="html/ae790b47-9c28-eef2-9a0d-8bddf6d230d0.htm" />
-    <HelpKINode Title="methods" Url="html/191013cd-6783-5c81-7a15-7c921b393aa9.htm" />
+    <HelpKINode Title="debug Class" Url="html/T_YASEL_debug_debug.htm" />
+    <HelpKINode Title="about debug class" Url="html/T_YASEL_debug_debug.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_debug_debug__cctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_debug_debug.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_debug_debug.htm" />
   </HelpKINode>
-  <HelpKINode Title="debug.dbug method" Url="html/7e2d266e-c46d-5d2f-94b1-da2a57e69a63.htm" />
-  <HelpKINode Title="debug.debug constructor" Url="html/654bd761-7182-4a2f-b121-36d612037a12.htm" />
-  <HelpKINode Title="debug.DebugLevel field" Url="html/c18800bb-0217-4d47-f9a7-62c559e82927.htm" />
-  <HelpKINode Title="debug.LCDDebugScreenName field" Url="html/b5f5f737-5277-aa77-4f58-a0fad7ac5810.htm" />
+  <HelpKINode Title="debug.dbug method" Url="html/M_YASEL_debug_debug_dbug.htm" />
+  <HelpKINode Title="debug.debug constructor" Url="html/M_YASEL_debug_debug__cctor.htm" />
+  <HelpKINode Title="debug.DebugLevel field" Url="html/F_YASEL_debug_debug_DebugLevel.htm" />
+  <HelpKINode Title="debug.LCDDebugScreenName field" Url="html/F_YASEL_debug_debug_LCDDebugScreenName.htm" />
   <HelpKINode Title="DebugLevel field">
-    <HelpKINode Title="debug.DebugLevel Field" Url="html/c18800bb-0217-4d47-f9a7-62c559e82927.htm" />
-    <HelpKINode Title="Program.DebugLevel Field" Url="html/3e155358-45a8-f38a-df93-3d5358868a8b.htm" />
-    <HelpKINode Title="Program.NavSettings.DebugLevel Field" Url="html/464496db-e860-2daa-6a73-d07c1c9acd21.htm" />
+    <HelpKINode Title="debug.DebugLevel Field" Url="html/F_YASEL_debug_debug_DebugLevel.htm" />
+    <HelpKINode Title="Program.DebugLevel Field" Url="html/F_YASEL_Program_DebugLevel.htm" />
+    <HelpKINode Title="Program.NavSettings.DebugLevel Field" Url="html/F_YASEL_Program_NavSettings_DebugLevel.htm" />
   </HelpKINode>
-  <HelpKINode Title="DefaultThrust field" Url="html/c8d814d5-a87c-a22d-2cd0-0a2ac5d8f280.htm" />
-  <HelpKINode Title="DelVarFromStore method" Url="html/7e94ec12-863b-6009-ea6f-e4144e83eb3c.htm" />
-  <HelpKINode Title="direction field" Url="html/029c5840-db8b-9269-f687-84dde75b8ded.htm" />
-  <HelpKINode Title="display field" Url="html/51d76485-785e-93d6-3651-89441ac653e0.htm" />
-  <HelpKINode Title="DisplayCargoStatus method" Url="html/b2f75d68-c215-4d44-c0a5-013d052da64f.htm" />
+  <HelpKINode Title="DefaultThrust field" Url="html/F_YASEL_Program_NavSettings_DefaultThrust.htm" />
+  <HelpKINode Title="DelVarFromStore method" Url="html/M_YASEL_Program_VarStore_DelVarFromStore.htm" />
+  <HelpKINode Title="direction field" Url="html/F_YASEL_Program_WpInfo_direction.htm" />
+  <HelpKINode Title="display field" Url="html/F_YASEL_Program_SE_Menu_display.htm" />
+  <HelpKINode Title="DisplayCargoStatus method" Url="html/M_YASEL_Program_StationManager_DisplayCargoStatus.htm" />
   <HelpKINode Title="DisplayOnScreen method">
-    <HelpKINode Title="LCDFunctions.DisplayOnScreen Method " Url="html/3fec71a4-11e8-6169-fa9b-398860862500.htm" />
-    <HelpKINode Title="Program.DisplayOnScreen Method " Url="html/a016e687-14e2-a95c-82db-a5814ea61450.htm" />
+    <HelpKINode Title="LCDFunctions.DisplayOnScreen Method " Url="html/M_YASEL_LCDFunctions_LCDFunctions_DisplayOnScreen.htm" />
+    <HelpKINode Title="Program.DisplayOnScreen Method " Url="html/Overload_YASEL_Program_DisplayOnScreen.htm" />
   </HelpKINode>
-  <HelpKINode Title="DisplayTime method" Url="html/e329af4c-a33c-a6f3-7bd4-8d3358d75f27.htm" />
-  <HelpKINode Title="dn field" Url="html/78990143-bde5-35b2-0c60-ae6c030bd5dc.htm" />
-  <HelpKINode Title="DN_ERROR_1000 field" Url="html/ef2f620b-d365-dd72-134c-d3ae3386e68d.htm" />
-  <HelpKINode Title="DN_ERROR_1002 field" Url="html/56a116a9-a777-3513-53d6-ec620abbee08.htm" />
-  <HelpKINode Title="dock method" Url="html/9ffc9ba0-3552-cfee-e1ba-993008552769.htm" />
-  <HelpKINode Title="dockComplete method" Url="html/7bbc8d16-6a6e-87e4-8a2e-1704a9064d25.htm" />
-  <HelpKINode Title="DotProduct method" Url="html/d647a1a3-68d7-bdd3-7bfe-3790d219fb25.htm" />
-  <HelpKINode Title="downThrusters field" Url="html/d07bf4f5-ac84-0c6f-170d-f767d868c923.htm" />
-  <HelpKINode Title="DownThrustGroupName field" Url="html/a7ba0325-d2b3-d80b-46f0-dadc8919b53f.htm" />
+  <HelpKINode Title="DisplayTime method" Url="html/M_YASEL_Program_StationManager_DisplayTime.htm" />
+  <HelpKINode Title="dn field" Url="html/F_YASEL_Program_dn.htm" />
+  <HelpKINode Title="DN_ERROR_1000 field" Url="html/F_YASEL_Program_DN_ERROR_1000.htm" />
+  <HelpKINode Title="DN_ERROR_1002 field" Url="html/F_YASEL_Program_DN_ERROR_1002.htm" />
+  <HelpKINode Title="dock method" Url="html/M_YASEL_Program_DrillerNav_dock.htm" />
+  <HelpKINode Title="dockComplete method" Url="html/M_YASEL_Program_DrillerNav_dockComplete.htm" />
+  <HelpKINode Title="DotProduct method" Url="html/M_YASEL_Program_NavManager_DotProduct.htm" />
+  <HelpKINode Title="downThrusters field" Url="html/F_YASEL_Program_NavManager_downThrusters.htm" />
+  <HelpKINode Title="DownThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_DownThrustGroupName.htm" />
   <HelpKINode Title="DrillerNav class">
-    <HelpKINode Title="fields" Url="html/41aba117-daed-fc0f-689b-3b3a31e4bd95.htm" />
-    <HelpKINode Title="methods" Url="html/dbb705cc-317b-7dac-a9aa-dda2f74a801f.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_DrillerNav.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_DrillerNav.htm" />
   </HelpKINode>
   <HelpKINode Title="DrillerNavSettings class">
-    <HelpKINode Title="fields" Url="html/d86d1463-f027-5093-a33b-02993ad7e4ad.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_DrillerNavSettings.htm" />
   </HelpKINode>
-  <HelpKINode Title="Echo method" Url="html/eeb1f0aa-9240-ed88-7559-03eacb71c91a.htm" />
-  <HelpKINode Title="enabled field" Url="html/8a8fe2c4-de91-f128-8fc2-c62a3c4c6740.htm" />
-  <HelpKINode Title="enounteredRoidInShaft field" Url="html/f9242d6e-37e1-e124-691d-c94674ccbde8.htm" />
-  <HelpKINode Title="ERROR1 field" Url="html/2aa893f5-45ff-df20-1f34-d1443907143f.htm" />
-  <HelpKINode Title="ERROR2 field" Url="html/c0d52235-5aca-73e0-bb39-86ee09789fb2.htm" />
-  <HelpKINode Title="ERROR3 field" Url="html/732a6852-9baf-fa4b-44b2-693a0d6d935f.htm" />
-  <HelpKINode Title="ERROR4 field" Url="html/e1e4ad3f-34db-8987-18dc-a508ebe5c015.htm" />
-  <HelpKINode Title="exitHangar method" Url="html/3c1f36ad-6a7e-4f63-1690-92fd4b7d0d58.htm" />
-  <HelpKINode Title="exitHangarComplete method" Url="html/91996b76-6d86-4e89-4c4f-a96f1677a4e2.htm" />
-  <HelpKINode Title="firstRun field" Url="html/14779068-ba30-fd67-2e7e-c01d8acaeb41.htm" />
-  <HelpKINode Title="fwdBlock field" Url="html/ae9736ab-328c-eeba-4f60-ae0d0321505c.htm" />
-  <HelpKINode Title="FwdBlockName field" Url="html/dfe2d44e-d0bf-db61-2e2f-e651e87184c0.htm" />
-  <HelpKINode Title="fwdPos field" Url="html/514b86e7-4cac-71f6-6df2-16b0968ebaab.htm" />
-  <HelpKINode Title="fwdThrusters field" Url="html/46b92cb2-ce93-d5f1-14b2-5a1f0db4b4af.htm" />
-  <HelpKINode Title="FwdThrustGroupName field" Url="html/691dcf06-cac4-b48a-d00c-e4c96c41d26e.htm" />
-  <HelpKINode Title="GetAngle method" Url="html/f61aab89-51c3-edb8-209f-76bec0d70c46.htm" />
-  <HelpKINode Title="GetBatteryCharge method" Url="html/a12ab38a-de85-87e0-e8da-7e82e7b3bf40.htm" />
-  <HelpKINode Title="GetBlock method" Url="html/92f34e6c-90b8-60f2-3fc1-b0c4eaba3d90.htm" />
-  <HelpKINode Title="GetBlockGrp method" Url="html/62aabff6-cb0e-9155-38ff-86012e6ef21d.htm" />
-  <HelpKINode Title="GetCross method" Url="html/cc1fbad4-e771-98bc-60b8-c16705e3a557.htm" />
-  <HelpKINode Title="GetDetail method" Url="html/56d1901f-fe94-5002-b73c-47b19a9c5cd6.htm" />
-  <HelpKINode Title="getFirst method" Url="html/b1d7112b-b533-86b9-16c7-e6e9975e1664.htm" />
-  <HelpKINode Title="GetLCDString method" Url="html/cd1dfb53-9a43-e1fd-62c4-5a6a9022430e.htm" />
-  <HelpKINode Title="GetOffset method" Url="html/b47c47d5-bc37-0266-a164-19ab7e62baaf.htm" />
-  <HelpKINode Title="GetOption method" Url="html/24f0ee9e-864a-f4ff-b97a-0cae832e221b.htm" />
-  <HelpKINode Title="GetPos method" Url="html/57a6e66c-084f-a3d9-dea1-2bf4da5140ed.htm" />
-  <HelpKINode Title="GetPower method" Url="html/b8f1857f-f511-19b2-f375-15a506950e22.htm" />
-  <HelpKINode Title="getSpiralXY method" Url="html/7ec5885e-2aaa-aeaf-10e7-0328122cb11c.htm" />
-  <HelpKINode Title="GetText method" Url="html/39f6e3f4-36c0-fc13-0628-1229c50dd417.htm" />
-  <HelpKINode Title="GetValueListFromLCD method" Url="html/0e56370d-f7d2-c4a6-66a2-f83fe46e7cbb.htm" />
-  <HelpKINode Title="GetVarFromStore method" Url="html/aa50e503-5f3e-34d1-41ff-2c24f12b857e.htm" />
-  <HelpKINode Title="GotoPage field" Url="html/9cd41741-9dba-4792-e5c4-db809c3e8e40.htm" />
-  <HelpKINode Title="GridTerminalSystem field" Url="html/68aed595-0b67-3cbb-1641-cb570a1fcfe2.htm" />
-  <HelpKINode Title="gts field" Url="html/913f1b25-5e54-d931-0eb3-64cde8b2ae1c.htm" />
-  <HelpKINode Title="GyroGroupName field" Url="html/9ba9fba8-e9a6-28ed-7e00-de1d34ebb312.htm" />
-  <HelpKINode Title="GyroMoving method" Url="html/53fe5865-9277-c389-dd65-9d21e88155a0.htm" />
-  <HelpKINode Title="GyroOveride method" Url="html/fa0310fa-44b4-a13a-324a-3abc1f550163.htm" />
-  <HelpKINode Title="GyroOverride method" Url="html/6f53c92c-0097-a487-3012-32cefa5e87e7.htm" />
-  <HelpKINode Title="gyros field" Url="html/ac74a1d4-c6d2-e285-c2fc-c0546daba6b4.htm" />
-  <HelpKINode Title="GYRO_DOWN field" Url="html/d1e5591e-0529-aaa0-74b4-904956d6ddfa.htm" />
-  <HelpKINode Title="GYRO_LEFT field" Url="html/c64898c2-cbc6-c7b3-eadd-4ed0fa884ac6.htm" />
-  <HelpKINode Title="GYRO_PITCH field" Url="html/54139f87-8509-cfca-0582-94ed33e6da1e.htm" />
-  <HelpKINode Title="GYRO_RIGHT field" Url="html/c9549c2f-8757-5213-2362-cf40957f7c03.htm" />
-  <HelpKINode Title="GYRO_ROLL field" Url="html/f726d138-d759-76ac-8573-432c1a7af901.htm" />
-  <HelpKINode Title="GYRO_ROLL_L field" Url="html/19992140-e928-aee6-54ca-be387675bc92.htm" />
-  <HelpKINode Title="GYRO_ROLL_R field" Url="html/9fc16f09-e063-4f9a-29ad-f1039dc9397d.htm" />
-  <HelpKINode Title="GYRO_UP field" Url="html/e57b3760-e158-df8a-912e-7791e1112b04.htm" />
-  <HelpKINode Title="GYRO_YAW field" Url="html/9fff6af3-2c28-fa8e-2fe7-2d76f9bf9dea.htm" />
-  <HelpKINode Title="InitFromString method" Url="html/68ccb56b-2d9a-c7b7-2707-59d2595e6af5.htm" />
-  <HelpKINode Title="initVarStore method" Url="html/c9a8c857-ecbb-c5b8-0832-0459ccc45965.htm" />
-  <HelpKINode Title="InStrI method" Url="html/8dd360e3-720b-504c-3239-c14c7e9c59b5.htm" />
-  <HelpKINode Title="InStrsI method" Url="html/65e40872-605e-17b1-6b14-e570db94e551.htm" />
-  <HelpKINode Title="IsActing method" Url="html/f95b7798-4b87-9c05-a980-31b8238f948e.htm" />
-  <HelpKINode Title="IsCharging method" Url="html/f8131972-87d3-c700-bad4-0b3bedefbb5a.htm" />
-  <HelpKINode Title="IsComplete method" Url="html/8a70a729-20ab-a443-d272-c69a37e8b138.htm" />
-  <HelpKINode Title="IsDocked method" Url="html/02a190c4-dc4f-9644-8081-b38110c0a111.htm" />
-  <HelpKINode Title="IsEnabled method" Url="html/ad51fc85-18be-fff8-4793-d213481c9704.htm" />
-  <HelpKINode Title="IsReadyToLock method" Url="html/45831c6a-8dbf-04ba-5068-b2a87c1ee90a.htm" />
-  <HelpKINode Title="isZeroVector method" Url="html/2d3f7dc3-2493-a1cc-e357-855678f37c0b.htm" />
-  <HelpKINode Title="lastDistToDest field" Url="html/98e3fd01-71cd-0c1b-71d3-8aafb45bfa46.htm" />
+  <HelpKINode Title="Echo method" Url="html/M_YASEL_Program_Echo.htm" />
+  <HelpKINode Title="enabled field" Url="html/F_YASEL_Program_WpInfo_enabled.htm" />
+  <HelpKINode Title="enounteredRoidInShaft field" Url="html/F_YASEL_Program_DrillerNav_enounteredRoidInShaft.htm" />
+  <HelpKINode Title="ERROR1 field" Url="html/F_YASEL_Program_ERROR1.htm" />
+  <HelpKINode Title="ERROR2 field" Url="html/F_YASEL_Program_ERROR2.htm" />
+  <HelpKINode Title="ERROR3 field" Url="html/F_YASEL_Program_ERROR3.htm" />
+  <HelpKINode Title="ERROR4 field" Url="html/F_YASEL_Program_ERROR4.htm" />
+  <HelpKINode Title="exitHangar method" Url="html/M_YASEL_Program_DrillerNav_exitHangar.htm" />
+  <HelpKINode Title="exitHangarComplete method" Url="html/M_YASEL_Program_DrillerNav_exitHangarComplete.htm" />
+  <HelpKINode Title="firstRun field" Url="html/F_YASEL_Program_DrillerNav_firstRun.htm" />
+  <HelpKINode Title="fwdBlock field" Url="html/F_YASEL_Program_NavManager_fwdBlock.htm" />
+  <HelpKINode Title="FwdBlockName field" Url="html/F_YASEL_Program_NavSettings_FwdBlockName.htm" />
+  <HelpKINode Title="fwdPos field" Url="html/F_YASEL_Program_NavManager_fwdPos.htm" />
+  <HelpKINode Title="fwdThrusters field" Url="html/F_YASEL_Program_NavManager_fwdThrusters.htm" />
+  <HelpKINode Title="FwdThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_FwdThrustGroupName.htm" />
+  <HelpKINode Title="GetAngle method" Url="html/M_YASEL_Program_NavManager_GetAngle.htm" />
+  <HelpKINode Title="GetBatteryCharge method" Url="html/Overload_YASEL_Program_GetBatteryCharge.htm" />
+  <HelpKINode Title="GetBlock method" Url="html/M_YASEL_Program_GetBlock.htm" />
+  <HelpKINode Title="GetBlockGrp method" Url="html/M_YASEL_Program_GetBlockGrp.htm" />
+  <HelpKINode Title="GetCross method" Url="html/M_YASEL_Program_NavManager_GetCross.htm" />
+  <HelpKINode Title="GetDetail method" Url="html/M_YASEL_Program_GetDetail.htm" />
+  <HelpKINode Title="getFirst method" Url="html/M_YASEL_Program_NavManager_getFirst.htm" />
+  <HelpKINode Title="GetLCDString method" Url="html/M_YASEL_Program_WpInfo_GetLCDString.htm" />
+  <HelpKINode Title="GetOffset method" Url="html/M_YASEL_Program_NavManager_GetOffset.htm" />
+  <HelpKINode Title="GetOption method" Url="html/M_YASEL_Program_SE_MenuPage_GetOption.htm" />
+  <HelpKINode Title="GetPos method" Url="html/M_YASEL_Program_NavManager_GetPos.htm" />
+  <HelpKINode Title="GetPower method" Url="html/M_YASEL_Program_GetPower.htm" />
+  <HelpKINode Title="getSpiralXY method" Url="html/M_YASEL_Program_DrillerNav_getSpiralXY.htm" />
+  <HelpKINode Title="GetText method" Url="html/M_YASEL_Program_SE_MenuPage_GetText.htm" />
+  <HelpKINode Title="GetValueListFromLCD method" Url="html/M_YASEL_Program_GetValueListFromLCD.htm" />
+  <HelpKINode Title="GetVarFromStore method" Url="html/M_YASEL_Program_VarStore_GetVarFromStore.htm" />
+  <HelpKINode Title="GotoPage field" Url="html/F_YASEL_Program_SE_MenuOption_GotoPage.htm" />
+  <HelpKINode Title="GridTerminalSystem field" Url="html/F_YASEL_Program_GridTerminalSystem.htm" />
+  <HelpKINode Title="gts field" Url="html/F_YASEL_Program_gts.htm" />
+  <HelpKINode Title="GyroGroupName field" Url="html/F_YASEL_Program_NavSettings_GyroGroupName.htm" />
+  <HelpKINode Title="GyroMoving method" Url="html/M_YASEL_Program_GyroMoving.htm" />
+  <HelpKINode Title="GyroOveride method" Url="html/Overload_YASEL_Program_GyroOveride.htm" />
+  <HelpKINode Title="GyroOverride method" Url="html/M_YASEL_Program_GyroOverride.htm" />
+  <HelpKINode Title="gyros field" Url="html/F_YASEL_Program_NavManager_gyros.htm" />
+  <HelpKINode Title="GYRO_DOWN field" Url="html/F_YASEL_Program_GYRO_DOWN.htm" />
+  <HelpKINode Title="GYRO_LEFT field" Url="html/F_YASEL_Program_GYRO_LEFT.htm" />
+  <HelpKINode Title="GYRO_PITCH field" Url="html/F_YASEL_Program_GYRO_PITCH.htm" />
+  <HelpKINode Title="GYRO_RIGHT field" Url="html/F_YASEL_Program_GYRO_RIGHT.htm" />
+  <HelpKINode Title="GYRO_ROLL field" Url="html/F_YASEL_Program_GYRO_ROLL.htm" />
+  <HelpKINode Title="GYRO_ROLL_L field" Url="html/F_YASEL_Program_GYRO_ROLL_L.htm" />
+  <HelpKINode Title="GYRO_ROLL_R field" Url="html/F_YASEL_Program_GYRO_ROLL_R.htm" />
+  <HelpKINode Title="GYRO_UP field" Url="html/F_YASEL_Program_GYRO_UP.htm" />
+  <HelpKINode Title="GYRO_YAW field" Url="html/F_YASEL_Program_GYRO_YAW.htm" />
+  <HelpKINode Title="InitFromString method" Url="html/M_YASEL_Program_WpInfo_InitFromString.htm" />
+  <HelpKINode Title="initVarStore method" Url="html/M_YASEL_Program_VarStore_initVarStore.htm" />
+  <HelpKINode Title="InStrI method" Url="html/M_YASEL_Program_InStrI.htm" />
+  <HelpKINode Title="InStrsI method" Url="html/Overload_YASEL_Program_InStrsI.htm" />
+  <HelpKINode Title="IsActing method" Url="html/M_YASEL_Program_NavManager_IsActing.htm" />
+  <HelpKINode Title="IsCharging method" Url="html/Overload_YASEL_Program_IsCharging.htm" />
+  <HelpKINode Title="IsComplete method" Url="html/M_YASEL_Program_WpInfo_IsComplete.htm" />
+  <HelpKINode Title="IsDocked method" Url="html/Overload_YASEL_Program_IsDocked.htm" />
+  <HelpKINode Title="IsEnabled method" Url="html/M_YASEL_Program_IsEnabled.htm" />
+  <HelpKINode Title="IsReadyToLock method" Url="html/Overload_YASEL_Program_IsReadyToLock.htm" />
+  <HelpKINode Title="isZeroVector method" Url="html/M_YASEL_Program_WpInfo_isZeroVector.htm" />
+  <HelpKINode Title="lastDistToDest field" Url="html/F_YASEL_Program_NavManager_lastDistToDest.htm" />
   <HelpKINode Title="LCDDebugScreenName field">
-    <HelpKINode Title="debug.LCDDebugScreenName Field" Url="html/b5f5f737-5277-aa77-4f58-a0fad7ac5810.htm" />
-    <HelpKINode Title="Program.LCDDebugScreenName Field" Url="html/b31befaa-b4bb-c10d-a27f-5ffc3b953637.htm" />
-    <HelpKINode Title="Program.NavSettings.LCDDebugScreenName Field" Url="html/a7bd5066-1aae-12ed-a7d0-8060f3e8c13a.htm" />
-    <HelpKINode Title="Program.VarStore.LCDDebugScreenName Field" Url="html/75db5fbf-d1a3-45b9-1662-82471c79f472.htm" />
+    <HelpKINode Title="debug.LCDDebugScreenName Field" Url="html/F_YASEL_debug_debug_LCDDebugScreenName.htm" />
+    <HelpKINode Title="Program.LCDDebugScreenName Field" Url="html/F_YASEL_Program_LCDDebugScreenName.htm" />
+    <HelpKINode Title="Program.NavSettings.LCDDebugScreenName Field" Url="html/F_YASEL_Program_NavSettings_LCDDebugScreenName.htm" />
+    <HelpKINode Title="Program.VarStore.LCDDebugScreenName Field" Url="html/F_YASEL_Program_VarStore_LCDDebugScreenName.htm" />
   </HelpKINode>
   <HelpKINode Title="LCDFunctions class">
-    <HelpKINode Title="LCDFunctions Class" Url="html/2138dbab-5001-0024-e145-850f2e647edb.htm" />
-    <HelpKINode Title="about LCDFunctions class" Url="html/2138dbab-5001-0024-e145-850f2e647edb.htm" />
-    <HelpKINode Title="methods" Url="html/92e04637-5c0d-0776-b888-f85c5d4e2b9e.htm" />
+    <HelpKINode Title="LCDFunctions Class" Url="html/T_YASEL_LCDFunctions_LCDFunctions.htm" />
+    <HelpKINode Title="about LCDFunctions class" Url="html/T_YASEL_LCDFunctions_LCDFunctions.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_LCDFunctions_LCDFunctions.htm" />
   </HelpKINode>
-  <HelpKINode Title="LCDFunctions.DisplayOnScreen method" Url="html/3fec71a4-11e8-6169-fa9b-398860862500.htm" />
+  <HelpKINode Title="LCDFunctions.DisplayOnScreen method" Url="html/M_YASEL_LCDFunctions_LCDFunctions_DisplayOnScreen.htm" />
   <HelpKINode Title="LCDFunctions2 class">
-    <HelpKINode Title="LCDFunctions2 Class" Url="html/5253b5fb-55ff-aa22-34ed-585605ad88a6.htm" />
-    <HelpKINode Title="about LCDFunctions2 class" Url="html/5253b5fb-55ff-aa22-34ed-585605ad88a6.htm" />
-    <HelpKINode Title="methods" Url="html/e666cb6f-2a00-9374-b21c-cce267b18945.htm" />
+    <HelpKINode Title="LCDFunctions2 Class" Url="html/T_YASEL_LCDFunctions2_LCDFunctions2.htm" />
+    <HelpKINode Title="about LCDFunctions2 class" Url="html/T_YASEL_LCDFunctions2_LCDFunctions2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_LCDFunctions2_LCDFunctions2.htm" />
   </HelpKINode>
-  <HelpKINode Title="LCDFunctions2.PrepareBarGraph method" Url="html/1640199c-ac10-6c89-7d17-21090895425a.htm" />
-  <HelpKINode Title="LCDVariableStore field" Url="html/f0a42a40-7ea2-5485-0f58-efbb4d00d1e4.htm" />
+  <HelpKINode Title="LCDFunctions2.PrepareBarGraph method" Url="html/M_YASEL_LCDFunctions2_LCDFunctions2_PrepareBarGraph.htm" />
+  <HelpKINode Title="LCDVariableStore field" Url="html/F_YASEL_Program_VarStore_LCDVariableStore.htm" />
   <HelpKINode Title="LCDVariableStoreName field">
-    <HelpKINode Title="Program.DrillerNavSettings.LCDVariableStoreName Field" Url="html/13faccfb-90ce-d082-acba-c03ac1d31b37.htm" />
-    <HelpKINode Title="Program.NavSettings.LCDVariableStoreName Field" Url="html/bb6191ec-1cc9-5666-eb88-8bd9ccc7d34b.htm" />
-    <HelpKINode Title="Program.VarStore.LCDVariableStoreName Field" Url="html/bab4fa84-9e22-9309-e738-0a87c5ddec47.htm" />
+    <HelpKINode Title="Program.DrillerNavSettings.LCDVariableStoreName Field" Url="html/F_YASEL_Program_DrillerNavSettings_LCDVariableStoreName.htm" />
+    <HelpKINode Title="Program.NavSettings.LCDVariableStoreName Field" Url="html/F_YASEL_Program_NavSettings_LCDVariableStoreName.htm" />
+    <HelpKINode Title="Program.VarStore.LCDVariableStoreName Field" Url="html/F_YASEL_Program_VarStore_LCDVariableStoreName.htm" />
   </HelpKINode>
   <HelpKINode Title="lcdWaypoints field">
-    <HelpKINode Title="Program.DrillerNav.lcdWaypoints Field" Url="html/f2fee8b2-04ff-7b6c-0b76-7e7aa207534d.htm" />
-    <HelpKINode Title="Program.NavManager.lcdWaypoints Field" Url="html/b25ed65a-a322-afbb-0145-9b7565879874.htm" />
+    <HelpKINode Title="Program.DrillerNav.lcdWaypoints Field" Url="html/F_YASEL_Program_DrillerNav_lcdWaypoints.htm" />
+    <HelpKINode Title="Program.NavManager.lcdWaypoints Field" Url="html/F_YASEL_Program_NavManager_lcdWaypoints.htm" />
   </HelpKINode>
-  <HelpKINode Title="LCDWaypointsName field" Url="html/2119bea4-3f7e-12ac-4c44-ae2ceba18684.htm" />
-  <HelpKINode Title="leftBlock field" Url="html/85878470-95cd-e7a7-249f-bbd339d79733.htm" />
-  <HelpKINode Title="LeftBlockName field" Url="html/0a118d3b-a35a-2e31-3f8b-bceba84386f0.htm" />
-  <HelpKINode Title="leftThrusters field" Url="html/749a4c64-8d06-e7bd-dd54-3e4e62276505.htm" />
-  <HelpKINode Title="LeftThrustGroupName field" Url="html/393f1ab1-3006-0219-08d4-7afadb9a5d3b.htm" />
-  <HelpKINode Title="level method" Url="html/1c82a923-d5f0-627b-09b8-f0831fc6458a.htm" />
-  <HelpKINode Title="leveled field" Url="html/c7baf913-eb6e-313a-6ea9-77ee030c5d50.htm" />
-  <HelpKINode Title="LevelTo method" Url="html/369df5f8-506a-9d36-76a5-7d599eb86abd.htm" />
-  <HelpKINode Title="lPos field" Url="html/e0d5b9c7-2ef9-a86b-2685-d37defc82150.htm" />
-  <HelpKINode Title="Main method" Url="html/ba2571f6-81f4-f3dc-bb9b-ede7e2d6532a.htm" />
-  <HelpKINode Title="ManageAirlocks method" Url="html/a7a0de9c-50c3-67b3-e07e-c6f7b0a2e75c.htm" />
-  <HelpKINode Title="ManageOxygenGens method" Url="html/1873025c-9da3-6f9c-513d-6ed3f860f7cd.htm" />
-  <HelpKINode Title="MaxSpeed field" Url="html/2bd425f1-1097-5c18-140a-ec62cc4a33cc.htm" />
-  <HelpKINode Title="Me field" Url="html/f89f6daa-f454-4a8e-b1a2-6388df06c90b.htm" />
-  <HelpKINode Title="mineShaft method" Url="html/c7551130-9dbc-8e9c-b03e-d3a6041c0420.htm" />
-  <HelpKINode Title="mineShaftComplete method" Url="html/9c6da49f-dfcf-4701-6a86-4bce1a0b400c.htm" />
-  <HelpKINode Title="mining field" Url="html/253e158a-ab4f-4671-2f02-78f85322a598.htm" />
-  <HelpKINode Title="MiningSpeed field" Url="html/82214e0d-721d-5aea-20ee-67cdb892ff23.htm" />
-  <HelpKINode Title="MinThrust field" Url="html/2d0d2b37-8e37-7354-33d6-e055fe58ce5a.htm" />
-  <HelpKINode Title="Name field" Url="html/1583cbec-aee5-67ee-a15c-d1560cd6fd9b.htm" />
+  <HelpKINode Title="LCDWaypointsName field" Url="html/F_YASEL_Program_DrillerNavSettings_LCDWaypointsName.htm" />
+  <HelpKINode Title="leftBlock field" Url="html/F_YASEL_Program_NavManager_leftBlock.htm" />
+  <HelpKINode Title="LeftBlockName field" Url="html/F_YASEL_Program_NavSettings_LeftBlockName.htm" />
+  <HelpKINode Title="leftThrusters field" Url="html/F_YASEL_Program_NavManager_leftThrusters.htm" />
+  <HelpKINode Title="LeftThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_LeftThrustGroupName.htm" />
+  <HelpKINode Title="level method" Url="html/M_YASEL_Program_NavManager_level.htm" />
+  <HelpKINode Title="leveled field" Url="html/F_YASEL_Program_WpInfo_leveled.htm" />
+  <HelpKINode Title="LevelTo method" Url="html/M_YASEL_Program_WpInfo_LevelTo.htm" />
+  <HelpKINode Title="lPos field" Url="html/F_YASEL_Program_NavManager_lPos.htm" />
+  <HelpKINode Title="Main method" Url="html/M_YASEL_Program_Main.htm" />
+  <HelpKINode Title="ManageAirlocks method" Url="html/M_YASEL_Program_StationManager_ManageAirlocks.htm" />
+  <HelpKINode Title="ManageOxygenGens method" Url="html/M_YASEL_Program_StationManager_ManageOxygenGens.htm" />
+  <HelpKINode Title="MaxSpeed field" Url="html/F_YASEL_Program_NavSettings_MaxSpeed.htm" />
+  <HelpKINode Title="Me field" Url="html/F_YASEL_Program_Me.htm" />
+  <HelpKINode Title="mineShaft method" Url="html/M_YASEL_Program_DrillerNav_mineShaft.htm" />
+  <HelpKINode Title="mineShaftComplete method" Url="html/M_YASEL_Program_DrillerNav_mineShaftComplete.htm" />
+  <HelpKINode Title="mining field" Url="html/F_YASEL_Program_DrillerNav_mining.htm" />
+  <HelpKINode Title="MiningSpeed field" Url="html/F_YASEL_Program_DrillerNavSettings_MiningSpeed.htm" />
+  <HelpKINode Title="MinThrust field" Url="html/F_YASEL_Program_NavSettings_MinThrust.htm" />
+  <HelpKINode Title="Name field" Url="html/F_YASEL_Program_SE_MenuPage_Name.htm" />
   <HelpKINode Title="NavManager class">
-    <HelpKINode Title="fields" Url="html/461f2a1a-46ad-c528-c6ee-f74de3e834f4.htm" />
-    <HelpKINode Title="methods" Url="html/90164d05-e923-2f31-2adc-304ba1b2cd0b.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_NavManager.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_NavManager.htm" />
   </HelpKINode>
   <HelpKINode Title="NavSettings class">
-    <HelpKINode Title="fields" Url="html/ea593563-26af-ef20-5c3f-8819abbd976a.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_NavSettings.htm" />
   </HelpKINode>
-  <HelpKINode Title="nm field" Url="html/30dd00f9-7876-48c5-7111-5dc92eb25229.htm" />
-  <HelpKINode Title="noStop field" Url="html/bab4678d-d525-2113-4d59-071f9dcff4e8.htm" />
-  <HelpKINode Title="OnButtonPress method" Url="html/5dd34b0c-b61d-befc-05d9-b6596c597df2.htm" />
-  <HelpKINode Title="OnSelect field" Url="html/4cb46643-11c4-f9b7-bbd5-7cfdef2c1a3a.htm" />
-  <HelpKINode Title="OnTick method" Url="html/7a498abc-cd1c-313f-d1c3-db76ac0e661a.htm" />
-  <HelpKINode Title="operate method" Url="html/f06e8f20-c39c-e3b7-1bf8-280ce1486b6d.htm" />
-  <HelpKINode Title="options field" Url="html/515fcf56-1d85-d370-f694-1e0e08eb0652.htm" />
-  <HelpKINode Title="OreCargoGroupName field" Url="html/43561dd3-b725-2e81-948c-142d536a4e16.htm" />
-  <HelpKINode Title="OxygenGenHighThreshold field" Url="html/789ce68e-6904-0320-b106-fc6e4e2c7825.htm" />
-  <HelpKINode Title="OxygenGenLowThreshold field" Url="html/cac080f6-372e-6aff-4182-96d15babeb36.htm" />
-  <HelpKINode Title="pages field" Url="html/4f207602-d4ba-9e2e-6831-6b1d837ecc86.htm" />
-  <HelpKINode Title="Pause method" Url="html/6116b3f4-6f36-adc8-e299-311099327489.htm" />
-  <HelpKINode Title="paused field" Url="html/0b16320b-43ea-d6cd-7f46-f4faf639554c.htm" />
-  <HelpKINode Title="PitchD method" Url="html/5e8f9375-1da1-d7ba-5750-0539b7b76f31.htm" />
-  <HelpKINode Title="PitchStop method" Url="html/429c40b6-c8e7-089a-015f-b388438da23b.htm" />
-  <HelpKINode Title="PitchU method" Url="html/84646173-ec0c-317a-3ca3-50ec2aecc806.htm" />
-  <HelpKINode Title="pos field" Url="html/d3c39afd-d529-e712-b092-65adcb5e2823.htm" />
-  <HelpKINode Title="PrepareBarGraph method" Url="html/1640199c-ac10-6c89-7d17-21090895425a.htm" />
+  <HelpKINode Title="nm field" Url="html/F_YASEL_Program_nm.htm" />
+  <HelpKINode Title="noStop field" Url="html/F_YASEL_Program_WpInfo_noStop.htm" />
+  <HelpKINode Title="OnButtonPress method" Url="html/M_YASEL_Program_SE_Menu_OnButtonPress.htm" />
+  <HelpKINode Title="OnSelect field" Url="html/F_YASEL_Program_SE_MenuOption_OnSelect.htm" />
+  <HelpKINode Title="OnTick method" Url="html/M_YASEL_Program_OnTick.htm" />
+  <HelpKINode Title="operate method" Url="html/M_YASEL_Program_DrillerNav_operate.htm" />
+  <HelpKINode Title="options field" Url="html/F_YASEL_Program_SE_MenuPage_options.htm" />
+  <HelpKINode Title="OreCargoGroupName field" Url="html/F_YASEL_Program_DrillerNavSettings_OreCargoGroupName.htm" />
+  <HelpKINode Title="OxygenGenHighThreshold field" Url="html/F_YASEL_Program_StationManagerSettings_OxygenGenHighThreshold.htm" />
+  <HelpKINode Title="OxygenGenLowThreshold field" Url="html/F_YASEL_Program_StationManagerSettings_OxygenGenLowThreshold.htm" />
+  <HelpKINode Title="pages field" Url="html/F_YASEL_Program_SE_Menu_pages.htm" />
+  <HelpKINode Title="Pause method" Url="html/M_YASEL_Program_NavManager_Pause.htm" />
+  <HelpKINode Title="paused field" Url="html/F_YASEL_Program_NavManager_paused.htm" />
+  <HelpKINode Title="PitchD method" Url="html/M_YASEL_Program_PitchD.htm" />
+  <HelpKINode Title="PitchStop method" Url="html/M_YASEL_Program_PitchStop.htm" />
+  <HelpKINode Title="PitchU method" Url="html/M_YASEL_Program_PitchU.htm" />
+  <HelpKINode Title="pos field" Url="html/F_YASEL_Program_WpInfo_pos.htm" />
+  <HelpKINode Title="PrepareBarGraph method" Url="html/M_YASEL_LCDFunctions2_LCDFunctions2_PrepareBarGraph.htm" />
   <HelpKINode Title="Program class">
-    <HelpKINode Title="Program Class" Url="html/6fc66aa3-e232-202a-44b9-7484627ea0b2.htm" />
-    <HelpKINode Title="about Program class" Url="html/6fc66aa3-e232-202a-44b9-7484627ea0b2.htm" />
-    <HelpKINode Title="constructor" Url="html/7a3028a8-be3e-d229-7bc5-ac4061e53538.htm" />
-    <HelpKINode Title="fields" Url="html/0e57bc93-f3d5-13d2-d0ad-a5cd37332b56.htm" />
-    <HelpKINode Title="methods" Url="html/ffcb5998-44aa-90d8-d2aa-a0376cf36aaa.htm" />
-    <HelpKINode Title="properties" Url="html/0da43272-5599-74ab-f361-3258b6a6449d.htm" />
+    <HelpKINode Title="Program Class" Url="html/T_YASEL_Program.htm" />
+    <HelpKINode Title="about Program class" Url="html/T_YASEL_Program.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_YASEL_Program.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.BelongsToGrid method" Url="html/1bcbc6b7-ac03-27fd-d858-3e8f4289fa43.htm" />
-  <HelpKINode Title="Program.CheckStatics method" Url="html/fbf56f43-41ec-3684-90db-a73e97e0cb74.htm" />
-  <HelpKINode Title="Program.dbug method" Url="html/3d00417f-6829-21f9-c61c-4fb19d3f2dac.htm" />
-  <HelpKINode Title="Program.DebugLevel field" Url="html/3e155358-45a8-f38a-df93-3d5358868a8b.htm" />
-  <HelpKINode Title="Program.DisplayOnScreen method" Url="html/a016e687-14e2-a95c-82db-a5814ea61450.htm" />
-  <HelpKINode Title="Program.dn field" Url="html/78990143-bde5-35b2-0c60-ae6c030bd5dc.htm" />
-  <HelpKINode Title="Program.DN_ERROR_1000 field" Url="html/ef2f620b-d365-dd72-134c-d3ae3386e68d.htm" />
-  <HelpKINode Title="Program.DN_ERROR_1002 field" Url="html/56a116a9-a777-3513-53d6-ec620abbee08.htm" />
+  <HelpKINode Title="Program.BelongsToGrid method" Url="html/M_YASEL_Program_BelongsToGrid.htm" />
+  <HelpKINode Title="Program.CheckStatics method" Url="html/M_YASEL_Program_CheckStatics.htm" />
+  <HelpKINode Title="Program.dbug method" Url="html/M_YASEL_Program_dbug.htm" />
+  <HelpKINode Title="Program.DebugLevel field" Url="html/F_YASEL_Program_DebugLevel.htm" />
+  <HelpKINode Title="Program.DisplayOnScreen method" Url="html/Overload_YASEL_Program_DisplayOnScreen.htm" />
+  <HelpKINode Title="Program.dn field" Url="html/F_YASEL_Program_dn.htm" />
+  <HelpKINode Title="Program.DN_ERROR_1000 field" Url="html/F_YASEL_Program_DN_ERROR_1000.htm" />
+  <HelpKINode Title="Program.DN_ERROR_1002 field" Url="html/F_YASEL_Program_DN_ERROR_1002.htm" />
   <HelpKINode Title="Program.DrillerNav class">
-    <HelpKINode Title="Program.DrillerNav Class" Url="html/8dac7e7a-d002-98cf-63ff-a5b54a0b0889.htm" />
-    <HelpKINode Title="about Program.DrillerNav class" Url="html/8dac7e7a-d002-98cf-63ff-a5b54a0b0889.htm" />
-    <HelpKINode Title="constructor" Url="html/61f762ff-efea-e56b-6327-bca72dba5311.htm" />
+    <HelpKINode Title="Program.DrillerNav Class" Url="html/T_YASEL_Program_DrillerNav.htm" />
+    <HelpKINode Title="about Program.DrillerNav class" Url="html/T_YASEL_Program_DrillerNav.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_DrillerNav__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.DrillerNav.alignForMining method" Url="html/5c521960-37fa-2624-834f-4342b76881d3.htm" />
-  <HelpKINode Title="Program.DrillerNav.asteroidInFront method" Url="html/4268a092-366f-f023-686c-a0ab50e94cf6.htm" />
-  <HelpKINode Title="Program.DrillerNav.batteryFull method" Url="html/6d7deba6-b47e-4ead-e4cd-e0a52b5c0513.htm" />
-  <HelpKINode Title="Program.DrillerNav.batteryLow method" Url="html/47c6d03d-2470-f98c-586f-a54bea9c3d2a.htm" />
-  <HelpKINode Title="Program.DrillerNav.batteryPercent method" Url="html/b084e725-c63e-0cb5-2de3-985ad34e52b0.htm" />
-  <HelpKINode Title="Program.DrillerNav.cargoEmpty method" Url="html/ecfd7a61-166b-56cf-435e-e74aaf784a73.htm" />
-  <HelpKINode Title="Program.DrillerNav.cargoFull method" Url="html/cf7a581a-97a1-bf58-4528-b1d3cbcbda93.htm" />
-  <HelpKINode Title="Program.DrillerNav.cargoPercent method" Url="html/92f3f0d6-250c-4509-a5bd-bf17b287842a.htm" />
-  <HelpKINode Title="Program.DrillerNav.curShaftCount field" Url="html/f19bc518-3717-0cf5-e6c0-ff55bf592453.htm" />
-  <HelpKINode Title="Program.DrillerNav.curShaftEnd field" Url="html/c7555130-4ffa-f187-8ea1-0591d8afb81c.htm" />
-  <HelpKINode Title="Program.DrillerNav.curShaftStart field" Url="html/b1dc8423-d2f7-e9b5-00f3-03a9687abc20.htm" />
-  <HelpKINode Title="Program.DrillerNav.dock method" Url="html/9ffc9ba0-3552-cfee-e1ba-993008552769.htm" />
-  <HelpKINode Title="Program.DrillerNav.dockComplete method" Url="html/7bbc8d16-6a6e-87e4-8a2e-1704a9064d25.htm" />
-  <HelpKINode Title="Program.DrillerNav.DrillerNav constructor" Url="html/61f762ff-efea-e56b-6327-bca72dba5311.htm" />
-  <HelpKINode Title="Program.DrillerNav.enounteredRoidInShaft field" Url="html/f9242d6e-37e1-e124-691d-c94674ccbde8.htm" />
-  <HelpKINode Title="Program.DrillerNav.exitHangar method" Url="html/3c1f36ad-6a7e-4f63-1690-92fd4b7d0d58.htm" />
-  <HelpKINode Title="Program.DrillerNav.exitHangarComplete method" Url="html/91996b76-6d86-4e89-4c4f-a96f1677a4e2.htm" />
-  <HelpKINode Title="Program.DrillerNav.firstRun field" Url="html/14779068-ba30-fd67-2e7e-c01d8acaeb41.htm" />
-  <HelpKINode Title="Program.DrillerNav.getSpiralXY method" Url="html/7ec5885e-2aaa-aeaf-10e7-0328122cb11c.htm" />
-  <HelpKINode Title="Program.DrillerNav.lcdWaypoints field" Url="html/f2fee8b2-04ff-7b6c-0b76-7e7aa207534d.htm" />
-  <HelpKINode Title="Program.DrillerNav.mineShaft method" Url="html/c7551130-9dbc-8e9c-b03e-d3a6041c0420.htm" />
-  <HelpKINode Title="Program.DrillerNav.mineShaftComplete method" Url="html/9c6da49f-dfcf-4701-6a86-4bce1a0b400c.htm" />
-  <HelpKINode Title="Program.DrillerNav.mining field" Url="html/253e158a-ab4f-4671-2f02-78f85322a598.htm" />
-  <HelpKINode Title="Program.DrillerNav.operate method" Url="html/f06e8f20-c39c-e3b7-1bf8-280ce1486b6d.htm" />
-  <HelpKINode Title="Program.DrillerNav.reset method" Url="html/988a5334-19d7-a1a5-aed1-05db405f66b8.htm" />
-  <HelpKINode Title="Program.DrillerNav.rtb method" Url="html/6d7bdb98-5c07-bfb7-d875-88f5a666fadd.htm" />
-  <HelpKINode Title="Program.DrillerNav.rtbComplete method" Url="html/19cc810d-6e0b-731e-0cc3-4b14dc7dc200.htm" />
-  <HelpKINode Title="Program.DrillerNav.settings field" Url="html/4b2bbda1-b6b5-90bf-6ff4-efbb831b79c7.htm" />
-  <HelpKINode Title="Program.DrillerNav.shaftX field" Url="html/738f6d36-4e6a-f309-18ba-8c033d483285.htm" />
-  <HelpKINode Title="Program.DrillerNav.shaftY field" Url="html/8f75fa60-5a0c-c251-2fc7-ef4cf1d39b76.htm" />
-  <HelpKINode Title="Program.DrillerNav.state field" Url="html/5fdedb67-1c2b-86a9-d822-69b53653bfa8.htm" />
-  <HelpKINode Title="Program.DrillerNav.stopMiningRtb method" Url="html/99711f2a-0ad2-f182-eda8-f14879c6cb77.htm" />
-  <HelpKINode Title="Program.DrillerNav.Tick method" Url="html/67928383-6b70-4947-b2e5-c897098add08.htm" />
-  <HelpKINode Title="Program.DrillerNav.toRoid method" Url="html/6de03bec-542c-afe6-0087-774e2b5865be.htm" />
-  <HelpKINode Title="Program.DrillerNav.toRoidComplete method" Url="html/e3480dec-3033-9c49-f99c-bbd90ddc1035.htm" />
-  <HelpKINode Title="Program.DrillerNav.undock method" Url="html/f4ec60b9-19d3-0148-e183-f457a4e88ea6.htm" />
-  <HelpKINode Title="Program.DrillerNav.undockComplete method" Url="html/a8b6a0ca-d1a8-e679-d538-2ab0023b546d.htm" />
-  <HelpKINode Title="Program.DrillerNav.vs field" Url="html/57b2dde2-7dde-702f-ac8a-9236a084a90a.htm" />
-  <HelpKINode Title="Program.DrillerNav.waitEmpty method" Url="html/1122baf2-68bb-45fe-3339-e1f02a64a6a1.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpiDock field" Url="html/7aa0115f-a14b-08a0-13e9-16f78f768de6.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpiExitHangar field" Url="html/80a8fcb0-2a49-21c6-a9dd-f0e1a6418a30.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpiMine field" Url="html/7cf9dd8e-53f2-c740-9de9-2c8df6c86c3b.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpInfo field" Url="html/1b18ae17-5309-9d10-bf6a-3d90747a8e4e.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpiRTB field" Url="html/187243e3-0492-7d53-0b03-0893ae1a73e7.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpiToRoid field" Url="html/227c8364-3f57-ddaa-2b25-f5383ca44320.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpiUndock field" Url="html/3d5c684c-d59b-f6f5-4531-9b5a7dde4b8c.htm" />
-  <HelpKINode Title="Program.DrillerNav.wpRoid field" Url="html/9fb4a454-917a-4c7a-2a8f-6b074ffd4a94.htm" />
+  <HelpKINode Title="Program.DrillerNav.alignForMining method" Url="html/M_YASEL_Program_DrillerNav_alignForMining.htm" />
+  <HelpKINode Title="Program.DrillerNav.asteroidInFront method" Url="html/M_YASEL_Program_DrillerNav_asteroidInFront.htm" />
+  <HelpKINode Title="Program.DrillerNav.batteryFull method" Url="html/M_YASEL_Program_DrillerNav_batteryFull.htm" />
+  <HelpKINode Title="Program.DrillerNav.batteryLow method" Url="html/M_YASEL_Program_DrillerNav_batteryLow.htm" />
+  <HelpKINode Title="Program.DrillerNav.batteryPercent method" Url="html/M_YASEL_Program_DrillerNav_batteryPercent.htm" />
+  <HelpKINode Title="Program.DrillerNav.cargoEmpty method" Url="html/M_YASEL_Program_DrillerNav_cargoEmpty.htm" />
+  <HelpKINode Title="Program.DrillerNav.cargoFull method" Url="html/M_YASEL_Program_DrillerNav_cargoFull.htm" />
+  <HelpKINode Title="Program.DrillerNav.cargoPercent method" Url="html/M_YASEL_Program_DrillerNav_cargoPercent.htm" />
+  <HelpKINode Title="Program.DrillerNav.curShaftCount field" Url="html/F_YASEL_Program_DrillerNav_curShaftCount.htm" />
+  <HelpKINode Title="Program.DrillerNav.curShaftEnd field" Url="html/F_YASEL_Program_DrillerNav_curShaftEnd.htm" />
+  <HelpKINode Title="Program.DrillerNav.curShaftStart field" Url="html/F_YASEL_Program_DrillerNav_curShaftStart.htm" />
+  <HelpKINode Title="Program.DrillerNav.dock method" Url="html/M_YASEL_Program_DrillerNav_dock.htm" />
+  <HelpKINode Title="Program.DrillerNav.dockComplete method" Url="html/M_YASEL_Program_DrillerNav_dockComplete.htm" />
+  <HelpKINode Title="Program.DrillerNav.DrillerNav constructor" Url="html/M_YASEL_Program_DrillerNav__ctor.htm" />
+  <HelpKINode Title="Program.DrillerNav.enounteredRoidInShaft field" Url="html/F_YASEL_Program_DrillerNav_enounteredRoidInShaft.htm" />
+  <HelpKINode Title="Program.DrillerNav.exitHangar method" Url="html/M_YASEL_Program_DrillerNav_exitHangar.htm" />
+  <HelpKINode Title="Program.DrillerNav.exitHangarComplete method" Url="html/M_YASEL_Program_DrillerNav_exitHangarComplete.htm" />
+  <HelpKINode Title="Program.DrillerNav.firstRun field" Url="html/F_YASEL_Program_DrillerNav_firstRun.htm" />
+  <HelpKINode Title="Program.DrillerNav.getSpiralXY method" Url="html/M_YASEL_Program_DrillerNav_getSpiralXY.htm" />
+  <HelpKINode Title="Program.DrillerNav.lcdWaypoints field" Url="html/F_YASEL_Program_DrillerNav_lcdWaypoints.htm" />
+  <HelpKINode Title="Program.DrillerNav.mineShaft method" Url="html/M_YASEL_Program_DrillerNav_mineShaft.htm" />
+  <HelpKINode Title="Program.DrillerNav.mineShaftComplete method" Url="html/M_YASEL_Program_DrillerNav_mineShaftComplete.htm" />
+  <HelpKINode Title="Program.DrillerNav.mining field" Url="html/F_YASEL_Program_DrillerNav_mining.htm" />
+  <HelpKINode Title="Program.DrillerNav.operate method" Url="html/M_YASEL_Program_DrillerNav_operate.htm" />
+  <HelpKINode Title="Program.DrillerNav.reset method" Url="html/M_YASEL_Program_DrillerNav_reset.htm" />
+  <HelpKINode Title="Program.DrillerNav.rtb method" Url="html/M_YASEL_Program_DrillerNav_rtb.htm" />
+  <HelpKINode Title="Program.DrillerNav.rtbComplete method" Url="html/M_YASEL_Program_DrillerNav_rtbComplete.htm" />
+  <HelpKINode Title="Program.DrillerNav.settings field" Url="html/F_YASEL_Program_DrillerNav_settings.htm" />
+  <HelpKINode Title="Program.DrillerNav.shaftX field" Url="html/F_YASEL_Program_DrillerNav_shaftX.htm" />
+  <HelpKINode Title="Program.DrillerNav.shaftY field" Url="html/F_YASEL_Program_DrillerNav_shaftY.htm" />
+  <HelpKINode Title="Program.DrillerNav.state field" Url="html/F_YASEL_Program_DrillerNav_state.htm" />
+  <HelpKINode Title="Program.DrillerNav.stopMiningRtb method" Url="html/M_YASEL_Program_DrillerNav_stopMiningRtb.htm" />
+  <HelpKINode Title="Program.DrillerNav.Tick method" Url="html/M_YASEL_Program_DrillerNav_Tick.htm" />
+  <HelpKINode Title="Program.DrillerNav.toRoid method" Url="html/M_YASEL_Program_DrillerNav_toRoid.htm" />
+  <HelpKINode Title="Program.DrillerNav.toRoidComplete method" Url="html/M_YASEL_Program_DrillerNav_toRoidComplete.htm" />
+  <HelpKINode Title="Program.DrillerNav.undock method" Url="html/M_YASEL_Program_DrillerNav_undock.htm" />
+  <HelpKINode Title="Program.DrillerNav.undockComplete method" Url="html/M_YASEL_Program_DrillerNav_undockComplete.htm" />
+  <HelpKINode Title="Program.DrillerNav.vs field" Url="html/F_YASEL_Program_DrillerNav_vs.htm" />
+  <HelpKINode Title="Program.DrillerNav.waitEmpty method" Url="html/M_YASEL_Program_DrillerNav_waitEmpty.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpiDock field" Url="html/F_YASEL_Program_DrillerNav_wpiDock.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpiExitHangar field" Url="html/F_YASEL_Program_DrillerNav_wpiExitHangar.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpiMine field" Url="html/F_YASEL_Program_DrillerNav_wpiMine.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpInfo field" Url="html/F_YASEL_Program_DrillerNav_wpInfo.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpiRTB field" Url="html/F_YASEL_Program_DrillerNav_wpiRTB.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpiToRoid field" Url="html/F_YASEL_Program_DrillerNav_wpiToRoid.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpiUndock field" Url="html/F_YASEL_Program_DrillerNav_wpiUndock.htm" />
+  <HelpKINode Title="Program.DrillerNav.wpRoid field" Url="html/F_YASEL_Program_DrillerNav_wpRoid.htm" />
   <HelpKINode Title="Program.DrillerNavSettings class">
-    <HelpKINode Title="Program.DrillerNavSettings Class" Url="html/8fb5eebd-380f-07aa-20a4-6044cc23a041.htm" />
-    <HelpKINode Title="about Program.DrillerNavSettings class" Url="html/8fb5eebd-380f-07aa-20a4-6044cc23a041.htm" />
-    <HelpKINode Title="constructor" Url="html/4a682d4b-6019-0194-7f03-9208fd06f89b.htm" />
+    <HelpKINode Title="Program.DrillerNavSettings Class" Url="html/T_YASEL_Program_DrillerNavSettings.htm" />
+    <HelpKINode Title="about Program.DrillerNavSettings class" Url="html/T_YASEL_Program_DrillerNavSettings.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_DrillerNavSettings__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.DrillerNavSettings.AsteroidSensorName field" Url="html/a1f08df1-8b5f-380a-f8cf-0116dded1a30.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.ButtonSensorName field" Url="html/3a27ecfe-e44a-bf4c-c059-477b91ea9ab5.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.DrillerNavSettings constructor" Url="html/4a682d4b-6019-0194-7f03-9208fd06f89b.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.LCDVariableStoreName field" Url="html/13faccfb-90ce-d082-acba-c03ac1d31b37.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.LCDWaypointsName field" Url="html/2119bea4-3f7e-12ac-4c44-ae2ceba18684.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.MiningSpeed field" Url="html/82214e0d-721d-5aea-20ee-67cdb892ff23.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.OreCargoGroupName field" Url="html/43561dd3-b725-2e81-948c-142d536a4e16.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.ShaftDepth field" Url="html/4338047c-2240-d3c9-ff05-aa2cb77bba3c.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.ShaftHeight field" Url="html/2480bac1-bbc5-2e0a-ce66-4945bd5fa6ec.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.ShaftMaxCount field" Url="html/faff9e07-beb4-40a9-28b1-de66a47189da.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.ShaftWidth field" Url="html/ed657b3a-5fb7-f2ff-2449-6fbcf9ce0b22.htm" />
-  <HelpKINode Title="Program.DrillerNavSettings.StartingShaftNumber field" Url="html/33a10270-82a3-8cd1-56f7-971a20c5e892.htm" />
-  <HelpKINode Title="Program.Echo method" Url="html/eeb1f0aa-9240-ed88-7559-03eacb71c91a.htm" />
-  <HelpKINode Title="Program.ERROR1 field" Url="html/2aa893f5-45ff-df20-1f34-d1443907143f.htm" />
-  <HelpKINode Title="Program.ERROR2 field" Url="html/c0d52235-5aca-73e0-bb39-86ee09789fb2.htm" />
-  <HelpKINode Title="Program.ERROR3 field" Url="html/732a6852-9baf-fa4b-44b2-693a0d6d935f.htm" />
-  <HelpKINode Title="Program.ERROR4 field" Url="html/e1e4ad3f-34db-8987-18dc-a508ebe5c015.htm" />
-  <HelpKINode Title="Program.GetBatteryCharge method" Url="html/a12ab38a-de85-87e0-e8da-7e82e7b3bf40.htm" />
-  <HelpKINode Title="Program.GetBlock method" Url="html/92f34e6c-90b8-60f2-3fc1-b0c4eaba3d90.htm" />
-  <HelpKINode Title="Program.GetBlockGrp method" Url="html/62aabff6-cb0e-9155-38ff-86012e6ef21d.htm" />
-  <HelpKINode Title="Program.GetDetail method" Url="html/56d1901f-fe94-5002-b73c-47b19a9c5cd6.htm" />
-  <HelpKINode Title="Program.GetPower method" Url="html/b8f1857f-f511-19b2-f375-15a506950e22.htm" />
-  <HelpKINode Title="Program.GetValueListFromLCD method" Url="html/0e56370d-f7d2-c4a6-66a2-f83fe46e7cbb.htm" />
-  <HelpKINode Title="Program.GridTerminalSystem field" Url="html/68aed595-0b67-3cbb-1641-cb570a1fcfe2.htm" />
-  <HelpKINode Title="Program.gts field" Url="html/913f1b25-5e54-d931-0eb3-64cde8b2ae1c.htm" />
-  <HelpKINode Title="Program.GyroMoving method" Url="html/53fe5865-9277-c389-dd65-9d21e88155a0.htm" />
-  <HelpKINode Title="Program.GyroOveride method" Url="html/fa0310fa-44b4-a13a-324a-3abc1f550163.htm" />
-  <HelpKINode Title="Program.GyroOverride method" Url="html/6f53c92c-0097-a487-3012-32cefa5e87e7.htm" />
-  <HelpKINode Title="Program.GYRO_DOWN field" Url="html/d1e5591e-0529-aaa0-74b4-904956d6ddfa.htm" />
-  <HelpKINode Title="Program.GYRO_LEFT field" Url="html/c64898c2-cbc6-c7b3-eadd-4ed0fa884ac6.htm" />
-  <HelpKINode Title="Program.GYRO_PITCH field" Url="html/54139f87-8509-cfca-0582-94ed33e6da1e.htm" />
-  <HelpKINode Title="Program.GYRO_RIGHT field" Url="html/c9549c2f-8757-5213-2362-cf40957f7c03.htm" />
-  <HelpKINode Title="Program.GYRO_ROLL field" Url="html/f726d138-d759-76ac-8573-432c1a7af901.htm" />
-  <HelpKINode Title="Program.GYRO_ROLL_L field" Url="html/19992140-e928-aee6-54ca-be387675bc92.htm" />
-  <HelpKINode Title="Program.GYRO_ROLL_R field" Url="html/9fc16f09-e063-4f9a-29ad-f1039dc9397d.htm" />
-  <HelpKINode Title="Program.GYRO_UP field" Url="html/e57b3760-e158-df8a-912e-7791e1112b04.htm" />
-  <HelpKINode Title="Program.GYRO_YAW field" Url="html/9fff6af3-2c28-fa8e-2fe7-2d76f9bf9dea.htm" />
-  <HelpKINode Title="Program.InStrI method" Url="html/8dd360e3-720b-504c-3239-c14c7e9c59b5.htm" />
-  <HelpKINode Title="Program.InStrsI method" Url="html/65e40872-605e-17b1-6b14-e570db94e551.htm" />
-  <HelpKINode Title="Program.IsCharging method" Url="html/f8131972-87d3-c700-bad4-0b3bedefbb5a.htm" />
-  <HelpKINode Title="Program.IsDocked method" Url="html/02a190c4-dc4f-9644-8081-b38110c0a111.htm" />
-  <HelpKINode Title="Program.IsEnabled method" Url="html/ad51fc85-18be-fff8-4793-d213481c9704.htm" />
-  <HelpKINode Title="Program.IsReadyToLock method" Url="html/45831c6a-8dbf-04ba-5068-b2a87c1ee90a.htm" />
-  <HelpKINode Title="Program.LCDDebugScreenName field" Url="html/b31befaa-b4bb-c10d-a27f-5ffc3b953637.htm" />
-  <HelpKINode Title="Program.Main method" Url="html/ba2571f6-81f4-f3dc-bb9b-ede7e2d6532a.htm" />
-  <HelpKINode Title="Program.Me field" Url="html/f89f6daa-f454-4a8e-b1a2-6388df06c90b.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.AsteroidSensorName field" Url="html/F_YASEL_Program_DrillerNavSettings_AsteroidSensorName.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.ButtonSensorName field" Url="html/F_YASEL_Program_DrillerNavSettings_ButtonSensorName.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.DrillerNavSettings constructor" Url="html/M_YASEL_Program_DrillerNavSettings__ctor.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.LCDVariableStoreName field" Url="html/F_YASEL_Program_DrillerNavSettings_LCDVariableStoreName.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.LCDWaypointsName field" Url="html/F_YASEL_Program_DrillerNavSettings_LCDWaypointsName.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.MiningSpeed field" Url="html/F_YASEL_Program_DrillerNavSettings_MiningSpeed.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.OreCargoGroupName field" Url="html/F_YASEL_Program_DrillerNavSettings_OreCargoGroupName.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.ShaftDepth field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftDepth.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.ShaftHeight field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftHeight.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.ShaftMaxCount field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftMaxCount.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.ShaftWidth field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftWidth.htm" />
+  <HelpKINode Title="Program.DrillerNavSettings.StartingShaftNumber field" Url="html/F_YASEL_Program_DrillerNavSettings_StartingShaftNumber.htm" />
+  <HelpKINode Title="Program.Echo method" Url="html/M_YASEL_Program_Echo.htm" />
+  <HelpKINode Title="Program.ERROR1 field" Url="html/F_YASEL_Program_ERROR1.htm" />
+  <HelpKINode Title="Program.ERROR2 field" Url="html/F_YASEL_Program_ERROR2.htm" />
+  <HelpKINode Title="Program.ERROR3 field" Url="html/F_YASEL_Program_ERROR3.htm" />
+  <HelpKINode Title="Program.ERROR4 field" Url="html/F_YASEL_Program_ERROR4.htm" />
+  <HelpKINode Title="Program.GetBatteryCharge method" Url="html/Overload_YASEL_Program_GetBatteryCharge.htm" />
+  <HelpKINode Title="Program.GetBlock method" Url="html/M_YASEL_Program_GetBlock.htm" />
+  <HelpKINode Title="Program.GetBlockGrp method" Url="html/M_YASEL_Program_GetBlockGrp.htm" />
+  <HelpKINode Title="Program.GetDetail method" Url="html/M_YASEL_Program_GetDetail.htm" />
+  <HelpKINode Title="Program.GetPower method" Url="html/M_YASEL_Program_GetPower.htm" />
+  <HelpKINode Title="Program.GetValueListFromLCD method" Url="html/M_YASEL_Program_GetValueListFromLCD.htm" />
+  <HelpKINode Title="Program.GridTerminalSystem field" Url="html/F_YASEL_Program_GridTerminalSystem.htm" />
+  <HelpKINode Title="Program.gts field" Url="html/F_YASEL_Program_gts.htm" />
+  <HelpKINode Title="Program.GyroMoving method" Url="html/M_YASEL_Program_GyroMoving.htm" />
+  <HelpKINode Title="Program.GyroOveride method" Url="html/Overload_YASEL_Program_GyroOveride.htm" />
+  <HelpKINode Title="Program.GyroOverride method" Url="html/M_YASEL_Program_GyroOverride.htm" />
+  <HelpKINode Title="Program.GYRO_DOWN field" Url="html/F_YASEL_Program_GYRO_DOWN.htm" />
+  <HelpKINode Title="Program.GYRO_LEFT field" Url="html/F_YASEL_Program_GYRO_LEFT.htm" />
+  <HelpKINode Title="Program.GYRO_PITCH field" Url="html/F_YASEL_Program_GYRO_PITCH.htm" />
+  <HelpKINode Title="Program.GYRO_RIGHT field" Url="html/F_YASEL_Program_GYRO_RIGHT.htm" />
+  <HelpKINode Title="Program.GYRO_ROLL field" Url="html/F_YASEL_Program_GYRO_ROLL.htm" />
+  <HelpKINode Title="Program.GYRO_ROLL_L field" Url="html/F_YASEL_Program_GYRO_ROLL_L.htm" />
+  <HelpKINode Title="Program.GYRO_ROLL_R field" Url="html/F_YASEL_Program_GYRO_ROLL_R.htm" />
+  <HelpKINode Title="Program.GYRO_UP field" Url="html/F_YASEL_Program_GYRO_UP.htm" />
+  <HelpKINode Title="Program.GYRO_YAW field" Url="html/F_YASEL_Program_GYRO_YAW.htm" />
+  <HelpKINode Title="Program.InStrI method" Url="html/M_YASEL_Program_InStrI.htm" />
+  <HelpKINode Title="Program.InStrsI method" Url="html/Overload_YASEL_Program_InStrsI.htm" />
+  <HelpKINode Title="Program.IsCharging method" Url="html/Overload_YASEL_Program_IsCharging.htm" />
+  <HelpKINode Title="Program.IsDocked method" Url="html/Overload_YASEL_Program_IsDocked.htm" />
+  <HelpKINode Title="Program.IsEnabled method" Url="html/M_YASEL_Program_IsEnabled.htm" />
+  <HelpKINode Title="Program.IsReadyToLock method" Url="html/Overload_YASEL_Program_IsReadyToLock.htm" />
+  <HelpKINode Title="Program.LCDDebugScreenName field" Url="html/F_YASEL_Program_LCDDebugScreenName.htm" />
+  <HelpKINode Title="Program.Main method" Url="html/M_YASEL_Program_Main.htm" />
+  <HelpKINode Title="Program.Me field" Url="html/F_YASEL_Program_Me.htm" />
   <HelpKINode Title="Program.NavManager class">
-    <HelpKINode Title="Program.NavManager Class" Url="html/b7d08bb1-38cb-fa34-07a9-f6c2dd6780da.htm" />
-    <HelpKINode Title="about Program.NavManager class" Url="html/b7d08bb1-38cb-fa34-07a9-f6c2dd6780da.htm" />
-    <HelpKINode Title="constructor" Url="html/a79b132b-cdd1-a3aa-6b12-2267fa1f68d5.htm" />
+    <HelpKINode Title="Program.NavManager Class" Url="html/T_YASEL_Program_NavManager.htm" />
+    <HelpKINode Title="about Program.NavManager class" Url="html/T_YASEL_Program_NavManager.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_NavManager__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.NavManager.Act method" Url="html/9586329f-02fe-780b-cff2-d25fa74088e8.htm" />
-  <HelpKINode Title="Program.NavManager.AdjustSpeed method" Url="html/f7799490-b980-3515-bb1f-a57fa2b794d8.htm" />
-  <HelpKINode Title="Program.NavManager.align method" Url="html/f76cc760-b5fb-76f5-c4ca-c94f42ad2067.htm" />
-  <HelpKINode Title="Program.NavManager.avgSpeed field" Url="html/5872fd8f-c044-f609-1c73-4322aa2cf13c.htm" />
-  <HelpKINode Title="Program.NavManager.bottomBlock field" Url="html/88313f41-a104-a1cb-63b7-602884a8dba2.htm" />
-  <HelpKINode Title="Program.NavManager.bPos field" Url="html/f8f7b5bd-23c7-f88e-4c2a-6bef7cd9b579.htm" />
-  <HelpKINode Title="Program.NavManager.center method" Url="html/f165a6ab-ab4a-e693-15e8-f6226299ae67.htm" />
-  <HelpKINode Title="Program.NavManager.controller field" Url="html/0b964672-4dd1-18c3-b247-544126a183f5.htm" />
-  <HelpKINode Title="Program.NavManager.DotProduct method" Url="html/d647a1a3-68d7-bdd3-7bfe-3790d219fb25.htm" />
-  <HelpKINode Title="Program.NavManager.downThrusters field" Url="html/d07bf4f5-ac84-0c6f-170d-f767d868c923.htm" />
-  <HelpKINode Title="Program.NavManager.fwdBlock field" Url="html/ae9736ab-328c-eeba-4f60-ae0d0321505c.htm" />
-  <HelpKINode Title="Program.NavManager.fwdPos field" Url="html/514b86e7-4cac-71f6-6df2-16b0968ebaab.htm" />
-  <HelpKINode Title="Program.NavManager.fwdThrusters field" Url="html/46b92cb2-ce93-d5f1-14b2-5a1f0db4b4af.htm" />
-  <HelpKINode Title="Program.NavManager.GetAngle method" Url="html/f61aab89-51c3-edb8-209f-76bec0d70c46.htm" />
-  <HelpKINode Title="Program.NavManager.GetCross method" Url="html/cc1fbad4-e771-98bc-60b8-c16705e3a557.htm" />
-  <HelpKINode Title="Program.NavManager.getFirst method" Url="html/b1d7112b-b533-86b9-16c7-e6e9975e1664.htm" />
-  <HelpKINode Title="Program.NavManager.GetOffset method" Url="html/b47c47d5-bc37-0266-a164-19ab7e62baaf.htm" />
-  <HelpKINode Title="Program.NavManager.GetPos method" Url="html/57a6e66c-084f-a3d9-dea1-2bf4da5140ed.htm" />
-  <HelpKINode Title="Program.NavManager.gyros field" Url="html/ac74a1d4-c6d2-e285-c2fc-c0546daba6b4.htm" />
-  <HelpKINode Title="Program.NavManager.IsActing method" Url="html/f95b7798-4b87-9c05-a980-31b8238f948e.htm" />
-  <HelpKINode Title="Program.NavManager.lastDistToDest field" Url="html/98e3fd01-71cd-0c1b-71d3-8aafb45bfa46.htm" />
-  <HelpKINode Title="Program.NavManager.lcdWaypoints field" Url="html/b25ed65a-a322-afbb-0145-9b7565879874.htm" />
-  <HelpKINode Title="Program.NavManager.leftBlock field" Url="html/85878470-95cd-e7a7-249f-bbd339d79733.htm" />
-  <HelpKINode Title="Program.NavManager.leftThrusters field" Url="html/749a4c64-8d06-e7bd-dd54-3e4e62276505.htm" />
-  <HelpKINode Title="Program.NavManager.level method" Url="html/1c82a923-d5f0-627b-09b8-f0831fc6458a.htm" />
-  <HelpKINode Title="Program.NavManager.lPos field" Url="html/e0d5b9c7-2ef9-a86b-2685-d37defc82150.htm" />
-  <HelpKINode Title="Program.NavManager.NavManager constructor" Url="html/a79b132b-cdd1-a3aa-6b12-2267fa1f68d5.htm" />
-  <HelpKINode Title="Program.NavManager.Pause method" Url="html/6116b3f4-6f36-adc8-e299-311099327489.htm" />
-  <HelpKINode Title="Program.NavManager.paused field" Url="html/0b16320b-43ea-d6cd-7f46-f4faf639554c.htm" />
-  <HelpKINode Title="Program.NavManager.rearBlock field" Url="html/f15ce131-880c-485e-085c-0fa900f1b0b9.htm" />
-  <HelpKINode Title="Program.NavManager.rearPos field" Url="html/3d3f4d30-08b4-23d2-4cc2-4da97f876b0a.htm" />
-  <HelpKINode Title="Program.NavManager.Reset method" Url="html/0833aff9-b812-77bd-54ac-4dfb178ad51d.htm" />
-  <HelpKINode Title="Program.NavManager.rightBlock field" Url="html/1650b129-0f27-d3ec-c60a-7e6e366b40f1.htm" />
-  <HelpKINode Title="Program.NavManager.rightThrusters field" Url="html/2aaf73df-8233-4ad6-e64a-9b71ee3cf891.htm" />
-  <HelpKINode Title="Program.NavManager.rPos field" Url="html/13449aae-9d57-b9d2-6225-4f8204fc5c70.htm" />
-  <HelpKINode Title="Program.NavManager.runCount field" Url="html/1605eee0-3a56-967a-027a-5bffc77a7532.htm" />
-  <HelpKINode Title="Program.NavManager.rvsThrusters field" Url="html/1b496276-8bcb-e929-90b4-d3ced2654580.htm" />
-  <HelpKINode Title="Program.NavManager.settings field" Url="html/9d600e70-3b51-df3a-6dd8-0beabbd54c6c.htm" />
-  <HelpKINode Title="Program.NavManager.ShipLeft method" Url="html/1087a68a-fd2f-6e1c-2f49-8a2d5e3c939f.htm" />
-  <HelpKINode Title="Program.NavManager.ShipUp method" Url="html/fcb3ebdd-2d38-e179-db73-ef53dee78790.htm" />
-  <HelpKINode Title="Program.NavManager.speed field" Url="html/32a296fd-07ce-80a6-cf5e-40c33e16ff44.htm" />
-  <HelpKINode Title="Program.NavManager.speeds field" Url="html/23910f3d-dfee-9c9a-d7c3-06cfb5e52118.htm" />
-  <HelpKINode Title="Program.NavManager.speedsToDest field" Url="html/06242c1b-031f-1a36-638d-d8dfc6a139dc.htm" />
-  <HelpKINode Title="Program.NavManager.Tick method" Url="html/56daccc8-08cb-f3ed-be56-12e726137f8b.htm" />
-  <HelpKINode Title="Program.NavManager.topBlock field" Url="html/51fade63-c7f1-62a1-c058-7dcd0b872b34.htm" />
-  <HelpKINode Title="Program.NavManager.tPos field" Url="html/71771dc3-1e9b-b33b-3c35-dbd3022c7534.htm" />
-  <HelpKINode Title="Program.NavManager.travel method" Url="html/2fab2e13-5db8-730d-9cce-01fad7841bf5.htm" />
-  <HelpKINode Title="Program.NavManager.UnPause method" Url="html/7e538ce6-aeaa-2f61-f8d6-6ca0932790f6.htm" />
-  <HelpKINode Title="Program.NavManager.upThrusters field" Url="html/3ae10d09-8b75-453a-4474-ed5f3f9bcaa1.htm" />
-  <HelpKINode Title="Program.NavManager.vs field" Url="html/63067bbe-b4b7-87d9-2643-e0daf13ab67e.htm" />
-  <HelpKINode Title="Program.NavManager.wait method" Url="html/05b791a9-3025-de6f-a104-678330231428.htm" />
-  <HelpKINode Title="Program.NavManager.waitTime field" Url="html/af453c32-94e2-84d5-0ec4-3baa9c42ea86.htm" />
-  <HelpKINode Title="Program.NavManager.waypoints field" Url="html/eada93c0-591f-1fea-39a3-34803c79bab7.htm" />
-  <HelpKINode Title="Program.NavManager.wpInfo field" Url="html/de41c784-2510-91ed-7e23-1d9689c42939.htm" />
+  <HelpKINode Title="Program.NavManager.Act method" Url="html/Overload_YASEL_Program_NavManager_Act.htm" />
+  <HelpKINode Title="Program.NavManager.AdjustSpeed method" Url="html/M_YASEL_Program_NavManager_AdjustSpeed.htm" />
+  <HelpKINode Title="Program.NavManager.align method" Url="html/M_YASEL_Program_NavManager_align.htm" />
+  <HelpKINode Title="Program.NavManager.avgSpeed field" Url="html/F_YASEL_Program_NavManager_avgSpeed.htm" />
+  <HelpKINode Title="Program.NavManager.bottomBlock field" Url="html/F_YASEL_Program_NavManager_bottomBlock.htm" />
+  <HelpKINode Title="Program.NavManager.bPos field" Url="html/F_YASEL_Program_NavManager_bPos.htm" />
+  <HelpKINode Title="Program.NavManager.center method" Url="html/M_YASEL_Program_NavManager_center.htm" />
+  <HelpKINode Title="Program.NavManager.controller field" Url="html/F_YASEL_Program_NavManager_controller.htm" />
+  <HelpKINode Title="Program.NavManager.DotProduct method" Url="html/M_YASEL_Program_NavManager_DotProduct.htm" />
+  <HelpKINode Title="Program.NavManager.downThrusters field" Url="html/F_YASEL_Program_NavManager_downThrusters.htm" />
+  <HelpKINode Title="Program.NavManager.fwdBlock field" Url="html/F_YASEL_Program_NavManager_fwdBlock.htm" />
+  <HelpKINode Title="Program.NavManager.fwdPos field" Url="html/F_YASEL_Program_NavManager_fwdPos.htm" />
+  <HelpKINode Title="Program.NavManager.fwdThrusters field" Url="html/F_YASEL_Program_NavManager_fwdThrusters.htm" />
+  <HelpKINode Title="Program.NavManager.GetAngle method" Url="html/M_YASEL_Program_NavManager_GetAngle.htm" />
+  <HelpKINode Title="Program.NavManager.GetCross method" Url="html/M_YASEL_Program_NavManager_GetCross.htm" />
+  <HelpKINode Title="Program.NavManager.getFirst method" Url="html/M_YASEL_Program_NavManager_getFirst.htm" />
+  <HelpKINode Title="Program.NavManager.GetOffset method" Url="html/M_YASEL_Program_NavManager_GetOffset.htm" />
+  <HelpKINode Title="Program.NavManager.GetPos method" Url="html/M_YASEL_Program_NavManager_GetPos.htm" />
+  <HelpKINode Title="Program.NavManager.gyros field" Url="html/F_YASEL_Program_NavManager_gyros.htm" />
+  <HelpKINode Title="Program.NavManager.IsActing method" Url="html/M_YASEL_Program_NavManager_IsActing.htm" />
+  <HelpKINode Title="Program.NavManager.lastDistToDest field" Url="html/F_YASEL_Program_NavManager_lastDistToDest.htm" />
+  <HelpKINode Title="Program.NavManager.lcdWaypoints field" Url="html/F_YASEL_Program_NavManager_lcdWaypoints.htm" />
+  <HelpKINode Title="Program.NavManager.leftBlock field" Url="html/F_YASEL_Program_NavManager_leftBlock.htm" />
+  <HelpKINode Title="Program.NavManager.leftThrusters field" Url="html/F_YASEL_Program_NavManager_leftThrusters.htm" />
+  <HelpKINode Title="Program.NavManager.level method" Url="html/M_YASEL_Program_NavManager_level.htm" />
+  <HelpKINode Title="Program.NavManager.lPos field" Url="html/F_YASEL_Program_NavManager_lPos.htm" />
+  <HelpKINode Title="Program.NavManager.NavManager constructor" Url="html/M_YASEL_Program_NavManager__ctor.htm" />
+  <HelpKINode Title="Program.NavManager.Pause method" Url="html/M_YASEL_Program_NavManager_Pause.htm" />
+  <HelpKINode Title="Program.NavManager.paused field" Url="html/F_YASEL_Program_NavManager_paused.htm" />
+  <HelpKINode Title="Program.NavManager.rearBlock field" Url="html/F_YASEL_Program_NavManager_rearBlock.htm" />
+  <HelpKINode Title="Program.NavManager.rearPos field" Url="html/F_YASEL_Program_NavManager_rearPos.htm" />
+  <HelpKINode Title="Program.NavManager.Reset method" Url="html/M_YASEL_Program_NavManager_Reset.htm" />
+  <HelpKINode Title="Program.NavManager.rightBlock field" Url="html/F_YASEL_Program_NavManager_rightBlock.htm" />
+  <HelpKINode Title="Program.NavManager.rightThrusters field" Url="html/F_YASEL_Program_NavManager_rightThrusters.htm" />
+  <HelpKINode Title="Program.NavManager.rPos field" Url="html/F_YASEL_Program_NavManager_rPos.htm" />
+  <HelpKINode Title="Program.NavManager.runCount field" Url="html/F_YASEL_Program_NavManager_runCount.htm" />
+  <HelpKINode Title="Program.NavManager.rvsThrusters field" Url="html/F_YASEL_Program_NavManager_rvsThrusters.htm" />
+  <HelpKINode Title="Program.NavManager.settings field" Url="html/F_YASEL_Program_NavManager_settings.htm" />
+  <HelpKINode Title="Program.NavManager.ShipLeft method" Url="html/M_YASEL_Program_NavManager_ShipLeft.htm" />
+  <HelpKINode Title="Program.NavManager.ShipUp method" Url="html/M_YASEL_Program_NavManager_ShipUp.htm" />
+  <HelpKINode Title="Program.NavManager.speed field" Url="html/F_YASEL_Program_NavManager_speed.htm" />
+  <HelpKINode Title="Program.NavManager.speeds field" Url="html/F_YASEL_Program_NavManager_speeds.htm" />
+  <HelpKINode Title="Program.NavManager.speedsToDest field" Url="html/F_YASEL_Program_NavManager_speedsToDest.htm" />
+  <HelpKINode Title="Program.NavManager.Tick method" Url="html/M_YASEL_Program_NavManager_Tick.htm" />
+  <HelpKINode Title="Program.NavManager.topBlock field" Url="html/F_YASEL_Program_NavManager_topBlock.htm" />
+  <HelpKINode Title="Program.NavManager.tPos field" Url="html/F_YASEL_Program_NavManager_tPos.htm" />
+  <HelpKINode Title="Program.NavManager.travel method" Url="html/M_YASEL_Program_NavManager_travel.htm" />
+  <HelpKINode Title="Program.NavManager.UnPause method" Url="html/M_YASEL_Program_NavManager_UnPause.htm" />
+  <HelpKINode Title="Program.NavManager.upThrusters field" Url="html/F_YASEL_Program_NavManager_upThrusters.htm" />
+  <HelpKINode Title="Program.NavManager.vs field" Url="html/F_YASEL_Program_NavManager_vs.htm" />
+  <HelpKINode Title="Program.NavManager.wait method" Url="html/M_YASEL_Program_NavManager_wait.htm" />
+  <HelpKINode Title="Program.NavManager.waitTime field" Url="html/F_YASEL_Program_NavManager_waitTime.htm" />
+  <HelpKINode Title="Program.NavManager.waypoints field" Url="html/F_YASEL_Program_NavManager_waypoints.htm" />
+  <HelpKINode Title="Program.NavManager.wpInfo field" Url="html/F_YASEL_Program_NavManager_wpInfo.htm" />
   <HelpKINode Title="Program.NavSettings class">
-    <HelpKINode Title="Program.NavSettings Class" Url="html/2b166057-1b58-99d5-b175-2719ba5c0bc3.htm" />
-    <HelpKINode Title="about Program.NavSettings class" Url="html/2b166057-1b58-99d5-b175-2719ba5c0bc3.htm" />
-    <HelpKINode Title="constructor" Url="html/7515f6c7-2a57-d29a-5be8-df5a3ed8bbf2.htm" />
+    <HelpKINode Title="Program.NavSettings Class" Url="html/T_YASEL_Program_NavSettings.htm" />
+    <HelpKINode Title="about Program.NavSettings class" Url="html/T_YASEL_Program_NavSettings.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_NavSettings__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.NavSettings.ActionTick field" Url="html/294eb3f2-bb23-ed01-a2f6-6860f7914d0c.htm" />
-  <HelpKINode Title="Program.NavSettings.AlignMargin field" Url="html/4e988c84-75a2-1a17-06bd-7516ef551f01.htm" />
-  <HelpKINode Title="Program.NavSettings.BottomBlockName field" Url="html/e8dacaf0-a1f3-c83a-bb90-a85c88d7850e.htm" />
-  <HelpKINode Title="Program.NavSettings.BreakingDistMultiplier field" Url="html/223623d0-2e4c-06c0-721f-0db11f0c6b2a.htm" />
-  <HelpKINode Title="Program.NavSettings.CentreBlock field" Url="html/125adc76-87ac-a69e-6858-c78ff27601dd.htm" />
-  <HelpKINode Title="Program.NavSettings.CockpitName field" Url="html/1f73d1b3-d8e7-4e9e-03d0-e8be1cfcb858.htm" />
-  <HelpKINode Title="Program.NavSettings.ConnectorSpeed field" Url="html/701f23f6-273c-6fff-68f8-841c296e7c1f.htm" />
-  <HelpKINode Title="Program.NavSettings.DebugLevel field" Url="html/464496db-e860-2daa-6a73-d07c1c9acd21.htm" />
-  <HelpKINode Title="Program.NavSettings.DefaultThrust field" Url="html/c8d814d5-a87c-a22d-2cd0-0a2ac5d8f280.htm" />
-  <HelpKINode Title="Program.NavSettings.DownThrustGroupName field" Url="html/a7ba0325-d2b3-d80b-46f0-dadc8919b53f.htm" />
-  <HelpKINode Title="Program.NavSettings.FwdBlockName field" Url="html/dfe2d44e-d0bf-db61-2e2f-e651e87184c0.htm" />
-  <HelpKINode Title="Program.NavSettings.FwdThrustGroupName field" Url="html/691dcf06-cac4-b48a-d00c-e4c96c41d26e.htm" />
-  <HelpKINode Title="Program.NavSettings.GyroGroupName field" Url="html/9ba9fba8-e9a6-28ed-7e00-de1d34ebb312.htm" />
-  <HelpKINode Title="Program.NavSettings.LCDDebugScreenName field" Url="html/a7bd5066-1aae-12ed-a7d0-8060f3e8c13a.htm" />
-  <HelpKINode Title="Program.NavSettings.LCDVariableStoreName field" Url="html/bb6191ec-1cc9-5666-eb88-8bd9ccc7d34b.htm" />
-  <HelpKINode Title="Program.NavSettings.LeftBlockName field" Url="html/0a118d3b-a35a-2e31-3f8b-bceba84386f0.htm" />
-  <HelpKINode Title="Program.NavSettings.LeftThrustGroupName field" Url="html/393f1ab1-3006-0219-08d4-7afadb9a5d3b.htm" />
-  <HelpKINode Title="Program.NavSettings.MaxSpeed field" Url="html/2bd425f1-1097-5c18-140a-ec62cc4a33cc.htm" />
-  <HelpKINode Title="Program.NavSettings.MinThrust field" Url="html/2d0d2b37-8e37-7354-33d6-e055fe58ce5a.htm" />
-  <HelpKINode Title="Program.NavSettings.NavSettings constructor" Url="html/7515f6c7-2a57-d29a-5be8-df5a3ed8bbf2.htm" />
-  <HelpKINode Title="Program.NavSettings.RearBlockName field" Url="html/fd4e087b-c1dc-4c8b-b4d5-ebdd3a0ed0c5.htm" />
-  <HelpKINode Title="Program.NavSettings.RightBlockName field" Url="html/c24b070c-c1df-f40c-9fb3-2e39e966612f.htm" />
-  <HelpKINode Title="Program.NavSettings.RightThrustGroupName field" Url="html/3d6e0899-e450-0f82-32f1-6bfc223ff8fb.htm" />
-  <HelpKINode Title="Program.NavSettings.RvsThrustGroupName field" Url="html/094f64d5-54e6-849f-dba9-3d6de680898a.htm" />
-  <HelpKINode Title="Program.NavSettings.StoppingDistance field" Url="html/c6bff0ed-02f8-9d12-a283-55a131a228b5.htm" />
-  <HelpKINode Title="Program.NavSettings.TicksPerSec field" Url="html/4625b208-1ae1-38e1-e429-89a5110c197f.htm" />
-  <HelpKINode Title="Program.NavSettings.TopBlockName field" Url="html/c410227a-5073-6e5a-fc0b-f628c33f2fb9.htm" />
-  <HelpKINode Title="Program.NavSettings.UpThrustGroupName field" Url="html/eec43d3e-d6e0-8b75-2210-d616bbc36b03.htm" />
-  <HelpKINode Title="Program.nm field" Url="html/30dd00f9-7876-48c5-7111-5dc92eb25229.htm" />
-  <HelpKINode Title="Program.OnTick method" Url="html/7a498abc-cd1c-313f-d1c3-db76ac0e661a.htm" />
-  <HelpKINode Title="Program.PitchD method" Url="html/5e8f9375-1da1-d7ba-5750-0539b7b76f31.htm" />
-  <HelpKINode Title="Program.PitchStop method" Url="html/429c40b6-c8e7-089a-015f-b388438da23b.htm" />
-  <HelpKINode Title="Program.PitchU method" Url="html/84646173-ec0c-317a-3ca3-50ec2aecc806.htm" />
-  <HelpKINode Title="Program.Program constructor" Url="html/7a3028a8-be3e-d229-7bc5-ac4061e53538.htm" />
-  <HelpKINode Title="Program.RollL method" Url="html/54c96aaf-8e7f-7826-ed88-d524eb72d422.htm" />
-  <HelpKINode Title="Program.RollR method" Url="html/e775d707-a74d-63e5-5fcb-abf2728fb698.htm" />
-  <HelpKINode Title="Program.RollStop method" Url="html/6dbd83a9-07ae-52c2-b206-682a4aac5d0b.htm" />
-  <HelpKINode Title="Program.SearchBlocks method" Url="html/a297dbb1-3437-bb46-acf3-a7062e51e182.htm" />
-  <HelpKINode Title="Program.sEcho field" Url="html/27956b8d-778d-071a-9e3f-94f7ace7e69f.htm" />
-  <HelpKINode Title="Program.SetGyro method" Url="html/20669bd9-8cd0-76f8-19d8-46f65966890d.htm" />
-  <HelpKINode Title="Program.SetStatics method" Url="html/6d514322-baf1-f2c2-61b6-4cce108d556a.htm" />
-  <HelpKINode Title="Program.SetThrustOverride method" Url="html/c6206155-9178-6d3b-9cc2-eebe68c54847.htm" />
+  <HelpKINode Title="Program.NavSettings.ActionTick field" Url="html/F_YASEL_Program_NavSettings_ActionTick.htm" />
+  <HelpKINode Title="Program.NavSettings.AlignMargin field" Url="html/F_YASEL_Program_NavSettings_AlignMargin.htm" />
+  <HelpKINode Title="Program.NavSettings.BottomBlockName field" Url="html/F_YASEL_Program_NavSettings_BottomBlockName.htm" />
+  <HelpKINode Title="Program.NavSettings.BreakingDistMultiplier field" Url="html/F_YASEL_Program_NavSettings_BreakingDistMultiplier.htm" />
+  <HelpKINode Title="Program.NavSettings.CentreBlock field" Url="html/F_YASEL_Program_NavSettings_CentreBlock.htm" />
+  <HelpKINode Title="Program.NavSettings.CockpitName field" Url="html/F_YASEL_Program_NavSettings_CockpitName.htm" />
+  <HelpKINode Title="Program.NavSettings.ConnectorSpeed field" Url="html/F_YASEL_Program_NavSettings_ConnectorSpeed.htm" />
+  <HelpKINode Title="Program.NavSettings.DebugLevel field" Url="html/F_YASEL_Program_NavSettings_DebugLevel.htm" />
+  <HelpKINode Title="Program.NavSettings.DefaultThrust field" Url="html/F_YASEL_Program_NavSettings_DefaultThrust.htm" />
+  <HelpKINode Title="Program.NavSettings.DownThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_DownThrustGroupName.htm" />
+  <HelpKINode Title="Program.NavSettings.FwdBlockName field" Url="html/F_YASEL_Program_NavSettings_FwdBlockName.htm" />
+  <HelpKINode Title="Program.NavSettings.FwdThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_FwdThrustGroupName.htm" />
+  <HelpKINode Title="Program.NavSettings.GyroGroupName field" Url="html/F_YASEL_Program_NavSettings_GyroGroupName.htm" />
+  <HelpKINode Title="Program.NavSettings.LCDDebugScreenName field" Url="html/F_YASEL_Program_NavSettings_LCDDebugScreenName.htm" />
+  <HelpKINode Title="Program.NavSettings.LCDVariableStoreName field" Url="html/F_YASEL_Program_NavSettings_LCDVariableStoreName.htm" />
+  <HelpKINode Title="Program.NavSettings.LeftBlockName field" Url="html/F_YASEL_Program_NavSettings_LeftBlockName.htm" />
+  <HelpKINode Title="Program.NavSettings.LeftThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_LeftThrustGroupName.htm" />
+  <HelpKINode Title="Program.NavSettings.MaxSpeed field" Url="html/F_YASEL_Program_NavSettings_MaxSpeed.htm" />
+  <HelpKINode Title="Program.NavSettings.MinThrust field" Url="html/F_YASEL_Program_NavSettings_MinThrust.htm" />
+  <HelpKINode Title="Program.NavSettings.NavSettings constructor" Url="html/M_YASEL_Program_NavSettings__ctor.htm" />
+  <HelpKINode Title="Program.NavSettings.RearBlockName field" Url="html/F_YASEL_Program_NavSettings_RearBlockName.htm" />
+  <HelpKINode Title="Program.NavSettings.RightBlockName field" Url="html/F_YASEL_Program_NavSettings_RightBlockName.htm" />
+  <HelpKINode Title="Program.NavSettings.RightThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_RightThrustGroupName.htm" />
+  <HelpKINode Title="Program.NavSettings.RvsThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_RvsThrustGroupName.htm" />
+  <HelpKINode Title="Program.NavSettings.StoppingDistance field" Url="html/F_YASEL_Program_NavSettings_StoppingDistance.htm" />
+  <HelpKINode Title="Program.NavSettings.TicksPerSec field" Url="html/F_YASEL_Program_NavSettings_TicksPerSec.htm" />
+  <HelpKINode Title="Program.NavSettings.TopBlockName field" Url="html/F_YASEL_Program_NavSettings_TopBlockName.htm" />
+  <HelpKINode Title="Program.NavSettings.UpThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_UpThrustGroupName.htm" />
+  <HelpKINode Title="Program.nm field" Url="html/F_YASEL_Program_nm.htm" />
+  <HelpKINode Title="Program.OnTick method" Url="html/M_YASEL_Program_OnTick.htm" />
+  <HelpKINode Title="Program.PitchD method" Url="html/M_YASEL_Program_PitchD.htm" />
+  <HelpKINode Title="Program.PitchStop method" Url="html/M_YASEL_Program_PitchStop.htm" />
+  <HelpKINode Title="Program.PitchU method" Url="html/M_YASEL_Program_PitchU.htm" />
+  <HelpKINode Title="Program.Program constructor" Url="html/M_YASEL_Program__ctor.htm" />
+  <HelpKINode Title="Program.RollL method" Url="html/M_YASEL_Program_RollL.htm" />
+  <HelpKINode Title="Program.RollR method" Url="html/M_YASEL_Program_RollR.htm" />
+  <HelpKINode Title="Program.RollStop method" Url="html/M_YASEL_Program_RollStop.htm" />
+  <HelpKINode Title="Program.SearchBlocks method" Url="html/M_YASEL_Program_SearchBlocks.htm" />
+  <HelpKINode Title="Program.sEcho field" Url="html/F_YASEL_Program_sEcho.htm" />
+  <HelpKINode Title="Program.SetGyro method" Url="html/Overload_YASEL_Program_SetGyro.htm" />
+  <HelpKINode Title="Program.SetStatics method" Url="html/M_YASEL_Program_SetStatics.htm" />
+  <HelpKINode Title="Program.SetThrustOverride method" Url="html/Overload_YASEL_Program_SetThrustOverride.htm" />
   <HelpKINode Title="Program.SE_Menu class">
-    <HelpKINode Title="Program.SE_Menu Class" Url="html/ce69056a-0d4a-acae-4c14-79e8a2e4afbf.htm" />
-    <HelpKINode Title="about Program.SE_Menu class" Url="html/ce69056a-0d4a-acae-4c14-79e8a2e4afbf.htm" />
-    <HelpKINode Title="constructor" Url="html/54c62743-1618-0ae2-51dd-5bc2829d9a80.htm" />
+    <HelpKINode Title="Program.SE_Menu Class" Url="html/T_YASEL_Program_SE_Menu.htm" />
+    <HelpKINode Title="about Program.SE_Menu class" Url="html/T_YASEL_Program_SE_Menu.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_SE_Menu__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.SE_Menu.AddPage method" Url="html/73b27921-b574-2117-9681-7149a9a39cec.htm" />
-  <HelpKINode Title="Program.SE_Menu.curPage field" Url="html/dec4c920-7f76-b51a-04e4-548b00722205.htm" />
-  <HelpKINode Title="Program.SE_Menu.display field" Url="html/51d76485-785e-93d6-3651-89441ac653e0.htm" />
-  <HelpKINode Title="Program.SE_Menu.OnButtonPress method" Url="html/5dd34b0c-b61d-befc-05d9-b6596c597df2.htm" />
-  <HelpKINode Title="Program.SE_Menu.pages field" Url="html/4f207602-d4ba-9e2e-6831-6b1d837ecc86.htm" />
-  <HelpKINode Title="Program.SE_Menu.SE_Menu constructor" Url="html/54c62743-1618-0ae2-51dd-5bc2829d9a80.htm" />
-  <HelpKINode Title="Program.SE_Menu.ShowPage method" Url="html/68f72ee9-02a9-c9e7-4e28-61cf1ef9262b.htm" />
+  <HelpKINode Title="Program.SE_Menu.AddPage method" Url="html/M_YASEL_Program_SE_Menu_AddPage.htm" />
+  <HelpKINode Title="Program.SE_Menu.curPage field" Url="html/F_YASEL_Program_SE_Menu_curPage.htm" />
+  <HelpKINode Title="Program.SE_Menu.display field" Url="html/F_YASEL_Program_SE_Menu_display.htm" />
+  <HelpKINode Title="Program.SE_Menu.OnButtonPress method" Url="html/M_YASEL_Program_SE_Menu_OnButtonPress.htm" />
+  <HelpKINode Title="Program.SE_Menu.pages field" Url="html/F_YASEL_Program_SE_Menu_pages.htm" />
+  <HelpKINode Title="Program.SE_Menu.SE_Menu constructor" Url="html/M_YASEL_Program_SE_Menu__ctor.htm" />
+  <HelpKINode Title="Program.SE_Menu.ShowPage method" Url="html/M_YASEL_Program_SE_Menu_ShowPage.htm" />
   <HelpKINode Title="Program.SE_MenuOption class">
-    <HelpKINode Title="Program.SE_MenuOption Class" Url="html/51e73b83-0e6f-5389-1c07-c676d3cf5afd.htm" />
-    <HelpKINode Title="about Program.SE_MenuOption class" Url="html/51e73b83-0e6f-5389-1c07-c676d3cf5afd.htm" />
-    <HelpKINode Title="constructor" Url="html/4a31a13b-1a68-e9e3-46f1-58cc3e4761d4.htm" />
+    <HelpKINode Title="Program.SE_MenuOption Class" Url="html/T_YASEL_Program_SE_MenuOption.htm" />
+    <HelpKINode Title="about Program.SE_MenuOption class" Url="html/T_YASEL_Program_SE_MenuOption.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_SE_MenuOption__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.SE_MenuOption.ActionButton field" Url="html/48c22dba-13ba-eee3-b9d9-31c08bc9a1dc.htm" />
-  <HelpKINode Title="Program.SE_MenuOption.GotoPage field" Url="html/9cd41741-9dba-4792-e5c4-db809c3e8e40.htm" />
-  <HelpKINode Title="Program.SE_MenuOption.OnSelect field" Url="html/4cb46643-11c4-f9b7-bbd5-7cfdef2c1a3a.htm" />
-  <HelpKINode Title="Program.SE_MenuOption.SE_MenuOption constructor" Url="html/4a31a13b-1a68-e9e3-46f1-58cc3e4761d4.htm" />
-  <HelpKINode Title="Program.SE_MenuOption.Text field" Url="html/7d6ec58c-58ee-89aa-4e37-c54c61918c10.htm" />
+  <HelpKINode Title="Program.SE_MenuOption.ActionButton field" Url="html/F_YASEL_Program_SE_MenuOption_ActionButton.htm" />
+  <HelpKINode Title="Program.SE_MenuOption.GotoPage field" Url="html/F_YASEL_Program_SE_MenuOption_GotoPage.htm" />
+  <HelpKINode Title="Program.SE_MenuOption.OnSelect field" Url="html/F_YASEL_Program_SE_MenuOption_OnSelect.htm" />
+  <HelpKINode Title="Program.SE_MenuOption.SE_MenuOption constructor" Url="html/M_YASEL_Program_SE_MenuOption__ctor.htm" />
+  <HelpKINode Title="Program.SE_MenuOption.Text field" Url="html/F_YASEL_Program_SE_MenuOption_Text.htm" />
   <HelpKINode Title="Program.SE_MenuPage class">
-    <HelpKINode Title="Program.SE_MenuPage Class" Url="html/c3dab8fd-1bb5-f3d1-dc8c-251f82036bd6.htm" />
-    <HelpKINode Title="about Program.SE_MenuPage class" Url="html/c3dab8fd-1bb5-f3d1-dc8c-251f82036bd6.htm" />
-    <HelpKINode Title="constructor" Url="html/36804ad1-e693-1b2e-2760-e00119b478ee.htm" />
+    <HelpKINode Title="Program.SE_MenuPage Class" Url="html/T_YASEL_Program_SE_MenuPage.htm" />
+    <HelpKINode Title="about Program.SE_MenuPage class" Url="html/T_YASEL_Program_SE_MenuPage.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_SE_MenuPage__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.SE_MenuPage.AddOption method" Url="html/bf12c5f2-fbe5-e0c3-4d1d-acf4d60c79ff.htm" />
-  <HelpKINode Title="Program.SE_MenuPage.GetOption method" Url="html/24f0ee9e-864a-f4ff-b97a-0cae832e221b.htm" />
-  <HelpKINode Title="Program.SE_MenuPage.GetText method" Url="html/39f6e3f4-36c0-fc13-0628-1229c50dd417.htm" />
-  <HelpKINode Title="Program.SE_MenuPage.Name field" Url="html/1583cbec-aee5-67ee-a15c-d1560cd6fd9b.htm" />
-  <HelpKINode Title="Program.SE_MenuPage.options field" Url="html/515fcf56-1d85-d370-f694-1e0e08eb0652.htm" />
-  <HelpKINode Title="Program.SE_MenuPage.SE_MenuPage constructor" Url="html/36804ad1-e693-1b2e-2760-e00119b478ee.htm" />
-  <HelpKINode Title="Program.SE_MenuPage.Title field" Url="html/924338b2-f3c4-128b-0295-8ce1347e1522.htm" />
-  <HelpKINode Title="Program.sMe field" Url="html/60418036-ebba-ea6f-0950-53f8a9e9dc60.htm" />
-  <HelpKINode Title="Program.STATE_MININGALIGN field" Url="html/e58aedbd-d43f-94cf-37ba-c727b3b9f684.htm" />
-  <HelpKINode Title="Program.STATE_RESET field" Url="html/b1e18859-0ed2-84ba-62e4-02fd69ca3730.htm" />
-  <HelpKINode Title="Program.STATE_RUNNING field" Url="html/b4f81476-abc2-a218-5cc2-e90f5cf6d80b.htm" />
-  <HelpKINode Title="Program.STATE_WPMODE field" Url="html/b23a391f-4822-6f5c-0cd3-935da75ae243.htm" />
-  <HelpKINode Title="Program.StaticsAreSet property" Url="html/7d5ac6c3-b2ff-5d2b-1134-79f74671ecfd.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.AddOption method" Url="html/M_YASEL_Program_SE_MenuPage_AddOption.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.GetOption method" Url="html/M_YASEL_Program_SE_MenuPage_GetOption.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.GetText method" Url="html/M_YASEL_Program_SE_MenuPage_GetText.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.Name field" Url="html/F_YASEL_Program_SE_MenuPage_Name.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.options field" Url="html/F_YASEL_Program_SE_MenuPage_options.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.SE_MenuPage constructor" Url="html/M_YASEL_Program_SE_MenuPage__ctor.htm" />
+  <HelpKINode Title="Program.SE_MenuPage.Title field" Url="html/F_YASEL_Program_SE_MenuPage_Title.htm" />
+  <HelpKINode Title="Program.sMe field" Url="html/F_YASEL_Program_sMe.htm" />
+  <HelpKINode Title="Program.STATE_MININGALIGN field" Url="html/F_YASEL_Program_STATE_MININGALIGN.htm" />
+  <HelpKINode Title="Program.STATE_RESET field" Url="html/F_YASEL_Program_STATE_RESET.htm" />
+  <HelpKINode Title="Program.STATE_RUNNING field" Url="html/F_YASEL_Program_STATE_RUNNING.htm" />
+  <HelpKINode Title="Program.STATE_WPMODE field" Url="html/F_YASEL_Program_STATE_WPMODE.htm" />
+  <HelpKINode Title="Program.StaticsAreSet property" Url="html/P_YASEL_Program_StaticsAreSet.htm" />
   <HelpKINode Title="Program.StationManager class">
-    <HelpKINode Title="Program.StationManager Class" Url="html/7fc510cc-1a28-3b96-62ac-6700b36c38e3.htm" />
-    <HelpKINode Title="about Program.StationManager class" Url="html/7fc510cc-1a28-3b96-62ac-6700b36c38e3.htm" />
-    <HelpKINode Title="constructor" Url="html/73195cf1-22b4-d33a-a738-5170f7f1c287.htm" />
+    <HelpKINode Title="Program.StationManager Class" Url="html/T_YASEL_Program_StationManager.htm" />
+    <HelpKINode Title="about Program.StationManager class" Url="html/T_YASEL_Program_StationManager.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_StationManager__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.StationManager.DisplayCargoStatus method" Url="html/b2f75d68-c215-4d44-c0a5-013d052da64f.htm" />
-  <HelpKINode Title="Program.StationManager.DisplayTime method" Url="html/e329af4c-a33c-a6f3-7bd4-8d3358d75f27.htm" />
-  <HelpKINode Title="Program.StationManager.ManageAirlocks method" Url="html/a7a0de9c-50c3-67b3-e07e-c6f7b0a2e75c.htm" />
-  <HelpKINode Title="Program.StationManager.ManageOxygenGens method" Url="html/1873025c-9da3-6f9c-513d-6ed3f860f7cd.htm" />
-  <HelpKINode Title="Program.StationManager.settings field" Url="html/8b42ebb1-e201-75df-b763-5f66e7df3bb9.htm" />
-  <HelpKINode Title="Program.StationManager.StationManager constructor" Url="html/73195cf1-22b4-d33a-a738-5170f7f1c287.htm" />
+  <HelpKINode Title="Program.StationManager.DisplayCargoStatus method" Url="html/M_YASEL_Program_StationManager_DisplayCargoStatus.htm" />
+  <HelpKINode Title="Program.StationManager.DisplayTime method" Url="html/M_YASEL_Program_StationManager_DisplayTime.htm" />
+  <HelpKINode Title="Program.StationManager.ManageAirlocks method" Url="html/M_YASEL_Program_StationManager_ManageAirlocks.htm" />
+  <HelpKINode Title="Program.StationManager.ManageOxygenGens method" Url="html/M_YASEL_Program_StationManager_ManageOxygenGens.htm" />
+  <HelpKINode Title="Program.StationManager.settings field" Url="html/F_YASEL_Program_StationManager_settings.htm" />
+  <HelpKINode Title="Program.StationManager.StationManager constructor" Url="html/M_YASEL_Program_StationManager__ctor.htm" />
   <HelpKINode Title="Program.StationManagerSettings class">
-    <HelpKINode Title="Program.StationManagerSettings Class" Url="html/696be76a-86fe-bee8-9359-72c22efaf252.htm" />
-    <HelpKINode Title="about Program.StationManagerSettings class" Url="html/696be76a-86fe-bee8-9359-72c22efaf252.htm" />
-    <HelpKINode Title="constructor" Url="html/b06804fa-5fa2-58c1-9140-2fd81e4b391d.htm" />
+    <HelpKINode Title="Program.StationManagerSettings Class" Url="html/T_YASEL_Program_StationManagerSettings.htm" />
+    <HelpKINode Title="about Program.StationManagerSettings class" Url="html/T_YASEL_Program_StationManagerSettings.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_StationManagerSettings__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.StationManagerSettings.AirlockHangarDoorWaitTime field" Url="html/a823edcf-fbba-5f27-469d-f83891ecd482.htm" />
-  <HelpKINode Title="Program.StationManagerSettings.CargoGroups field" Url="html/0ced0ab0-cb7f-5452-ef59-096a0f210328.htm" />
-  <HelpKINode Title="Program.StationManagerSettings.CargoStatusLCDName field" Url="html/41b56199-9c1c-9e5b-6e45-559572cc1588.htm" />
-  <HelpKINode Title="Program.StationManagerSettings.OxygenGenHighThreshold field" Url="html/789ce68e-6904-0320-b106-fc6e4e2c7825.htm" />
-  <HelpKINode Title="Program.StationManagerSettings.OxygenGenLowThreshold field" Url="html/cac080f6-372e-6aff-4182-96d15babeb36.htm" />
-  <HelpKINode Title="Program.StationManagerSettings.StationManagerSettings constructor" Url="html/b06804fa-5fa2-58c1-9140-2fd81e4b391d.htm" />
-  <HelpKINode Title="Program.StationManagerSettings.TimeLCDName field" Url="html/9363b001-409f-7745-b38a-0ad6992deeec.htm" />
-  <HelpKINode Title="Program.StopGyro method" Url="html/4611fc0e-d152-ce69-e828-3170932d5ac6.htm" />
-  <HelpKINode Title="Program.SwitchLock method" Url="html/b80fa108-b9c0-908c-3cd0-9f801facd8ee.htm" />
-  <HelpKINode Title="Program.ThrowOut method" Url="html/76732984-7606-9a2e-48e8-b4d53689f8f3.htm" />
-  <HelpKINode Title="Program.tick field" Url="html/287cc55c-432d-acf4-ac73-755e470224ae.htm" />
-  <HelpKINode Title="Program.TurnOnOff method" Url="html/bc0c6e5d-9187-6fbc-1e90-db4bffe3b4cd.htm" />
-  <HelpKINode Title="Program.TurnOnOffDampeners method" Url="html/a4c86bde-cc2c-3978-127f-5e7e194ee13c.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.AirlockHangarDoorWaitTime field" Url="html/F_YASEL_Program_StationManagerSettings_AirlockHangarDoorWaitTime.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.CargoGroups field" Url="html/F_YASEL_Program_StationManagerSettings_CargoGroups.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.CargoStatusLCDName field" Url="html/F_YASEL_Program_StationManagerSettings_CargoStatusLCDName.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.OxygenGenHighThreshold field" Url="html/F_YASEL_Program_StationManagerSettings_OxygenGenHighThreshold.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.OxygenGenLowThreshold field" Url="html/F_YASEL_Program_StationManagerSettings_OxygenGenLowThreshold.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.StationManagerSettings constructor" Url="html/M_YASEL_Program_StationManagerSettings__ctor.htm" />
+  <HelpKINode Title="Program.StationManagerSettings.TimeLCDName field" Url="html/F_YASEL_Program_StationManagerSettings_TimeLCDName.htm" />
+  <HelpKINode Title="Program.StopGyro method" Url="html/Overload_YASEL_Program_StopGyro.htm" />
+  <HelpKINode Title="Program.SwitchLock method" Url="html/Overload_YASEL_Program_SwitchLock.htm" />
+  <HelpKINode Title="Program.ThrowOut method" Url="html/Overload_YASEL_Program_ThrowOut.htm" />
+  <HelpKINode Title="Program.tick field" Url="html/F_YASEL_Program_tick.htm" />
+  <HelpKINode Title="Program.TurnOnOff method" Url="html/Overload_YASEL_Program_TurnOnOff.htm" />
+  <HelpKINode Title="Program.TurnOnOffDampeners method" Url="html/M_YASEL_Program_TurnOnOffDampeners.htm" />
   <HelpKINode Title="Program.VarStore class">
-    <HelpKINode Title="Program.VarStore Class" Url="html/51495fe1-6ccc-9a3b-c672-a3a825b60f0b.htm" />
-    <HelpKINode Title="about Program.VarStore class" Url="html/51495fe1-6ccc-9a3b-c672-a3a825b60f0b.htm" />
-    <HelpKINode Title="constructor" Url="html/5ff84610-b585-8b8c-8126-77c9a085c7b7.htm" />
+    <HelpKINode Title="Program.VarStore Class" Url="html/T_YASEL_Program_VarStore.htm" />
+    <HelpKINode Title="about Program.VarStore class" Url="html/T_YASEL_Program_VarStore.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_VarStore__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.VarStore.DelVarFromStore method" Url="html/7e94ec12-863b-6009-ea6f-e4144e83eb3c.htm" />
-  <HelpKINode Title="Program.VarStore.GetVarFromStore method" Url="html/aa50e503-5f3e-34d1-41ff-2c24f12b857e.htm" />
-  <HelpKINode Title="Program.VarStore.initVarStore method" Url="html/c9a8c857-ecbb-c5b8-0832-0459ccc45965.htm" />
-  <HelpKINode Title="Program.VarStore.LCDDebugScreenName field" Url="html/75db5fbf-d1a3-45b9-1662-82471c79f472.htm" />
-  <HelpKINode Title="Program.VarStore.LCDVariableStore field" Url="html/f0a42a40-7ea2-5485-0f58-efbb4d00d1e4.htm" />
-  <HelpKINode Title="Program.VarStore.LCDVariableStoreName field" Url="html/bab4fa84-9e22-9309-e738-0a87c5ddec47.htm" />
-  <HelpKINode Title="Program.VarStore.readStore method" Url="html/71836f0e-b558-6d71-822b-a38c0f589cca.htm" />
-  <HelpKINode Title="Program.VarStore.SetVarToStore method" Url="html/55af8207-df6d-997e-5cc4-01684a19fe3d.htm" />
-  <HelpKINode Title="Program.VarStore.varList field" Url="html/b9b833d9-c740-2004-b520-69253bc87e9e.htm" />
-  <HelpKINode Title="Program.VarStore.VarStore constructor" Url="html/5ff84610-b585-8b8c-8126-77c9a085c7b7.htm" />
-  <HelpKINode Title="Program.VarStore.varStoreInit field" Url="html/47f2ae76-098f-4cb1-cc4a-d081f696a111.htm" />
-  <HelpKINode Title="Program.VarStore.writeStore method" Url="html/35e5d9a3-e81b-fd0c-fa44-bb10496045e3.htm" />
+  <HelpKINode Title="Program.VarStore.DelVarFromStore method" Url="html/M_YASEL_Program_VarStore_DelVarFromStore.htm" />
+  <HelpKINode Title="Program.VarStore.GetVarFromStore method" Url="html/M_YASEL_Program_VarStore_GetVarFromStore.htm" />
+  <HelpKINode Title="Program.VarStore.initVarStore method" Url="html/M_YASEL_Program_VarStore_initVarStore.htm" />
+  <HelpKINode Title="Program.VarStore.LCDDebugScreenName field" Url="html/F_YASEL_Program_VarStore_LCDDebugScreenName.htm" />
+  <HelpKINode Title="Program.VarStore.LCDVariableStore field" Url="html/F_YASEL_Program_VarStore_LCDVariableStore.htm" />
+  <HelpKINode Title="Program.VarStore.LCDVariableStoreName field" Url="html/F_YASEL_Program_VarStore_LCDVariableStoreName.htm" />
+  <HelpKINode Title="Program.VarStore.readStore method" Url="html/M_YASEL_Program_VarStore_readStore.htm" />
+  <HelpKINode Title="Program.VarStore.SetVarToStore method" Url="html/M_YASEL_Program_VarStore_SetVarToStore.htm" />
+  <HelpKINode Title="Program.VarStore.varList field" Url="html/F_YASEL_Program_VarStore_varList.htm" />
+  <HelpKINode Title="Program.VarStore.VarStore constructor" Url="html/M_YASEL_Program_VarStore__ctor.htm" />
+  <HelpKINode Title="Program.VarStore.varStoreInit field" Url="html/F_YASEL_Program_VarStore_varStoreInit.htm" />
+  <HelpKINode Title="Program.VarStore.writeStore method" Url="html/M_YASEL_Program_VarStore_writeStore.htm" />
   <HelpKINode Title="Program.WpInfo class">
-    <HelpKINode Title="Program.WpInfo Class" Url="html/71a408de-9330-e42a-599f-a9ed06fe30a2.htm" />
-    <HelpKINode Title="about Program.WpInfo class" Url="html/71a408de-9330-e42a-599f-a9ed06fe30a2.htm" />
-    <HelpKINode Title="constructor" Url="html/8ba01a36-0e04-e230-03f2-9e27313e08fd.htm" />
+    <HelpKINode Title="Program.WpInfo Class" Url="html/T_YASEL_Program_WpInfo.htm" />
+    <HelpKINode Title="about Program.WpInfo class" Url="html/T_YASEL_Program_WpInfo.htm" />
+    <HelpKINode Title="constructor" Url="html/M_YASEL_Program_WpInfo__ctor.htm" />
   </HelpKINode>
-  <HelpKINode Title="Program.WpInfo.aligned field" Url="html/c22fe1a2-25df-86fa-0a4a-91416eaf31a0.htm" />
-  <HelpKINode Title="Program.WpInfo.alignFirst field" Url="html/786d9666-63d6-8fb8-9e05-1e5785072a1b.htm" />
-  <HelpKINode Title="Program.WpInfo.AlignTo method" Url="html/15c35031-9b86-9a86-fab7-a5ed887bd24e.htm" />
-  <HelpKINode Title="Program.WpInfo.angle field" Url="html/320e36c4-61f2-8944-d204-5073554a5ea2.htm" />
-  <HelpKINode Title="Program.WpInfo.CallbackMethod field" Url="html/c5d009a6-011a-a41a-87a0-9854c6b33a30.htm" />
-  <HelpKINode Title="Program.WpInfo.centered field" Url="html/5fbcd1ca-ffe9-0940-fc65-bdcc8e24c498.htm" />
-  <HelpKINode Title="Program.WpInfo.CenterOn method" Url="html/4b6f3f24-8421-abc0-2b4a-83e7b04ff2dc.htm" />
-  <HelpKINode Title="Program.WpInfo.cross field" Url="html/25e67055-1f49-0ff1-0db6-db68f87529ce.htm" />
-  <HelpKINode Title="Program.WpInfo.direction field" Url="html/029c5840-db8b-9269-f687-84dde75b8ded.htm" />
-  <HelpKINode Title="Program.WpInfo.enabled field" Url="html/8a8fe2c4-de91-f128-8fc2-c62a3c4c6740.htm" />
-  <HelpKINode Title="Program.WpInfo.GetLCDString method" Url="html/cd1dfb53-9a43-e1fd-62c4-5a6a9022430e.htm" />
-  <HelpKINode Title="Program.WpInfo.InitFromString method" Url="html/68ccb56b-2d9a-c7b7-2707-59d2595e6af5.htm" />
-  <HelpKINode Title="Program.WpInfo.IsComplete method" Url="html/8a70a729-20ab-a443-d272-c69a37e8b138.htm" />
-  <HelpKINode Title="Program.WpInfo.isZeroVector method" Url="html/2d3f7dc3-2493-a1cc-e357-855678f37c0b.htm" />
-  <HelpKINode Title="Program.WpInfo.leveled field" Url="html/c7baf913-eb6e-313a-6ea9-77ee030c5d50.htm" />
-  <HelpKINode Title="Program.WpInfo.LevelTo method" Url="html/369df5f8-506a-9d36-76a5-7d599eb86abd.htm" />
-  <HelpKINode Title="Program.WpInfo.noStop field" Url="html/bab4678d-d525-2113-4d59-071f9dcff4e8.htm" />
-  <HelpKINode Title="Program.WpInfo.pos field" Url="html/d3c39afd-d529-e712-b092-65adcb5e2823.htm" />
-  <HelpKINode Title="Program.WpInfo.reAligning field" Url="html/fd9369ea-74b5-583d-8cae-8388868a83c9.htm" />
-  <HelpKINode Title="Program.WpInfo.speed field" Url="html/1408eff4-12b3-1fc1-dc12-cb4c416e8480.htm" />
-  <HelpKINode Title="Program.WpInfo.stopDist field" Url="html/de357638-1a9f-e7bc-c60a-e98e0b78abab.htm" />
-  <HelpKINode Title="Program.WpInfo.strToB method" Url="html/510f1d3e-1710-6730-ad77-f565ea368c00.htm" />
-  <HelpKINode Title="Program.WpInfo.strToD method" Url="html/b59359b6-909b-8af8-2228-e94a20c63f37.htm" />
-  <HelpKINode Title="Program.WpInfo.strToV method" Url="html/112cceda-c6b2-0ea1-1821-992c2e2a3ae3.htm" />
-  <HelpKINode Title="Program.WpInfo.thrust field" Url="html/2d361d25-4761-6562-3e23-30ad1ed96e11.htm" />
-  <HelpKINode Title="Program.WpInfo.traveled field" Url="html/6e037e0d-2b04-c1dc-49ae-5be352128260.htm" />
-  <HelpKINode Title="Program.WpInfo.TravelTo method" Url="html/5cde3cf2-2174-df2e-25d1-8d108d60257d.htm" />
-  <HelpKINode Title="Program.WpInfo.type field" Url="html/4f5f2c0c-6da6-796f-a2ec-799cd12b270c.htm" />
-  <HelpKINode Title="Program.WpInfo.vToStr method" Url="html/3ed041d0-b1ed-a744-1f5f-7923a2528e04.htm" />
-  <HelpKINode Title="Program.WpInfo.waited field" Url="html/292c2391-9814-68a8-503c-bf122de78b0b.htm" />
-  <HelpKINode Title="Program.WpInfo.WaitFor method" Url="html/a09ee6e2-ddfa-7e7d-cdbf-ac86bfe0214a.htm" />
-  <HelpKINode Title="Program.WpInfo.waitTime field" Url="html/cc2bc7e8-bd7e-a34e-54cc-948c43ac0cf0.htm" />
-  <HelpKINode Title="Program.WpInfo.wpId field" Url="html/e5638148-1a9b-f12e-fedc-8618dbb18598.htm" />
-  <HelpKINode Title="Program.WpInfo.WpInfo constructor" Url="html/8ba01a36-0e04-e230-03f2-9e27313e08fd.htm" />
-  <HelpKINode Title="Program.YawL method" Url="html/6d95d4b0-aa74-e2ce-7416-3baa1eba52de.htm" />
-  <HelpKINode Title="Program.YawR method" Url="html/538ed68c-a02a-688b-40e1-2df67fe131bc.htm" />
-  <HelpKINode Title="Program.YawStop method" Url="html/975aacde-6b42-8403-074d-79cad6b789a9.htm" />
-  <HelpKINode Title="readStore method" Url="html/71836f0e-b558-6d71-822b-a38c0f589cca.htm" />
-  <HelpKINode Title="reAligning field" Url="html/fd9369ea-74b5-583d-8cae-8388868a83c9.htm" />
-  <HelpKINode Title="rearBlock field" Url="html/f15ce131-880c-485e-085c-0fa900f1b0b9.htm" />
-  <HelpKINode Title="RearBlockName field" Url="html/fd4e087b-c1dc-4c8b-b4d5-ebdd3a0ed0c5.htm" />
-  <HelpKINode Title="rearPos field" Url="html/3d3f4d30-08b4-23d2-4cc2-4da97f876b0a.htm" />
-  <HelpKINode Title="reset method" Url="html/988a5334-19d7-a1a5-aed1-05db405f66b8.htm" />
-  <HelpKINode Title="Reset method" Url="html/0833aff9-b812-77bd-54ac-4dfb178ad51d.htm" />
-  <HelpKINode Title="rightBlock field" Url="html/1650b129-0f27-d3ec-c60a-7e6e366b40f1.htm" />
-  <HelpKINode Title="RightBlockName field" Url="html/c24b070c-c1df-f40c-9fb3-2e39e966612f.htm" />
-  <HelpKINode Title="rightThrusters field" Url="html/2aaf73df-8233-4ad6-e64a-9b71ee3cf891.htm" />
-  <HelpKINode Title="RightThrustGroupName field" Url="html/3d6e0899-e450-0f82-32f1-6bfc223ff8fb.htm" />
-  <HelpKINode Title="RollL method" Url="html/54c96aaf-8e7f-7826-ed88-d524eb72d422.htm" />
-  <HelpKINode Title="RollR method" Url="html/e775d707-a74d-63e5-5fcb-abf2728fb698.htm" />
-  <HelpKINode Title="RollStop method" Url="html/6dbd83a9-07ae-52c2-b206-682a4aac5d0b.htm" />
-  <HelpKINode Title="rPos field" Url="html/13449aae-9d57-b9d2-6225-4f8204fc5c70.htm" />
-  <HelpKINode Title="rtb method" Url="html/6d7bdb98-5c07-bfb7-d875-88f5a666fadd.htm" />
-  <HelpKINode Title="rtbComplete method" Url="html/19cc810d-6e0b-731e-0cc3-4b14dc7dc200.htm" />
-  <HelpKINode Title="runCount field" Url="html/1605eee0-3a56-967a-027a-5bffc77a7532.htm" />
-  <HelpKINode Title="rvsThrusters field" Url="html/1b496276-8bcb-e929-90b4-d3ced2654580.htm" />
-  <HelpKINode Title="RvsThrustGroupName field" Url="html/094f64d5-54e6-849f-dba9-3d6de680898a.htm" />
-  <HelpKINode Title="SearchBlocks method" Url="html/a297dbb1-3437-bb46-acf3-a7062e51e182.htm" />
-  <HelpKINode Title="sEcho field" Url="html/27956b8d-778d-071a-9e3f-94f7ace7e69f.htm" />
-  <HelpKINode Title="SetGyro method" Url="html/20669bd9-8cd0-76f8-19d8-46f65966890d.htm" />
-  <HelpKINode Title="SetStatics method" Url="html/6d514322-baf1-f2c2-61b6-4cce108d556a.htm" />
-  <HelpKINode Title="SetThrustOverride method" Url="html/c6206155-9178-6d3b-9cc2-eebe68c54847.htm" />
+  <HelpKINode Title="Program.WpInfo.aligned field" Url="html/F_YASEL_Program_WpInfo_aligned.htm" />
+  <HelpKINode Title="Program.WpInfo.alignFirst field" Url="html/F_YASEL_Program_WpInfo_alignFirst.htm" />
+  <HelpKINode Title="Program.WpInfo.AlignTo method" Url="html/M_YASEL_Program_WpInfo_AlignTo.htm" />
+  <HelpKINode Title="Program.WpInfo.angle field" Url="html/F_YASEL_Program_WpInfo_angle.htm" />
+  <HelpKINode Title="Program.WpInfo.CallbackMethod field" Url="html/F_YASEL_Program_WpInfo_CallbackMethod.htm" />
+  <HelpKINode Title="Program.WpInfo.centered field" Url="html/F_YASEL_Program_WpInfo_centered.htm" />
+  <HelpKINode Title="Program.WpInfo.CenterOn method" Url="html/M_YASEL_Program_WpInfo_CenterOn.htm" />
+  <HelpKINode Title="Program.WpInfo.cross field" Url="html/F_YASEL_Program_WpInfo_cross.htm" />
+  <HelpKINode Title="Program.WpInfo.direction field" Url="html/F_YASEL_Program_WpInfo_direction.htm" />
+  <HelpKINode Title="Program.WpInfo.enabled field" Url="html/F_YASEL_Program_WpInfo_enabled.htm" />
+  <HelpKINode Title="Program.WpInfo.GetLCDString method" Url="html/M_YASEL_Program_WpInfo_GetLCDString.htm" />
+  <HelpKINode Title="Program.WpInfo.InitFromString method" Url="html/M_YASEL_Program_WpInfo_InitFromString.htm" />
+  <HelpKINode Title="Program.WpInfo.IsComplete method" Url="html/M_YASEL_Program_WpInfo_IsComplete.htm" />
+  <HelpKINode Title="Program.WpInfo.isZeroVector method" Url="html/M_YASEL_Program_WpInfo_isZeroVector.htm" />
+  <HelpKINode Title="Program.WpInfo.leveled field" Url="html/F_YASEL_Program_WpInfo_leveled.htm" />
+  <HelpKINode Title="Program.WpInfo.LevelTo method" Url="html/M_YASEL_Program_WpInfo_LevelTo.htm" />
+  <HelpKINode Title="Program.WpInfo.noStop field" Url="html/F_YASEL_Program_WpInfo_noStop.htm" />
+  <HelpKINode Title="Program.WpInfo.pos field" Url="html/F_YASEL_Program_WpInfo_pos.htm" />
+  <HelpKINode Title="Program.WpInfo.reAligning field" Url="html/F_YASEL_Program_WpInfo_reAligning.htm" />
+  <HelpKINode Title="Program.WpInfo.speed field" Url="html/F_YASEL_Program_WpInfo_speed.htm" />
+  <HelpKINode Title="Program.WpInfo.stopDist field" Url="html/F_YASEL_Program_WpInfo_stopDist.htm" />
+  <HelpKINode Title="Program.WpInfo.strToB method" Url="html/M_YASEL_Program_WpInfo_strToB.htm" />
+  <HelpKINode Title="Program.WpInfo.strToD method" Url="html/M_YASEL_Program_WpInfo_strToD.htm" />
+  <HelpKINode Title="Program.WpInfo.strToV method" Url="html/M_YASEL_Program_WpInfo_strToV.htm" />
+  <HelpKINode Title="Program.WpInfo.thrust field" Url="html/F_YASEL_Program_WpInfo_thrust.htm" />
+  <HelpKINode Title="Program.WpInfo.traveled field" Url="html/F_YASEL_Program_WpInfo_traveled.htm" />
+  <HelpKINode Title="Program.WpInfo.TravelTo method" Url="html/M_YASEL_Program_WpInfo_TravelTo.htm" />
+  <HelpKINode Title="Program.WpInfo.type field" Url="html/F_YASEL_Program_WpInfo_type.htm" />
+  <HelpKINode Title="Program.WpInfo.vToStr method" Url="html/M_YASEL_Program_WpInfo_vToStr.htm" />
+  <HelpKINode Title="Program.WpInfo.waited field" Url="html/F_YASEL_Program_WpInfo_waited.htm" />
+  <HelpKINode Title="Program.WpInfo.WaitFor method" Url="html/M_YASEL_Program_WpInfo_WaitFor.htm" />
+  <HelpKINode Title="Program.WpInfo.waitTime field" Url="html/F_YASEL_Program_WpInfo_waitTime.htm" />
+  <HelpKINode Title="Program.WpInfo.wpId field" Url="html/F_YASEL_Program_WpInfo_wpId.htm" />
+  <HelpKINode Title="Program.WpInfo.WpInfo constructor" Url="html/M_YASEL_Program_WpInfo__ctor.htm" />
+  <HelpKINode Title="Program.YawL method" Url="html/M_YASEL_Program_YawL.htm" />
+  <HelpKINode Title="Program.YawR method" Url="html/M_YASEL_Program_YawR.htm" />
+  <HelpKINode Title="Program.YawStop method" Url="html/M_YASEL_Program_YawStop.htm" />
+  <HelpKINode Title="readStore method" Url="html/M_YASEL_Program_VarStore_readStore.htm" />
+  <HelpKINode Title="reAligning field" Url="html/F_YASEL_Program_WpInfo_reAligning.htm" />
+  <HelpKINode Title="rearBlock field" Url="html/F_YASEL_Program_NavManager_rearBlock.htm" />
+  <HelpKINode Title="RearBlockName field" Url="html/F_YASEL_Program_NavSettings_RearBlockName.htm" />
+  <HelpKINode Title="rearPos field" Url="html/F_YASEL_Program_NavManager_rearPos.htm" />
+  <HelpKINode Title="reset method" Url="html/M_YASEL_Program_DrillerNav_reset.htm" />
+  <HelpKINode Title="Reset method" Url="html/M_YASEL_Program_NavManager_Reset.htm" />
+  <HelpKINode Title="rightBlock field" Url="html/F_YASEL_Program_NavManager_rightBlock.htm" />
+  <HelpKINode Title="RightBlockName field" Url="html/F_YASEL_Program_NavSettings_RightBlockName.htm" />
+  <HelpKINode Title="rightThrusters field" Url="html/F_YASEL_Program_NavManager_rightThrusters.htm" />
+  <HelpKINode Title="RightThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_RightThrustGroupName.htm" />
+  <HelpKINode Title="RollL method" Url="html/M_YASEL_Program_RollL.htm" />
+  <HelpKINode Title="RollR method" Url="html/M_YASEL_Program_RollR.htm" />
+  <HelpKINode Title="RollStop method" Url="html/M_YASEL_Program_RollStop.htm" />
+  <HelpKINode Title="rPos field" Url="html/F_YASEL_Program_NavManager_rPos.htm" />
+  <HelpKINode Title="rtb method" Url="html/M_YASEL_Program_DrillerNav_rtb.htm" />
+  <HelpKINode Title="rtbComplete method" Url="html/M_YASEL_Program_DrillerNav_rtbComplete.htm" />
+  <HelpKINode Title="runCount field" Url="html/F_YASEL_Program_NavManager_runCount.htm" />
+  <HelpKINode Title="rvsThrusters field" Url="html/F_YASEL_Program_NavManager_rvsThrusters.htm" />
+  <HelpKINode Title="RvsThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_RvsThrustGroupName.htm" />
+  <HelpKINode Title="SearchBlocks method" Url="html/M_YASEL_Program_SearchBlocks.htm" />
+  <HelpKINode Title="sEcho field" Url="html/F_YASEL_Program_sEcho.htm" />
+  <HelpKINode Title="SetGyro method" Url="html/Overload_YASEL_Program_SetGyro.htm" />
+  <HelpKINode Title="SetStatics method" Url="html/M_YASEL_Program_SetStatics.htm" />
+  <HelpKINode Title="SetThrustOverride method" Url="html/Overload_YASEL_Program_SetThrustOverride.htm" />
   <HelpKINode Title="settings field">
-    <HelpKINode Title="Program.DrillerNav.settings Field" Url="html/4b2bbda1-b6b5-90bf-6ff4-efbb831b79c7.htm" />
-    <HelpKINode Title="Program.NavManager.settings Field" Url="html/9d600e70-3b51-df3a-6dd8-0beabbd54c6c.htm" />
-    <HelpKINode Title="Program.StationManager.settings Field" Url="html/8b42ebb1-e201-75df-b763-5f66e7df3bb9.htm" />
+    <HelpKINode Title="Program.DrillerNav.settings Field" Url="html/F_YASEL_Program_DrillerNav_settings.htm" />
+    <HelpKINode Title="Program.NavManager.settings Field" Url="html/F_YASEL_Program_NavManager_settings.htm" />
+    <HelpKINode Title="Program.StationManager.settings Field" Url="html/F_YASEL_Program_StationManager_settings.htm" />
   </HelpKINode>
-  <HelpKINode Title="SetVarToStore method" Url="html/55af8207-df6d-997e-5cc4-01684a19fe3d.htm" />
+  <HelpKINode Title="SetVarToStore method" Url="html/M_YASEL_Program_VarStore_SetVarToStore.htm" />
   <HelpKINode Title="SE_Menu class">
-    <HelpKINode Title="fields" Url="html/4de17b55-87a4-f5e0-0c8a-aa267d5907cc.htm" />
-    <HelpKINode Title="methods" Url="html/bb7a99cc-64e4-43bf-8532-5ba4b897c266.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_SE_Menu.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_SE_Menu.htm" />
   </HelpKINode>
   <HelpKINode Title="SE_MenuOption class">
-    <HelpKINode Title="fields" Url="html/e7aed108-80c0-de2a-aab1-51d079175ecf.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_SE_MenuOption.htm" />
   </HelpKINode>
   <HelpKINode Title="SE_MenuPage class">
-    <HelpKINode Title="fields" Url="html/c82d450d-2aa9-72af-25b4-075f8c528965.htm" />
-    <HelpKINode Title="methods" Url="html/6165400e-474b-c81d-e95d-d44984b80a32.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_SE_MenuPage.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_SE_MenuPage.htm" />
   </HelpKINode>
-  <HelpKINode Title="ShaftDepth field" Url="html/4338047c-2240-d3c9-ff05-aa2cb77bba3c.htm" />
-  <HelpKINode Title="ShaftHeight field" Url="html/2480bac1-bbc5-2e0a-ce66-4945bd5fa6ec.htm" />
-  <HelpKINode Title="ShaftMaxCount field" Url="html/faff9e07-beb4-40a9-28b1-de66a47189da.htm" />
-  <HelpKINode Title="ShaftWidth field" Url="html/ed657b3a-5fb7-f2ff-2449-6fbcf9ce0b22.htm" />
-  <HelpKINode Title="shaftX field" Url="html/738f6d36-4e6a-f309-18ba-8c033d483285.htm" />
-  <HelpKINode Title="shaftY field" Url="html/8f75fa60-5a0c-c251-2fc7-ef4cf1d39b76.htm" />
-  <HelpKINode Title="ShipLeft method" Url="html/1087a68a-fd2f-6e1c-2f49-8a2d5e3c939f.htm" />
-  <HelpKINode Title="ShipUp method" Url="html/fcb3ebdd-2d38-e179-db73-ef53dee78790.htm" />
-  <HelpKINode Title="ShowPage method" Url="html/68f72ee9-02a9-c9e7-4e28-61cf1ef9262b.htm" />
-  <HelpKINode Title="sMe field" Url="html/60418036-ebba-ea6f-0950-53f8a9e9dc60.htm" />
+  <HelpKINode Title="ShaftDepth field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftDepth.htm" />
+  <HelpKINode Title="ShaftHeight field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftHeight.htm" />
+  <HelpKINode Title="ShaftMaxCount field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftMaxCount.htm" />
+  <HelpKINode Title="ShaftWidth field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftWidth.htm" />
+  <HelpKINode Title="shaftX field" Url="html/F_YASEL_Program_DrillerNav_shaftX.htm" />
+  <HelpKINode Title="shaftY field" Url="html/F_YASEL_Program_DrillerNav_shaftY.htm" />
+  <HelpKINode Title="ShipLeft method" Url="html/M_YASEL_Program_NavManager_ShipLeft.htm" />
+  <HelpKINode Title="ShipUp method" Url="html/M_YASEL_Program_NavManager_ShipUp.htm" />
+  <HelpKINode Title="ShowPage method" Url="html/M_YASEL_Program_SE_Menu_ShowPage.htm" />
+  <HelpKINode Title="sMe field" Url="html/F_YASEL_Program_sMe.htm" />
   <HelpKINode Title="speed field">
-    <HelpKINode Title="Program.NavManager.speed Field" Url="html/32a296fd-07ce-80a6-cf5e-40c33e16ff44.htm" />
-    <HelpKINode Title="Program.WpInfo.speed Field" Url="html/1408eff4-12b3-1fc1-dc12-cb4c416e8480.htm" />
+    <HelpKINode Title="Program.NavManager.speed Field" Url="html/F_YASEL_Program_NavManager_speed.htm" />
+    <HelpKINode Title="Program.WpInfo.speed Field" Url="html/F_YASEL_Program_WpInfo_speed.htm" />
   </HelpKINode>
-  <HelpKINode Title="speeds field" Url="html/23910f3d-dfee-9c9a-d7c3-06cfb5e52118.htm" />
-  <HelpKINode Title="speedsToDest field" Url="html/06242c1b-031f-1a36-638d-d8dfc6a139dc.htm" />
-  <HelpKINode Title="StartingShaftNumber field" Url="html/33a10270-82a3-8cd1-56f7-971a20c5e892.htm" />
-  <HelpKINode Title="state field" Url="html/5fdedb67-1c2b-86a9-d822-69b53653bfa8.htm" />
-  <HelpKINode Title="STATE_MININGALIGN field" Url="html/e58aedbd-d43f-94cf-37ba-c727b3b9f684.htm" />
-  <HelpKINode Title="STATE_RESET field" Url="html/b1e18859-0ed2-84ba-62e4-02fd69ca3730.htm" />
-  <HelpKINode Title="STATE_RUNNING field" Url="html/b4f81476-abc2-a218-5cc2-e90f5cf6d80b.htm" />
-  <HelpKINode Title="STATE_WPMODE field" Url="html/b23a391f-4822-6f5c-0cd3-935da75ae243.htm" />
-  <HelpKINode Title="StaticsAreSet property" Url="html/7d5ac6c3-b2ff-5d2b-1134-79f74671ecfd.htm" />
+  <HelpKINode Title="speeds field" Url="html/F_YASEL_Program_NavManager_speeds.htm" />
+  <HelpKINode Title="speedsToDest field" Url="html/F_YASEL_Program_NavManager_speedsToDest.htm" />
+  <HelpKINode Title="StartingShaftNumber field" Url="html/F_YASEL_Program_DrillerNavSettings_StartingShaftNumber.htm" />
+  <HelpKINode Title="state field" Url="html/F_YASEL_Program_DrillerNav_state.htm" />
+  <HelpKINode Title="STATE_MININGALIGN field" Url="html/F_YASEL_Program_STATE_MININGALIGN.htm" />
+  <HelpKINode Title="STATE_RESET field" Url="html/F_YASEL_Program_STATE_RESET.htm" />
+  <HelpKINode Title="STATE_RUNNING field" Url="html/F_YASEL_Program_STATE_RUNNING.htm" />
+  <HelpKINode Title="STATE_WPMODE field" Url="html/F_YASEL_Program_STATE_WPMODE.htm" />
+  <HelpKINode Title="StaticsAreSet property" Url="html/P_YASEL_Program_StaticsAreSet.htm" />
   <HelpKINode Title="StationManager class">
-    <HelpKINode Title="fields" Url="html/645c81f8-d71b-6976-92b2-3df9bf7f6ced.htm" />
-    <HelpKINode Title="methods" Url="html/68ec147a-0cbe-eede-8425-61122c4a6292.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_StationManager.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_StationManager.htm" />
   </HelpKINode>
   <HelpKINode Title="StationManagerSettings class">
-    <HelpKINode Title="fields" Url="html/9e7566e4-0f05-9d8e-dbdd-bb4f133fde4a.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_StationManagerSettings.htm" />
   </HelpKINode>
-  <HelpKINode Title="stopDist field" Url="html/de357638-1a9f-e7bc-c60a-e98e0b78abab.htm" />
-  <HelpKINode Title="StopGyro method" Url="html/4611fc0e-d152-ce69-e828-3170932d5ac6.htm" />
-  <HelpKINode Title="stopMiningRtb method" Url="html/99711f2a-0ad2-f182-eda8-f14879c6cb77.htm" />
-  <HelpKINode Title="StoppingDistance field" Url="html/c6bff0ed-02f8-9d12-a283-55a131a228b5.htm" />
-  <HelpKINode Title="strToB method" Url="html/510f1d3e-1710-6730-ad77-f565ea368c00.htm" />
-  <HelpKINode Title="strToD method" Url="html/b59359b6-909b-8af8-2228-e94a20c63f37.htm" />
-  <HelpKINode Title="strToV method" Url="html/112cceda-c6b2-0ea1-1821-992c2e2a3ae3.htm" />
-  <HelpKINode Title="SwitchLock method" Url="html/b80fa108-b9c0-908c-3cd0-9f801facd8ee.htm" />
-  <HelpKINode Title="Text field" Url="html/7d6ec58c-58ee-89aa-4e37-c54c61918c10.htm" />
-  <HelpKINode Title="ThrowOut method" Url="html/76732984-7606-9a2e-48e8-b4d53689f8f3.htm" />
-  <HelpKINode Title="thrust field" Url="html/2d361d25-4761-6562-3e23-30ad1ed96e11.htm" />
-  <HelpKINode Title="tick field" Url="html/287cc55c-432d-acf4-ac73-755e470224ae.htm" />
+  <HelpKINode Title="stopDist field" Url="html/F_YASEL_Program_WpInfo_stopDist.htm" />
+  <HelpKINode Title="StopGyro method" Url="html/Overload_YASEL_Program_StopGyro.htm" />
+  <HelpKINode Title="stopMiningRtb method" Url="html/M_YASEL_Program_DrillerNav_stopMiningRtb.htm" />
+  <HelpKINode Title="StoppingDistance field" Url="html/F_YASEL_Program_NavSettings_StoppingDistance.htm" />
+  <HelpKINode Title="strToB method" Url="html/M_YASEL_Program_WpInfo_strToB.htm" />
+  <HelpKINode Title="strToD method" Url="html/M_YASEL_Program_WpInfo_strToD.htm" />
+  <HelpKINode Title="strToV method" Url="html/M_YASEL_Program_WpInfo_strToV.htm" />
+  <HelpKINode Title="SwitchLock method" Url="html/Overload_YASEL_Program_SwitchLock.htm" />
+  <HelpKINode Title="Text field" Url="html/F_YASEL_Program_SE_MenuOption_Text.htm" />
+  <HelpKINode Title="ThrowOut method" Url="html/Overload_YASEL_Program_ThrowOut.htm" />
+  <HelpKINode Title="thrust field" Url="html/F_YASEL_Program_WpInfo_thrust.htm" />
+  <HelpKINode Title="tick field" Url="html/F_YASEL_Program_tick.htm" />
   <HelpKINode Title="Tick method">
-    <HelpKINode Title="Program.DrillerNav.Tick Method " Url="html/67928383-6b70-4947-b2e5-c897098add08.htm" />
-    <HelpKINode Title="Program.NavManager.Tick Method " Url="html/56daccc8-08cb-f3ed-be56-12e726137f8b.htm" />
+    <HelpKINode Title="Program.DrillerNav.Tick Method " Url="html/M_YASEL_Program_DrillerNav_Tick.htm" />
+    <HelpKINode Title="Program.NavManager.Tick Method " Url="html/M_YASEL_Program_NavManager_Tick.htm" />
   </HelpKINode>
-  <HelpKINode Title="TicksPerSec field" Url="html/4625b208-1ae1-38e1-e429-89a5110c197f.htm" />
-  <HelpKINode Title="TimeLCDName field" Url="html/9363b001-409f-7745-b38a-0ad6992deeec.htm" />
-  <HelpKINode Title="Title field" Url="html/924338b2-f3c4-128b-0295-8ce1347e1522.htm" />
-  <HelpKINode Title="topBlock field" Url="html/51fade63-c7f1-62a1-c058-7dcd0b872b34.htm" />
-  <HelpKINode Title="TopBlockName field" Url="html/c410227a-5073-6e5a-fc0b-f628c33f2fb9.htm" />
-  <HelpKINode Title="toRoid method" Url="html/6de03bec-542c-afe6-0087-774e2b5865be.htm" />
-  <HelpKINode Title="toRoidComplete method" Url="html/e3480dec-3033-9c49-f99c-bbd90ddc1035.htm" />
-  <HelpKINode Title="tPos field" Url="html/71771dc3-1e9b-b33b-3c35-dbd3022c7534.htm" />
-  <HelpKINode Title="travel method" Url="html/2fab2e13-5db8-730d-9cce-01fad7841bf5.htm" />
-  <HelpKINode Title="traveled field" Url="html/6e037e0d-2b04-c1dc-49ae-5be352128260.htm" />
-  <HelpKINode Title="TravelTo method" Url="html/5cde3cf2-2174-df2e-25d1-8d108d60257d.htm" />
-  <HelpKINode Title="TurnOnOff method" Url="html/bc0c6e5d-9187-6fbc-1e90-db4bffe3b4cd.htm" />
-  <HelpKINode Title="TurnOnOffDampeners method" Url="html/a4c86bde-cc2c-3978-127f-5e7e194ee13c.htm" />
-  <HelpKINode Title="type field" Url="html/4f5f2c0c-6da6-796f-a2ec-799cd12b270c.htm" />
-  <HelpKINode Title="undock method" Url="html/f4ec60b9-19d3-0148-e183-f457a4e88ea6.htm" />
-  <HelpKINode Title="undockComplete method" Url="html/a8b6a0ca-d1a8-e679-d538-2ab0023b546d.htm" />
-  <HelpKINode Title="UnPause method" Url="html/7e538ce6-aeaa-2f61-f8d6-6ca0932790f6.htm" />
-  <HelpKINode Title="upThrusters field" Url="html/3ae10d09-8b75-453a-4474-ed5f3f9bcaa1.htm" />
-  <HelpKINode Title="UpThrustGroupName field" Url="html/eec43d3e-d6e0-8b75-2210-d616bbc36b03.htm" />
-  <HelpKINode Title="varList field" Url="html/b9b833d9-c740-2004-b520-69253bc87e9e.htm" />
+  <HelpKINode Title="TicksPerSec field" Url="html/F_YASEL_Program_NavSettings_TicksPerSec.htm" />
+  <HelpKINode Title="TimeLCDName field" Url="html/F_YASEL_Program_StationManagerSettings_TimeLCDName.htm" />
+  <HelpKINode Title="Title field" Url="html/F_YASEL_Program_SE_MenuPage_Title.htm" />
+  <HelpKINode Title="topBlock field" Url="html/F_YASEL_Program_NavManager_topBlock.htm" />
+  <HelpKINode Title="TopBlockName field" Url="html/F_YASEL_Program_NavSettings_TopBlockName.htm" />
+  <HelpKINode Title="toRoid method" Url="html/M_YASEL_Program_DrillerNav_toRoid.htm" />
+  <HelpKINode Title="toRoidComplete method" Url="html/M_YASEL_Program_DrillerNav_toRoidComplete.htm" />
+  <HelpKINode Title="tPos field" Url="html/F_YASEL_Program_NavManager_tPos.htm" />
+  <HelpKINode Title="travel method" Url="html/M_YASEL_Program_NavManager_travel.htm" />
+  <HelpKINode Title="traveled field" Url="html/F_YASEL_Program_WpInfo_traveled.htm" />
+  <HelpKINode Title="TravelTo method" Url="html/M_YASEL_Program_WpInfo_TravelTo.htm" />
+  <HelpKINode Title="TurnOnOff method" Url="html/Overload_YASEL_Program_TurnOnOff.htm" />
+  <HelpKINode Title="TurnOnOffDampeners method" Url="html/M_YASEL_Program_TurnOnOffDampeners.htm" />
+  <HelpKINode Title="type field" Url="html/F_YASEL_Program_WpInfo_type.htm" />
+  <HelpKINode Title="undock method" Url="html/M_YASEL_Program_DrillerNav_undock.htm" />
+  <HelpKINode Title="undockComplete method" Url="html/M_YASEL_Program_DrillerNav_undockComplete.htm" />
+  <HelpKINode Title="UnPause method" Url="html/M_YASEL_Program_NavManager_UnPause.htm" />
+  <HelpKINode Title="upThrusters field" Url="html/F_YASEL_Program_NavManager_upThrusters.htm" />
+  <HelpKINode Title="UpThrustGroupName field" Url="html/F_YASEL_Program_NavSettings_UpThrustGroupName.htm" />
+  <HelpKINode Title="varList field" Url="html/F_YASEL_Program_VarStore_varList.htm" />
   <HelpKINode Title="VarStore class">
-    <HelpKINode Title="fields" Url="html/e1f51c72-437a-563e-2271-b6854602b856.htm" />
-    <HelpKINode Title="methods" Url="html/7d270373-4289-c90b-45cf-d5b6cb9ae91e.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_VarStore.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_VarStore.htm" />
   </HelpKINode>
-  <HelpKINode Title="varStoreInit field" Url="html/47f2ae76-098f-4cb1-cc4a-d081f696a111.htm" />
+  <HelpKINode Title="varStoreInit field" Url="html/F_YASEL_Program_VarStore_varStoreInit.htm" />
   <HelpKINode Title="vs field">
-    <HelpKINode Title="Program.DrillerNav.vs Field" Url="html/57b2dde2-7dde-702f-ac8a-9236a084a90a.htm" />
-    <HelpKINode Title="Program.NavManager.vs Field" Url="html/63067bbe-b4b7-87d9-2643-e0daf13ab67e.htm" />
+    <HelpKINode Title="Program.DrillerNav.vs Field" Url="html/F_YASEL_Program_DrillerNav_vs.htm" />
+    <HelpKINode Title="Program.NavManager.vs Field" Url="html/F_YASEL_Program_NavManager_vs.htm" />
   </HelpKINode>
-  <HelpKINode Title="vToStr method" Url="html/3ed041d0-b1ed-a744-1f5f-7923a2528e04.htm" />
-  <HelpKINode Title="wait method" Url="html/05b791a9-3025-de6f-a104-678330231428.htm" />
-  <HelpKINode Title="waited field" Url="html/292c2391-9814-68a8-503c-bf122de78b0b.htm" />
-  <HelpKINode Title="waitEmpty method" Url="html/1122baf2-68bb-45fe-3339-e1f02a64a6a1.htm" />
-  <HelpKINode Title="WaitFor method" Url="html/a09ee6e2-ddfa-7e7d-cdbf-ac86bfe0214a.htm" />
+  <HelpKINode Title="vToStr method" Url="html/M_YASEL_Program_WpInfo_vToStr.htm" />
+  <HelpKINode Title="wait method" Url="html/M_YASEL_Program_NavManager_wait.htm" />
+  <HelpKINode Title="waited field" Url="html/F_YASEL_Program_WpInfo_waited.htm" />
+  <HelpKINode Title="waitEmpty method" Url="html/M_YASEL_Program_DrillerNav_waitEmpty.htm" />
+  <HelpKINode Title="WaitFor method" Url="html/M_YASEL_Program_WpInfo_WaitFor.htm" />
   <HelpKINode Title="waitTime field">
-    <HelpKINode Title="Program.NavManager.waitTime Field" Url="html/af453c32-94e2-84d5-0ec4-3baa9c42ea86.htm" />
-    <HelpKINode Title="Program.WpInfo.waitTime Field" Url="html/cc2bc7e8-bd7e-a34e-54cc-948c43ac0cf0.htm" />
+    <HelpKINode Title="Program.NavManager.waitTime Field" Url="html/F_YASEL_Program_NavManager_waitTime.htm" />
+    <HelpKINode Title="Program.WpInfo.waitTime Field" Url="html/F_YASEL_Program_WpInfo_waitTime.htm" />
   </HelpKINode>
-  <HelpKINode Title="waypoints field" Url="html/eada93c0-591f-1fea-39a3-34803c79bab7.htm" />
-  <HelpKINode Title="wpId field" Url="html/e5638148-1a9b-f12e-fedc-8618dbb18598.htm" />
-  <HelpKINode Title="wpiDock field" Url="html/7aa0115f-a14b-08a0-13e9-16f78f768de6.htm" />
-  <HelpKINode Title="wpiExitHangar field" Url="html/80a8fcb0-2a49-21c6-a9dd-f0e1a6418a30.htm" />
-  <HelpKINode Title="wpiMine field" Url="html/7cf9dd8e-53f2-c740-9de9-2c8df6c86c3b.htm" />
+  <HelpKINode Title="waypoints field" Url="html/F_YASEL_Program_NavManager_waypoints.htm" />
+  <HelpKINode Title="wpId field" Url="html/F_YASEL_Program_WpInfo_wpId.htm" />
+  <HelpKINode Title="wpiDock field" Url="html/F_YASEL_Program_DrillerNav_wpiDock.htm" />
+  <HelpKINode Title="wpiExitHangar field" Url="html/F_YASEL_Program_DrillerNav_wpiExitHangar.htm" />
+  <HelpKINode Title="wpiMine field" Url="html/F_YASEL_Program_DrillerNav_wpiMine.htm" />
   <HelpKINode Title="WpInfo class">
-    <HelpKINode Title="fields" Url="html/c82d81a0-39fe-4a13-afae-62f6f6385163.htm" />
-    <HelpKINode Title="methods" Url="html/dbc9f293-28ce-921d-2fd2-fb7b82d42f26.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_YASEL_Program_WpInfo.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_YASEL_Program_WpInfo.htm" />
   </HelpKINode>
   <HelpKINode Title="wpInfo field">
-    <HelpKINode Title="Program.DrillerNav.wpInfo Field" Url="html/1b18ae17-5309-9d10-bf6a-3d90747a8e4e.htm" />
-    <HelpKINode Title="Program.NavManager.wpInfo Field" Url="html/de41c784-2510-91ed-7e23-1d9689c42939.htm" />
+    <HelpKINode Title="Program.DrillerNav.wpInfo Field" Url="html/F_YASEL_Program_DrillerNav_wpInfo.htm" />
+    <HelpKINode Title="Program.NavManager.wpInfo Field" Url="html/F_YASEL_Program_NavManager_wpInfo.htm" />
   </HelpKINode>
-  <HelpKINode Title="wpiRTB field" Url="html/187243e3-0492-7d53-0b03-0893ae1a73e7.htm" />
-  <HelpKINode Title="wpiToRoid field" Url="html/227c8364-3f57-ddaa-2b25-f5383ca44320.htm" />
-  <HelpKINode Title="wpiUndock field" Url="html/3d5c684c-d59b-f6f5-4531-9b5a7dde4b8c.htm" />
-  <HelpKINode Title="wpRoid field" Url="html/9fb4a454-917a-4c7a-2a8f-6b074ffd4a94.htm" />
-  <HelpKINode Title="writeStore method" Url="html/35e5d9a3-e81b-fd0c-fa44-bb10496045e3.htm" />
-  <HelpKINode Title="YASEL namespace" Url="html/3969ed91-c624-da4b-dfea-9739068434f3.htm" />
-  <HelpKINode Title="YASEL.debug namespace" Url="html/c53af31f-ca47-639c-eba8-8ba5b19a6371.htm" />
-  <HelpKINode Title="YASEL.debug.debug class" Url="html/f2da413f-79a1-57cf-db2b-0319b0a429b5.htm" />
-  <HelpKINode Title="YASEL.LCDFunctions namespace" Url="html/6cef65c9-152c-0a05-5ce5-48becfa498b5.htm" />
-  <HelpKINode Title="YASEL.LCDFunctions.LCDFunctions class" Url="html/2138dbab-5001-0024-e145-850f2e647edb.htm" />
-  <HelpKINode Title="YASEL.LCDFunctions2 namespace" Url="html/154637d5-1726-f3a4-ba2a-78103ba2227e.htm" />
-  <HelpKINode Title="YASEL.LCDFunctions2.LCDFunctions2 class" Url="html/5253b5fb-55ff-aa22-34ed-585605ad88a6.htm" />
-  <HelpKINode Title="YASEL.Program class" Url="html/6fc66aa3-e232-202a-44b9-7484627ea0b2.htm" />
-  <HelpKINode Title="YASEL.Program.DrillerNav class" Url="html/8dac7e7a-d002-98cf-63ff-a5b54a0b0889.htm" />
-  <HelpKINode Title="YASEL.Program.DrillerNavSettings class" Url="html/8fb5eebd-380f-07aa-20a4-6044cc23a041.htm" />
-  <HelpKINode Title="YASEL.Program.NavManager class" Url="html/b7d08bb1-38cb-fa34-07a9-f6c2dd6780da.htm" />
-  <HelpKINode Title="YASEL.Program.NavSettings class" Url="html/2b166057-1b58-99d5-b175-2719ba5c0bc3.htm" />
-  <HelpKINode Title="YASEL.Program.SE_Menu class" Url="html/ce69056a-0d4a-acae-4c14-79e8a2e4afbf.htm" />
-  <HelpKINode Title="YASEL.Program.SE_MenuOption class" Url="html/51e73b83-0e6f-5389-1c07-c676d3cf5afd.htm" />
-  <HelpKINode Title="YASEL.Program.SE_MenuPage class" Url="html/c3dab8fd-1bb5-f3d1-dc8c-251f82036bd6.htm" />
-  <HelpKINode Title="YASEL.Program.StationManager class" Url="html/7fc510cc-1a28-3b96-62ac-6700b36c38e3.htm" />
-  <HelpKINode Title="YASEL.Program.StationManagerSettings class" Url="html/696be76a-86fe-bee8-9359-72c22efaf252.htm" />
-  <HelpKINode Title="YASEL.Program.VarStore class" Url="html/51495fe1-6ccc-9a3b-c672-a3a825b60f0b.htm" />
-  <HelpKINode Title="YASEL.Program.WpInfo class" Url="html/71a408de-9330-e42a-599f-a9ed06fe30a2.htm" />
-  <HelpKINode Title="YawL method" Url="html/6d95d4b0-aa74-e2ce-7416-3baa1eba52de.htm" />
-  <HelpKINode Title="YawR method" Url="html/538ed68c-a02a-688b-40e1-2df67fe131bc.htm" />
-  <HelpKINode Title="YawStop method" Url="html/975aacde-6b42-8403-074d-79cad6b789a9.htm" />
+  <HelpKINode Title="wpiRTB field" Url="html/F_YASEL_Program_DrillerNav_wpiRTB.htm" />
+  <HelpKINode Title="wpiToRoid field" Url="html/F_YASEL_Program_DrillerNav_wpiToRoid.htm" />
+  <HelpKINode Title="wpiUndock field" Url="html/F_YASEL_Program_DrillerNav_wpiUndock.htm" />
+  <HelpKINode Title="wpRoid field" Url="html/F_YASEL_Program_DrillerNav_wpRoid.htm" />
+  <HelpKINode Title="writeStore method" Url="html/M_YASEL_Program_VarStore_writeStore.htm" />
+  <HelpKINode Title="YASEL namespace" Url="html/N_YASEL.htm" />
+  <HelpKINode Title="YASEL.debug namespace" Url="html/N_YASEL_debug.htm" />
+  <HelpKINode Title="YASEL.debug.debug class" Url="html/T_YASEL_debug_debug.htm" />
+  <HelpKINode Title="YASEL.LCDFunctions namespace" Url="html/N_YASEL_LCDFunctions.htm" />
+  <HelpKINode Title="YASEL.LCDFunctions.LCDFunctions class" Url="html/T_YASEL_LCDFunctions_LCDFunctions.htm" />
+  <HelpKINode Title="YASEL.LCDFunctions2 namespace" Url="html/N_YASEL_LCDFunctions2.htm" />
+  <HelpKINode Title="YASEL.LCDFunctions2.LCDFunctions2 class" Url="html/T_YASEL_LCDFunctions2_LCDFunctions2.htm" />
+  <HelpKINode Title="YASEL.Program class" Url="html/T_YASEL_Program.htm" />
+  <HelpKINode Title="YASEL.Program.DrillerNav class" Url="html/T_YASEL_Program_DrillerNav.htm" />
+  <HelpKINode Title="YASEL.Program.DrillerNavSettings class" Url="html/T_YASEL_Program_DrillerNavSettings.htm" />
+  <HelpKINode Title="YASEL.Program.NavManager class" Url="html/T_YASEL_Program_NavManager.htm" />
+  <HelpKINode Title="YASEL.Program.NavSettings class" Url="html/T_YASEL_Program_NavSettings.htm" />
+  <HelpKINode Title="YASEL.Program.SE_Menu class" Url="html/T_YASEL_Program_SE_Menu.htm" />
+  <HelpKINode Title="YASEL.Program.SE_MenuOption class" Url="html/T_YASEL_Program_SE_MenuOption.htm" />
+  <HelpKINode Title="YASEL.Program.SE_MenuPage class" Url="html/T_YASEL_Program_SE_MenuPage.htm" />
+  <HelpKINode Title="YASEL.Program.StationManager class" Url="html/T_YASEL_Program_StationManager.htm" />
+  <HelpKINode Title="YASEL.Program.StationManagerSettings class" Url="html/T_YASEL_Program_StationManagerSettings.htm" />
+  <HelpKINode Title="YASEL.Program.VarStore class" Url="html/T_YASEL_Program_VarStore.htm" />
+  <HelpKINode Title="YASEL.Program.WpInfo class" Url="html/T_YASEL_Program_WpInfo.htm" />
+  <HelpKINode Title="YawL method" Url="html/M_YASEL_Program_YawL.htm" />
+  <HelpKINode Title="YawR method" Url="html/M_YASEL_Program_YawR.htm" />
+  <HelpKINode Title="YawStop method" Url="html/M_YASEL_Program_YawStop.htm" />
 </HelpKI>
