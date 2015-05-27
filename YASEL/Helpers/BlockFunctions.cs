@@ -48,10 +48,22 @@ namespace YASEL
                 gts.SearchBlocksOfName(name, lst);
             return lst;
         }
-        public static bool IsEnabled(IMyTerminalBlock b)
+
+        /// <summary>
+        /// Checks if a functional block is enabled and working (ie. Turned on and powered)
+        /// Also checks if terminal block is a functional block, returning true if not
+        /// </summary>
+        /// <param name="b">The terminal block to check</param>
+        /// <param name="checkIsWorking">Optional (Default:True) - Set to false if you don't want to check block is working</param>
+        /// <returns>
+        /// true - Enabled (and working)
+        /// false - Is not enabled (or not working)
+        /// </returns>
+        public static bool IsEnabled(IMyTerminalBlock b, bool checkIsWorking = true)
         {
-            return ((IMyFunctionalBlock)b).Enabled && BelongsToGrid(b);
+            return (checkIsWorking ? b.IsWorking : true) && ((b is IMyFunctionalBlock) ? ((IMyFunctionalBlock)b).Enabled : true);
         }
+
         public static string GetDetail(IMyTerminalBlock b, string match)
         {
             string requestedDetail = "";
@@ -81,7 +93,6 @@ namespace YASEL
         public static void TurnOnOff(List<IMyTerminalBlock> blocks, bool on = true) { for (int i = 0; i <= blocks.Count - 1; i++) { TurnOnOff(blocks[i], on); } }
         public static void TurnOnOff(IMyTerminalBlock b, bool on = true)
         { if (b.IsFunctional)b.GetActionWithName("OnOff_" + (on ? "On" : "Off")).Apply(b); }
-        public static bool IsOn(IMyTerminalBlock b) { return (b as IMyFunctionalBlock).Enabled; }
 
         #endregion
     }
