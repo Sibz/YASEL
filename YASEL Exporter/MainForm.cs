@@ -40,8 +40,8 @@ namespace YASEL_Exporter
             listBox1.Items.Clear();
             if (textBox1.Text == "")
                 return;
-            var dirs = Directory.EnumerateDirectories(textBox1.Text,"Programs",SearchOption.AllDirectories);
-            foreach(string d in dirs)
+            var dirs = Directory.EnumerateDirectories(textBox1.Text, "Programs", SearchOption.AllDirectories);
+            foreach (string d in dirs)
             {
                 AddFilesToList(d);
             }
@@ -75,14 +75,10 @@ namespace YASEL_Exporter
             if (listBox1.SelectedIndex == -1)
                 return;
             string output = "";
-            Dictionary<string, string> includeFiles = new Dictionary<string,string>();
+            Dictionary<string, string> includeFiles = new Dictionary<string, string>();
 
             output = GetFileCode(new FileInfo(textBox1.Text + "\\" + listBox1.SelectedItem.ToString()));
 
-            
-            
-           // try
-           // {
                 includeFiles = GetRequires(output);
            // } catch (Exception e)
            // {
@@ -90,21 +86,14 @@ namespace YASEL_Exporter
                 //return;
           //  }
             var fEnum = includeFiles.GetEnumerator();
-            while(fEnum.MoveNext())
             {
-                output += fEnum.Current.Value;
             }
-            
             Clipboard.SetText(Clean(output));
         }
         private string GetFileCode(FileInfo codeFile)
         {
             var sr = codeFile.OpenText();
             string text = sr.ReadToEnd();
-            text = text.Remove(0, text.IndexOf("#region " + codeFile.Name.Replace(".cs", "")) + ("#region " + codeFile.Name.Replace(".cs", "")).Length);
-            text = text.Remove(text.IndexOf("#endregion " + codeFile.Name.Replace(".cs", ""))!= -1 ?
-                text.IndexOf("#endregion " + codeFile.Name.Replace(".cs", "")) :
-                text.IndexOf("#endregion"));
             sr.Close();
             return text;
         }
@@ -112,18 +101,13 @@ namespace YASEL_Exporter
         {
             Dictionary<string, string> includeFiles = new Dictionary<string, string>();
             int lastIndex = 0;
-            int idx = text.IndexOf("//# Requires ", lastIndex);
             while (idx != -1)
             {
-                
-                string fileName = text.Substring(idx + ("//# Requires ").Length, text.IndexOf("\r\n", idx) - idx - ("//# Requires ").Length) + ".cs";
-                if (!includeFiles.ContainsKey(fileName))
                 {
                     var fList = Directory.EnumerateFiles(textBox1.Text, "*", SearchOption.AllDirectories).ToList();
                     bool found = false;
                     foreach (string fName in fList)
                     {
-                        if (!fName.Contains("\\"+fileName))
                             continue;
                         found = true;
                         string code = GetFileCode(new FileInfo(fName));
@@ -131,10 +115,7 @@ namespace YASEL_Exporter
                         includeFiles.Intersect(GetRequires(code));
                     }
                     if (!found) throw new Exception("Unable to load file:" + fileName);
-                   
                 }
-                lastIndex = idx + "//# Requires ".Length;
-                idx = text.IndexOf("//# Requires ", lastIndex);
 
             }
             return includeFiles;
@@ -142,7 +123,6 @@ namespace YASEL_Exporter
         private string Clean(string text)
         {
             string cleanText = text;
-            while (text.IndexOf("//# Requires ") != -1)
             {
                 int idx = text.IndexOf("//# Requires ");
                 text = text.Replace(text.Substring(idx, text.IndexOf("\r\n", idx) - idx), "");
@@ -150,20 +130,10 @@ namespace YASEL_Exporter
             cleanText = text;
             if (checkBox1.Checked)
             {
-                cleanText = cleanText.Replace("\t", " ");
 
-                while(cleanText.Contains("  "))
                 {
                     cleanText = cleanText.Replace("  ", " ");
                 }
-
-                cleanText = cleanText.Replace("\r\n ", "\r\n");
-
-                while (cleanText.Contains("\r\n\r\n"))
-                {
-                    cleanText = cleanText.Replace("\r\n\r\n", "\r\n");
-                }
-                
             }
             return cleanText;
         }
