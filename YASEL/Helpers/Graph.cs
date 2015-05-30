@@ -22,8 +22,15 @@ namespace Graph
     /// </summary>
     static class Graph
     { 
-              
-        static string PrepareBarGraph(Dictionary<string, double> levels, Dictionary<string, double> curLevels, double widthMod = 0.54, string showValAs = "percent")
+        /// <summary>
+        /// Prepare bar graph using two dictionaries.
+        /// </summary>
+        /// <param name="levels"></param>
+        /// <param name="curLevels"></param>
+        /// <param name="widthMod"></param>
+        /// <param name="showValAs"></param>
+        /// <returns></returns>
+        public static string PrepareBarGraph(Dictionary<string, double> levels, Dictionary<string, double> curLevels, double widthMod = 0.54, string showValAs = "percent")
         {
             var curLevelsEnum = curLevels.GetEnumerator();
             string output = "";
