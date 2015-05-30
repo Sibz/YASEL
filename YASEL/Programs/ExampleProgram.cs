@@ -26,7 +26,12 @@ namespace ExampleProgram
         // Add a main function just like in game
         void Main(string argument)
         {
-            // A Simple program that cylces doors print there names, and put Explaination marks after ones that have Auto in the name
+            // A Simple program that cylces doors print there names, and put Explanation marks after ones that have Auto in the name
+
+            // First we need to set Grid up
+            Grid.Set(GridTerminalSystem, Me, Echo);
+
+            // Then we can do out stuff
             var doors = Grid.GetBlocks<IMyDoor>();
             doors.ForEach(door =>
             {
