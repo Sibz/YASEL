@@ -64,8 +64,8 @@ namespace Connector
             bool connected = false;
             connectors.ForEach(c =>
             {
-                if ((c as IMyShipConnector)==null)
-                    throw new Exception("Connector.IsDocked: A IMyTerminalBlock provided in list is not a IMyShipConnector")
+                if ((c as IMyShipConnector) == null)
+                    throw new Exception("Connector.IsDocked: A IMyTerminalBlock provided in list is not a IMyShipConnector");
                 if (IsDocked((IMyShipConnector)c))
                     connected = true;
             });
