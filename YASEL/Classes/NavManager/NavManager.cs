@@ -102,7 +102,8 @@ namespace Nav.NavManager
             // Setup Controller Block (for dampener control)
             if (settings.CockpitName == null)
             {
-                var controllers = Grid.GetBlocks<IMyShipController>();
+                var controllers = new List<IMyTerminalBlock>();
+                Grid.ts.GetBlocksOfType<IMyShipController>(controllers);
                 if (controllers.Count > 0)
                     controller = controllers[0];
 
