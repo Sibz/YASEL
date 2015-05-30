@@ -79,7 +79,8 @@ namespace Connector
         /// False if none are connected, or no connectors exist.</returns>
         public static bool IsDocked()
         {
-            List<IMyTerminalBlock> cons = Grid.GetBlocks<IMyShipConnector>();
+            List<IMyTerminalBlock> cons = new List<IMyTerminalBlock>();
+            Grid.ts.GetBlocksOfType<IMyShipConnector>(cons);
             return IsDocked(cons);
         }
 
