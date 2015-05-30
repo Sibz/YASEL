@@ -21,7 +21,7 @@ namespace Grid
     /// <summary>
     /// Grid functions
     /// </summary>
-    static class Grid
+    public static class Grid
     {
         static public void Set(IMyGridTerminalSystem l_ts, IMyProgrammableBlock l_pb, Action<string> l_echo)
         {
@@ -29,26 +29,9 @@ namespace Grid
             pb = l_pb;
             echo = l_echo;
         }
-        static public IMyGridTerminalSystem ts { 
-            get
-            {
-                if (ts == null)
-                    throw new Exception("Static Grid Terminal System Not Set, set with 'Grid.ts = GridTerminalSystem' in Main");
-                return ts;
-            }
-            set { ts = value ;}
-        }
+        static public IMyGridTerminalSystem ts;
 
-        static public IMyProgrammableBlock pb 
-        { 
-            get
-            {
-                if (pb == null)
-                    throw new Exception("Static Programmable Block not set, set with 'Grid.pb = Me' in Main");
-                return pb;
-            }        
-            set { pb = value;} 
-        }
+        static public IMyProgrammableBlock pb;
 
         static public Action<string> echo {get;set;}
         static public void Echo(string s)
@@ -78,15 +61,6 @@ namespace Grid
             if (blocks.Count == 0)
                 return null;
             return blocks[0];
-        }
-        public static List<IMyTerminalBlock> GetBlocks<T>(bool onGrid = true)
-        {
-            var lst = new List<IMyTerminalBlock>();
-            if (onGrid)
-                ts.GetBlocksOfType<T>(lst,BelongsToGrid);
-            else
-                ts.GetBlocksOfType<T>(lst);
-            return lst;
         }
         public static List<IMyTerminalBlock> SearchBlocks(string name, bool onGrid = true)
         {
