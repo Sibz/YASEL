@@ -30,9 +30,10 @@ namespace ExampleProgram
 
             // First we need to set Grid up
             Grid.Set(GridTerminalSystem, Me, Echo);
-
+            
             // Then we can do out stuff
-            var doors = Grid.GetBlocks<IMyDoor>();
+            var doors = new List<IMyTerminalBlock>();
+            Grid.ts.GetBlocksOfType<IMyDoor>(doors);
             doors.ForEach(door =>
             {
                 Echo(door.CustomName + (Str.Contains(door.CustomName, "Auto") ? "!!!" : ""));
