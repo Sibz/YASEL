@@ -21,9 +21,8 @@ namespace VarStore
    
     public class VarStore
     {
-        public string LCDDebugScreenName,
-                                        LCDVariableStoreName;
-        public IMyTextPanel LCDVariableStore;
+        string LCDVariableStoreName;
+        IMyTextPanel LCDVariableStore;
 
         private bool varStoreInit;
         private Dictionary<string, string> varList;
