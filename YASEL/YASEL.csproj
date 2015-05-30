@@ -72,6 +72,7 @@
     <Compile Include="Helpers\Str.cs" />
     <Compile Include="Helpers\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />
+    <Compile Include="Helpers\TextPanels.cs" />
     <Compile Include="Helpers\Thruster.cs" />
     <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Helpers\TextPanel.cs" />
