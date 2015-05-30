@@ -1,12 +1,9 @@
 // standard using statments
 using System;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
-using VRage;
 using VRageMath;
 
 // Wrap your program in a custom namespace, This has to be your file name
