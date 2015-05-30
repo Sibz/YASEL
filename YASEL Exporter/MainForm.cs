@@ -83,19 +83,20 @@ namespace YASEL_Exporter
 
             try
             {
-                includeFiles = GetRequires(output);
-                if (output.Contains("Program.Program"))
-                {
-                    output = output.Remove(0, output.IndexOf("{", output.IndexOf("Program.Program")) + 1);
-                    output = output.Remove(output.LastIndexOf("}") - 1);
-                }
-                output = output.Replace("\r\n    ", "\r\n");
+                GetRequires(output, includeFiles);
+                
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (output.Contains("Program.Program"))
+            {
+                output = output.Remove(0, output.IndexOf("{", output.IndexOf("Program.Program")) + 1);
+                output = output.Remove(output.LastIndexOf("}") - 1);
+            }
+            output = output.Replace("\r\n    ", "\r\n");
             var fEnum = includeFiles.GetEnumerator();
             while (fEnum.MoveNext())
             {
@@ -114,9 +115,8 @@ namespace YASEL_Exporter
 
             return text;
         }
-        private Dictionary<string, string> GetRequires(string text)
+        private void GetRequires(string text, Dictionary<string, string> includeFiles)
         {
-            Dictionary<string, string> includeFiles = new Dictionary<string, string>();
             int lastIndex = 0;
             int idx = text.IndexOf("using ", lastIndex);
             while (idx != -1)
@@ -134,7 +134,7 @@ namespace YASEL_Exporter
                         found = true;
                         string code = GetFileCode(new FileInfo(fName));
                         includeFiles.Add(fileName, code);
-                        includeFiles.Intersect(GetRequires(code));
+                        GetRequires(code,includeFiles);
                     }
                     if (!found) throw new Exception("Unable to load file:" + fileName);
 
@@ -143,7 +143,7 @@ namespace YASEL_Exporter
                 idx = text.IndexOf("using ", lastIndex);
 
             }
-            return includeFiles;
+            
         }
         private string Clean(string text)
         {
