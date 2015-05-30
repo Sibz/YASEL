@@ -45,11 +45,16 @@
   <HelpKINode Title="Connector.ThrowOut method" Url="html/Overload_Connector_Connector_ThrowOut.htm" />
   <HelpKINode Title="Contains method" Url="html/M_Str_Str_Contains.htm" />
   <HelpKINode Title="DelVarFromStore method" Url="html/M_VarStore_VarStore_DelVarFromStore.htm" />
-  <HelpKINode Title="Echo method">
-    <HelpKINode Title="Grid.Echo Method " Url="html/M_Grid_Grid_Echo.htm" />
-    <HelpKINode Title="Program.Echo Method " Url="html/M_Program_Program_Echo.htm" />
-  </HelpKINode>
+  <HelpKINode Title="Echo method" Url="html/M_Grid_Grid_Echo.htm" />
   <HelpKINode Title="echo property" Url="html/P_Grid_Grid_echo.htm" />
+  <HelpKINode Title="ExampleProgram class">
+    <HelpKINode Title="ExampleProgram Class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
+    <HelpKINode Title="about ExampleProgram class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
+    <HelpKINode Title="constructor" Url="html/M_ExampleProgram_ExampleProgram__ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ExampleProgram namespace" Url="html/N_ExampleProgram.htm" />
+  <HelpKINode Title="ExampleProgram.ExampleProgram class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
+  <HelpKINode Title="ExampleProgram.ExampleProgram constructor" Url="html/M_ExampleProgram_ExampleProgram__ctor.htm" />
   <HelpKINode Title="GetBlock method" Url="html/M_Grid_Grid_GetBlock.htm" />
   <HelpKINode Title="GetBlockGrp method" Url="html/M_Grid_Grid_GetBlockGrp.htm" />
   <HelpKINode Title="GetBlocks(Of T) method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
@@ -85,7 +90,6 @@
   <HelpKINode Title="Grid.SearchBlocks method" Url="html/M_Grid_Grid_SearchBlocks.htm" />
   <HelpKINode Title="Grid.Set method" Url="html/M_Grid_Grid_Set.htm" />
   <HelpKINode Title="Grid.ts property" Url="html/P_Grid_Grid_ts.htm" />
-  <HelpKINode Title="GridTerminalSystem field" Url="html/F_Program_Program_GridTerminalSystem.htm" />
   <HelpKINode Title="Gyro class">
     <HelpKINode Title="Gyro Class" Url="html/T_Gyro_Gyro.htm" />
     <HelpKINode Title="about Gyro class" Url="html/T_Gyro_Gyro.htm" />
@@ -117,7 +121,6 @@
   <HelpKINode Title="LCDDebugScreenName field" Url="html/F_VarStore_VarStore_LCDDebugScreenName.htm" />
   <HelpKINode Title="LCDVariableStore field" Url="html/F_VarStore_VarStore_LCDVariableStore.htm" />
   <HelpKINode Title="LCDVariableStoreName field" Url="html/F_VarStore_VarStore_LCDVariableStoreName.htm" />
-  <HelpKINode Title="Me field" Url="html/F_Program_Program_Me.htm" />
   <HelpKINode Title="Menu class">
     <HelpKINode Title="Menu Class" Url="html/T_Menu_Menu.htm" />
     <HelpKINode Title="about Menu class" Url="html/T_Menu_Menu.htm" />
@@ -163,19 +166,6 @@
   <HelpKINode Title="PitchD method" Url="html/M_Gyro_Gyro_PitchD.htm" />
   <HelpKINode Title="PitchStop method" Url="html/M_Gyro_Gyro_PitchStop.htm" />
   <HelpKINode Title="PitchU method" Url="html/M_Gyro_Gyro_PitchU.htm" />
-  <HelpKINode Title="Program class">
-    <HelpKINode Title="Program Class" Url="html/T_Program_Program.htm" />
-    <HelpKINode Title="about Program class" Url="html/T_Program_Program.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Program_Program__ctor.htm" />
-    <HelpKINode Title="fields" Url="html/Fields_T_Program_Program.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Program_Program.htm" />
-  </HelpKINode>
-  <HelpKINode Title="Program namespace" Url="html/N_Program.htm" />
-  <HelpKINode Title="Program.Echo method" Url="html/M_Program_Program_Echo.htm" />
-  <HelpKINode Title="Program.GridTerminalSystem field" Url="html/F_Program_Program_GridTerminalSystem.htm" />
-  <HelpKINode Title="Program.Me field" Url="html/F_Program_Program_Me.htm" />
-  <HelpKINode Title="Program.Program class" Url="html/T_Program_Program.htm" />
-  <HelpKINode Title="Program.Program constructor" Url="html/M_Program_Program__ctor.htm" />
   <HelpKINode Title="RollL method" Url="html/M_Gyro_Gyro_RollL.htm" />
   <HelpKINode Title="RollR method" Url="html/M_Gyro_Gyro_RollR.htm" />
   <HelpKINode Title="RollStop method" Url="html/M_Gyro_Gyro_RollStop.htm" />

@@ -1,0 +1,39 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>ExampleProgram Namespace</title><meta name="Language" content="en-us" /><meta name="System.Keywords" content="ExampleProgram namespace" /><meta name="Microsoft.Help.F1" content="ExampleProgram" /><meta name="Microsoft.Help.Id" content="N:ExampleProgram" /><meta name="Description" content="@@_SHFB_1" /><meta name="Microsoft.Help.ContentType" content="Reference" /><meta name="BrandingAware" content="true" /><meta name="container" content="ExampleProgram" /><meta name="file" content="N_ExampleProgram" /><meta name="guid" content="N_ExampleProgram" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">Yet Another Space Engineers Library<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="R_Project_Documentation.htm" title="Yet Another Space Engineers Library" tocid="roottoc">Yet Another Space Engineers Library</a></div><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="R_Project_Documentation.htm" title="YASEL" tocid="R_Project_Documentation">YASEL</a></div><div class="toclevel1 current" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="N_ExampleProgram.htm" title="ExampleProgram" tocid="N_ExampleProgram">ExampleProgram</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="T_ExampleProgram_ExampleProgram.htm" title="ExampleProgram Class" tocid="T_ExampleProgram_ExampleProgram">ExampleProgram Class</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="titleColumn">ExampleProgram Namespace</td></tr></table><span class="introStyle"></span><div class="summary"><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAABA_copyCode" href="#" onclick="javascript:CopyToClipboard('ID0EAAABA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAABA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-comment">// standard using statments</span>
+<span class="highlight-keyword">using</span> System;
+<span class="highlight-keyword">using</span> System.Linq;
+<span class="highlight-keyword">using</span> System.Text;
+<span class="highlight-keyword">using</span> System.Threading.Tasks;
+<span class="highlight-keyword">using</span> System.Collections.Generic;
+<span class="highlight-keyword">using</span> Sandbox.ModAPI.Ingame;
+<span class="highlight-keyword">using</span> Sandbox.ModAPI.Interfaces;
+<span class="highlight-keyword">using</span> VRage;
+<span class="highlight-keyword">using</span> VRageMath;
+
+<span class="highlight-comment">// Wrap your program in a custom namespace, This has to be your file name</span>
+<span class="highlight-keyword">namespace</span> ExampleProgram
+{
+    <span class="highlight-comment">// Put using statements here</span>
+    <span class="highlight-keyword">using</span> Str; <span class="highlight-comment">// Examply of inclusion of other file, this one is for string functions</span>
+    <span class="highlight-keyword">using</span> Grid; <span class="highlight-comment">// This one is for Grid functions</span>
+
+    <span class="highlight-comment">// Your programs class, must extend Program.Program, otherwise YASEL Exporter won't work.</span>
+    <span class="highlight-keyword">class</span> ExampleProgram : Program.Program
+    {
+
+        <span class="highlight-comment">// You can use variables here that are initialised first time the PB runs, and the keep their values between runs</span>
+        <span class="highlight-keyword">string</span> myPersistantVariable;
+
+        <span class="highlight-comment">// Add a main function just like in game</span>
+        <span class="highlight-keyword">void</span> Main(<span class="highlight-keyword">string</span> argument)
+        {
+            <span class="highlight-comment">// A Simple program that cylces doors print there names, and put Explaination marks after ones that have Auto in the name</span>
+            <span class="highlight-keyword">var</span> doors = Grid.GetBlocks&lt;IMyDoor&gt;();
+            doors.ForEach(door =&gt;
+            {
+                Echo(door.CustomName + (Str.Contains(door.CustomName, <span class="highlight-literal">"Auto"</span>) ? <span class="highlight-literal">"!!!"</span> : <span class="highlight-literal">""</span>));
+            });
+        }
+    }
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAABA");</script></div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID1RB')" onkeypress="SectionExpandCollapse_CheckKey('ID1RB', event)" tabindex="0"><img id="ID1RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Classes</span></div><div id="ID1RBSection" class="collapsibleSection"><table id="typeList" class="members"><tr><th class="iconColumn">
+					 
+				</th><th>Class</th><th>Description</th></tr><tr data="class; public"><td><img src="../icons/protclass.gif" alt="Protected class" title="Protected class" /></td><td><a href="T_ExampleProgram_ExampleProgram.htm">ExampleProgram</a></td><td /></tr></table></div></div></div><div id="pageFooter" class="pageFooter"><br /><a href="https://github.com/Sibz/YASEL">View code on Github</a> </div></body></html>
