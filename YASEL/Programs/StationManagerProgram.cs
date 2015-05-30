@@ -12,13 +12,17 @@ using VRageMath;
 namespace StationManagerProgram
 {
     using StationManager;
-    class StationManagerProgram : Program.Program
+    using Grid;
+    private class StationManagerProgram : Program.Program
     {
         StationManager myStationManager;
         void Main(string argument)
         {
+            Grid.Set(GridTerminalSystem, Me, Echo);
+
             if (myStationManager==null)
                 myStationManager = new StationManager(new StationManagerSettings());
+
             myStationManager.ManageAutoDoors();
         }
     }
