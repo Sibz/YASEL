@@ -14,6 +14,7 @@ namespace StationManager
     using Str;
     using Grid;
     using Door;
+    using TextPanel;
 
     /// <summary>
     /// General station management functions
@@ -56,6 +57,23 @@ namespace StationManager
                 DoorsToClose.Remove(door);
             });
         }
+
+        /// <summary>
+        /// Display time on text panel defined by <i>TextPanelTimeName</i>.
+        /// </summary>
+        /// <param name="prePadding"></param>
+        /// <param name="postPadding"></param>
+        /// <param name="format"></param>
+        public void DisplayTime(string prePadding = "", string postPadding = "", string format = "HH:mm")
+        {
+            if (m_settings.TextPanelTimeName == "")
+                throw new Exception("DisplayTime: TextPanelTimeName is empty");
+
+            var myTextPanel = Grid.GetBlock(m_settings.TextPanelTimeName) as IMyTextPanel;
+            if (myTextPanel == null)
+                throw new Exception("DisplayTime: Unable to access TextPanel: " + m_settings.TextPanelTimeName);
+            TextPanel.Write(myTextPanel,prePadding + DateTime.Now.ToString(format) + postPadding);
+        }
     }
 
     /// <summary>
@@ -67,5 +85,10 @@ namespace StationManager
         /// Number of seconds before closing an open door
         /// </summary>
         public int AutoDoorCloseTime = 5;
+
+        /// <summary>
+        /// Textpanel to display time on when calling DisplayTime
+        /// </summary>
+        public string TextPanelTimeName;
     }
 }
