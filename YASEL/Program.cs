@@ -12,8 +12,11 @@ using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using Sandbox.Game;
 
-namespace YASEL
+namespace Program
 {
+    /// <summary>
+    /// Program
+    /// </summary>
     partial class Program
     {
         public IMyGridTerminalSystem GridTerminalSystem;

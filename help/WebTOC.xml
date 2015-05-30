@@ -1,433 +1,383 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="7f2523ed-b6af-4355-9f84-c041b6488670" Title="YASEL Namespaces" Url="html/G_YASEL.htm">
-    <HelpTOCNode Id="52328461-9b14-461e-92a4-ca03b5dc14a5" Title="YASEL" Url="html/N_YASEL.htm">
-      <HelpTOCNode Id="f73a42b6-64c2-4623-a341-a4761302ffa0" Title="Program Class" Url="html/T_YASEL_Program.htm">
+  <HelpTOCNode Id="3f522755-f319-4f63-b54e-ba03644e12fd" Title="YASEL" Url="html/R_Project_Documentation.htm">
+    <HelpTOCNode Id="f31d667d-c6b9-4674-98b0-6001146ed032" Title="Battery" Url="html/N_Battery.htm">
+      <HelpTOCNode Id="1786aa1c-b73f-4126-b59c-22ddc862c301" Title="Battery Class" Url="html/T_Battery_Battery.htm">
+        <HelpTOCNode Id="2210bc26-15e2-4266-84ed-cabb1a009a0d" Title="Battery Methods" Url="html/Methods_T_Battery_Battery.htm">
+          <HelpTOCNode Id="9a20ad07-2677-483d-82e0-326f45387155" Title="ChargePercent Method " Url="html/Overload_Battery_Battery_ChargePercent.htm">
+            <HelpTOCNode Title="ChargePercent Method (IMyBatteryBlock)" Url="html/M_Battery_Battery_ChargePercent.htm" />
+            <HelpTOCNode Title="ChargePercent Method (List(IMyTerminalBlock))" Url="html/M_Battery_Battery_ChargePercent_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="f000a9fb-7cda-432a-b686-9ed3b82ad869" Title="IsCharging Method " Url="html/Overload_Battery_Battery_IsCharging.htm">
+            <HelpTOCNode Title="IsCharging Method (IMyBatteryBlock)" Url="html/M_Battery_Battery_IsCharging.htm" />
+            <HelpTOCNode Title="IsCharging Method (List(IMyTerminalBlock))" Url="html/M_Battery_Battery_IsCharging_1.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fe92bf52-ae67-4da5-baaa-f738ffa090f3" Title="Block" Url="html/N_Block.htm">
+      <HelpTOCNode Id="8391fdcd-6b21-4614-bfe8-97b8c29cc454" Title="Block Class" Url="html/T_Block_Block.htm">
+        <HelpTOCNode Id="143060d0-52e3-4c40-b776-a72a4023d513" Title="Block Methods" Url="html/Methods_T_Block_Block.htm">
+          <HelpTOCNode Title="GetDetail Method " Url="html/M_Block_Block_GetDetail.htm" />
+          <HelpTOCNode Title="IsEnabled Method " Url="html/M_Block_Block_IsEnabled.htm" />
+          <HelpTOCNode Id="df44e2ba-45fe-494c-9ca8-968f30d7ceab" Title="TurnOnOff Method " Url="html/Overload_Block_Block_TurnOnOff.htm">
+            <HelpTOCNode Title="TurnOnOff Method (IMyTerminalBlock, Boolean)" Url="html/M_Block_Block_TurnOnOff.htm" />
+            <HelpTOCNode Title="TurnOnOff Method (List(IMyTerminalBlock), Boolean)" Url="html/M_Block_Block_TurnOnOff_1.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b36170f3-9043-4286-83d8-c29e2796820a" Title="Cockpit" Url="html/N_Cockpit.htm">
+      <HelpTOCNode Id="d2ae5d31-e61d-4c29-836e-7e313c57c400" Title="Cockpit Class" Url="html/T_Cockpit_Cockpit.htm">
+        <HelpTOCNode Id="6b4dcae1-4267-4a46-930d-209f4ab2cf5c" Title="Cockpit Methods" Url="html/Methods_T_Cockpit_Cockpit.htm">
+          <HelpTOCNode Title="TurnOnOffDampeners Method " Url="html/M_Cockpit_Cockpit_TurnOnOffDampeners.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="07af2044-359e-4c7a-bb4c-c716a8bcdb59" Title="Connector" Url="html/N_Connector.htm">
+      <HelpTOCNode Id="e614d4de-b243-484a-aaac-f60e7ff6548b" Title="Connector Class" Url="html/T_Connector_Connector.htm">
+        <HelpTOCNode Id="0dfeec0d-cf63-425b-bce8-6c6bd08c6ae1" Title="Connector Methods" Url="html/Methods_T_Connector_Connector.htm">
+          <HelpTOCNode Id="fbda2a46-de84-46fb-b343-d2157ba76f87" Title="IsDocked Method " Url="html/Overload_Connector_Connector_IsDocked.htm">
+            <HelpTOCNode Title="IsDocked Method " Url="html/M_Connector_Connector_IsDocked.htm" />
+            <HelpTOCNode Title="IsDocked Method (IMyShipConnector)" Url="html/M_Connector_Connector_IsDocked_1.htm" />
+            <HelpTOCNode Title="IsDocked Method (List(IMyTerminalBlock))" Url="html/M_Connector_Connector_IsDocked_2.htm" />
+            <HelpTOCNode Title="IsDocked Method (String)" Url="html/M_Connector_Connector_IsDocked_3.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="225e309d-23a0-4ed7-ba8f-1b0062cc65ec" Title="IsReadyToLock Method " Url="html/Overload_Connector_Connector_IsReadyToLock.htm">
+            <HelpTOCNode Title="IsReadyToLock Method (IMyShipConnector)" Url="html/M_Connector_Connector_IsReadyToLock.htm" />
+            <HelpTOCNode Title="IsReadyToLock Method (List(IMyTerminalBlock))" Url="html/M_Connector_Connector_IsReadyToLock_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="7cddf291-d090-4ed0-a63f-b99727e3fa83" Title="SwitchLock Method " Url="html/Overload_Connector_Connector_SwitchLock.htm">
+            <HelpTOCNode Title="SwitchLock Method (IMyTerminalBlock)" Url="html/M_Connector_Connector_SwitchLock.htm" />
+            <HelpTOCNode Title="SwitchLock Method (List(IMyTerminalBlock))" Url="html/M_Connector_Connector_SwitchLock_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="2aa64f4d-4009-4492-aa7e-ebba881ba48a" Title="ThrowOut Method " Url="html/Overload_Connector_Connector_ThrowOut.htm">
+            <HelpTOCNode Title="ThrowOut Method (IMyShipConnector, Boolean)" Url="html/M_Connector_Connector_ThrowOut.htm" />
+            <HelpTOCNode Title="ThrowOut Method (List(IMyTerminalBlock), Boolean)" Url="html/M_Connector_Connector_ThrowOut_1.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c59eada5-aedb-4d1f-b969-7c53a60e77c1" Title="Driller" Url="html/N_Driller.htm">
+      <HelpTOCNode Id="b917b87e-d52f-423f-8ed3-c94c12d35264" Title="Driller Class" Url="html/T_Driller_Driller.htm">
+        <HelpTOCNode Title="Driller Constructor " Url="html/M_Driller_Driller__ctor.htm" />
+        <HelpTOCNode Id="de3555ed-f1b6-4705-afca-1d383746c073" Title="Driller Fields" Url="html/Fields_T_Driller_Driller.htm">
+          <HelpTOCNode Title="dn Field" Url="html/F_Driller_Driller_dn.htm" />
+          <HelpTOCNode Title="nm Field" Url="html/F_Driller_Driller_nm.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="adfde5f0-7511-45eb-915d-8ea4e437cd6d" Title="Driller Methods" Url="html/Methods_T_Driller_Driller.htm">
+          <HelpTOCNode Title="OnTick Method " Url="html/M_Driller_Driller_OnTick.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="be406775-93fe-437e-a95b-edc25b09a3a3" Title="DrillerNav" Url="html/N_DrillerNav.htm">
+      <HelpTOCNode Id="b0863954-3b4e-4459-beae-749a2a1e2ce8" Title="DrillerNav Class" Url="html/T_DrillerNav_DrillerNav.htm">
+        <HelpTOCNode Title="DrillerNav Constructor " Url="html/M_DrillerNav_DrillerNav__ctor.htm" />
+        <HelpTOCNode Id="c3a33df5-abd0-4d55-bc68-09c7cc90d3dd" Title="DrillerNav Fields" Url="html/Fields_T_DrillerNav_DrillerNav.htm">
+          <HelpTOCNode Title="DN_ERROR_1000 Field" Url="html/F_DrillerNav_DrillerNav_DN_ERROR_1000.htm" />
+          <HelpTOCNode Title="DN_ERROR_1002 Field" Url="html/F_DrillerNav_DrillerNav_DN_ERROR_1002.htm" />
+          <HelpTOCNode Title="STATE_MININGALIGN Field" Url="html/F_DrillerNav_DrillerNav_STATE_MININGALIGN.htm" />
+          <HelpTOCNode Title="STATE_RESET Field" Url="html/F_DrillerNav_DrillerNav_STATE_RESET.htm" />
+          <HelpTOCNode Title="STATE_RUNNING Field" Url="html/F_DrillerNav_DrillerNav_STATE_RUNNING.htm" />
+          <HelpTOCNode Title="STATE_WPMODE Field" Url="html/F_DrillerNav_DrillerNav_STATE_WPMODE.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="4db8d8e9-9be4-44dc-a634-a4684c702a42" Title="DrillerNav Methods" Url="html/Methods_T_DrillerNav_DrillerNav.htm">
+          <HelpTOCNode Title="Tick Method " Url="html/M_DrillerNav_DrillerNav_Tick.htm" />
+          <HelpTOCNode Title="undockComplete Method " Url="html/M_DrillerNav_DrillerNav_undockComplete.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="697f09ee-a5c5-4455-be37-5ccd0f0ea874" Title="DrillerNavSettings" Url="html/N_DrillerNavSettings.htm">
+      <HelpTOCNode Id="e1a4fcb7-f165-4852-a1a3-c42d0cd81556" Title="DrillerNavSettings Class" Url="html/T_DrillerNavSettings_DrillerNavSettings.htm">
+        <HelpTOCNode Title="DrillerNavSettings Constructor " Url="html/M_DrillerNavSettings_DrillerNavSettings__ctor.htm" />
+        <HelpTOCNode Id="f4d40290-9eb7-46e2-8838-1172dafdc91e" Title="DrillerNavSettings Fields" Url="html/Fields_T_DrillerNavSettings_DrillerNavSettings.htm">
+          <HelpTOCNode Title="AsteroidSensorName Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_AsteroidSensorName.htm" />
+          <HelpTOCNode Title="ButtonSensorName Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_ButtonSensorName.htm" />
+          <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_LCDVariableStoreName.htm" />
+          <HelpTOCNode Title="LCDWaypointsName Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_LCDWaypointsName.htm" />
+          <HelpTOCNode Title="MiningSpeed Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_MiningSpeed.htm" />
+          <HelpTOCNode Title="OreCargoGroupName Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_OreCargoGroupName.htm" />
+          <HelpTOCNode Title="ShaftDepth Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_ShaftDepth.htm" />
+          <HelpTOCNode Title="ShaftHeight Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_ShaftHeight.htm" />
+          <HelpTOCNode Title="ShaftWidth Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_ShaftWidth.htm" />
+          <HelpTOCNode Title="StartingShaftNumber Field" Url="html/F_DrillerNavSettings_DrillerNavSettings_StartingShaftNumber.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="b3c67183-121c-41db-9089-55130324284a" Title="DrillerNavSettings Properties" Url="html/Properties_T_DrillerNavSettings_DrillerNavSettings.htm">
+          <HelpTOCNode Title="ShaftMaxCount Property " Url="html/P_DrillerNavSettings_DrillerNavSettings_ShaftMaxCount.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="287c689c-4f39-4cdf-b85a-a62394e2d320" Title="Graph" Url="html/N_Graph.htm">
+      <HelpTOCNode Title="Graph Class" Url="html/T_Graph_Graph.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="d1c112dd-521b-4525-980c-e72f8bf3f9ac" Title="Grid" Url="html/N_Grid.htm">
+      <HelpTOCNode Id="8dab70b3-a3de-4084-9acf-d2350e5c2923" Title="Grid Class" Url="html/T_Grid_Grid.htm">
+        <HelpTOCNode Id="f523328d-bb7e-4efa-947d-1f2c1e9339c3" Title="Grid Methods" Url="html/Methods_T_Grid_Grid.htm">
+          <HelpTOCNode Title="BelongsToGrid Method " Url="html/M_Grid_Grid_BelongsToGrid.htm" />
+          <HelpTOCNode Title="Echo Method " Url="html/M_Grid_Grid_Echo.htm" />
+          <HelpTOCNode Title="GetBlock Method " Url="html/M_Grid_Grid_GetBlock.htm" />
+          <HelpTOCNode Title="GetBlockGrp Method " Url="html/M_Grid_Grid_GetBlockGrp.htm" />
+          <HelpTOCNode Title="GetBlocks(T) Method " Url="html/M_Grid_Grid_GetBlocks__1.htm" />
+          <HelpTOCNode Title="SearchBlocks Method " Url="html/M_Grid_Grid_SearchBlocks.htm" />
+          <HelpTOCNode Title="Set Method " Url="html/M_Grid_Grid_Set.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="9397ab67-accc-4d40-89df-0e537b204c22" Title="Grid Properties" Url="html/Properties_T_Grid_Grid.htm">
+          <HelpTOCNode Title="echo Property " Url="html/P_Grid_Grid_echo.htm" />
+          <HelpTOCNode Title="pb Property " Url="html/P_Grid_Grid_pb.htm" />
+          <HelpTOCNode Title="ts Property " Url="html/P_Grid_Grid_ts.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1f4153d6-57c6-4add-aed7-b3325bc3d539" Title="Gyro" Url="html/N_Gyro.htm">
+      <HelpTOCNode Id="7f830f57-ba65-4cec-9153-b8ea445ed909" Title="Gyro Class" Url="html/T_Gyro_Gyro.htm">
+        <HelpTOCNode Id="27aa9eaa-fe61-4cdc-922a-9c7314ecf88e" Title="Gyro Methods" Url="html/Methods_T_Gyro_Gyro.htm">
+          <HelpTOCNode Title="GyroMoving Method " Url="html/M_Gyro_Gyro_GyroMoving.htm" />
+          <HelpTOCNode Id="f8cb1499-6a67-466a-a5d9-7cef0989bebf" Title="GyroOveride Method " Url="html/Overload_Gyro_Gyro_GyroOveride.htm">
+            <HelpTOCNode Title="GyroOveride Method (IMyTerminalBlock, String)" Url="html/M_Gyro_Gyro_GyroOveride.htm" />
+            <HelpTOCNode Title="GyroOveride Method (List(IMyTerminalBlock), String)" Url="html/M_Gyro_Gyro_GyroOveride_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="GyroOverride Method " Url="html/M_Gyro_Gyro_GyroOverride.htm" />
+          <HelpTOCNode Title="PitchD Method " Url="html/M_Gyro_Gyro_PitchD.htm" />
+          <HelpTOCNode Title="PitchStop Method " Url="html/M_Gyro_Gyro_PitchStop.htm" />
+          <HelpTOCNode Title="PitchU Method " Url="html/M_Gyro_Gyro_PitchU.htm" />
+          <HelpTOCNode Title="RollL Method " Url="html/M_Gyro_Gyro_RollL.htm" />
+          <HelpTOCNode Title="RollR Method " Url="html/M_Gyro_Gyro_RollR.htm" />
+          <HelpTOCNode Title="RollStop Method " Url="html/M_Gyro_Gyro_RollStop.htm" />
+          <HelpTOCNode Id="3e6e1ee1-aa97-45fb-a1b6-bafeef0e6f06" Title="StopGyro Method " Url="html/Overload_Gyro_Gyro_StopGyro.htm">
+            <HelpTOCNode Title="StopGyro Method (IMyTerminalBlock, String)" Url="html/M_Gyro_Gyro_StopGyro.htm" />
+            <HelpTOCNode Title="StopGyro Method (List(IMyTerminalBlock), String)" Url="html/M_Gyro_Gyro_StopGyro_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="YawL Method " Url="html/M_Gyro_Gyro_YawL.htm" />
+          <HelpTOCNode Title="YawR Method " Url="html/M_Gyro_Gyro_YawR.htm" />
+          <HelpTOCNode Title="YawStop Method " Url="html/M_Gyro_Gyro_YawStop.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="eae1cbcc-eb49-4d9b-9a0a-29a3b9b7cdbe" Title="IMyOxygenBottleTest" Url="html/N_IMyOxygenBottleTest.htm">
+      <HelpTOCNode Id="83a65938-2532-4bf7-83ad-e7333a3a9e95" Title="IMyOxygenBottleTest Class" Url="html/T_IMyOxygenBottleTest_IMyOxygenBottleTest.htm">
+        <HelpTOCNode Title="IMyOxygenBottleTest Constructor " Url="html/M_IMyOxygenBottleTest_IMyOxygenBottleTest__ctor.htm" />
+        <HelpTOCNode Title="IMyOxygenBottleTest Fields" Url="html/Fields_T_IMyOxygenBottleTest_IMyOxygenBottleTest.htm" />
+        <HelpTOCNode Title="IMyOxygenBottleTest Methods" Url="html/Methods_T_IMyOxygenBottleTest_IMyOxygenBottleTest.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="20ecdfb9-f3c3-4a2a-ac23-2d5b610fc664" Title="Menu" Url="html/N_Menu.htm">
+      <HelpTOCNode Id="79051667-819a-4c2d-aa85-8a16dbac3870" Title="Menu Class" Url="html/T_Menu_Menu.htm">
+        <HelpTOCNode Title="Menu Constructor " Url="html/M_Menu_Menu__ctor.htm" />
+        <HelpTOCNode Id="78c57987-97ed-4903-862b-91f2780e67be" Title="Menu Methods" Url="html/Methods_T_Menu_Menu.htm">
+          <HelpTOCNode Title="AddPage Method " Url="html/M_Menu_Menu_AddPage.htm" />
+          <HelpTOCNode Title="OnButtonPress Method " Url="html/M_Menu_Menu_OnButtonPress.htm" />
+          <HelpTOCNode Title="ShowPage Method " Url="html/M_Menu_Menu_ShowPage.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="26369617-d9a2-4902-a5df-c1c02cbbdd86" Title="MenuOption Class" Url="html/T_Menu_MenuOption.htm">
+        <HelpTOCNode Title="MenuOption Constructor " Url="html/M_Menu_MenuOption__ctor.htm" />
+        <HelpTOCNode Id="4406490c-83a2-4380-8aae-5d129b8ed979" Title="MenuOption Fields" Url="html/Fields_T_Menu_MenuOption.htm">
+          <HelpTOCNode Title="ActionButton Field" Url="html/F_Menu_MenuOption_ActionButton.htm" />
+          <HelpTOCNode Title="GotoPage Field" Url="html/F_Menu_MenuOption_GotoPage.htm" />
+          <HelpTOCNode Title="OnSelect Field" Url="html/F_Menu_MenuOption_OnSelect.htm" />
+          <HelpTOCNode Title="Text Field" Url="html/F_Menu_MenuOption_Text.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="fbd2fc1b-4d7d-4c58-aef6-e2c8fdc66a10" Title="MenuPage Class" Url="html/T_Menu_MenuPage.htm">
+        <HelpTOCNode Title="MenuPage Constructor " Url="html/M_Menu_MenuPage__ctor.htm" />
+        <HelpTOCNode Id="66ada948-7dca-4b4c-bb17-5a90c3991301" Title="MenuPage Fields" Url="html/Fields_T_Menu_MenuPage.htm">
+          <HelpTOCNode Title="Name Field" Url="html/F_Menu_MenuPage_Name.htm" />
+          <HelpTOCNode Title="Title Field" Url="html/F_Menu_MenuPage_Title.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="dc9fad70-2433-4890-ba3b-4cff22fa1732" Title="MenuPage Methods" Url="html/Methods_T_Menu_MenuPage.htm">
+          <HelpTOCNode Title="AddOption Method " Url="html/M_Menu_MenuPage_AddOption.htm" />
+          <HelpTOCNode Title="GetOption Method " Url="html/M_Menu_MenuPage_GetOption.htm" />
+          <HelpTOCNode Title="GetText Method " Url="html/M_Menu_MenuPage_GetText.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a04f5a63-04bd-40db-8c79-2aaa581e7f31" Title="NavManager" Url="html/N_NavManager.htm">
+      <HelpTOCNode Id="7f3fbe39-403f-4a85-baaa-74a118eda213" Title="NavManager Class" Url="html/T_NavManager_NavManager.htm">
+        <HelpTOCNode Title="NavManager Constructor " Url="html/M_NavManager_NavManager__ctor.htm" />
+        <HelpTOCNode Id="2fe26450-fc72-4739-9590-35cd28881d65" Title="NavManager Fields" Url="html/Fields_T_NavManager_NavManager.htm">
+          <HelpTOCNode Title="ERROR1 Field" Url="html/F_NavManager_NavManager_ERROR1.htm" />
+          <HelpTOCNode Title="ERROR2 Field" Url="html/F_NavManager_NavManager_ERROR2.htm" />
+          <HelpTOCNode Title="ERROR3 Field" Url="html/F_NavManager_NavManager_ERROR3.htm" />
+          <HelpTOCNode Title="ERROR4 Field" Url="html/F_NavManager_NavManager_ERROR4.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="1e135741-bedb-4295-b4ef-fa2c8eb82bea" Title="NavManager Methods" Url="html/Methods_T_NavManager_NavManager.htm">
+          <HelpTOCNode Id="64ee6991-ba19-410d-a005-f9bb0fb7fed8" Title="Act Method " Url="html/Overload_NavManager_NavManager_Act.htm">
+            <HelpTOCNode Title="Act Method (Dictionary(Int32, WpInfo))" Url="html/M_NavManager_NavManager_Act.htm" />
+            <HelpTOCNode Title="Act Method (WpInfo)" Url="html/M_NavManager_NavManager_Act_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="AdjustSpeed Method " Url="html/M_NavManager_NavManager_AdjustSpeed.htm" />
+          <HelpTOCNode Title="DotProduct Method " Url="html/M_NavManager_NavManager_DotProduct.htm" />
+          <HelpTOCNode Title="GetAngle Method " Url="html/M_NavManager_NavManager_GetAngle.htm" />
+          <HelpTOCNode Title="GetCross Method " Url="html/M_NavManager_NavManager_GetCross.htm" />
+          <HelpTOCNode Title="GetOffset Method " Url="html/M_NavManager_NavManager_GetOffset.htm" />
+          <HelpTOCNode Title="GetPos Method " Url="html/M_NavManager_NavManager_GetPos.htm" />
+          <HelpTOCNode Title="IsActing Method " Url="html/M_NavManager_NavManager_IsActing.htm" />
+          <HelpTOCNode Title="Pause Method " Url="html/M_NavManager_NavManager_Pause.htm" />
+          <HelpTOCNode Title="Reset Method " Url="html/M_NavManager_NavManager_Reset.htm" />
+          <HelpTOCNode Title="ShipLeft Method " Url="html/M_NavManager_NavManager_ShipLeft.htm" />
+          <HelpTOCNode Title="ShipUp Method " Url="html/M_NavManager_NavManager_ShipUp.htm" />
+          <HelpTOCNode Title="Tick Method " Url="html/M_NavManager_NavManager_Tick.htm" />
+          <HelpTOCNode Title="UnPause Method " Url="html/M_NavManager_NavManager_UnPause.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="30a4136e-d292-409f-a024-0f90d5928a5c" Title="NavSettings" Url="html/N_NavSettings.htm">
+      <HelpTOCNode Id="0a3b2463-96bf-4842-bb0d-6b4a102488cf" Title="NavSettings Class" Url="html/T_NavSettings_NavSettings.htm">
+        <HelpTOCNode Title="NavSettings Constructor " Url="html/M_NavSettings_NavSettings__ctor.htm" />
+        <HelpTOCNode Id="a00235db-f062-4114-8f57-35531057f568" Title="NavSettings Fields" Url="html/Fields_T_NavSettings_NavSettings.htm">
+          <HelpTOCNode Title="ActionTick Field" Url="html/F_NavSettings_NavSettings_ActionTick.htm" />
+          <HelpTOCNode Title="AlignMargin Field" Url="html/F_NavSettings_NavSettings_AlignMargin.htm" />
+          <HelpTOCNode Title="BottomBlockName Field" Url="html/F_NavSettings_NavSettings_BottomBlockName.htm" />
+          <HelpTOCNode Title="BreakingDistMultiplier Field" Url="html/F_NavSettings_NavSettings_BreakingDistMultiplier.htm" />
+          <HelpTOCNode Title="CentreBlock Field" Url="html/F_NavSettings_NavSettings_CentreBlock.htm" />
+          <HelpTOCNode Title="CockpitName Field" Url="html/F_NavSettings_NavSettings_CockpitName.htm" />
+          <HelpTOCNode Title="ConnectorSpeed Field" Url="html/F_NavSettings_NavSettings_ConnectorSpeed.htm" />
+          <HelpTOCNode Title="DebugLevel Field" Url="html/F_NavSettings_NavSettings_DebugLevel.htm" />
+          <HelpTOCNode Title="DefaultThrust Field" Url="html/F_NavSettings_NavSettings_DefaultThrust.htm" />
+          <HelpTOCNode Title="DownThrustGroupName Field" Url="html/F_NavSettings_NavSettings_DownThrustGroupName.htm" />
+          <HelpTOCNode Title="FwdBlockName Field" Url="html/F_NavSettings_NavSettings_FwdBlockName.htm" />
+          <HelpTOCNode Title="FwdThrustGroupName Field" Url="html/F_NavSettings_NavSettings_FwdThrustGroupName.htm" />
+          <HelpTOCNode Title="GyroGroupName Field" Url="html/F_NavSettings_NavSettings_GyroGroupName.htm" />
+          <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_NavSettings_NavSettings_LCDDebugScreenName.htm" />
+          <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_NavSettings_NavSettings_LCDVariableStoreName.htm" />
+          <HelpTOCNode Title="LeftBlockName Field" Url="html/F_NavSettings_NavSettings_LeftBlockName.htm" />
+          <HelpTOCNode Title="LeftThrustGroupName Field" Url="html/F_NavSettings_NavSettings_LeftThrustGroupName.htm" />
+          <HelpTOCNode Title="MaxSpeed Field" Url="html/F_NavSettings_NavSettings_MaxSpeed.htm" />
+          <HelpTOCNode Title="MinThrust Field" Url="html/F_NavSettings_NavSettings_MinThrust.htm" />
+          <HelpTOCNode Title="RearBlockName Field" Url="html/F_NavSettings_NavSettings_RearBlockName.htm" />
+          <HelpTOCNode Title="RightBlockName Field" Url="html/F_NavSettings_NavSettings_RightBlockName.htm" />
+          <HelpTOCNode Title="RightThrustGroupName Field" Url="html/F_NavSettings_NavSettings_RightThrustGroupName.htm" />
+          <HelpTOCNode Title="RvsThrustGroupName Field" Url="html/F_NavSettings_NavSettings_RvsThrustGroupName.htm" />
+          <HelpTOCNode Title="StoppingDistance Field" Url="html/F_NavSettings_NavSettings_StoppingDistance.htm" />
+          <HelpTOCNode Title="TicksPerSec Field" Url="html/F_NavSettings_NavSettings_TicksPerSec.htm" />
+          <HelpTOCNode Title="TopBlockName Field" Url="html/F_NavSettings_NavSettings_TopBlockName.htm" />
+          <HelpTOCNode Title="UpThrustGroupName Field" Url="html/F_NavSettings_NavSettings_UpThrustGroupName.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b272241d-cdad-4ddc-b914-3153c644995b" Title="Program" Url="html/N_Program.htm">
+      <HelpTOCNode Id="1b223490-7a42-4bbb-9dd2-316de408ce5c" Title="Program Class" Url="html/T_Program_Program.htm">
+        <HelpTOCNode Title="Program Constructor " Url="html/M_Program_Program__ctor.htm" />
+        <HelpTOCNode Id="2008a8b2-b619-4997-8008-d8e3a41f3df6" Title="Program Fields" Url="html/Fields_T_Program_Program.htm">
+          <HelpTOCNode Title="GridTerminalSystem Field" Url="html/F_Program_Program_GridTerminalSystem.htm" />
+          <HelpTOCNode Title="Me Field" Url="html/F_Program_Program_Me.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="dfcdd22c-2e68-4158-9e86-10d5c2ac49b5" Title="Program Methods" Url="html/Methods_T_Program_Program.htm">
+          <HelpTOCNode Title="Echo Method " Url="html/M_Program_Program_Echo.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="dc3d3777-5c76-42f1-a276-01ba580f6602" Title="StationManager" Url="html/N_StationManager.htm">
+      <HelpTOCNode Id="9bd096f2-81b8-43f4-98c1-f8144c1b0f58" Title="StationManager Class" Url="html/T_StationManager_StationManager.htm">
+        <HelpTOCNode Title="StationManager Constructor " Url="html/M_StationManager_StationManager__ctor.htm" />
+        <HelpTOCNode Id="fbed7f38-d2fb-4111-98c1-a31d37c54530" Title="StationManager Methods" Url="html/Methods_T_StationManager_StationManager.htm">
+          <HelpTOCNode Title="DisplayCargoStatus Method " Url="html/M_StationManager_StationManager_DisplayCargoStatus.htm" />
+          <HelpTOCNode Title="DisplayTime Method " Url="html/M_StationManager_StationManager_DisplayTime.htm" />
+          <HelpTOCNode Title="ManageAirlocks Method " Url="html/M_StationManager_StationManager_ManageAirlocks.htm" />
+          <HelpTOCNode Title="ManageOxygenGens Method " Url="html/M_StationManager_StationManager_ManageOxygenGens.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0ff88350-00d3-4529-baf5-5b7c7fc021c4" Title="StationManagerSettings" Url="html/N_StationManagerSettings.htm">
+      <HelpTOCNode Id="cdc44b05-e84f-4faa-97de-da76194e5fc8" Title="StationManagerSettings Class" Url="html/T_StationManagerSettings_StationManagerSettings.htm">
+        <HelpTOCNode Title="StationManagerSettings Constructor " Url="html/M_StationManagerSettings_StationManagerSettings__ctor.htm" />
+        <HelpTOCNode Id="e05d018f-94fc-4134-bf30-4f6827ab6603" Title="StationManagerSettings Fields" Url="html/Fields_T_StationManagerSettings_StationManagerSettings.htm">
+          <HelpTOCNode Title="AirlockHangarDoorWaitTime Field" Url="html/F_StationManagerSettings_StationManagerSettings_AirlockHangarDoorWaitTime.htm" />
+          <HelpTOCNode Title="CargoGroups Field" Url="html/F_StationManagerSettings_StationManagerSettings_CargoGroups.htm" />
+          <HelpTOCNode Title="CargoStatusLCDName Field" Url="html/F_StationManagerSettings_StationManagerSettings_CargoStatusLCDName.htm" />
+          <HelpTOCNode Title="OxygenGenHighThreshold Field" Url="html/F_StationManagerSettings_StationManagerSettings_OxygenGenHighThreshold.htm" />
+          <HelpTOCNode Title="OxygenGenLowThreshold Field" Url="html/F_StationManagerSettings_StationManagerSettings_OxygenGenLowThreshold.htm" />
+          <HelpTOCNode Title="TimeLCDName Field" Url="html/F_StationManagerSettings_StationManagerSettings_TimeLCDName.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="15de0f11-27fb-4913-832b-7855fa4257cc" Title="Str" Url="html/N_Str.htm">
+      <HelpTOCNode Id="d08b25f1-62b1-4ecb-81e6-80f11e7a0bdb" Title="Str Class" Url="html/T_Str_Str.htm">
+        <HelpTOCNode Id="b418fbbc-057d-4ad2-a7fc-30e9dff8e0c0" Title="Str Methods" Url="html/Methods_T_Str_Str.htm">
+          <HelpTOCNode Title="Contains Method " Url="html/M_Str_Str_Contains.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="82c9e687-4ee0-48b6-9479-6551aad1d26f" Title="TextPanel" Url="html/N_TextPanel.htm">
+      <HelpTOCNode Id="47c60406-7d8b-4aad-b173-e4840b63e941" Title="TextPanel Class" Url="html/T_TextPanel_TextPanel.htm">
+        <HelpTOCNode Id="091ff91c-b96f-47ef-b95a-9ee630835182" Title="TextPanel Methods" Url="html/Methods_T_TextPanel_TextPanel.htm">
+          <HelpTOCNode Title="GetValueListFromLCD Method " Url="html/M_TextPanel_TextPanel_GetValueListFromLCD.htm" />
+          <HelpTOCNode Title="Write Method " Url="html/M_TextPanel_TextPanel_Write.htm" />
+          <HelpTOCNode Id="b59acf38-ff24-4938-ab0a-51bb0a8d7fd2" Title="WriteMulti Method " Url="html/Overload_TextPanel_TextPanel_WriteMulti.htm">
+            <HelpTOCNode Title="WriteMulti Method (List(IMyTerminalBlock), String, Boolean)" Url="html/M_TextPanel_TextPanel_WriteMulti.htm" />
+            <HelpTOCNode Title="WriteMulti Method (String, String, Boolean, Int32, Boolean)" Url="html/M_TextPanel_TextPanel_WriteMulti_1.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ef9a7631-4aec-4ed6-8f5f-bc0e9a96e53b" Title="Thruster" Url="html/N_Thruster.htm">
+      <HelpTOCNode Id="81129687-b1dd-4c1d-a39b-0aca3e4d5ce0" Title="Thruster Class" Url="html/T_Thruster_Thruster.htm">
+        <HelpTOCNode Id="c8af7e32-8e25-4ed3-b927-6280a3c2433c" Title="Thruster Methods" Url="html/Methods_T_Thruster_Thruster.htm">
+          <HelpTOCNode Id="a0bf623a-4b74-4075-8a92-24e5def43db4" Title="SetThrustOverride Method " Url="html/Overload_Thruster_Thruster_SetThrustOverride.htm">
+            <HelpTOCNode Title="SetThrustOverride Method (IMyTerminalBlock, Double)" Url="html/M_Thruster_Thruster_SetThrustOverride.htm" />
+            <HelpTOCNode Title="SetThrustOverride Method (List(IMyTerminalBlock), Double)" Url="html/M_Thruster_Thruster_SetThrustOverride_1.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="abc82f77-a3d3-49ac-8f58-183b4e3e6c59" Title="VarStore" Url="html/N_VarStore.htm">
+      <HelpTOCNode Id="87dd6f07-84ca-4a38-a511-0d02ab42ac51" Title="VarStore Class" Url="html/T_VarStore_VarStore.htm">
+        <HelpTOCNode Title="VarStore Constructor " Url="html/M_VarStore_VarStore__ctor.htm" />
+        <HelpTOCNode Id="2cdbe589-920b-46ff-a70d-be12763fb3ba" Title="VarStore Fields" Url="html/Fields_T_VarStore_VarStore.htm">
+          <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_VarStore_VarStore_LCDDebugScreenName.htm" />
+          <HelpTOCNode Title="LCDVariableStore Field" Url="html/F_VarStore_VarStore_LCDVariableStore.htm" />
+          <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_VarStore_VarStore_LCDVariableStoreName.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="7f042419-b617-41fa-932a-4a4104bffa2c" Title="VarStore Methods" Url="html/Methods_T_VarStore_VarStore.htm">
+          <HelpTOCNode Title="DelVarFromStore Method " Url="html/M_VarStore_VarStore_DelVarFromStore.htm" />
+          <HelpTOCNode Title="GetVarFromStore Method " Url="html/M_VarStore_VarStore_GetVarFromStore.htm" />
+          <HelpTOCNode Title="initVarStore Method " Url="html/M_VarStore_VarStore_initVarStore.htm" />
+          <HelpTOCNode Title="SetVarToStore Method " Url="html/M_VarStore_VarStore_SetVarToStore.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="811f4399-9107-46b5-8f09-74b7e493f5e9" Title="WpInfo" Url="html/N_WpInfo.htm">
+      <HelpTOCNode Id="09063141-a89a-4a21-ad2d-3eadd8048586" Title="WpInfo Class" Url="html/T_WpInfo_WpInfo.htm">
+        <HelpTOCNode Title="WpInfo Constructor " Url="html/M_WpInfo_WpInfo__ctor.htm" />
+        <HelpTOCNode Id="84be119d-69fb-4579-b2d3-12d8e818cb29" Title="WpInfo Fields" Url="html/Fields_T_WpInfo_WpInfo.htm">
+          <HelpTOCNode Title="aligned Field" Url="html/F_WpInfo_WpInfo_aligned.htm" />
+          <HelpTOCNode Title="alignFirst Field" Url="html/F_WpInfo_WpInfo_alignFirst.htm" />
+          <HelpTOCNode Title="angle Field" Url="html/F_WpInfo_WpInfo_angle.htm" />
+          <HelpTOCNode Title="CallbackMethod Field" Url="html/F_WpInfo_WpInfo_CallbackMethod.htm" />
+          <HelpTOCNode Title="centered Field" Url="html/F_WpInfo_WpInfo_centered.htm" />
+          <HelpTOCNode Title="cross Field" Url="html/F_WpInfo_WpInfo_cross.htm" />
+          <HelpTOCNode Title="direction Field" Url="html/F_WpInfo_WpInfo_direction.htm" />
+          <HelpTOCNode Title="enabled Field" Url="html/F_WpInfo_WpInfo_enabled.htm" />
+          <HelpTOCNode Title="leveled Field" Url="html/F_WpInfo_WpInfo_leveled.htm" />
+          <HelpTOCNode Title="noStop Field" Url="html/F_WpInfo_WpInfo_noStop.htm" />
+          <HelpTOCNode Title="pos Field" Url="html/F_WpInfo_WpInfo_pos.htm" />
+          <HelpTOCNode Title="reAligning Field" Url="html/F_WpInfo_WpInfo_reAligning.htm" />
+          <HelpTOCNode Title="speed Field" Url="html/F_WpInfo_WpInfo_speed.htm" />
+          <HelpTOCNode Title="stopDist Field" Url="html/F_WpInfo_WpInfo_stopDist.htm" />
+          <HelpTOCNode Title="thrust Field" Url="html/F_WpInfo_WpInfo_thrust.htm" />
+          <HelpTOCNode Title="traveled Field" Url="html/F_WpInfo_WpInfo_traveled.htm" />
+          <HelpTOCNode Title="type Field" Url="html/F_WpInfo_WpInfo_type.htm" />
+          <HelpTOCNode Title="waited Field" Url="html/F_WpInfo_WpInfo_waited.htm" />
+          <HelpTOCNode Title="waitTime Field" Url="html/F_WpInfo_WpInfo_waitTime.htm" />
+          <HelpTOCNode Title="wpId Field" Url="html/F_WpInfo_WpInfo_wpId.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="283d94ca-943f-4e71-bbf9-f3ee9da303c8" Title="WpInfo Methods" Url="html/Methods_T_WpInfo_WpInfo.htm">
+          <HelpTOCNode Title="AlignTo Method " Url="html/M_WpInfo_WpInfo_AlignTo.htm" />
+          <HelpTOCNode Title="CenterOn Method " Url="html/M_WpInfo_WpInfo_CenterOn.htm" />
+          <HelpTOCNode Title="GetLCDString Method " Url="html/M_WpInfo_WpInfo_GetLCDString.htm" />
+          <HelpTOCNode Title="InitFromString Method " Url="html/M_WpInfo_WpInfo_InitFromString.htm" />
+          <HelpTOCNode Title="IsComplete Method " Url="html/M_WpInfo_WpInfo_IsComplete.htm" />
+          <HelpTOCNode Title="isZeroVector Method " Url="html/M_WpInfo_WpInfo_isZeroVector.htm" />
+          <HelpTOCNode Title="LevelTo Method " Url="html/M_WpInfo_WpInfo_LevelTo.htm" />
+          <HelpTOCNode Title="TravelTo Method " Url="html/M_WpInfo_WpInfo_TravelTo.htm" />
+          <HelpTOCNode Title="WaitFor Method " Url="html/M_WpInfo_WpInfo_WaitFor.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="404242d7-9ae8-453f-98b8-61bd47d8d5d0" Title="YASEL" Url="html/N_YASEL.htm">
+      <HelpTOCNode Id="4db45bd4-bef0-483a-a89f-4c4932b19bac" Title="Program Class" Url="html/T_YASEL_Program.htm">
         <HelpTOCNode Title="Program Constructor " Url="html/M_YASEL_Program__ctor.htm" />
-        <HelpTOCNode Id="9f655152-a832-4d2b-af37-ada0f6f4e906" Title="Program Fields" Url="html/Fields_T_YASEL_Program.htm">
-          <HelpTOCNode Title="DebugLevel Field" Url="html/F_YASEL_Program_DebugLevel.htm" />
-          <HelpTOCNode Title="dn Field" Url="html/F_YASEL_Program_dn.htm" />
-          <HelpTOCNode Title="DN_ERROR_1000 Field" Url="html/F_YASEL_Program_DN_ERROR_1000.htm" />
-          <HelpTOCNode Title="DN_ERROR_1002 Field" Url="html/F_YASEL_Program_DN_ERROR_1002.htm" />
-          <HelpTOCNode Title="ERROR1 Field" Url="html/F_YASEL_Program_ERROR1.htm" />
-          <HelpTOCNode Title="ERROR2 Field" Url="html/F_YASEL_Program_ERROR2.htm" />
-          <HelpTOCNode Title="ERROR3 Field" Url="html/F_YASEL_Program_ERROR3.htm" />
-          <HelpTOCNode Title="ERROR4 Field" Url="html/F_YASEL_Program_ERROR4.htm" />
-          <HelpTOCNode Title="GridTerminalSystem Field" Url="html/F_YASEL_Program_GridTerminalSystem.htm" />
-          <HelpTOCNode Title="gts Field" Url="html/F_YASEL_Program_gts.htm" />
-          <HelpTOCNode Title="GYRO_DOWN Field" Url="html/F_YASEL_Program_GYRO_DOWN.htm" />
-          <HelpTOCNode Title="GYRO_LEFT Field" Url="html/F_YASEL_Program_GYRO_LEFT.htm" />
-          <HelpTOCNode Title="GYRO_PITCH Field" Url="html/F_YASEL_Program_GYRO_PITCH.htm" />
-          <HelpTOCNode Title="GYRO_RIGHT Field" Url="html/F_YASEL_Program_GYRO_RIGHT.htm" />
-          <HelpTOCNode Title="GYRO_ROLL Field" Url="html/F_YASEL_Program_GYRO_ROLL.htm" />
-          <HelpTOCNode Title="GYRO_ROLL_L Field" Url="html/F_YASEL_Program_GYRO_ROLL_L.htm" />
-          <HelpTOCNode Title="GYRO_ROLL_R Field" Url="html/F_YASEL_Program_GYRO_ROLL_R.htm" />
-          <HelpTOCNode Title="GYRO_UP Field" Url="html/F_YASEL_Program_GYRO_UP.htm" />
-          <HelpTOCNode Title="GYRO_YAW Field" Url="html/F_YASEL_Program_GYRO_YAW.htm" />
-          <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_YASEL_Program_LCDDebugScreenName.htm" />
-          <HelpTOCNode Title="Me Field" Url="html/F_YASEL_Program_Me.htm" />
-          <HelpTOCNode Title="nm Field" Url="html/F_YASEL_Program_nm.htm" />
-          <HelpTOCNode Title="sEcho Field" Url="html/F_YASEL_Program_sEcho.htm" />
-          <HelpTOCNode Title="sMe Field" Url="html/F_YASEL_Program_sMe.htm" />
-          <HelpTOCNode Title="STATE_MININGALIGN Field" Url="html/F_YASEL_Program_STATE_MININGALIGN.htm" />
-          <HelpTOCNode Title="STATE_RESET Field" Url="html/F_YASEL_Program_STATE_RESET.htm" />
-          <HelpTOCNode Title="STATE_RUNNING Field" Url="html/F_YASEL_Program_STATE_RUNNING.htm" />
-          <HelpTOCNode Title="STATE_WPMODE Field" Url="html/F_YASEL_Program_STATE_WPMODE.htm" />
-          <HelpTOCNode Title="tick Field" Url="html/F_YASEL_Program_tick.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="58cc35f7-1438-4dac-bdd1-10daa0dc807a" Title="Program Methods" Url="html/Methods_T_YASEL_Program.htm">
-          <HelpTOCNode Title="BelongsToGrid Method " Url="html/M_YASEL_Program_BelongsToGrid.htm" />
-          <HelpTOCNode Title="CheckStatics Method " Url="html/M_YASEL_Program_CheckStatics.htm" />
-          <HelpTOCNode Title="dbug Method " Url="html/M_YASEL_Program_dbug.htm" />
-          <HelpTOCNode Id="ab95da21-a03c-46f9-86ea-f2b76d3a6d11" Title="DisplayOnScreen Method " Url="html/Overload_YASEL_Program_DisplayOnScreen.htm">
-            <HelpTOCNode Title="DisplayOnScreen Method (List(IMyTerminalBlock), String, Boolean)" Url="html/M_YASEL_Program_DisplayOnScreen.htm" />
-            <HelpTOCNode Title="DisplayOnScreen Method (String, String, Boolean, Int32, Boolean)" Url="html/M_YASEL_Program_DisplayOnScreen_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="Echo Method " Url="html/M_YASEL_Program_Echo.htm" />
-          <HelpTOCNode Id="32d450cc-fa34-4fe6-a613-5723ae2965f2" Title="GetBatteryCharge Method " Url="html/Overload_YASEL_Program_GetBatteryCharge.htm">
-            <HelpTOCNode Title="GetBatteryCharge Method (IMyBatteryBlock)" Url="html/M_YASEL_Program_GetBatteryCharge.htm" />
-            <HelpTOCNode Title="GetBatteryCharge Method (List(IMyTerminalBlock))" Url="html/M_YASEL_Program_GetBatteryCharge_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="GetBlock Method " Url="html/M_YASEL_Program_GetBlock.htm" />
-          <HelpTOCNode Title="GetBlockGrp Method " Url="html/M_YASEL_Program_GetBlockGrp.htm" />
-          <HelpTOCNode Title="GetDetail Method " Url="html/M_YASEL_Program_GetDetail.htm" />
-          <HelpTOCNode Title="GetPower Method " Url="html/M_YASEL_Program_GetPower.htm" />
-          <HelpTOCNode Title="GetValueListFromLCD Method " Url="html/M_YASEL_Program_GetValueListFromLCD.htm" />
-          <HelpTOCNode Title="GyroMoving Method " Url="html/M_YASEL_Program_GyroMoving.htm" />
-          <HelpTOCNode Id="f64c0396-da36-4aa7-9316-ef17f7f6851a" Title="GyroOveride Method " Url="html/Overload_YASEL_Program_GyroOveride.htm">
-            <HelpTOCNode Title="GyroOveride Method (IMyTerminalBlock, String)" Url="html/M_YASEL_Program_GyroOveride.htm" />
-            <HelpTOCNode Title="GyroOveride Method (List(IMyTerminalBlock), String)" Url="html/M_YASEL_Program_GyroOveride_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="GyroOverride Method " Url="html/M_YASEL_Program_GyroOverride.htm" />
-          <HelpTOCNode Title="InStrI Method " Url="html/M_YASEL_Program_InStrI.htm" />
-          <HelpTOCNode Id="ee0e38a0-6e73-4165-8852-ac104d5bf459" Title="InStrsI Method " Url="html/Overload_YASEL_Program_InStrsI.htm">
-            <HelpTOCNode Title="InStrsI Method (String, String)" Url="html/M_YASEL_Program_InStrsI.htm" />
-            <HelpTOCNode Title="InStrsI Method (String, String[])" Url="html/M_YASEL_Program_InStrsI_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Id="67fc3854-314b-4499-aef5-760c3189fc59" Title="IsCharging Method " Url="html/Overload_YASEL_Program_IsCharging.htm">
-            <HelpTOCNode Title="IsCharging Method (IMyBatteryBlock)" Url="html/M_YASEL_Program_IsCharging.htm" />
-            <HelpTOCNode Title="IsCharging Method (List(IMyTerminalBlock))" Url="html/M_YASEL_Program_IsCharging_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Id="5adf70e9-60f1-4138-a24e-62a9b6c2d09b" Title="IsDocked Method " Url="html/Overload_YASEL_Program_IsDocked.htm">
-            <HelpTOCNode Title="IsDocked Method " Url="html/M_YASEL_Program_IsDocked.htm" />
-            <HelpTOCNode Title="IsDocked Method (IMyShipConnector)" Url="html/M_YASEL_Program_IsDocked_1.htm" />
-            <HelpTOCNode Title="IsDocked Method (List(IMyTerminalBlock))" Url="html/M_YASEL_Program_IsDocked_2.htm" />
-            <HelpTOCNode Title="IsDocked Method (String)" Url="html/M_YASEL_Program_IsDocked_3.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="IsEnabled Method " Url="html/M_YASEL_Program_IsEnabled.htm" />
-          <HelpTOCNode Id="7d8e60ce-ee92-4151-b92e-30feb0426457" Title="IsReadyToLock Method " Url="html/Overload_YASEL_Program_IsReadyToLock.htm">
-            <HelpTOCNode Title="IsReadyToLock Method (IMyShipConnector)" Url="html/M_YASEL_Program_IsReadyToLock.htm" />
-            <HelpTOCNode Title="IsReadyToLock Method (List(IMyTerminalBlock))" Url="html/M_YASEL_Program_IsReadyToLock_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="Main Method " Url="html/M_YASEL_Program_Main.htm" />
-          <HelpTOCNode Title="OnTick Method " Url="html/M_YASEL_Program_OnTick.htm" />
-          <HelpTOCNode Title="PitchD Method " Url="html/M_YASEL_Program_PitchD.htm" />
-          <HelpTOCNode Title="PitchStop Method " Url="html/M_YASEL_Program_PitchStop.htm" />
-          <HelpTOCNode Title="PitchU Method " Url="html/M_YASEL_Program_PitchU.htm" />
-          <HelpTOCNode Title="RollL Method " Url="html/M_YASEL_Program_RollL.htm" />
-          <HelpTOCNode Title="RollR Method " Url="html/M_YASEL_Program_RollR.htm" />
-          <HelpTOCNode Title="RollStop Method " Url="html/M_YASEL_Program_RollStop.htm" />
-          <HelpTOCNode Title="SearchBlocks Method " Url="html/M_YASEL_Program_SearchBlocks.htm" />
-          <HelpTOCNode Id="4eec8139-95f5-4779-9ff9-805a28c95631" Title="SetGyro Method " Url="html/Overload_YASEL_Program_SetGyro.htm">
-            <HelpTOCNode Title="SetGyro Method (IMyTerminalBlock, String, Int32)" Url="html/M_YASEL_Program_SetGyro.htm" />
-            <HelpTOCNode Title="SetGyro Method (List(IMyTerminalBlock), String, Int32)" Url="html/M_YASEL_Program_SetGyro_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="SetStatics Method " Url="html/M_YASEL_Program_SetStatics.htm" />
-          <HelpTOCNode Id="a0838424-b377-4356-84c9-fd1400f266ac" Title="SetThrustOverride Method " Url="html/Overload_YASEL_Program_SetThrustOverride.htm">
-            <HelpTOCNode Title="SetThrustOverride Method (IMyTerminalBlock, Double)" Url="html/M_YASEL_Program_SetThrustOverride.htm" />
-            <HelpTOCNode Title="SetThrustOverride Method (List(IMyTerminalBlock), Double)" Url="html/M_YASEL_Program_SetThrustOverride_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Id="f7858ddb-a09b-4683-8388-2bf16971656e" Title="StopGyro Method " Url="html/Overload_YASEL_Program_StopGyro.htm">
-            <HelpTOCNode Title="StopGyro Method (IMyTerminalBlock, String)" Url="html/M_YASEL_Program_StopGyro.htm" />
-            <HelpTOCNode Title="StopGyro Method (List(IMyTerminalBlock), String)" Url="html/M_YASEL_Program_StopGyro_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Id="b5df7953-0cfc-49b1-9aa9-3ac9d1619602" Title="SwitchLock Method " Url="html/Overload_YASEL_Program_SwitchLock.htm">
-            <HelpTOCNode Title="SwitchLock Method (IMyTerminalBlock)" Url="html/M_YASEL_Program_SwitchLock.htm" />
-            <HelpTOCNode Title="SwitchLock Method (List(IMyTerminalBlock))" Url="html/M_YASEL_Program_SwitchLock_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Id="01ba717d-3efd-4ca7-a7f0-e0d22a3eba2b" Title="ThrowOut Method " Url="html/Overload_YASEL_Program_ThrowOut.htm">
-            <HelpTOCNode Title="ThrowOut Method (IMyShipConnector, Boolean)" Url="html/M_YASEL_Program_ThrowOut.htm" />
-            <HelpTOCNode Title="ThrowOut Method (List(IMyTerminalBlock), Boolean)" Url="html/M_YASEL_Program_ThrowOut_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Id="eed36928-cb40-44a7-b86f-9e93d717b2e8" Title="TurnOnOff Method " Url="html/Overload_YASEL_Program_TurnOnOff.htm">
-            <HelpTOCNode Title="TurnOnOff Method (IMyTerminalBlock, Boolean)" Url="html/M_YASEL_Program_TurnOnOff.htm" />
-            <HelpTOCNode Title="TurnOnOff Method (List(IMyTerminalBlock), Boolean)" Url="html/M_YASEL_Program_TurnOnOff_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="TurnOnOffDampeners Method " Url="html/M_YASEL_Program_TurnOnOffDampeners.htm" />
-          <HelpTOCNode Title="YawL Method " Url="html/M_YASEL_Program_YawL.htm" />
-          <HelpTOCNode Title="YawR Method " Url="html/M_YASEL_Program_YawR.htm" />
-          <HelpTOCNode Title="YawStop Method " Url="html/M_YASEL_Program_YawStop.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="e665788e-2a2a-4341-8f9e-1721d0e286cb" Title="Program Properties" Url="html/Properties_T_YASEL_Program.htm">
-          <HelpTOCNode Title="StaticsAreSet Property " Url="html/P_YASEL_Program_StaticsAreSet.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="aeea64b7-11f7-4639-b811-859042d79c37" Title="Program.DrillerNav Class" Url="html/T_YASEL_Program_DrillerNav.htm">
-        <HelpTOCNode Title="Program.DrillerNav Constructor " Url="html/M_YASEL_Program_DrillerNav__ctor.htm" />
-        <HelpTOCNode Id="3e8e30e2-12b3-4b59-a7bf-34083c19fd29" Title="DrillerNav Fields" Url="html/Fields_T_YASEL_Program_DrillerNav.htm">
-          <HelpTOCNode Title="curShaftCount Field" Url="html/F_YASEL_Program_DrillerNav_curShaftCount.htm" />
-          <HelpTOCNode Title="curShaftEnd Field" Url="html/F_YASEL_Program_DrillerNav_curShaftEnd.htm" />
-          <HelpTOCNode Title="curShaftStart Field" Url="html/F_YASEL_Program_DrillerNav_curShaftStart.htm" />
-          <HelpTOCNode Title="enounteredRoidInShaft Field" Url="html/F_YASEL_Program_DrillerNav_enounteredRoidInShaft.htm" />
-          <HelpTOCNode Title="firstRun Field" Url="html/F_YASEL_Program_DrillerNav_firstRun.htm" />
-          <HelpTOCNode Title="lcdWaypoints Field" Url="html/F_YASEL_Program_DrillerNav_lcdWaypoints.htm" />
-          <HelpTOCNode Title="mining Field" Url="html/F_YASEL_Program_DrillerNav_mining.htm" />
-          <HelpTOCNode Title="settings Field" Url="html/F_YASEL_Program_DrillerNav_settings.htm" />
-          <HelpTOCNode Title="shaftX Field" Url="html/F_YASEL_Program_DrillerNav_shaftX.htm" />
-          <HelpTOCNode Title="shaftY Field" Url="html/F_YASEL_Program_DrillerNav_shaftY.htm" />
-          <HelpTOCNode Title="state Field" Url="html/F_YASEL_Program_DrillerNav_state.htm" />
-          <HelpTOCNode Title="vs Field" Url="html/F_YASEL_Program_DrillerNav_vs.htm" />
-          <HelpTOCNode Title="wpiDock Field" Url="html/F_YASEL_Program_DrillerNav_wpiDock.htm" />
-          <HelpTOCNode Title="wpiExitHangar Field" Url="html/F_YASEL_Program_DrillerNav_wpiExitHangar.htm" />
-          <HelpTOCNode Title="wpiMine Field" Url="html/F_YASEL_Program_DrillerNav_wpiMine.htm" />
-          <HelpTOCNode Title="wpInfo Field" Url="html/F_YASEL_Program_DrillerNav_wpInfo.htm" />
-          <HelpTOCNode Title="wpiRTB Field" Url="html/F_YASEL_Program_DrillerNav_wpiRTB.htm" />
-          <HelpTOCNode Title="wpiToRoid Field" Url="html/F_YASEL_Program_DrillerNav_wpiToRoid.htm" />
-          <HelpTOCNode Title="wpiUndock Field" Url="html/F_YASEL_Program_DrillerNav_wpiUndock.htm" />
-          <HelpTOCNode Title="wpRoid Field" Url="html/F_YASEL_Program_DrillerNav_wpRoid.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="e751d799-7b37-4acc-8f7f-ff8ec7131bfd" Title="DrillerNav Methods" Url="html/Methods_T_YASEL_Program_DrillerNav.htm">
-          <HelpTOCNode Title="alignForMining Method " Url="html/M_YASEL_Program_DrillerNav_alignForMining.htm" />
-          <HelpTOCNode Title="asteroidInFront Method " Url="html/M_YASEL_Program_DrillerNav_asteroidInFront.htm" />
-          <HelpTOCNode Title="batteryFull Method " Url="html/M_YASEL_Program_DrillerNav_batteryFull.htm" />
-          <HelpTOCNode Title="batteryLow Method " Url="html/M_YASEL_Program_DrillerNav_batteryLow.htm" />
-          <HelpTOCNode Title="batteryPercent Method " Url="html/M_YASEL_Program_DrillerNav_batteryPercent.htm" />
-          <HelpTOCNode Title="cargoEmpty Method " Url="html/M_YASEL_Program_DrillerNav_cargoEmpty.htm" />
-          <HelpTOCNode Title="cargoFull Method " Url="html/M_YASEL_Program_DrillerNav_cargoFull.htm" />
-          <HelpTOCNode Title="cargoPercent Method " Url="html/M_YASEL_Program_DrillerNav_cargoPercent.htm" />
-          <HelpTOCNode Title="dock Method " Url="html/M_YASEL_Program_DrillerNav_dock.htm" />
-          <HelpTOCNode Title="dockComplete Method " Url="html/M_YASEL_Program_DrillerNav_dockComplete.htm" />
-          <HelpTOCNode Title="exitHangar Method " Url="html/M_YASEL_Program_DrillerNav_exitHangar.htm" />
-          <HelpTOCNode Title="exitHangarComplete Method " Url="html/M_YASEL_Program_DrillerNav_exitHangarComplete.htm" />
-          <HelpTOCNode Title="getSpiralXY Method " Url="html/M_YASEL_Program_DrillerNav_getSpiralXY.htm" />
-          <HelpTOCNode Title="mineShaft Method " Url="html/M_YASEL_Program_DrillerNav_mineShaft.htm" />
-          <HelpTOCNode Title="mineShaftComplete Method " Url="html/M_YASEL_Program_DrillerNav_mineShaftComplete.htm" />
-          <HelpTOCNode Title="operate Method " Url="html/M_YASEL_Program_DrillerNav_operate.htm" />
-          <HelpTOCNode Title="reset Method " Url="html/M_YASEL_Program_DrillerNav_reset.htm" />
-          <HelpTOCNode Title="rtb Method " Url="html/M_YASEL_Program_DrillerNav_rtb.htm" />
-          <HelpTOCNode Title="rtbComplete Method " Url="html/M_YASEL_Program_DrillerNav_rtbComplete.htm" />
-          <HelpTOCNode Title="stopMiningRtb Method " Url="html/M_YASEL_Program_DrillerNav_stopMiningRtb.htm" />
-          <HelpTOCNode Title="Tick Method " Url="html/M_YASEL_Program_DrillerNav_Tick.htm" />
-          <HelpTOCNode Title="toRoid Method " Url="html/M_YASEL_Program_DrillerNav_toRoid.htm" />
-          <HelpTOCNode Title="toRoidComplete Method " Url="html/M_YASEL_Program_DrillerNav_toRoidComplete.htm" />
-          <HelpTOCNode Title="undock Method " Url="html/M_YASEL_Program_DrillerNav_undock.htm" />
-          <HelpTOCNode Title="undockComplete Method " Url="html/M_YASEL_Program_DrillerNav_undockComplete.htm" />
-          <HelpTOCNode Title="waitEmpty Method " Url="html/M_YASEL_Program_DrillerNav_waitEmpty.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="26f94cd3-e9f2-4566-807f-25affa43f502" Title="Program.DrillerNavSettings Class" Url="html/T_YASEL_Program_DrillerNavSettings.htm">
-        <HelpTOCNode Title="Program.DrillerNavSettings Constructor " Url="html/M_YASEL_Program_DrillerNavSettings__ctor.htm" />
-        <HelpTOCNode Id="53af08cc-9772-499e-8577-8383ef3b7b01" Title="DrillerNavSettings Fields" Url="html/Fields_T_YASEL_Program_DrillerNavSettings.htm">
-          <HelpTOCNode Title="AsteroidSensorName Field" Url="html/F_YASEL_Program_DrillerNavSettings_AsteroidSensorName.htm" />
-          <HelpTOCNode Title="ButtonSensorName Field" Url="html/F_YASEL_Program_DrillerNavSettings_ButtonSensorName.htm" />
-          <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_YASEL_Program_DrillerNavSettings_LCDVariableStoreName.htm" />
-          <HelpTOCNode Title="LCDWaypointsName Field" Url="html/F_YASEL_Program_DrillerNavSettings_LCDWaypointsName.htm" />
-          <HelpTOCNode Title="MiningSpeed Field" Url="html/F_YASEL_Program_DrillerNavSettings_MiningSpeed.htm" />
-          <HelpTOCNode Title="OreCargoGroupName Field" Url="html/F_YASEL_Program_DrillerNavSettings_OreCargoGroupName.htm" />
-          <HelpTOCNode Title="ShaftDepth Field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftDepth.htm" />
-          <HelpTOCNode Title="ShaftHeight Field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftHeight.htm" />
-          <HelpTOCNode Title="ShaftMaxCount Field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftMaxCount.htm" />
-          <HelpTOCNode Title="ShaftWidth Field" Url="html/F_YASEL_Program_DrillerNavSettings_ShaftWidth.htm" />
-          <HelpTOCNode Title="StartingShaftNumber Field" Url="html/F_YASEL_Program_DrillerNavSettings_StartingShaftNumber.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="89862585-80e9-468a-b469-295fc832b55e" Title="Program.NavManager Class" Url="html/T_YASEL_Program_NavManager.htm">
-        <HelpTOCNode Title="Program.NavManager Constructor " Url="html/M_YASEL_Program_NavManager__ctor.htm" />
-        <HelpTOCNode Id="f86f1d64-c303-4247-8f86-db8b07dfae5d" Title="NavManager Fields" Url="html/Fields_T_YASEL_Program_NavManager.htm">
-          <HelpTOCNode Title="avgSpeed Field" Url="html/F_YASEL_Program_NavManager_avgSpeed.htm" />
-          <HelpTOCNode Title="bottomBlock Field" Url="html/F_YASEL_Program_NavManager_bottomBlock.htm" />
-          <HelpTOCNode Title="bPos Field" Url="html/F_YASEL_Program_NavManager_bPos.htm" />
-          <HelpTOCNode Title="controller Field" Url="html/F_YASEL_Program_NavManager_controller.htm" />
-          <HelpTOCNode Title="downThrusters Field" Url="html/F_YASEL_Program_NavManager_downThrusters.htm" />
-          <HelpTOCNode Title="fwdBlock Field" Url="html/F_YASEL_Program_NavManager_fwdBlock.htm" />
-          <HelpTOCNode Title="fwdPos Field" Url="html/F_YASEL_Program_NavManager_fwdPos.htm" />
-          <HelpTOCNode Title="fwdThrusters Field" Url="html/F_YASEL_Program_NavManager_fwdThrusters.htm" />
-          <HelpTOCNode Title="gyros Field" Url="html/F_YASEL_Program_NavManager_gyros.htm" />
-          <HelpTOCNode Title="lastDistToDest Field" Url="html/F_YASEL_Program_NavManager_lastDistToDest.htm" />
-          <HelpTOCNode Title="lcdWaypoints Field" Url="html/F_YASEL_Program_NavManager_lcdWaypoints.htm" />
-          <HelpTOCNode Title="leftBlock Field" Url="html/F_YASEL_Program_NavManager_leftBlock.htm" />
-          <HelpTOCNode Title="leftThrusters Field" Url="html/F_YASEL_Program_NavManager_leftThrusters.htm" />
-          <HelpTOCNode Title="lPos Field" Url="html/F_YASEL_Program_NavManager_lPos.htm" />
-          <HelpTOCNode Title="paused Field" Url="html/F_YASEL_Program_NavManager_paused.htm" />
-          <HelpTOCNode Title="rearBlock Field" Url="html/F_YASEL_Program_NavManager_rearBlock.htm" />
-          <HelpTOCNode Title="rearPos Field" Url="html/F_YASEL_Program_NavManager_rearPos.htm" />
-          <HelpTOCNode Title="rightBlock Field" Url="html/F_YASEL_Program_NavManager_rightBlock.htm" />
-          <HelpTOCNode Title="rightThrusters Field" Url="html/F_YASEL_Program_NavManager_rightThrusters.htm" />
-          <HelpTOCNode Title="rPos Field" Url="html/F_YASEL_Program_NavManager_rPos.htm" />
-          <HelpTOCNode Title="runCount Field" Url="html/F_YASEL_Program_NavManager_runCount.htm" />
-          <HelpTOCNode Title="rvsThrusters Field" Url="html/F_YASEL_Program_NavManager_rvsThrusters.htm" />
-          <HelpTOCNode Title="settings Field" Url="html/F_YASEL_Program_NavManager_settings.htm" />
-          <HelpTOCNode Title="speed Field" Url="html/F_YASEL_Program_NavManager_speed.htm" />
-          <HelpTOCNode Title="speeds Field" Url="html/F_YASEL_Program_NavManager_speeds.htm" />
-          <HelpTOCNode Title="speedsToDest Field" Url="html/F_YASEL_Program_NavManager_speedsToDest.htm" />
-          <HelpTOCNode Title="topBlock Field" Url="html/F_YASEL_Program_NavManager_topBlock.htm" />
-          <HelpTOCNode Title="tPos Field" Url="html/F_YASEL_Program_NavManager_tPos.htm" />
-          <HelpTOCNode Title="upThrusters Field" Url="html/F_YASEL_Program_NavManager_upThrusters.htm" />
-          <HelpTOCNode Title="vs Field" Url="html/F_YASEL_Program_NavManager_vs.htm" />
-          <HelpTOCNode Title="waitTime Field" Url="html/F_YASEL_Program_NavManager_waitTime.htm" />
-          <HelpTOCNode Title="waypoints Field" Url="html/F_YASEL_Program_NavManager_waypoints.htm" />
-          <HelpTOCNode Title="wpInfo Field" Url="html/F_YASEL_Program_NavManager_wpInfo.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="43c46823-ad59-4c05-bf9a-64d62782874f" Title="NavManager Methods" Url="html/Methods_T_YASEL_Program_NavManager.htm">
-          <HelpTOCNode Id="30e70ce4-f6d2-4626-89ca-cf7662bb9457" Title="Act Method " Url="html/Overload_YASEL_Program_NavManager_Act.htm">
-            <HelpTOCNode Title="Act Method (Dictionary(Int32, Program.WpInfo))" Url="html/M_YASEL_Program_NavManager_Act.htm" />
-            <HelpTOCNode Title="Act Method (Program.WpInfo)" Url="html/M_YASEL_Program_NavManager_Act_1.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="AdjustSpeed Method " Url="html/M_YASEL_Program_NavManager_AdjustSpeed.htm" />
-          <HelpTOCNode Title="align Method " Url="html/M_YASEL_Program_NavManager_align.htm" />
-          <HelpTOCNode Title="center Method " Url="html/M_YASEL_Program_NavManager_center.htm" />
-          <HelpTOCNode Title="DotProduct Method " Url="html/M_YASEL_Program_NavManager_DotProduct.htm" />
-          <HelpTOCNode Title="GetAngle Method " Url="html/M_YASEL_Program_NavManager_GetAngle.htm" />
-          <HelpTOCNode Title="GetCross Method " Url="html/M_YASEL_Program_NavManager_GetCross.htm" />
-          <HelpTOCNode Title="getFirst Method " Url="html/M_YASEL_Program_NavManager_getFirst.htm" />
-          <HelpTOCNode Title="GetOffset Method " Url="html/M_YASEL_Program_NavManager_GetOffset.htm" />
-          <HelpTOCNode Title="GetPos Method " Url="html/M_YASEL_Program_NavManager_GetPos.htm" />
-          <HelpTOCNode Title="IsActing Method " Url="html/M_YASEL_Program_NavManager_IsActing.htm" />
-          <HelpTOCNode Title="level Method " Url="html/M_YASEL_Program_NavManager_level.htm" />
-          <HelpTOCNode Title="Pause Method " Url="html/M_YASEL_Program_NavManager_Pause.htm" />
-          <HelpTOCNode Title="Reset Method " Url="html/M_YASEL_Program_NavManager_Reset.htm" />
-          <HelpTOCNode Title="ShipLeft Method " Url="html/M_YASEL_Program_NavManager_ShipLeft.htm" />
-          <HelpTOCNode Title="ShipUp Method " Url="html/M_YASEL_Program_NavManager_ShipUp.htm" />
-          <HelpTOCNode Title="Tick Method " Url="html/M_YASEL_Program_NavManager_Tick.htm" />
-          <HelpTOCNode Title="travel Method " Url="html/M_YASEL_Program_NavManager_travel.htm" />
-          <HelpTOCNode Title="UnPause Method " Url="html/M_YASEL_Program_NavManager_UnPause.htm" />
-          <HelpTOCNode Title="wait Method " Url="html/M_YASEL_Program_NavManager_wait.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="183c0cf0-4419-472e-b5f0-1f262148de18" Title="Program.NavSettings Class" Url="html/T_YASEL_Program_NavSettings.htm">
-        <HelpTOCNode Title="Program.NavSettings Constructor " Url="html/M_YASEL_Program_NavSettings__ctor.htm" />
-        <HelpTOCNode Id="31f1d9e1-f499-46dd-934c-b83368f42444" Title="NavSettings Fields" Url="html/Fields_T_YASEL_Program_NavSettings.htm">
-          <HelpTOCNode Title="ActionTick Field" Url="html/F_YASEL_Program_NavSettings_ActionTick.htm" />
-          <HelpTOCNode Title="AlignMargin Field" Url="html/F_YASEL_Program_NavSettings_AlignMargin.htm" />
-          <HelpTOCNode Title="BottomBlockName Field" Url="html/F_YASEL_Program_NavSettings_BottomBlockName.htm" />
-          <HelpTOCNode Title="BreakingDistMultiplier Field" Url="html/F_YASEL_Program_NavSettings_BreakingDistMultiplier.htm" />
-          <HelpTOCNode Title="CentreBlock Field" Url="html/F_YASEL_Program_NavSettings_CentreBlock.htm" />
-          <HelpTOCNode Title="CockpitName Field" Url="html/F_YASEL_Program_NavSettings_CockpitName.htm" />
-          <HelpTOCNode Title="ConnectorSpeed Field" Url="html/F_YASEL_Program_NavSettings_ConnectorSpeed.htm" />
-          <HelpTOCNode Title="DebugLevel Field" Url="html/F_YASEL_Program_NavSettings_DebugLevel.htm" />
-          <HelpTOCNode Title="DefaultThrust Field" Url="html/F_YASEL_Program_NavSettings_DefaultThrust.htm" />
-          <HelpTOCNode Title="DownThrustGroupName Field" Url="html/F_YASEL_Program_NavSettings_DownThrustGroupName.htm" />
-          <HelpTOCNode Title="FwdBlockName Field" Url="html/F_YASEL_Program_NavSettings_FwdBlockName.htm" />
-          <HelpTOCNode Title="FwdThrustGroupName Field" Url="html/F_YASEL_Program_NavSettings_FwdThrustGroupName.htm" />
-          <HelpTOCNode Title="GyroGroupName Field" Url="html/F_YASEL_Program_NavSettings_GyroGroupName.htm" />
-          <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_YASEL_Program_NavSettings_LCDDebugScreenName.htm" />
-          <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_YASEL_Program_NavSettings_LCDVariableStoreName.htm" />
-          <HelpTOCNode Title="LeftBlockName Field" Url="html/F_YASEL_Program_NavSettings_LeftBlockName.htm" />
-          <HelpTOCNode Title="LeftThrustGroupName Field" Url="html/F_YASEL_Program_NavSettings_LeftThrustGroupName.htm" />
-          <HelpTOCNode Title="MaxSpeed Field" Url="html/F_YASEL_Program_NavSettings_MaxSpeed.htm" />
-          <HelpTOCNode Title="MinThrust Field" Url="html/F_YASEL_Program_NavSettings_MinThrust.htm" />
-          <HelpTOCNode Title="RearBlockName Field" Url="html/F_YASEL_Program_NavSettings_RearBlockName.htm" />
-          <HelpTOCNode Title="RightBlockName Field" Url="html/F_YASEL_Program_NavSettings_RightBlockName.htm" />
-          <HelpTOCNode Title="RightThrustGroupName Field" Url="html/F_YASEL_Program_NavSettings_RightThrustGroupName.htm" />
-          <HelpTOCNode Title="RvsThrustGroupName Field" Url="html/F_YASEL_Program_NavSettings_RvsThrustGroupName.htm" />
-          <HelpTOCNode Title="StoppingDistance Field" Url="html/F_YASEL_Program_NavSettings_StoppingDistance.htm" />
-          <HelpTOCNode Title="TicksPerSec Field" Url="html/F_YASEL_Program_NavSettings_TicksPerSec.htm" />
-          <HelpTOCNode Title="TopBlockName Field" Url="html/F_YASEL_Program_NavSettings_TopBlockName.htm" />
-          <HelpTOCNode Title="UpThrustGroupName Field" Url="html/F_YASEL_Program_NavSettings_UpThrustGroupName.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="6e665ff9-6ff3-465f-940a-086669ec8b78" Title="Program.SE_Menu Class" Url="html/T_YASEL_Program_SE_Menu.htm">
-        <HelpTOCNode Title="Program.SE_Menu Constructor " Url="html/M_YASEL_Program_SE_Menu__ctor.htm" />
-        <HelpTOCNode Id="9208ef6d-fb81-43e8-b908-3aed39caa44d" Title="SE_Menu Fields" Url="html/Fields_T_YASEL_Program_SE_Menu.htm">
-          <HelpTOCNode Title="curPage Field" Url="html/F_YASEL_Program_SE_Menu_curPage.htm" />
-          <HelpTOCNode Title="display Field" Url="html/F_YASEL_Program_SE_Menu_display.htm" />
-          <HelpTOCNode Title="pages Field" Url="html/F_YASEL_Program_SE_Menu_pages.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="d16fd70a-b464-4398-aa23-1308dea77340" Title="SE_Menu Methods" Url="html/Methods_T_YASEL_Program_SE_Menu.htm">
-          <HelpTOCNode Title="AddPage Method " Url="html/M_YASEL_Program_SE_Menu_AddPage.htm" />
-          <HelpTOCNode Title="OnButtonPress Method " Url="html/M_YASEL_Program_SE_Menu_OnButtonPress.htm" />
-          <HelpTOCNode Title="ShowPage Method " Url="html/M_YASEL_Program_SE_Menu_ShowPage.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="0d4bbccd-5117-4ea0-8a55-7b069a6ec6fc" Title="Program.SE_MenuOption Class" Url="html/T_YASEL_Program_SE_MenuOption.htm">
-        <HelpTOCNode Title="Program.SE_MenuOption Constructor " Url="html/M_YASEL_Program_SE_MenuOption__ctor.htm" />
-        <HelpTOCNode Id="22dc2475-d0c4-4dd8-b8b2-303a6194bc4e" Title="SE_MenuOption Fields" Url="html/Fields_T_YASEL_Program_SE_MenuOption.htm">
-          <HelpTOCNode Title="ActionButton Field" Url="html/F_YASEL_Program_SE_MenuOption_ActionButton.htm" />
-          <HelpTOCNode Title="GotoPage Field" Url="html/F_YASEL_Program_SE_MenuOption_GotoPage.htm" />
-          <HelpTOCNode Title="OnSelect Field" Url="html/F_YASEL_Program_SE_MenuOption_OnSelect.htm" />
-          <HelpTOCNode Title="Text Field" Url="html/F_YASEL_Program_SE_MenuOption_Text.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="bcba87fc-6dfc-409c-9bad-fc0db11bebae" Title="Program.SE_MenuPage Class" Url="html/T_YASEL_Program_SE_MenuPage.htm">
-        <HelpTOCNode Title="Program.SE_MenuPage Constructor " Url="html/M_YASEL_Program_SE_MenuPage__ctor.htm" />
-        <HelpTOCNode Id="d7f14809-b02c-419e-b3f4-5e60d79f046f" Title="SE_MenuPage Fields" Url="html/Fields_T_YASEL_Program_SE_MenuPage.htm">
-          <HelpTOCNode Title="Name Field" Url="html/F_YASEL_Program_SE_MenuPage_Name.htm" />
-          <HelpTOCNode Title="options Field" Url="html/F_YASEL_Program_SE_MenuPage_options.htm" />
-          <HelpTOCNode Title="Title Field" Url="html/F_YASEL_Program_SE_MenuPage_Title.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="f0c5b83a-61ed-4c62-a63f-3751e365c204" Title="SE_MenuPage Methods" Url="html/Methods_T_YASEL_Program_SE_MenuPage.htm">
-          <HelpTOCNode Title="AddOption Method " Url="html/M_YASEL_Program_SE_MenuPage_AddOption.htm" />
-          <HelpTOCNode Title="GetOption Method " Url="html/M_YASEL_Program_SE_MenuPage_GetOption.htm" />
-          <HelpTOCNode Title="GetText Method " Url="html/M_YASEL_Program_SE_MenuPage_GetText.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="b70635f5-70cb-46ab-9e92-71cf2b771fdb" Title="Program.StationManager Class" Url="html/T_YASEL_Program_StationManager.htm">
-        <HelpTOCNode Title="Program.StationManager Constructor " Url="html/M_YASEL_Program_StationManager__ctor.htm" />
-        <HelpTOCNode Id="88e8b04b-6f94-4e1c-9bad-02f789f43618" Title="StationManager Fields" Url="html/Fields_T_YASEL_Program_StationManager.htm">
-          <HelpTOCNode Title="settings Field" Url="html/F_YASEL_Program_StationManager_settings.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="219e0c24-9ee1-4972-8286-1b6a396ab187" Title="StationManager Methods" Url="html/Methods_T_YASEL_Program_StationManager.htm">
-          <HelpTOCNode Title="DisplayCargoStatus Method " Url="html/M_YASEL_Program_StationManager_DisplayCargoStatus.htm" />
-          <HelpTOCNode Title="DisplayTime Method " Url="html/M_YASEL_Program_StationManager_DisplayTime.htm" />
-          <HelpTOCNode Title="ManageAirlocks Method " Url="html/M_YASEL_Program_StationManager_ManageAirlocks.htm" />
-          <HelpTOCNode Title="ManageOxygenGens Method " Url="html/M_YASEL_Program_StationManager_ManageOxygenGens.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="ac818b80-ffa4-49ac-be1e-35219b972bf5" Title="Program.StationManagerSettings Class" Url="html/T_YASEL_Program_StationManagerSettings.htm">
-        <HelpTOCNode Title="Program.StationManagerSettings Constructor " Url="html/M_YASEL_Program_StationManagerSettings__ctor.htm" />
-        <HelpTOCNode Id="e2ee1080-866c-4484-abfe-9700a8538879" Title="StationManagerSettings Fields" Url="html/Fields_T_YASEL_Program_StationManagerSettings.htm">
-          <HelpTOCNode Title="AirlockHangarDoorWaitTime Field" Url="html/F_YASEL_Program_StationManagerSettings_AirlockHangarDoorWaitTime.htm" />
-          <HelpTOCNode Title="CargoGroups Field" Url="html/F_YASEL_Program_StationManagerSettings_CargoGroups.htm" />
-          <HelpTOCNode Title="CargoStatusLCDName Field" Url="html/F_YASEL_Program_StationManagerSettings_CargoStatusLCDName.htm" />
-          <HelpTOCNode Title="OxygenGenHighThreshold Field" Url="html/F_YASEL_Program_StationManagerSettings_OxygenGenHighThreshold.htm" />
-          <HelpTOCNode Title="OxygenGenLowThreshold Field" Url="html/F_YASEL_Program_StationManagerSettings_OxygenGenLowThreshold.htm" />
-          <HelpTOCNode Title="TimeLCDName Field" Url="html/F_YASEL_Program_StationManagerSettings_TimeLCDName.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="98813322-41fd-4660-82f3-5f34087e3fba" Title="Program.VarStore Class" Url="html/T_YASEL_Program_VarStore.htm">
-        <HelpTOCNode Title="Program.VarStore Constructor " Url="html/M_YASEL_Program_VarStore__ctor.htm" />
-        <HelpTOCNode Id="33f10b04-addc-4e1d-a80d-9098a551338d" Title="VarStore Fields" Url="html/Fields_T_YASEL_Program_VarStore.htm">
-          <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_YASEL_Program_VarStore_LCDDebugScreenName.htm" />
-          <HelpTOCNode Title="LCDVariableStore Field" Url="html/F_YASEL_Program_VarStore_LCDVariableStore.htm" />
-          <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_YASEL_Program_VarStore_LCDVariableStoreName.htm" />
-          <HelpTOCNode Title="varList Field" Url="html/F_YASEL_Program_VarStore_varList.htm" />
-          <HelpTOCNode Title="varStoreInit Field" Url="html/F_YASEL_Program_VarStore_varStoreInit.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="57bab9c9-cd46-453c-9e95-aefa7a5ba785" Title="VarStore Methods" Url="html/Methods_T_YASEL_Program_VarStore.htm">
-          <HelpTOCNode Title="DelVarFromStore Method " Url="html/M_YASEL_Program_VarStore_DelVarFromStore.htm" />
-          <HelpTOCNode Title="GetVarFromStore Method " Url="html/M_YASEL_Program_VarStore_GetVarFromStore.htm" />
-          <HelpTOCNode Title="initVarStore Method " Url="html/M_YASEL_Program_VarStore_initVarStore.htm" />
-          <HelpTOCNode Title="readStore Method " Url="html/M_YASEL_Program_VarStore_readStore.htm" />
-          <HelpTOCNode Title="SetVarToStore Method " Url="html/M_YASEL_Program_VarStore_SetVarToStore.htm" />
-          <HelpTOCNode Title="writeStore Method " Url="html/M_YASEL_Program_VarStore_writeStore.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="f2de97d9-2112-4784-9768-f995f57bfe18" Title="Program.WpInfo Class" Url="html/T_YASEL_Program_WpInfo.htm">
-        <HelpTOCNode Title="Program.WpInfo Constructor " Url="html/M_YASEL_Program_WpInfo__ctor.htm" />
-        <HelpTOCNode Id="b25b40d9-37ec-4e32-8a52-3a2fa2fc30de" Title="WpInfo Fields" Url="html/Fields_T_YASEL_Program_WpInfo.htm">
-          <HelpTOCNode Title="aligned Field" Url="html/F_YASEL_Program_WpInfo_aligned.htm" />
-          <HelpTOCNode Title="alignFirst Field" Url="html/F_YASEL_Program_WpInfo_alignFirst.htm" />
-          <HelpTOCNode Title="angle Field" Url="html/F_YASEL_Program_WpInfo_angle.htm" />
-          <HelpTOCNode Title="CallbackMethod Field" Url="html/F_YASEL_Program_WpInfo_CallbackMethod.htm" />
-          <HelpTOCNode Title="centered Field" Url="html/F_YASEL_Program_WpInfo_centered.htm" />
-          <HelpTOCNode Title="cross Field" Url="html/F_YASEL_Program_WpInfo_cross.htm" />
-          <HelpTOCNode Title="direction Field" Url="html/F_YASEL_Program_WpInfo_direction.htm" />
-          <HelpTOCNode Title="enabled Field" Url="html/F_YASEL_Program_WpInfo_enabled.htm" />
-          <HelpTOCNode Title="leveled Field" Url="html/F_YASEL_Program_WpInfo_leveled.htm" />
-          <HelpTOCNode Title="noStop Field" Url="html/F_YASEL_Program_WpInfo_noStop.htm" />
-          <HelpTOCNode Title="pos Field" Url="html/F_YASEL_Program_WpInfo_pos.htm" />
-          <HelpTOCNode Title="reAligning Field" Url="html/F_YASEL_Program_WpInfo_reAligning.htm" />
-          <HelpTOCNode Title="speed Field" Url="html/F_YASEL_Program_WpInfo_speed.htm" />
-          <HelpTOCNode Title="stopDist Field" Url="html/F_YASEL_Program_WpInfo_stopDist.htm" />
-          <HelpTOCNode Title="thrust Field" Url="html/F_YASEL_Program_WpInfo_thrust.htm" />
-          <HelpTOCNode Title="traveled Field" Url="html/F_YASEL_Program_WpInfo_traveled.htm" />
-          <HelpTOCNode Title="type Field" Url="html/F_YASEL_Program_WpInfo_type.htm" />
-          <HelpTOCNode Title="waited Field" Url="html/F_YASEL_Program_WpInfo_waited.htm" />
-          <HelpTOCNode Title="waitTime Field" Url="html/F_YASEL_Program_WpInfo_waitTime.htm" />
-          <HelpTOCNode Title="wpId Field" Url="html/F_YASEL_Program_WpInfo_wpId.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="ffbd1b15-8c2f-45a5-82b9-19d11c540e2d" Title="WpInfo Methods" Url="html/Methods_T_YASEL_Program_WpInfo.htm">
-          <HelpTOCNode Title="AlignTo Method " Url="html/M_YASEL_Program_WpInfo_AlignTo.htm" />
-          <HelpTOCNode Title="CenterOn Method " Url="html/M_YASEL_Program_WpInfo_CenterOn.htm" />
-          <HelpTOCNode Title="GetLCDString Method " Url="html/M_YASEL_Program_WpInfo_GetLCDString.htm" />
-          <HelpTOCNode Title="InitFromString Method " Url="html/M_YASEL_Program_WpInfo_InitFromString.htm" />
-          <HelpTOCNode Title="IsComplete Method " Url="html/M_YASEL_Program_WpInfo_IsComplete.htm" />
-          <HelpTOCNode Title="isZeroVector Method " Url="html/M_YASEL_Program_WpInfo_isZeroVector.htm" />
-          <HelpTOCNode Title="LevelTo Method " Url="html/M_YASEL_Program_WpInfo_LevelTo.htm" />
-          <HelpTOCNode Title="strToB Method " Url="html/M_YASEL_Program_WpInfo_strToB.htm" />
-          <HelpTOCNode Title="strToD Method " Url="html/M_YASEL_Program_WpInfo_strToD.htm" />
-          <HelpTOCNode Title="strToV Method " Url="html/M_YASEL_Program_WpInfo_strToV.htm" />
-          <HelpTOCNode Title="TravelTo Method " Url="html/M_YASEL_Program_WpInfo_TravelTo.htm" />
-          <HelpTOCNode Title="vToStr Method " Url="html/M_YASEL_Program_WpInfo_vToStr.htm" />
-          <HelpTOCNode Title="WaitFor Method " Url="html/M_YASEL_Program_WpInfo_WaitFor.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-    </HelpTOCNode>
-    <HelpTOCNode Id="bb8ed8fb-20b3-41de-a832-fdbca42faa4f" Title="YASEL.debug" Url="html/N_YASEL_debug.htm">
-      <HelpTOCNode Id="8126f410-4dfc-4f33-b616-eef55c9bee13" Title="debug Class" Url="html/T_YASEL_debug_debug.htm">
-        <HelpTOCNode Title="debug Constructor " Url="html/M_YASEL_debug_debug__cctor.htm" />
-        <HelpTOCNode Id="960da039-0601-4cf1-936a-3049fb5194e1" Title="debug Fields" Url="html/Fields_T_YASEL_debug_debug.htm">
-          <HelpTOCNode Title="DebugLevel Field" Url="html/F_YASEL_debug_debug_DebugLevel.htm" />
-          <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_YASEL_debug_debug_LCDDebugScreenName.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="311e3cee-6e54-4035-8692-a9c8b020f17d" Title="debug Methods" Url="html/Methods_T_YASEL_debug_debug.htm">
-          <HelpTOCNode Title="dbug Method " Url="html/M_YASEL_debug_debug_dbug.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-    </HelpTOCNode>
-    <HelpTOCNode Id="72511571-c4cd-4a11-87eb-49e604660dc5" Title="YASEL.LCDFunctions" Url="html/N_YASEL_LCDFunctions.htm">
-      <HelpTOCNode Id="36e17c0d-7451-4e4c-9836-c915e1b5e2e8" Title="LCDFunctions Class" Url="html/T_YASEL_LCDFunctions_LCDFunctions.htm">
-        <HelpTOCNode Id="e0ea4469-4e41-466c-bc29-7ef9af6ad39b" Title="LCDFunctions Methods" Url="html/Methods_T_YASEL_LCDFunctions_LCDFunctions.htm">
-          <HelpTOCNode Title="DisplayOnScreen Method " Url="html/M_YASEL_LCDFunctions_LCDFunctions_DisplayOnScreen.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-    </HelpTOCNode>
-    <HelpTOCNode Id="5d43ca9d-bff4-4d40-9deb-a3da11ce9d96" Title="YASEL.LCDFunctions2" Url="html/N_YASEL_LCDFunctions2.htm">
-      <HelpTOCNode Id="42d73d3e-dea9-41d2-b0db-c47755debb20" Title="LCDFunctions2 Class" Url="html/T_YASEL_LCDFunctions2_LCDFunctions2.htm">
-        <HelpTOCNode Id="e70a1c6a-451b-4f83-be70-c1e5676c2350" Title="LCDFunctions2 Methods" Url="html/Methods_T_YASEL_LCDFunctions2_LCDFunctions2.htm">
-          <HelpTOCNode Title="PrepareBarGraph Method " Url="html/M_YASEL_LCDFunctions2_LCDFunctions2_PrepareBarGraph.htm" />
-        </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
