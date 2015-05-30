@@ -27,6 +27,11 @@
         <span class="highlight-keyword">void</span> Main(<span class="highlight-keyword">string</span> argument)
         {
             <span class="highlight-comment">// A Simple program that cylces doors print there names, and put Explaination marks after ones that have Auto in the name</span>
+
+            <span class="highlight-comment">// First we need to set Grid up</span>
+            Grid.Set(GridTerminalSystem, Me, Echo);
+
+            <span class="highlight-comment">// Then we can do out stuff</span>
             <span class="highlight-keyword">var</span> doors = Grid.GetBlocks&lt;IMyDoor&gt;();
             doors.ForEach(door =&gt;
             {

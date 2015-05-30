@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpKI>
+  <HelpKINode Title="Act method" Url="html/Overload_Nav_NavManager_NavManager_Act.htm" />
   <HelpKINode Title="ActionButton field" Url="html/F_Menu_MenuOption_ActionButton.htm" />
+  <HelpKINode Title="ActionTick field" Url="html/F_Nav_NavSettings_NavSettings_ActionTick.htm" />
   <HelpKINode Title="AddOption method" Url="html/M_Menu_MenuPage_AddOption.htm" />
   <HelpKINode Title="AddPage method" Url="html/M_Menu_Menu_AddPage.htm" />
+  <HelpKINode Title="AdjustSpeed method" Url="html/M_Nav_NavManager_NavManager_AdjustSpeed.htm" />
+  <HelpKINode Title="aligned field" Url="html/F_Nav_WpInfo_WpInfo_aligned.htm" />
+  <HelpKINode Title="alignFirst field" Url="html/F_Nav_WpInfo_WpInfo_alignFirst.htm" />
+  <HelpKINode Title="AlignMargin field" Url="html/F_Nav_NavSettings_NavSettings_AlignMargin.htm" />
+  <HelpKINode Title="AlignTo method" Url="html/M_Nav_WpInfo_WpInfo_AlignTo.htm" />
+  <HelpKINode Title="angle field" Url="html/F_Nav_WpInfo_WpInfo_angle.htm" />
   <HelpKINode Title="Battery class">
     <HelpKINode Title="Battery Class" Url="html/T_Battery_Battery.htm" />
     <HelpKINode Title="about Battery class" Url="html/T_Battery_Battery.htm" />
@@ -23,6 +31,12 @@
   <HelpKINode Title="Block.GetDetail method" Url="html/M_Block_Block_GetDetail.htm" />
   <HelpKINode Title="Block.IsEnabled method" Url="html/M_Block_Block_IsEnabled.htm" />
   <HelpKINode Title="Block.TurnOnOff method" Url="html/Overload_Block_Block_TurnOnOff.htm" />
+  <HelpKINode Title="BottomBlockName field" Url="html/F_Nav_NavSettings_NavSettings_BottomBlockName.htm" />
+  <HelpKINode Title="BreakingDistMultiplier field" Url="html/F_Nav_NavSettings_NavSettings_BreakingDistMultiplier.htm" />
+  <HelpKINode Title="CallbackMethod field" Url="html/F_Nav_WpInfo_WpInfo_CallbackMethod.htm" />
+  <HelpKINode Title="centered field" Url="html/F_Nav_WpInfo_WpInfo_centered.htm" />
+  <HelpKINode Title="CenterOn method" Url="html/M_Nav_WpInfo_WpInfo_CenterOn.htm" />
+  <HelpKINode Title="CentreBlock field" Url="html/F_Nav_NavSettings_NavSettings_CentreBlock.htm" />
   <HelpKINode Title="ChargePercent method" Url="html/Overload_Battery_Battery_ChargePercent.htm" />
   <HelpKINode Title="Cockpit class">
     <HelpKINode Title="Cockpit Class" Url="html/T_Cockpit_Cockpit.htm" />
@@ -32,6 +46,7 @@
   <HelpKINode Title="Cockpit namespace" Url="html/N_Cockpit.htm" />
   <HelpKINode Title="Cockpit.Cockpit class" Url="html/T_Cockpit_Cockpit.htm" />
   <HelpKINode Title="Cockpit.TurnOnOffDampeners method" Url="html/M_Cockpit_Cockpit_TurnOnOffDampeners.htm" />
+  <HelpKINode Title="CockpitName field" Url="html/F_Nav_NavSettings_NavSettings_CockpitName.htm" />
   <HelpKINode Title="Connector class">
     <HelpKINode Title="Connector Class" Url="html/T_Connector_Connector.htm" />
     <HelpKINode Title="about Connector class" Url="html/T_Connector_Connector.htm" />
@@ -43,10 +58,22 @@
   <HelpKINode Title="Connector.IsReadyToLock method" Url="html/Overload_Connector_Connector_IsReadyToLock.htm" />
   <HelpKINode Title="Connector.SwitchLock method" Url="html/Overload_Connector_Connector_SwitchLock.htm" />
   <HelpKINode Title="Connector.ThrowOut method" Url="html/Overload_Connector_Connector_ThrowOut.htm" />
+  <HelpKINode Title="ConnectorSpeed field" Url="html/F_Nav_NavSettings_NavSettings_ConnectorSpeed.htm" />
   <HelpKINode Title="Contains method" Url="html/M_Str_Str_Contains.htm" />
+  <HelpKINode Title="cross field" Url="html/F_Nav_WpInfo_WpInfo_cross.htm" />
+  <HelpKINode Title="DebugLevel field" Url="html/F_Nav_NavSettings_NavSettings_DebugLevel.htm" />
+  <HelpKINode Title="DefaultThrust field" Url="html/F_Nav_NavSettings_NavSettings_DefaultThrust.htm" />
   <HelpKINode Title="DelVarFromStore method" Url="html/M_VarStore_VarStore_DelVarFromStore.htm" />
+  <HelpKINode Title="direction field" Url="html/F_Nav_WpInfo_WpInfo_direction.htm" />
+  <HelpKINode Title="DotProduct method" Url="html/M_Nav_NavManager_NavManager_DotProduct.htm" />
+  <HelpKINode Title="DownThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_DownThrustGroupName.htm" />
   <HelpKINode Title="Echo method" Url="html/M_Grid_Grid_Echo.htm" />
   <HelpKINode Title="echo property" Url="html/P_Grid_Grid_echo.htm" />
+  <HelpKINode Title="enabled field" Url="html/F_Nav_WpInfo_WpInfo_enabled.htm" />
+  <HelpKINode Title="ERROR1 field" Url="html/F_Nav_NavManager_NavManager_ERROR1.htm" />
+  <HelpKINode Title="ERROR2 field" Url="html/F_Nav_NavManager_NavManager_ERROR2.htm" />
+  <HelpKINode Title="ERROR3 field" Url="html/F_Nav_NavManager_NavManager_ERROR3.htm" />
+  <HelpKINode Title="ERROR4 field" Url="html/F_Nav_NavManager_NavManager_ERROR4.htm" />
   <HelpKINode Title="ExampleProgram class">
     <HelpKINode Title="ExampleProgram Class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
     <HelpKINode Title="about ExampleProgram class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
@@ -55,12 +82,19 @@
   <HelpKINode Title="ExampleProgram namespace" Url="html/N_ExampleProgram.htm" />
   <HelpKINode Title="ExampleProgram.ExampleProgram class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
   <HelpKINode Title="ExampleProgram.ExampleProgram constructor" Url="html/M_ExampleProgram_ExampleProgram__ctor.htm" />
+  <HelpKINode Title="FwdBlockName field" Url="html/F_Nav_NavSettings_NavSettings_FwdBlockName.htm" />
+  <HelpKINode Title="FwdThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_FwdThrustGroupName.htm" />
+  <HelpKINode Title="GetAngle method" Url="html/M_Nav_NavManager_NavManager_GetAngle.htm" />
   <HelpKINode Title="GetBlock method" Url="html/M_Grid_Grid_GetBlock.htm" />
   <HelpKINode Title="GetBlockGrp method" Url="html/M_Grid_Grid_GetBlockGrp.htm" />
   <HelpKINode Title="GetBlocks(Of T) method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
   <HelpKINode Title="GetBlocks&lt;T&gt; method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
+  <HelpKINode Title="GetCross method" Url="html/M_Nav_NavManager_NavManager_GetCross.htm" />
   <HelpKINode Title="GetDetail method" Url="html/M_Block_Block_GetDetail.htm" />
+  <HelpKINode Title="GetLCDString method" Url="html/M_Nav_WpInfo_WpInfo_GetLCDString.htm" />
+  <HelpKINode Title="GetOffset method" Url="html/M_Nav_NavManager_NavManager_GetOffset.htm" />
   <HelpKINode Title="GetOption method" Url="html/M_Menu_MenuPage_GetOption.htm" />
+  <HelpKINode Title="GetPos method" Url="html/M_Nav_NavManager_NavManager_GetPos.htm" />
   <HelpKINode Title="GetText method" Url="html/M_Menu_MenuPage_GetText.htm" />
   <HelpKINode Title="GetValueListFromLCD method" Url="html/M_TextPanel_TextPanel_GetValueListFromLCD.htm" />
   <HelpKINode Title="GetVarFromStore method" Url="html/M_VarStore_VarStore_GetVarFromStore.htm" />
@@ -110,17 +144,33 @@
   <HelpKINode Title="Gyro.YawL method" Url="html/M_Gyro_Gyro_YawL.htm" />
   <HelpKINode Title="Gyro.YawR method" Url="html/M_Gyro_Gyro_YawR.htm" />
   <HelpKINode Title="Gyro.YawStop method" Url="html/M_Gyro_Gyro_YawStop.htm" />
+  <HelpKINode Title="GyroGroupName field" Url="html/F_Nav_NavSettings_NavSettings_GyroGroupName.htm" />
   <HelpKINode Title="GyroMoving method" Url="html/M_Gyro_Gyro_GyroMoving.htm" />
   <HelpKINode Title="GyroOveride method" Url="html/Overload_Gyro_Gyro_GyroOveride.htm" />
   <HelpKINode Title="GyroOverride method" Url="html/M_Gyro_Gyro_GyroOverride.htm" />
+  <HelpKINode Title="InitFromString method" Url="html/M_Nav_WpInfo_WpInfo_InitFromString.htm" />
   <HelpKINode Title="initVarStore method" Url="html/M_VarStore_VarStore_initVarStore.htm" />
+  <HelpKINode Title="IsActing method" Url="html/M_Nav_NavManager_NavManager_IsActing.htm" />
   <HelpKINode Title="IsCharging method" Url="html/Overload_Battery_Battery_IsCharging.htm" />
+  <HelpKINode Title="IsComplete method" Url="html/M_Nav_WpInfo_WpInfo_IsComplete.htm" />
   <HelpKINode Title="IsDocked method" Url="html/Overload_Connector_Connector_IsDocked.htm" />
   <HelpKINode Title="IsEnabled method" Url="html/M_Block_Block_IsEnabled.htm" />
   <HelpKINode Title="IsReadyToLock method" Url="html/Overload_Connector_Connector_IsReadyToLock.htm" />
-  <HelpKINode Title="LCDDebugScreenName field" Url="html/F_VarStore_VarStore_LCDDebugScreenName.htm" />
+  <HelpKINode Title="isZeroVector method" Url="html/M_Nav_WpInfo_WpInfo_isZeroVector.htm" />
+  <HelpKINode Title="LCDDebugScreenName field">
+    <HelpKINode Title="NavSettings.LCDDebugScreenName Field" Url="html/F_Nav_NavSettings_NavSettings_LCDDebugScreenName.htm" />
+    <HelpKINode Title="VarStore.LCDDebugScreenName Field" Url="html/F_VarStore_VarStore_LCDDebugScreenName.htm" />
+  </HelpKINode>
   <HelpKINode Title="LCDVariableStore field" Url="html/F_VarStore_VarStore_LCDVariableStore.htm" />
-  <HelpKINode Title="LCDVariableStoreName field" Url="html/F_VarStore_VarStore_LCDVariableStoreName.htm" />
+  <HelpKINode Title="LCDVariableStoreName field">
+    <HelpKINode Title="NavSettings.LCDVariableStoreName Field" Url="html/F_Nav_NavSettings_NavSettings_LCDVariableStoreName.htm" />
+    <HelpKINode Title="VarStore.LCDVariableStoreName Field" Url="html/F_VarStore_VarStore_LCDVariableStoreName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LeftBlockName field" Url="html/F_Nav_NavSettings_NavSettings_LeftBlockName.htm" />
+  <HelpKINode Title="LeftThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_LeftThrustGroupName.htm" />
+  <HelpKINode Title="leveled field" Url="html/F_Nav_WpInfo_WpInfo_leveled.htm" />
+  <HelpKINode Title="LevelTo method" Url="html/M_Nav_WpInfo_WpInfo_LevelTo.htm" />
+  <HelpKINode Title="MaxSpeed field" Url="html/F_Nav_NavSettings_NavSettings_MaxSpeed.htm" />
   <HelpKINode Title="Menu class">
     <HelpKINode Title="Menu Class" Url="html/T_Menu_Menu.htm" />
     <HelpKINode Title="about Menu class" Url="html/T_Menu_Menu.htm" />
@@ -159,22 +209,103 @@
   <HelpKINode Title="MenuPage.MenuPage constructor" Url="html/M_Menu_MenuPage__ctor.htm" />
   <HelpKINode Title="MenuPage.Name field" Url="html/F_Menu_MenuPage_Name.htm" />
   <HelpKINode Title="MenuPage.Title field" Url="html/F_Menu_MenuPage_Title.htm" />
+  <HelpKINode Title="MinThrust field" Url="html/F_Nav_NavSettings_NavSettings_MinThrust.htm" />
   <HelpKINode Title="Name field" Url="html/F_Menu_MenuPage_Name.htm" />
+  <HelpKINode Title="Nav.NavManager namespace" Url="html/N_Nav_NavManager.htm" />
+  <HelpKINode Title="Nav.NavManager.NavManager class" Url="html/T_Nav_NavManager_NavManager.htm" />
+  <HelpKINode Title="Nav.NavSettings namespace" Url="html/N_Nav_NavSettings.htm" />
+  <HelpKINode Title="Nav.NavSettings.NavSettings class" Url="html/T_Nav_NavSettings_NavSettings.htm" />
+  <HelpKINode Title="Nav.WpInfo namespace" Url="html/N_Nav_WpInfo.htm" />
+  <HelpKINode Title="Nav.WpInfo.WpInfo class" Url="html/T_Nav_WpInfo_WpInfo.htm" />
+  <HelpKINode Title="NavManager class">
+    <HelpKINode Title="NavManager Class" Url="html/T_Nav_NavManager_NavManager.htm" />
+    <HelpKINode Title="about NavManager class" Url="html/T_Nav_NavManager_NavManager.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Nav_NavManager_NavManager__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Nav_NavManager_NavManager.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Nav_NavManager_NavManager.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NavManager.Act method" Url="html/Overload_Nav_NavManager_NavManager_Act.htm" />
+  <HelpKINode Title="NavManager.AdjustSpeed method" Url="html/M_Nav_NavManager_NavManager_AdjustSpeed.htm" />
+  <HelpKINode Title="NavManager.DotProduct method" Url="html/M_Nav_NavManager_NavManager_DotProduct.htm" />
+  <HelpKINode Title="NavManager.ERROR1 field" Url="html/F_Nav_NavManager_NavManager_ERROR1.htm" />
+  <HelpKINode Title="NavManager.ERROR2 field" Url="html/F_Nav_NavManager_NavManager_ERROR2.htm" />
+  <HelpKINode Title="NavManager.ERROR3 field" Url="html/F_Nav_NavManager_NavManager_ERROR3.htm" />
+  <HelpKINode Title="NavManager.ERROR4 field" Url="html/F_Nav_NavManager_NavManager_ERROR4.htm" />
+  <HelpKINode Title="NavManager.GetAngle method" Url="html/M_Nav_NavManager_NavManager_GetAngle.htm" />
+  <HelpKINode Title="NavManager.GetCross method" Url="html/M_Nav_NavManager_NavManager_GetCross.htm" />
+  <HelpKINode Title="NavManager.GetOffset method" Url="html/M_Nav_NavManager_NavManager_GetOffset.htm" />
+  <HelpKINode Title="NavManager.GetPos method" Url="html/M_Nav_NavManager_NavManager_GetPos.htm" />
+  <HelpKINode Title="NavManager.IsActing method" Url="html/M_Nav_NavManager_NavManager_IsActing.htm" />
+  <HelpKINode Title="NavManager.NavManager constructor" Url="html/M_Nav_NavManager_NavManager__ctor.htm" />
+  <HelpKINode Title="NavManager.Pause method" Url="html/M_Nav_NavManager_NavManager_Pause.htm" />
+  <HelpKINode Title="NavManager.Reset method" Url="html/M_Nav_NavManager_NavManager_Reset.htm" />
+  <HelpKINode Title="NavManager.ShipLeft method" Url="html/M_Nav_NavManager_NavManager_ShipLeft.htm" />
+  <HelpKINode Title="NavManager.ShipUp method" Url="html/M_Nav_NavManager_NavManager_ShipUp.htm" />
+  <HelpKINode Title="NavManager.Tick method" Url="html/M_Nav_NavManager_NavManager_Tick.htm" />
+  <HelpKINode Title="NavManager.UnPause method" Url="html/M_Nav_NavManager_NavManager_UnPause.htm" />
+  <HelpKINode Title="NavSettings class">
+    <HelpKINode Title="NavSettings Class" Url="html/T_Nav_NavSettings_NavSettings.htm" />
+    <HelpKINode Title="about NavSettings class" Url="html/T_Nav_NavSettings_NavSettings.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Nav_NavSettings_NavSettings__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Nav_NavSettings_NavSettings.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NavSettings.ActionTick field" Url="html/F_Nav_NavSettings_NavSettings_ActionTick.htm" />
+  <HelpKINode Title="NavSettings.AlignMargin field" Url="html/F_Nav_NavSettings_NavSettings_AlignMargin.htm" />
+  <HelpKINode Title="NavSettings.BottomBlockName field" Url="html/F_Nav_NavSettings_NavSettings_BottomBlockName.htm" />
+  <HelpKINode Title="NavSettings.BreakingDistMultiplier field" Url="html/F_Nav_NavSettings_NavSettings_BreakingDistMultiplier.htm" />
+  <HelpKINode Title="NavSettings.CentreBlock field" Url="html/F_Nav_NavSettings_NavSettings_CentreBlock.htm" />
+  <HelpKINode Title="NavSettings.CockpitName field" Url="html/F_Nav_NavSettings_NavSettings_CockpitName.htm" />
+  <HelpKINode Title="NavSettings.ConnectorSpeed field" Url="html/F_Nav_NavSettings_NavSettings_ConnectorSpeed.htm" />
+  <HelpKINode Title="NavSettings.DebugLevel field" Url="html/F_Nav_NavSettings_NavSettings_DebugLevel.htm" />
+  <HelpKINode Title="NavSettings.DefaultThrust field" Url="html/F_Nav_NavSettings_NavSettings_DefaultThrust.htm" />
+  <HelpKINode Title="NavSettings.DownThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_DownThrustGroupName.htm" />
+  <HelpKINode Title="NavSettings.FwdBlockName field" Url="html/F_Nav_NavSettings_NavSettings_FwdBlockName.htm" />
+  <HelpKINode Title="NavSettings.FwdThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_FwdThrustGroupName.htm" />
+  <HelpKINode Title="NavSettings.GyroGroupName field" Url="html/F_Nav_NavSettings_NavSettings_GyroGroupName.htm" />
+  <HelpKINode Title="NavSettings.LCDDebugScreenName field" Url="html/F_Nav_NavSettings_NavSettings_LCDDebugScreenName.htm" />
+  <HelpKINode Title="NavSettings.LCDVariableStoreName field" Url="html/F_Nav_NavSettings_NavSettings_LCDVariableStoreName.htm" />
+  <HelpKINode Title="NavSettings.LeftBlockName field" Url="html/F_Nav_NavSettings_NavSettings_LeftBlockName.htm" />
+  <HelpKINode Title="NavSettings.LeftThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_LeftThrustGroupName.htm" />
+  <HelpKINode Title="NavSettings.MaxSpeed field" Url="html/F_Nav_NavSettings_NavSettings_MaxSpeed.htm" />
+  <HelpKINode Title="NavSettings.MinThrust field" Url="html/F_Nav_NavSettings_NavSettings_MinThrust.htm" />
+  <HelpKINode Title="NavSettings.NavSettings constructor" Url="html/M_Nav_NavSettings_NavSettings__ctor.htm" />
+  <HelpKINode Title="NavSettings.RearBlockName field" Url="html/F_Nav_NavSettings_NavSettings_RearBlockName.htm" />
+  <HelpKINode Title="NavSettings.RightBlockName field" Url="html/F_Nav_NavSettings_NavSettings_RightBlockName.htm" />
+  <HelpKINode Title="NavSettings.RightThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_RightThrustGroupName.htm" />
+  <HelpKINode Title="NavSettings.RvsThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_RvsThrustGroupName.htm" />
+  <HelpKINode Title="NavSettings.StoppingDistance field" Url="html/F_Nav_NavSettings_NavSettings_StoppingDistance.htm" />
+  <HelpKINode Title="NavSettings.TicksPerSec field" Url="html/F_Nav_NavSettings_NavSettings_TicksPerSec.htm" />
+  <HelpKINode Title="NavSettings.TopBlockName field" Url="html/F_Nav_NavSettings_NavSettings_TopBlockName.htm" />
+  <HelpKINode Title="NavSettings.UpThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_UpThrustGroupName.htm" />
+  <HelpKINode Title="noStop field" Url="html/F_Nav_WpInfo_WpInfo_noStop.htm" />
   <HelpKINode Title="OnButtonPress method" Url="html/M_Menu_Menu_OnButtonPress.htm" />
   <HelpKINode Title="OnSelect field" Url="html/F_Menu_MenuOption_OnSelect.htm" />
+  <HelpKINode Title="Pause method" Url="html/M_Nav_NavManager_NavManager_Pause.htm" />
   <HelpKINode Title="pb property" Url="html/P_Grid_Grid_pb.htm" />
   <HelpKINode Title="PitchD method" Url="html/M_Gyro_Gyro_PitchD.htm" />
   <HelpKINode Title="PitchStop method" Url="html/M_Gyro_Gyro_PitchStop.htm" />
   <HelpKINode Title="PitchU method" Url="html/M_Gyro_Gyro_PitchU.htm" />
+  <HelpKINode Title="pos field" Url="html/F_Nav_WpInfo_WpInfo_pos.htm" />
+  <HelpKINode Title="reAligning field" Url="html/F_Nav_WpInfo_WpInfo_reAligning.htm" />
+  <HelpKINode Title="RearBlockName field" Url="html/F_Nav_NavSettings_NavSettings_RearBlockName.htm" />
+  <HelpKINode Title="Reset method" Url="html/M_Nav_NavManager_NavManager_Reset.htm" />
+  <HelpKINode Title="RightBlockName field" Url="html/F_Nav_NavSettings_NavSettings_RightBlockName.htm" />
+  <HelpKINode Title="RightThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_RightThrustGroupName.htm" />
   <HelpKINode Title="RollL method" Url="html/M_Gyro_Gyro_RollL.htm" />
   <HelpKINode Title="RollR method" Url="html/M_Gyro_Gyro_RollR.htm" />
   <HelpKINode Title="RollStop method" Url="html/M_Gyro_Gyro_RollStop.htm" />
+  <HelpKINode Title="RvsThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_RvsThrustGroupName.htm" />
   <HelpKINode Title="SearchBlocks method" Url="html/M_Grid_Grid_SearchBlocks.htm" />
   <HelpKINode Title="Set method" Url="html/M_Grid_Grid_Set.htm" />
   <HelpKINode Title="SetThrustOverride method" Url="html/Overload_Thruster_Thruster_SetThrustOverride.htm" />
   <HelpKINode Title="SetVarToStore method" Url="html/M_VarStore_VarStore_SetVarToStore.htm" />
+  <HelpKINode Title="ShipLeft method" Url="html/M_Nav_NavManager_NavManager_ShipLeft.htm" />
+  <HelpKINode Title="ShipUp method" Url="html/M_Nav_NavManager_NavManager_ShipUp.htm" />
   <HelpKINode Title="ShowPage method" Url="html/M_Menu_Menu_ShowPage.htm" />
+  <HelpKINode Title="speed field" Url="html/F_Nav_WpInfo_WpInfo_speed.htm" />
+  <HelpKINode Title="stopDist field" Url="html/F_Nav_WpInfo_WpInfo_stopDist.htm" />
   <HelpKINode Title="StopGyro method" Url="html/Overload_Gyro_Gyro_StopGyro.htm" />
+  <HelpKINode Title="StoppingDistance field" Url="html/F_Nav_NavSettings_NavSettings_StoppingDistance.htm" />
   <HelpKINode Title="Str class">
     <HelpKINode Title="Str Class" Url="html/T_Str_Str.htm" />
     <HelpKINode Title="about Str class" Url="html/T_Str_Str.htm" />
@@ -196,6 +327,7 @@
   <HelpKINode Title="TextPanel.Write method" Url="html/M_TextPanel_TextPanel_Write.htm" />
   <HelpKINode Title="TextPanel.WriteMulti method" Url="html/Overload_TextPanel_TextPanel_WriteMulti.htm" />
   <HelpKINode Title="ThrowOut method" Url="html/Overload_Connector_Connector_ThrowOut.htm" />
+  <HelpKINode Title="thrust field" Url="html/F_Nav_WpInfo_WpInfo_thrust.htm" />
   <HelpKINode Title="Thruster class">
     <HelpKINode Title="Thruster Class" Url="html/T_Thruster_Thruster.htm" />
     <HelpKINode Title="about Thruster class" Url="html/T_Thruster_Thruster.htm" />
@@ -204,10 +336,18 @@
   <HelpKINode Title="Thruster namespace" Url="html/N_Thruster.htm" />
   <HelpKINode Title="Thruster.SetThrustOverride method" Url="html/Overload_Thruster_Thruster_SetThrustOverride.htm" />
   <HelpKINode Title="Thruster.Thruster class" Url="html/T_Thruster_Thruster.htm" />
+  <HelpKINode Title="Tick method" Url="html/M_Nav_NavManager_NavManager_Tick.htm" />
+  <HelpKINode Title="TicksPerSec field" Url="html/F_Nav_NavSettings_NavSettings_TicksPerSec.htm" />
   <HelpKINode Title="Title field" Url="html/F_Menu_MenuPage_Title.htm" />
+  <HelpKINode Title="TopBlockName field" Url="html/F_Nav_NavSettings_NavSettings_TopBlockName.htm" />
+  <HelpKINode Title="traveled field" Url="html/F_Nav_WpInfo_WpInfo_traveled.htm" />
+  <HelpKINode Title="TravelTo method" Url="html/M_Nav_WpInfo_WpInfo_TravelTo.htm" />
   <HelpKINode Title="ts property" Url="html/P_Grid_Grid_ts.htm" />
   <HelpKINode Title="TurnOnOff method" Url="html/Overload_Block_Block_TurnOnOff.htm" />
   <HelpKINode Title="TurnOnOffDampeners method" Url="html/M_Cockpit_Cockpit_TurnOnOffDampeners.htm" />
+  <HelpKINode Title="type field" Url="html/F_Nav_WpInfo_WpInfo_type.htm" />
+  <HelpKINode Title="UnPause method" Url="html/M_Nav_NavManager_NavManager_UnPause.htm" />
+  <HelpKINode Title="UpThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_UpThrustGroupName.htm" />
   <HelpKINode Title="VarStore class">
     <HelpKINode Title="VarStore Class" Url="html/T_VarStore_VarStore.htm" />
     <HelpKINode Title="about VarStore class" Url="html/T_VarStore_VarStore.htm" />
@@ -225,6 +365,47 @@
   <HelpKINode Title="VarStore.SetVarToStore method" Url="html/M_VarStore_VarStore_SetVarToStore.htm" />
   <HelpKINode Title="VarStore.VarStore class" Url="html/T_VarStore_VarStore.htm" />
   <HelpKINode Title="VarStore.VarStore constructor" Url="html/M_VarStore_VarStore__ctor.htm" />
+  <HelpKINode Title="waited field" Url="html/F_Nav_WpInfo_WpInfo_waited.htm" />
+  <HelpKINode Title="WaitFor method" Url="html/M_Nav_WpInfo_WpInfo_WaitFor.htm" />
+  <HelpKINode Title="waitTime field" Url="html/F_Nav_WpInfo_WpInfo_waitTime.htm" />
+  <HelpKINode Title="wpId field" Url="html/F_Nav_WpInfo_WpInfo_wpId.htm" />
+  <HelpKINode Title="WpInfo class">
+    <HelpKINode Title="WpInfo Class" Url="html/T_Nav_WpInfo_WpInfo.htm" />
+    <HelpKINode Title="about WpInfo class" Url="html/T_Nav_WpInfo_WpInfo.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Nav_WpInfo_WpInfo__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Nav_WpInfo_WpInfo.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Nav_WpInfo_WpInfo.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WpInfo.aligned field" Url="html/F_Nav_WpInfo_WpInfo_aligned.htm" />
+  <HelpKINode Title="WpInfo.alignFirst field" Url="html/F_Nav_WpInfo_WpInfo_alignFirst.htm" />
+  <HelpKINode Title="WpInfo.AlignTo method" Url="html/M_Nav_WpInfo_WpInfo_AlignTo.htm" />
+  <HelpKINode Title="WpInfo.angle field" Url="html/F_Nav_WpInfo_WpInfo_angle.htm" />
+  <HelpKINode Title="WpInfo.CallbackMethod field" Url="html/F_Nav_WpInfo_WpInfo_CallbackMethod.htm" />
+  <HelpKINode Title="WpInfo.centered field" Url="html/F_Nav_WpInfo_WpInfo_centered.htm" />
+  <HelpKINode Title="WpInfo.CenterOn method" Url="html/M_Nav_WpInfo_WpInfo_CenterOn.htm" />
+  <HelpKINode Title="WpInfo.cross field" Url="html/F_Nav_WpInfo_WpInfo_cross.htm" />
+  <HelpKINode Title="WpInfo.direction field" Url="html/F_Nav_WpInfo_WpInfo_direction.htm" />
+  <HelpKINode Title="WpInfo.enabled field" Url="html/F_Nav_WpInfo_WpInfo_enabled.htm" />
+  <HelpKINode Title="WpInfo.GetLCDString method" Url="html/M_Nav_WpInfo_WpInfo_GetLCDString.htm" />
+  <HelpKINode Title="WpInfo.InitFromString method" Url="html/M_Nav_WpInfo_WpInfo_InitFromString.htm" />
+  <HelpKINode Title="WpInfo.IsComplete method" Url="html/M_Nav_WpInfo_WpInfo_IsComplete.htm" />
+  <HelpKINode Title="WpInfo.isZeroVector method" Url="html/M_Nav_WpInfo_WpInfo_isZeroVector.htm" />
+  <HelpKINode Title="WpInfo.leveled field" Url="html/F_Nav_WpInfo_WpInfo_leveled.htm" />
+  <HelpKINode Title="WpInfo.LevelTo method" Url="html/M_Nav_WpInfo_WpInfo_LevelTo.htm" />
+  <HelpKINode Title="WpInfo.noStop field" Url="html/F_Nav_WpInfo_WpInfo_noStop.htm" />
+  <HelpKINode Title="WpInfo.pos field" Url="html/F_Nav_WpInfo_WpInfo_pos.htm" />
+  <HelpKINode Title="WpInfo.reAligning field" Url="html/F_Nav_WpInfo_WpInfo_reAligning.htm" />
+  <HelpKINode Title="WpInfo.speed field" Url="html/F_Nav_WpInfo_WpInfo_speed.htm" />
+  <HelpKINode Title="WpInfo.stopDist field" Url="html/F_Nav_WpInfo_WpInfo_stopDist.htm" />
+  <HelpKINode Title="WpInfo.thrust field" Url="html/F_Nav_WpInfo_WpInfo_thrust.htm" />
+  <HelpKINode Title="WpInfo.traveled field" Url="html/F_Nav_WpInfo_WpInfo_traveled.htm" />
+  <HelpKINode Title="WpInfo.TravelTo method" Url="html/M_Nav_WpInfo_WpInfo_TravelTo.htm" />
+  <HelpKINode Title="WpInfo.type field" Url="html/F_Nav_WpInfo_WpInfo_type.htm" />
+  <HelpKINode Title="WpInfo.waited field" Url="html/F_Nav_WpInfo_WpInfo_waited.htm" />
+  <HelpKINode Title="WpInfo.WaitFor method" Url="html/M_Nav_WpInfo_WpInfo_WaitFor.htm" />
+  <HelpKINode Title="WpInfo.waitTime field" Url="html/F_Nav_WpInfo_WpInfo_waitTime.htm" />
+  <HelpKINode Title="WpInfo.wpId field" Url="html/F_Nav_WpInfo_WpInfo_wpId.htm" />
+  <HelpKINode Title="WpInfo.WpInfo constructor" Url="html/M_Nav_WpInfo_WpInfo__ctor.htm" />
   <HelpKINode Title="Write method" Url="html/M_TextPanel_TextPanel_Write.htm" />
   <HelpKINode Title="WriteMulti method" Url="html/Overload_TextPanel_TextPanel_WriteMulti.htm" />
   <HelpKINode Title="YawL method" Url="html/M_Gyro_Gyro_YawL.htm" />
