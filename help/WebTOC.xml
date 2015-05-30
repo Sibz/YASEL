@@ -1,75 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="eb9bbb6a-9870-45c2-81b1-4f26ae040913" Title="YASEL" Url="html/R_Project_Documentation.htm">
-    <HelpTOCNode Id="ea890d8e-0618-4b97-9e40-4e4de849ac6b" Title="Battery" Url="html/N_Battery.htm">
-      <HelpTOCNode Id="20350060-6d50-4e10-9bd4-0236e276d368" Title="Battery Class" Url="html/T_Battery_Battery.htm">
-        <HelpTOCNode Id="1481e48e-c9ee-4b58-b769-2738943065c0" Title="Battery Methods" Url="html/Methods_T_Battery_Battery.htm">
-          <HelpTOCNode Id="d1435ac4-b98b-465c-a4fc-8250b4b93689" Title="ChargePercent Method " Url="html/Overload_Battery_Battery_ChargePercent.htm">
+  <HelpTOCNode Id="526ecf3a-388e-4075-9d41-dd9fb1d9f9f1" Title="YASEL" Url="html/R_Project_Documentation.htm">
+    <HelpTOCNode Id="594285ca-7e8d-4e9a-bb47-c2fb35acbbcd" Title="Battery" Url="html/N_Battery.htm">
+      <HelpTOCNode Id="1fdc1a15-9edd-49a7-9285-3cc1dc9200bb" Title="Battery Class" Url="html/T_Battery_Battery.htm">
+        <HelpTOCNode Id="0541a25c-194f-411f-94c5-85785ab5c10a" Title="Battery Methods" Url="html/Methods_T_Battery_Battery.htm">
+          <HelpTOCNode Id="4db180d0-e6c5-4773-9f71-5b3cc9a1d897" Title="ChargePercent Method " Url="html/Overload_Battery_Battery_ChargePercent.htm">
             <HelpTOCNode Title="ChargePercent Method (IMyBatteryBlock)" Url="html/M_Battery_Battery_ChargePercent.htm" />
             <HelpTOCNode Title="ChargePercent Method (List(IMyTerminalBlock))" Url="html/M_Battery_Battery_ChargePercent_1.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="71191c8f-6bd5-4d15-92a9-585db9ae71a3" Title="IsCharging Method " Url="html/Overload_Battery_Battery_IsCharging.htm">
+          <HelpTOCNode Id="0884707a-8f3d-478f-9a9a-14d321e5aa77" Title="IsCharging Method " Url="html/Overload_Battery_Battery_IsCharging.htm">
             <HelpTOCNode Title="IsCharging Method (IMyBatteryBlock)" Url="html/M_Battery_Battery_IsCharging.htm" />
             <HelpTOCNode Title="IsCharging Method (List(IMyTerminalBlock))" Url="html/M_Battery_Battery_IsCharging_1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="4112e1e9-fc11-48b5-88de-c5845cd276cd" Title="Block" Url="html/N_Block.htm">
-      <HelpTOCNode Id="a4908c51-3e97-4ac7-b75e-bd8732c71c18" Title="Block Class" Url="html/T_Block_Block.htm">
-        <HelpTOCNode Id="6eb918cb-9d78-49fc-8757-deee14e95fd4" Title="Block Methods" Url="html/Methods_T_Block_Block.htm">
+    <HelpTOCNode Id="d5f2575c-3ad1-485c-afa2-789834877343" Title="Block" Url="html/N_Block.htm">
+      <HelpTOCNode Id="cfe86071-7dec-4cc8-9673-0009e8e19212" Title="Block Class" Url="html/T_Block_Block.htm">
+        <HelpTOCNode Id="25b866e0-55ea-4285-9e73-33130a7e87fb" Title="Block Methods" Url="html/Methods_T_Block_Block.htm">
           <HelpTOCNode Title="GetDetail Method " Url="html/M_Block_Block_GetDetail.htm" />
           <HelpTOCNode Title="IsEnabled Method " Url="html/M_Block_Block_IsEnabled.htm" />
-          <HelpTOCNode Id="5bbb4131-9a99-4698-84ba-bcc09d98ee3e" Title="TurnOnOff Method " Url="html/Overload_Block_Block_TurnOnOff.htm">
+          <HelpTOCNode Id="4dcac6c6-b10b-4fbc-a0d1-a9e141886a28" Title="TurnOnOff Method " Url="html/Overload_Block_Block_TurnOnOff.htm">
             <HelpTOCNode Title="TurnOnOff Method (IMyTerminalBlock, Boolean)" Url="html/M_Block_Block_TurnOnOff.htm" />
             <HelpTOCNode Title="TurnOnOff Method (List(IMyTerminalBlock), Boolean)" Url="html/M_Block_Block_TurnOnOff_1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="42ff83b4-b520-4d28-8454-697b1a291ad2" Title="Cockpit" Url="html/N_Cockpit.htm">
-      <HelpTOCNode Id="6151ffe9-36b0-473e-bb0d-d1d1435dfbdf" Title="Cockpit Class" Url="html/T_Cockpit_Cockpit.htm">
-        <HelpTOCNode Id="2cafbfe5-2d96-4d3b-90c1-5e9a18aa43df" Title="Cockpit Methods" Url="html/Methods_T_Cockpit_Cockpit.htm">
+    <HelpTOCNode Id="a561a70a-600d-4327-97e1-089aaf8afa00" Title="Cockpit" Url="html/N_Cockpit.htm">
+      <HelpTOCNode Id="8c3f1ed7-1fc9-45fe-93d0-2bdea7937c0d" Title="Cockpit Class" Url="html/T_Cockpit_Cockpit.htm">
+        <HelpTOCNode Id="bc1d5e95-1a7c-4226-adb0-20f19e2ca247" Title="Cockpit Methods" Url="html/Methods_T_Cockpit_Cockpit.htm">
           <HelpTOCNode Title="TurnOnOffDampeners Method " Url="html/M_Cockpit_Cockpit_TurnOnOffDampeners.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="04d210be-dc50-480a-8e01-bb40c27f50f3" Title="Connector" Url="html/N_Connector.htm">
-      <HelpTOCNode Id="e88b4228-42de-485b-9d5b-79128c53f19f" Title="Connector Class" Url="html/T_Connector_Connector.htm">
-        <HelpTOCNode Id="579aec73-4dea-492b-85ec-d0e86301012e" Title="Connector Methods" Url="html/Methods_T_Connector_Connector.htm">
-          <HelpTOCNode Id="c38ad291-cb8a-46d0-925f-1a4a7a8e66a8" Title="IsDocked Method " Url="html/Overload_Connector_Connector_IsDocked.htm">
+    <HelpTOCNode Id="47bd722a-b576-4b10-8cb4-37ddbbac1f4c" Title="Connector" Url="html/N_Connector.htm">
+      <HelpTOCNode Id="74fb2d5f-6b5d-47ef-9af6-aaba37553456" Title="Connector Class" Url="html/T_Connector_Connector.htm">
+        <HelpTOCNode Id="5d2a0fb7-97ce-41a1-9a46-27901a30abd1" Title="Connector Methods" Url="html/Methods_T_Connector_Connector.htm">
+          <HelpTOCNode Id="08978bbb-c628-4266-a3b3-6c9c3486c1d4" Title="IsDocked Method " Url="html/Overload_Connector_Connector_IsDocked.htm">
             <HelpTOCNode Title="IsDocked Method " Url="html/M_Connector_Connector_IsDocked.htm" />
             <HelpTOCNode Title="IsDocked Method (IMyShipConnector)" Url="html/M_Connector_Connector_IsDocked_1.htm" />
             <HelpTOCNode Title="IsDocked Method (List(IMyTerminalBlock))" Url="html/M_Connector_Connector_IsDocked_2.htm" />
             <HelpTOCNode Title="IsDocked Method (String)" Url="html/M_Connector_Connector_IsDocked_3.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="bf949454-d03d-454a-9c7c-550d0ac97482" Title="IsReadyToLock Method " Url="html/Overload_Connector_Connector_IsReadyToLock.htm">
+          <HelpTOCNode Id="d613686b-1b0b-49be-a10c-5b00f88e9dab" Title="IsReadyToLock Method " Url="html/Overload_Connector_Connector_IsReadyToLock.htm">
             <HelpTOCNode Title="IsReadyToLock Method (IMyShipConnector)" Url="html/M_Connector_Connector_IsReadyToLock.htm" />
             <HelpTOCNode Title="IsReadyToLock Method (List(IMyTerminalBlock))" Url="html/M_Connector_Connector_IsReadyToLock_1.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="eb3caa92-d2ca-4ca9-8dfd-246aebe17014" Title="SwitchLock Method " Url="html/Overload_Connector_Connector_SwitchLock.htm">
+          <HelpTOCNode Id="016e08e3-8736-4d4f-bec9-91b4dfa9775d" Title="SwitchLock Method " Url="html/Overload_Connector_Connector_SwitchLock.htm">
             <HelpTOCNode Title="SwitchLock Method (IMyTerminalBlock)" Url="html/M_Connector_Connector_SwitchLock.htm" />
             <HelpTOCNode Title="SwitchLock Method (List(IMyTerminalBlock))" Url="html/M_Connector_Connector_SwitchLock_1.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="632d3d8f-fe64-4052-a3be-45bb7b5aca50" Title="ThrowOut Method " Url="html/Overload_Connector_Connector_ThrowOut.htm">
+          <HelpTOCNode Id="7dcf4023-65d6-4dc7-b93d-eaa07c73f9a9" Title="ThrowOut Method " Url="html/Overload_Connector_Connector_ThrowOut.htm">
             <HelpTOCNode Title="ThrowOut Method (IMyShipConnector, Boolean)" Url="html/M_Connector_Connector_ThrowOut.htm" />
             <HelpTOCNode Title="ThrowOut Method (List(IMyTerminalBlock), Boolean)" Url="html/M_Connector_Connector_ThrowOut_1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="472f3248-a26d-46ad-9f5b-b9fc11bb2210" Title="ExampleProgram" Url="html/N_ExampleProgram.htm">
-      <HelpTOCNode Id="62fc2d20-cb50-4e06-9d8a-0a20a2299dc2" Title="ExampleProgram Class" Url="html/T_ExampleProgram_ExampleProgram.htm">
-        <HelpTOCNode Title="ExampleProgram Constructor " Url="html/M_ExampleProgram_ExampleProgram__ctor.htm" />
-      </HelpTOCNode>
-    </HelpTOCNode>
-    <HelpTOCNode Id="5cdfba6b-b360-4ec8-9d6e-e907ba2099fb" Title="Graph" Url="html/N_Graph.htm">
+    <HelpTOCNode Id="060433f9-bd59-4014-ae25-29a45c83caa2" Title="Graph" Url="html/N_Graph.htm">
       <HelpTOCNode Title="Graph Class" Url="html/T_Graph_Graph.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="16a4114d-4df7-4ab5-9f3a-c134f4f55756" Title="Grid" Url="html/N_Grid.htm">
-      <HelpTOCNode Id="14ff9929-b8c2-4e7a-b796-7b2b4d83a0f0" Title="Grid Class" Url="html/T_Grid_Grid.htm">
-        <HelpTOCNode Id="974bcd86-c15f-4126-9765-2e05bb7bfc0c" Title="Grid Methods" Url="html/Methods_T_Grid_Grid.htm">
+    <HelpTOCNode Id="5d19a827-8b3d-4dcb-98c6-99b6818d32e5" Title="Grid" Url="html/N_Grid.htm">
+      <HelpTOCNode Id="68519f39-be4d-40f1-8bda-9d639a04b7e8" Title="Grid Class" Url="html/T_Grid_Grid.htm">
+        <HelpTOCNode Id="b3a3dead-5f51-4e62-a010-e947a3af6453" Title="Grid Methods" Url="html/Methods_T_Grid_Grid.htm">
           <HelpTOCNode Title="BelongsToGrid Method " Url="html/M_Grid_Grid_BelongsToGrid.htm" />
           <HelpTOCNode Title="Echo Method " Url="html/M_Grid_Grid_Echo.htm" />
           <HelpTOCNode Title="GetBlock Method " Url="html/M_Grid_Grid_GetBlock.htm" />
@@ -78,18 +73,18 @@
           <HelpTOCNode Title="SearchBlocks Method " Url="html/M_Grid_Grid_SearchBlocks.htm" />
           <HelpTOCNode Title="Set Method " Url="html/M_Grid_Grid_Set.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="4562cdd7-3237-4aaf-baa4-483eecd38687" Title="Grid Properties" Url="html/Properties_T_Grid_Grid.htm">
+        <HelpTOCNode Id="f83a0737-0ca3-4a98-89a7-6ab93ae91125" Title="Grid Properties" Url="html/Properties_T_Grid_Grid.htm">
           <HelpTOCNode Title="echo Property " Url="html/P_Grid_Grid_echo.htm" />
           <HelpTOCNode Title="pb Property " Url="html/P_Grid_Grid_pb.htm" />
           <HelpTOCNode Title="ts Property " Url="html/P_Grid_Grid_ts.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="bb113f2b-1a43-4f9e-81f8-e9ff2e06eba6" Title="Gyro" Url="html/N_Gyro.htm">
-      <HelpTOCNode Id="358fdad5-0fb3-4adf-a7f9-557ccafe3ade" Title="Gyro Class" Url="html/T_Gyro_Gyro.htm">
-        <HelpTOCNode Id="b7a78d33-8fad-4f84-9d60-e1969f6cfa42" Title="Gyro Methods" Url="html/Methods_T_Gyro_Gyro.htm">
+    <HelpTOCNode Id="5a99e462-1e35-4a9a-a02b-8e70bf92af88" Title="Gyro" Url="html/N_Gyro.htm">
+      <HelpTOCNode Id="c547db3b-37c2-4ffa-9dd8-aed92579f27f" Title="Gyro Class" Url="html/T_Gyro_Gyro.htm">
+        <HelpTOCNode Id="90616fac-d25c-4bc4-b693-bcd92ae84705" Title="Gyro Methods" Url="html/Methods_T_Gyro_Gyro.htm">
           <HelpTOCNode Title="GyroMoving Method " Url="html/M_Gyro_Gyro_GyroMoving.htm" />
-          <HelpTOCNode Id="f52d2d28-747c-456a-8cb8-2bda6ba924a5" Title="GyroOveride Method " Url="html/Overload_Gyro_Gyro_GyroOveride.htm">
+          <HelpTOCNode Id="c771a5f2-fa25-4a81-ba95-60da4e063f26" Title="GyroOveride Method " Url="html/Overload_Gyro_Gyro_GyroOveride.htm">
             <HelpTOCNode Title="GyroOveride Method (IMyTerminalBlock, String)" Url="html/M_Gyro_Gyro_GyroOveride.htm" />
             <HelpTOCNode Title="GyroOveride Method (List(IMyTerminalBlock), String)" Url="html/M_Gyro_Gyro_GyroOveride_1.htm" />
           </HelpTOCNode>
@@ -100,7 +95,7 @@
           <HelpTOCNode Title="RollL Method " Url="html/M_Gyro_Gyro_RollL.htm" />
           <HelpTOCNode Title="RollR Method " Url="html/M_Gyro_Gyro_RollR.htm" />
           <HelpTOCNode Title="RollStop Method " Url="html/M_Gyro_Gyro_RollStop.htm" />
-          <HelpTOCNode Id="f1a62f5c-adf5-4544-8587-f3de9b4c6ed5" Title="StopGyro Method " Url="html/Overload_Gyro_Gyro_StopGyro.htm">
+          <HelpTOCNode Id="82b57066-2544-4873-90d5-cf5e491d04ad" Title="StopGyro Method " Url="html/Overload_Gyro_Gyro_StopGyro.htm">
             <HelpTOCNode Title="StopGyro Method (IMyTerminalBlock, String)" Url="html/M_Gyro_Gyro_StopGyro.htm" />
             <HelpTOCNode Title="StopGyro Method (List(IMyTerminalBlock), String)" Url="html/M_Gyro_Gyro_StopGyro_1.htm" />
           </HelpTOCNode>
@@ -110,49 +105,49 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="544a4cce-ecbc-4d1a-bd08-f3f6d6d46b99" Title="Menu" Url="html/N_Menu.htm">
-      <HelpTOCNode Id="0c2b72a3-c0df-4eb6-9e92-e3b1b287996e" Title="Menu Class" Url="html/T_Menu_Menu.htm">
+    <HelpTOCNode Id="617f1ec6-03e8-49a8-a22b-c20d3f4be4bf" Title="Menu" Url="html/N_Menu.htm">
+      <HelpTOCNode Id="53d11ebb-b3d1-4490-8a61-84e2c6832401" Title="Menu Class" Url="html/T_Menu_Menu.htm">
         <HelpTOCNode Title="Menu Constructor " Url="html/M_Menu_Menu__ctor.htm" />
-        <HelpTOCNode Id="aa068ee0-b9a0-461b-84e5-a15cca09dfd2" Title="Menu Methods" Url="html/Methods_T_Menu_Menu.htm">
+        <HelpTOCNode Id="a904ce0a-6f18-4038-978a-6b93247a88e3" Title="Menu Methods" Url="html/Methods_T_Menu_Menu.htm">
           <HelpTOCNode Title="AddPage Method " Url="html/M_Menu_Menu_AddPage.htm" />
           <HelpTOCNode Title="OnButtonPress Method " Url="html/M_Menu_Menu_OnButtonPress.htm" />
           <HelpTOCNode Title="ShowPage Method " Url="html/M_Menu_Menu_ShowPage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="1f0b9f34-7497-4f36-a519-a2775f709b66" Title="MenuOption Class" Url="html/T_Menu_MenuOption.htm">
+      <HelpTOCNode Id="6b05fb21-247f-4000-acdf-791736ddb9c3" Title="MenuOption Class" Url="html/T_Menu_MenuOption.htm">
         <HelpTOCNode Title="MenuOption Constructor " Url="html/M_Menu_MenuOption__ctor.htm" />
-        <HelpTOCNode Id="740ad5cd-d782-4f31-86c3-a1716fe2cc08" Title="MenuOption Fields" Url="html/Fields_T_Menu_MenuOption.htm">
+        <HelpTOCNode Id="abeeb77b-12a6-4e87-a29e-517df2e7434d" Title="MenuOption Fields" Url="html/Fields_T_Menu_MenuOption.htm">
           <HelpTOCNode Title="ActionButton Field" Url="html/F_Menu_MenuOption_ActionButton.htm" />
           <HelpTOCNode Title="GotoPage Field" Url="html/F_Menu_MenuOption_GotoPage.htm" />
           <HelpTOCNode Title="OnSelect Field" Url="html/F_Menu_MenuOption_OnSelect.htm" />
           <HelpTOCNode Title="Text Field" Url="html/F_Menu_MenuOption_Text.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2965f898-fb5a-48f4-8ce2-fa929b424149" Title="MenuPage Class" Url="html/T_Menu_MenuPage.htm">
+      <HelpTOCNode Id="df36e260-6a5c-43f1-8f24-7c01f5d70222" Title="MenuPage Class" Url="html/T_Menu_MenuPage.htm">
         <HelpTOCNode Title="MenuPage Constructor " Url="html/M_Menu_MenuPage__ctor.htm" />
-        <HelpTOCNode Id="2a0b9ab0-b10c-4d6c-b09e-d6cb5b9f72f8" Title="MenuPage Fields" Url="html/Fields_T_Menu_MenuPage.htm">
+        <HelpTOCNode Id="27df62fe-a8ab-442f-b67d-a868680b7883" Title="MenuPage Fields" Url="html/Fields_T_Menu_MenuPage.htm">
           <HelpTOCNode Title="Name Field" Url="html/F_Menu_MenuPage_Name.htm" />
           <HelpTOCNode Title="Title Field" Url="html/F_Menu_MenuPage_Title.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="6f3cffbc-e6bb-4bc6-bf47-0f2038a31ec6" Title="MenuPage Methods" Url="html/Methods_T_Menu_MenuPage.htm">
+        <HelpTOCNode Id="b086e42e-2fd8-498a-bb16-4030bc6c3b5e" Title="MenuPage Methods" Url="html/Methods_T_Menu_MenuPage.htm">
           <HelpTOCNode Title="AddOption Method " Url="html/M_Menu_MenuPage_AddOption.htm" />
           <HelpTOCNode Title="GetOption Method " Url="html/M_Menu_MenuPage_GetOption.htm" />
           <HelpTOCNode Title="GetText Method " Url="html/M_Menu_MenuPage_GetText.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="75ddb377-55ef-4dea-9716-45a4afc08180" Title="Nav Namespaces" Url="html/G_Nav.htm">
-      <HelpTOCNode Id="237f231a-582d-48ec-8aa2-b020c52a8d5b" Title="Nav.NavManager" Url="html/N_Nav_NavManager.htm">
-        <HelpTOCNode Id="89b2ace9-4849-4f4f-a438-ab5622f570c9" Title="NavManager Class" Url="html/T_Nav_NavManager_NavManager.htm">
+    <HelpTOCNode Id="51813ede-6702-49c0-bfde-b16273ddfa0f" Title="Nav Namespaces" Url="html/G_Nav.htm">
+      <HelpTOCNode Id="8d285554-b0ba-4cbb-94d0-a5247b1f2e59" Title="Nav.NavManager" Url="html/N_Nav_NavManager.htm">
+        <HelpTOCNode Id="1814b864-8fca-4783-98a4-5c666f073fce" Title="NavManager Class" Url="html/T_Nav_NavManager_NavManager.htm">
           <HelpTOCNode Title="NavManager Constructor " Url="html/M_Nav_NavManager_NavManager__ctor.htm" />
-          <HelpTOCNode Id="dfaf5a45-33db-4d60-ae41-1b93a902c436" Title="NavManager Fields" Url="html/Fields_T_Nav_NavManager_NavManager.htm">
+          <HelpTOCNode Id="035f0cff-53c4-4bed-a2fe-c1e60a17214c" Title="NavManager Fields" Url="html/Fields_T_Nav_NavManager_NavManager.htm">
             <HelpTOCNode Title="ERROR1 Field" Url="html/F_Nav_NavManager_NavManager_ERROR1.htm" />
             <HelpTOCNode Title="ERROR2 Field" Url="html/F_Nav_NavManager_NavManager_ERROR2.htm" />
             <HelpTOCNode Title="ERROR3 Field" Url="html/F_Nav_NavManager_NavManager_ERROR3.htm" />
             <HelpTOCNode Title="ERROR4 Field" Url="html/F_Nav_NavManager_NavManager_ERROR4.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="89c85a10-98ad-4ba2-ba27-2be74728e156" Title="NavManager Methods" Url="html/Methods_T_Nav_NavManager_NavManager.htm">
-            <HelpTOCNode Id="82cd4e84-b7f5-45d8-bb40-d8d317dc30e1" Title="Act Method " Url="html/Overload_Nav_NavManager_NavManager_Act.htm">
+          <HelpTOCNode Id="6176c29e-8dcd-4c41-812e-75c44280a3aa" Title="NavManager Methods" Url="html/Methods_T_Nav_NavManager_NavManager.htm">
+            <HelpTOCNode Id="9e520380-b5e9-4c3c-b13a-a8686055be67" Title="Act Method " Url="html/Overload_Nav_NavManager_NavManager_Act.htm">
               <HelpTOCNode Title="Act Method (Dictionary(Int32, WpInfo))" Url="html/M_Nav_NavManager_NavManager_Act_1.htm" />
               <HelpTOCNode Title="Act Method (WpInfo)" Url="html/M_Nav_NavManager_NavManager_Act.htm" />
             </HelpTOCNode>
@@ -172,10 +167,10 @@
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="357e0da6-d139-4c74-a4c1-20c5ad703d4f" Title="Nav.NavSettings" Url="html/N_Nav_NavSettings.htm">
-        <HelpTOCNode Id="32b31c80-4d4d-485f-8b25-c56b056cffd4" Title="NavSettings Class" Url="html/T_Nav_NavSettings_NavSettings.htm">
+      <HelpTOCNode Id="fb398d1d-d817-470e-995d-180c74e622bd" Title="Nav.NavSettings" Url="html/N_Nav_NavSettings.htm">
+        <HelpTOCNode Id="0df06f3a-1f70-4dc9-8867-3881758b2627" Title="NavSettings Class" Url="html/T_Nav_NavSettings_NavSettings.htm">
           <HelpTOCNode Title="NavSettings Constructor " Url="html/M_Nav_NavSettings_NavSettings__ctor.htm" />
-          <HelpTOCNode Id="1de5bfd7-d393-4810-93fa-4a257bf5f882" Title="NavSettings Fields" Url="html/Fields_T_Nav_NavSettings_NavSettings.htm">
+          <HelpTOCNode Id="2c3e7492-5272-42e2-a8f7-145eb66d93ed" Title="NavSettings Fields" Url="html/Fields_T_Nav_NavSettings_NavSettings.htm">
             <HelpTOCNode Title="ActionTick Field" Url="html/F_Nav_NavSettings_NavSettings_ActionTick.htm" />
             <HelpTOCNode Title="AlignMargin Field" Url="html/F_Nav_NavSettings_NavSettings_AlignMargin.htm" />
             <HelpTOCNode Title="BottomBlockName Field" Url="html/F_Nav_NavSettings_NavSettings_BottomBlockName.htm" />
@@ -206,10 +201,10 @@
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a2f80ee6-7de1-4cd9-8d48-6fe89755d1af" Title="Nav.WpInfo" Url="html/N_Nav_WpInfo.htm">
-        <HelpTOCNode Id="280e21f9-94f3-49ba-a80d-a8ca83efd6b5" Title="WpInfo Class" Url="html/T_Nav_WpInfo_WpInfo.htm">
+      <HelpTOCNode Id="33609121-a32b-4bb5-a979-275d3d7217c6" Title="Nav.WpInfo" Url="html/N_Nav_WpInfo.htm">
+        <HelpTOCNode Id="4a9bcc95-624c-4ab1-a58e-e5a7a6cecf71" Title="WpInfo Class" Url="html/T_Nav_WpInfo_WpInfo.htm">
           <HelpTOCNode Title="WpInfo Constructor " Url="html/M_Nav_WpInfo_WpInfo__ctor.htm" />
-          <HelpTOCNode Id="f28ab587-b501-4f51-874e-2f9ecc1c47ab" Title="WpInfo Fields" Url="html/Fields_T_Nav_WpInfo_WpInfo.htm">
+          <HelpTOCNode Id="7d9c57a7-79c3-4e24-8f5a-a8cfd09be260" Title="WpInfo Fields" Url="html/Fields_T_Nav_WpInfo_WpInfo.htm">
             <HelpTOCNode Title="aligned Field" Url="html/F_Nav_WpInfo_WpInfo_aligned.htm" />
             <HelpTOCNode Title="alignFirst Field" Url="html/F_Nav_WpInfo_WpInfo_alignFirst.htm" />
             <HelpTOCNode Title="angle Field" Url="html/F_Nav_WpInfo_WpInfo_angle.htm" />
@@ -231,7 +226,7 @@
             <HelpTOCNode Title="waitTime Field" Url="html/F_Nav_WpInfo_WpInfo_waitTime.htm" />
             <HelpTOCNode Title="wpId Field" Url="html/F_Nav_WpInfo_WpInfo_wpId.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="f9981d09-0eb5-4ae2-95c2-56455ac3bc7d" Title="WpInfo Methods" Url="html/Methods_T_Nav_WpInfo_WpInfo.htm">
+          <HelpTOCNode Id="54e2eed4-2125-4719-8b1d-95c29397160a" Title="WpInfo Methods" Url="html/Methods_T_Nav_WpInfo_WpInfo.htm">
             <HelpTOCNode Title="AlignTo Method " Url="html/M_Nav_WpInfo_WpInfo_AlignTo.htm" />
             <HelpTOCNode Title="CenterOn Method " Url="html/M_Nav_WpInfo_WpInfo_CenterOn.htm" />
             <HelpTOCNode Title="GetLCDString Method " Url="html/M_Nav_WpInfo_WpInfo_GetLCDString.htm" />
@@ -245,44 +240,44 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="3b51925b-9979-4557-9355-394d46f72cf3" Title="Str" Url="html/N_Str.htm">
-      <HelpTOCNode Id="df2be785-39e9-4426-9b5f-dd6b705bdc37" Title="Str Class" Url="html/T_Str_Str.htm">
-        <HelpTOCNode Id="6e76469c-e2bb-4eac-bbe3-32a3564a2b6d" Title="Str Methods" Url="html/Methods_T_Str_Str.htm">
+    <HelpTOCNode Id="26c99277-9f4a-4257-b37a-f3a79ccdc07e" Title="Str" Url="html/N_Str.htm">
+      <HelpTOCNode Id="d0e8dc2a-fd08-464d-94f6-ac5585129cd8" Title="Str Class" Url="html/T_Str_Str.htm">
+        <HelpTOCNode Id="b9c2dce4-5d48-451d-a5f6-473b9e1f3942" Title="Str Methods" Url="html/Methods_T_Str_Str.htm">
           <HelpTOCNode Title="Contains Method " Url="html/M_Str_Str_Contains.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="53c04785-0414-4ad6-a8d0-b142e4c49bd1" Title="TextPanel" Url="html/N_TextPanel.htm">
-      <HelpTOCNode Id="728d9d03-318f-460c-a42b-56e9ce324c99" Title="TextPanel Class" Url="html/T_TextPanel_TextPanel.htm">
-        <HelpTOCNode Id="85fcf896-4bc8-4d77-a880-b73fd617ee32" Title="TextPanel Methods" Url="html/Methods_T_TextPanel_TextPanel.htm">
+    <HelpTOCNode Id="72a3c2f8-f9cd-4f50-b374-3f98677cc4ec" Title="TextPanel" Url="html/N_TextPanel.htm">
+      <HelpTOCNode Id="78ffb5a0-cec4-4311-9eb5-b0b194e79c40" Title="TextPanel Class" Url="html/T_TextPanel_TextPanel.htm">
+        <HelpTOCNode Id="baa04131-f0cc-4dea-b80c-7117efd49bb9" Title="TextPanel Methods" Url="html/Methods_T_TextPanel_TextPanel.htm">
           <HelpTOCNode Title="GetValueListFromLCD Method " Url="html/M_TextPanel_TextPanel_GetValueListFromLCD.htm" />
           <HelpTOCNode Title="Write Method " Url="html/M_TextPanel_TextPanel_Write.htm" />
-          <HelpTOCNode Id="aec26ce3-71ba-480e-b06e-2d15077617c6" Title="WriteMulti Method " Url="html/Overload_TextPanel_TextPanel_WriteMulti.htm">
+          <HelpTOCNode Id="824279c6-57f7-49ae-a654-f3d85aa36a4d" Title="WriteMulti Method " Url="html/Overload_TextPanel_TextPanel_WriteMulti.htm">
             <HelpTOCNode Title="WriteMulti Method (List(IMyTerminalBlock), String, Boolean)" Url="html/M_TextPanel_TextPanel_WriteMulti.htm" />
             <HelpTOCNode Title="WriteMulti Method (String, String, Boolean, Int32, Boolean)" Url="html/M_TextPanel_TextPanel_WriteMulti_1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="4ced810f-055c-4afa-a351-49db0f6f6a25" Title="Thruster" Url="html/N_Thruster.htm">
-      <HelpTOCNode Id="61bb3dae-6bcb-4a40-83dd-6f69a8c707d5" Title="Thruster Class" Url="html/T_Thruster_Thruster.htm">
-        <HelpTOCNode Id="eeb17f11-dad8-4e5b-be30-340627e5c6c4" Title="Thruster Methods" Url="html/Methods_T_Thruster_Thruster.htm">
-          <HelpTOCNode Id="7ac45ea1-91ba-4317-82e4-3b89f16f64ee" Title="SetThrustOverride Method " Url="html/Overload_Thruster_Thruster_SetThrustOverride.htm">
+    <HelpTOCNode Id="f4c483cd-335f-4855-a83e-31bb3702a8d1" Title="Thruster" Url="html/N_Thruster.htm">
+      <HelpTOCNode Id="658f04ae-565d-41ee-b3d8-819fdf60ed6b" Title="Thruster Class" Url="html/T_Thruster_Thruster.htm">
+        <HelpTOCNode Id="4bb4db23-abed-42c8-8859-0a5f1694933e" Title="Thruster Methods" Url="html/Methods_T_Thruster_Thruster.htm">
+          <HelpTOCNode Id="0ce9539e-ef2f-4e8b-9e42-cfe7a98c7b77" Title="SetThrustOverride Method " Url="html/Overload_Thruster_Thruster_SetThrustOverride.htm">
             <HelpTOCNode Title="SetThrustOverride Method (IMyTerminalBlock, Double)" Url="html/M_Thruster_Thruster_SetThrustOverride.htm" />
             <HelpTOCNode Title="SetThrustOverride Method (List(IMyTerminalBlock), Double)" Url="html/M_Thruster_Thruster_SetThrustOverride_1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="f75d3fbc-04b8-439e-bac6-fa3dea6b42d9" Title="VarStore" Url="html/N_VarStore.htm">
-      <HelpTOCNode Id="258e95b8-ab5a-4b91-ad5d-e75c1e7a99cc" Title="VarStore Class" Url="html/T_VarStore_VarStore.htm">
+    <HelpTOCNode Id="c8d64aa2-7d61-4c10-ba1e-a2e06daf0d44" Title="VarStore" Url="html/N_VarStore.htm">
+      <HelpTOCNode Id="03476b51-57da-49a0-8ff0-59ef280edb7d" Title="VarStore Class" Url="html/T_VarStore_VarStore.htm">
         <HelpTOCNode Title="VarStore Constructor " Url="html/M_VarStore_VarStore__ctor.htm" />
-        <HelpTOCNode Id="697fa25f-8ea2-4cf5-b7a3-bd4efb0515f6" Title="VarStore Fields" Url="html/Fields_T_VarStore_VarStore.htm">
+        <HelpTOCNode Id="b4528f4d-a39d-46b6-984e-cd47b6d5f5dd" Title="VarStore Fields" Url="html/Fields_T_VarStore_VarStore.htm">
           <HelpTOCNode Title="LCDDebugScreenName Field" Url="html/F_VarStore_VarStore_LCDDebugScreenName.htm" />
           <HelpTOCNode Title="LCDVariableStore Field" Url="html/F_VarStore_VarStore_LCDVariableStore.htm" />
           <HelpTOCNode Title="LCDVariableStoreName Field" Url="html/F_VarStore_VarStore_LCDVariableStoreName.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="ce280735-e726-451c-8776-0364a2028881" Title="VarStore Methods" Url="html/Methods_T_VarStore_VarStore.htm">
+        <HelpTOCNode Id="02d164da-6afc-4bb5-af1b-5acdf299154f" Title="VarStore Methods" Url="html/Methods_T_VarStore_VarStore.htm">
           <HelpTOCNode Title="DelVarFromStore Method " Url="html/M_VarStore_VarStore_DelVarFromStore.htm" />
           <HelpTOCNode Title="GetVarFromStore Method " Url="html/M_VarStore_VarStore_GetVarFromStore.htm" />
           <HelpTOCNode Title="initVarStore Method " Url="html/M_VarStore_VarStore_initVarStore.htm" />

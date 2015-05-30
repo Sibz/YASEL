@@ -74,14 +74,6 @@
   <HelpKINode Title="ERROR2 field" Url="html/F_Nav_NavManager_NavManager_ERROR2.htm" />
   <HelpKINode Title="ERROR3 field" Url="html/F_Nav_NavManager_NavManager_ERROR3.htm" />
   <HelpKINode Title="ERROR4 field" Url="html/F_Nav_NavManager_NavManager_ERROR4.htm" />
-  <HelpKINode Title="ExampleProgram class">
-    <HelpKINode Title="ExampleProgram Class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
-    <HelpKINode Title="about ExampleProgram class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
-    <HelpKINode Title="constructor" Url="html/M_ExampleProgram_ExampleProgram__ctor.htm" />
-  </HelpKINode>
-  <HelpKINode Title="ExampleProgram namespace" Url="html/N_ExampleProgram.htm" />
-  <HelpKINode Title="ExampleProgram.ExampleProgram class" Url="html/T_ExampleProgram_ExampleProgram.htm" />
-  <HelpKINode Title="ExampleProgram.ExampleProgram constructor" Url="html/M_ExampleProgram_ExampleProgram__ctor.htm" />
   <HelpKINode Title="FwdBlockName field" Url="html/F_Nav_NavSettings_NavSettings_FwdBlockName.htm" />
   <HelpKINode Title="FwdThrustGroupName field" Url="html/F_Nav_NavSettings_NavSettings_FwdThrustGroupName.htm" />
   <HelpKINode Title="GetAngle method" Url="html/M_Nav_NavManager_NavManager_GetAngle.htm" />
