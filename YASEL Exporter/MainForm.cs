@@ -38,6 +38,8 @@ namespace YASEL_Exporter
         private void RefreshList()
         {
             listBox1.Items.Clear();
+            if (textBox1.Text == "")
+                return;
             var dirs = Directory.EnumerateDirectories(textBox1.Text,"Programs",SearchOption.AllDirectories);
             foreach(string d in dirs)
             {
@@ -97,12 +99,13 @@ namespace YASEL_Exporter
         }
         private string GetFileCode(FileInfo codeFile)
         {
-            string text = codeFile.OpenText().ReadToEnd();
+            var sr = codeFile.OpenText();
+            string text = sr.ReadToEnd();
             text = text.Remove(0, text.IndexOf("#region " + codeFile.Name.Replace(".cs", "")) + ("#region " + codeFile.Name.Replace(".cs", "")).Length);
             text = text.Remove(text.IndexOf("#endregion " + codeFile.Name.Replace(".cs", ""))!= -1 ?
                 text.IndexOf("#endregion " + codeFile.Name.Replace(".cs", "")) :
                 text.IndexOf("#endregion"));
-
+            sr.Close();
             return text;
         }
         private Dictionary<string, string> GetRequires(string text)

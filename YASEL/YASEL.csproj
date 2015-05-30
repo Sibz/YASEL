@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\YASEL.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,11 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sandbox.Common">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Common.dll</HintPath>
+    <Reference Include="Sandbox.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SpaceEngineers\Sources\Sandbox.Common\bin\x86\Debug\Sandbox.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Sandbox.Game">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Game.dll</HintPath>
+    <Reference Include="Sandbox.Game, Version=0.1.5620.21926, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SpaceEngineers\Sources\Sandbox.Game\bin\x86\Debug\Sandbox.Game.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,41 +46,37 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VRage">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.dll</HintPath>
+    <Reference Include="VRage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SpaceEngineers\Sources\Sandbox.Common\bin\x86\Debug\VRage.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Library">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Library.dll</HintPath>
+    <Reference Include="VRage.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SpaceEngineers\Sources\Sandbox.Common\bin\x86\Debug\VRage.Library.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Math">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Math.dll</HintPath>
+    <Reference Include="VRage.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SpaceEngineers\Sources\Sandbox.Common\bin\x86\Debug\VRage.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DrillerNav\DrillerNav.cs" />
-    <Compile Include="Classes\DrillerNav\DrillerNavSettings.cs" />
-    <Compile Include="Classes\NavManager\NavManager.cs" />
-    <Compile Include="Classes\NavManager\NavSettings.cs" />
-    <Compile Include="Classes\NavManager\WpInfo.cs" />
-    <Compile Include="Classes\StationManager\StationManager.cs" />
-    <Compile Include="Classes\StationManager\StationManagerSettings.cs" />
-    <Compile Include="Helpers\BatteryFunctions.cs" />
-    <Compile Include="Helpers\BlockFunctions.cs" />
-    <Compile Include="Helpers\CockpitFunctions.cs" />
-    <Compile Include="Helpers\ConnectorFunctions.cs" />
-    <Compile Include="Helpers\GenericFunctions.cs" />
-    <Compile Include="Helpers\GyroFunctions.cs" />
-    <Compile Include="Helpers\LCDFunctions.cs" />
-    <Compile Include="Helpers\LCDFunctions2.cs" />
+    <Compile Include="Helpers\Battery.cs" />
+    <Compile Include="Helpers\Block.cs" />
+    <Compile Include="Helpers\Cockpit.cs" />
+    <Compile Include="Helpers\Connector.cs" />
+    <Compile Include="Helpers\Grid.cs" />
+    <Compile Include="Helpers\Gyro.cs" />
+    <Compile Include="Helpers\Str.cs" />
+    <Compile Include="Helpers\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />
-    <Compile Include="Helpers\ThrusterFunctions.cs" />
+    <Compile Include="Helpers\Thruster.cs" />
     <Compile Include="Classes\VarStore.cs" />
+    <Compile Include="Helpers\TextPanel.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Programs\Driller.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helpers\SetupStatics.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Programs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
