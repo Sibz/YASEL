@@ -13,7 +13,7 @@ namespace StationManagerProgram
 {
     using StationManager;
     using Grid;
-    private class StationManagerProgram : Program.Program
+    class StationManagerProgram : Program.Program
     {
         StationManager myStationManager;
         void Main(string argument)

@@ -31,12 +31,13 @@ namespace StationManager
         }
 
         /// <summary>
-        /// Will automatically close doors after AutoDoorCloseTime
+        /// Will automatically close doors after <i>AutoDoorCloseTime</i>
+        /// By default will only close doors with 'auto' in the name, however can be changed by modifying <i>AutoDoorCloseWord</i>
         /// </summary>
         public void ManageAutoDoors()
         {
             var doors = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return Str.Contains(b.CustomName, "auto") && Grid.BelongsToGrid(b); });
+            Grid.ts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return Str.Contains(b.CustomName, m_settings.AutoDoorCloseWord) && Grid.BelongsToGrid(b); });
             doors.ForEach(door =>
             {
                 if ((door as IMyDoor).OpenRatio >= 1 && !DoorsToClose.ContainsKey((door as IMyDoor)))
@@ -85,6 +86,11 @@ namespace StationManager
         /// Number of seconds before closing an open door
         /// </summary>
         public int AutoDoorCloseTime = 5;
+
+        /// <summary>
+        /// Doors with this in there name will be closed automatically
+        /// </summary>
+        public string AutoDoorCloseWord = "auto";
 
         /// <summary>
         /// Textpanel to display time on when calling DisplayTime
