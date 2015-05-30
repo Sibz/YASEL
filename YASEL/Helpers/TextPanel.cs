@@ -11,29 +11,46 @@ namespace TextPanel
     using Block;
     using Grid;
     /// <summary>
-    /// Static class for common LCD functions
+    /// Static class for common TextPanel functions
     /// </summary>
     static class TextPanel
     {
         /// <summary>
-        /// Writes to an LCD screen
+        /// Writes to an TextPanel
         /// </summary>
-        /// <param name="lcdName"></param>
+        /// <param name="textPanel"></param>
         /// <param name="text"></param>
         /// <param name="append"></param>
         /// <param name="publicText"></param>
         /// <example>
-        /// LCD.Write("MyLCD", "Write this text");
+        /// TextPanel.Write(myTextPanel, "Write this text");
         /// </example>
-        public static void Write(string lcdName, string text, bool append = true, bool publicText = true)
+        public static void Write(IMyTextPanel textPanel, string text, bool append = true, bool publicText = true)
         {
-            var lcd = Grid.GetBlock(lcdName) as IMyTextPanel;
-            if (lcd == null)
-                throw new Exception("Unable to write to LCD, LCD '" + lcdName + "' Not Found.");
+            if (textPanel == null)
+                throw new Exception("TextPanel.Write: textPanel is null");
             if (publicText)
-                lcd.WritePublicText(text, append);
+                textPanel.WritePublicText(text, append);
             else
-                lcd.WritePrivateText(text, append);
+                textPanel.WritePrivateText(text, append);
+        }
+
+        /// <summary>
+        /// Writes to an TextPanel
+        /// </summary>
+        /// <param name="textPanelName"></param>
+        /// <param name="text"></param>
+        /// <param name="append"></param>
+        /// <param name="publicText"></param>
+        /// <example>
+        /// TextPanel.Write("MyLCD", "Write this text");
+        /// </example>
+        public static void Write(string textPanelName, string text, bool append = true, bool publicText = true)
+        {
+            var textPanel = Grid.GetBlock(textPanelName) as IMyTextPanel;
+            if (textPanel == null)
+                throw new Exception("TextPanel.Write: textPanel (" + textPanelName + "is not accessible");
+            Write(textPanel, text, append, publicText);
         }
 
         /// <summary>
