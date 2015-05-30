@@ -79,8 +79,6 @@
   <HelpKINode Title="GetAngle method" Url="html/M_Nav_NavManager_NavManager_GetAngle.htm" />
   <HelpKINode Title="GetBlock method" Url="html/M_Grid_Grid_GetBlock.htm" />
   <HelpKINode Title="GetBlockGrp method" Url="html/M_Grid_Grid_GetBlockGrp.htm" />
-  <HelpKINode Title="GetBlocks(Of T) method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
-  <HelpKINode Title="GetBlocks&lt;T&gt; method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
   <HelpKINode Title="GetCross method" Url="html/M_Nav_NavManager_NavManager_GetCross.htm" />
   <HelpKINode Title="GetDetail method" Url="html/M_Block_Block_GetDetail.htm" />
   <HelpKINode Title="GetLCDString method" Url="html/M_Nav_WpInfo_WpInfo_GetLCDString.htm" />
@@ -100,6 +98,7 @@
   <HelpKINode Title="Grid class">
     <HelpKINode Title="Grid Class" Url="html/T_Grid_Grid.htm" />
     <HelpKINode Title="about Grid class" Url="html/T_Grid_Grid.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Grid_Grid.htm" />
     <HelpKINode Title="methods" Url="html/Methods_T_Grid_Grid.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_Grid_Grid.htm" />
   </HelpKINode>
@@ -109,13 +108,11 @@
   <HelpKINode Title="Grid.echo property" Url="html/P_Grid_Grid_echo.htm" />
   <HelpKINode Title="Grid.GetBlock method" Url="html/M_Grid_Grid_GetBlock.htm" />
   <HelpKINode Title="Grid.GetBlockGrp method" Url="html/M_Grid_Grid_GetBlockGrp.htm" />
-  <HelpKINode Title="Grid.GetBlocks(Of T) method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
-  <HelpKINode Title="Grid.GetBlocks&lt;T&gt; method" Url="html/M_Grid_Grid_GetBlocks__1.htm" />
   <HelpKINode Title="Grid.Grid class" Url="html/T_Grid_Grid.htm" />
-  <HelpKINode Title="Grid.pb property" Url="html/P_Grid_Grid_pb.htm" />
+  <HelpKINode Title="Grid.pb field" Url="html/F_Grid_Grid_pb.htm" />
   <HelpKINode Title="Grid.SearchBlocks method" Url="html/M_Grid_Grid_SearchBlocks.htm" />
   <HelpKINode Title="Grid.Set method" Url="html/M_Grid_Grid_Set.htm" />
-  <HelpKINode Title="Grid.ts property" Url="html/P_Grid_Grid_ts.htm" />
+  <HelpKINode Title="Grid.ts field" Url="html/F_Grid_Grid_ts.htm" />
   <HelpKINode Title="Gyro class">
     <HelpKINode Title="Gyro Class" Url="html/T_Gyro_Gyro.htm" />
     <HelpKINode Title="about Gyro class" Url="html/T_Gyro_Gyro.htm" />
@@ -273,7 +270,7 @@
   <HelpKINode Title="OnButtonPress method" Url="html/M_Menu_Menu_OnButtonPress.htm" />
   <HelpKINode Title="OnSelect field" Url="html/F_Menu_MenuOption_OnSelect.htm" />
   <HelpKINode Title="Pause method" Url="html/M_Nav_NavManager_NavManager_Pause.htm" />
-  <HelpKINode Title="pb property" Url="html/P_Grid_Grid_pb.htm" />
+  <HelpKINode Title="pb field" Url="html/F_Grid_Grid_pb.htm" />
   <HelpKINode Title="PitchD method" Url="html/M_Gyro_Gyro_PitchD.htm" />
   <HelpKINode Title="PitchStop method" Url="html/M_Gyro_Gyro_PitchStop.htm" />
   <HelpKINode Title="PitchU method" Url="html/M_Gyro_Gyro_PitchU.htm" />
@@ -334,7 +331,7 @@
   <HelpKINode Title="TopBlockName field" Url="html/F_Nav_NavSettings_NavSettings_TopBlockName.htm" />
   <HelpKINode Title="traveled field" Url="html/F_Nav_WpInfo_WpInfo_traveled.htm" />
   <HelpKINode Title="TravelTo method" Url="html/M_Nav_WpInfo_WpInfo_TravelTo.htm" />
-  <HelpKINode Title="ts property" Url="html/P_Grid_Grid_ts.htm" />
+  <HelpKINode Title="ts field" Url="html/F_Grid_Grid_ts.htm" />
   <HelpKINode Title="TurnOnOff method" Url="html/Overload_Block_Block_TurnOnOff.htm" />
   <HelpKINode Title="TurnOnOffDampeners method" Url="html/M_Cockpit_Cockpit_TurnOnOffDampeners.htm" />
   <HelpKINode Title="type field" Url="html/F_Nav_WpInfo_WpInfo_type.htm" />

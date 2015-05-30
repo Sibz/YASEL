@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which assemblies to include from solution and
+				 project documentation sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3663e016-5fc6-4dd0-8271-5aea22a4b74f}</ProjectGuid>
+    <SHFBSchemaVersion>1.9.9.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
+    <OutputPath>help\</OutputPath>
+    <HtmlHelpName>Documentation</HtmlHelpName>
+    <Language>en-US</Language>
+    <BuildAssemblerVerbosity>OnlyErrors</BuildAssemblerVerbosity>
+    <HelpFileFormat>Website</HelpFileFormat>
+    <IndentHtml>False</IndentHtml>
+    <KeepLogFile>False</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <CppCommentsFixup>False</CppCommentsFixup>
+    <CleanIntermediates>True</CleanIntermediates>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="YASEL\YASEL\YASEL.csproj" />
+    </DocumentationSources>
+    <VisibleItems>Internals, Protected, ProtectedInternalAsProtected</VisibleItems>
+    <MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
+    <WebsiteSdkLinkType>None</WebsiteSdkLinkType>
+    <HtmlSdkLinkType>None</HtmlSdkLinkType>
+    <IncludeFavorites>False</IncludeFavorites>
+    <BinaryTOC>False</BinaryTOC>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <NamespaceGrouping>True</NamespaceGrouping>
+    <SyntaxFilters>C#</SyntaxFilters>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <PresentationStyle>VS2013</PresentationStyle>
+    <Preliminary>False</Preliminary>
+    <NamingMethod>MemberName</NamingMethod>
+    <HelpTitle>Yet Another Space Engineers Library</HelpTitle>
+    <HeaderText>
+    </HeaderText>
+    <ContentPlacement>BelowNamespaces</ContentPlacement>
+    <RootNamespaceTitle>YASEL</RootNamespaceTitle>
+    <FooterText>&amp;lt%3bbr /&amp;gt%3b&amp;lt%3ba href=&amp;quot%3bhttps://github.com/Sibz/YASEL&amp;quot%3b&amp;gt%3bView code on Github&amp;lt%3b/a&amp;gt%3b</FooterText>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" />
+      <NamespaceSummaryItem name="Program" isDocumented="False" />
+      <NamespaceSummaryItem name="ExampleProgram" isDocumented="False" />
+      <NamespaceSummaryItem name="Connector" isDocumented="True" />
+    </NamespaceSummaries>
+    <ProjectSummary>&amp;lt%3bh2&amp;gt%3bWelcome to the YASEL Project.&amp;lt%3b/h2&amp;gt%3b&amp;lt%3bbr /&amp;gt%3b
+This project is designed to make creating in game scripts for Space Engineers game much easier.&amp;lt%3bbr /&amp;gt%3b
+&amp;lt%3bbr /&amp;gt%3b
+Essentially you can have re-usable scripts in different files, and using YASEL Exporter, compiled them into one string and send it to clipboard ready to be pasted in game.&amp;lt%3bbr /&amp;gt%3b
+&amp;lt%3bbr /&amp;gt%3b
+This makes it easier to update your scripts when you update one of the supporting files. Currently the project has many helper functions and can be included with the &amp;#39%3busing&amp;#39%3b keyword. &amp;lt%3bbr /&amp;gt%3b
+
+&amp;lt%3bcode&amp;gt%3b
+// standard using statments
+using System%3b
+using System.Linq%3b
+using System.Text%3b
+using System.Threading.Tasks%3b
+using System.Collections.Generic%3b
+using Sandbox.ModAPI.Ingame%3b
+using Sandbox.ModAPI.Interfaces%3b
+using VRage%3b
+using VRageMath%3b
+
+// Wrap your program in a custom namespace, This has to be your file name
+namespace ExampleProgram
+{
+    // Put using statements here
+    using Str%3b // Examply of inclusion of other file, this one is for string functions
+    using Grid%3b // This one is for Grid functions
+
+    // Your programs class, must extend Program.Program, otherwise YASEL Exporter won&amp;#39%3bt work.
+    class ExampleProgram : Program.Program
+    {
+
+        // You can use variables here that are initialised first time the PB runs, and the keep their values between runs
+        string myPersistantVariable%3b
+
+        // Add a main function just like in game
+        void Main%28string argument%29
+        {
+            // A Simple program that cylces doors print there names, and put Explaination marks after ones that have Auto in the name
+
+            // First we need to set Grid up
+            Grid.Set%28GridTerminalSystem, Me, Echo%29%3b
+
+            // Then we can do out stuff
+            var doors = Grid.GetBlocks&amp;amp%3blt%3bIMyDoor&amp;amp%3bgt%3b%28%29%3b
+            doors.ForEach%28door =&amp;gt%3b
+            {
+                Echo%28door.CustomName + %28Str.Contains%28door.CustomName, &amp;quot%3bAuto&amp;quot%3b%29 %3f &amp;quot%3b!!!&amp;quot%3b : &amp;quot%3b&amp;quot%3b%29%29%3b
+            }%29%3b
+        }
+    }
+}&amp;lt%3b/code&amp;gt%3b</ProjectSummary>
+    <BuildLogFile />
+    <HtmlHelp1xCompilerPath />
+    <HtmlHelp2xCompilerPath />
+    <WorkingPath />
+    <ComponentPath />
+  </PropertyGroup>
+  <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
+			 the build.  The others are optional common platform types that may appear. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+  </PropertyGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+</Project>
