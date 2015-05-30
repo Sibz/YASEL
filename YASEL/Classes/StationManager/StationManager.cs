@@ -39,7 +39,7 @@ namespace StationManager
             Grid.ts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return Str.Contains(b.CustomName, "auto") && Grid.BelongsToGrid(b); });
             doors.ForEach(door =>
             {
-                if ((door as IMyDoor).OpenRatio>=1 && !DoorsToClose.ContainsKey((door as IMyDoor)))
+                if ((door as IMyDoor).OpenRatio >= 1 && !DoorsToClose.ContainsKey((door as IMyDoor)))
                     DoorsToClose.Add((door as IMyDoor), DateTime.Now);
             });
             var doorEnum = DoorsToClose.GetEnumerator();
@@ -72,7 +72,7 @@ namespace StationManager
             var myTextPanel = Grid.GetBlock(m_settings.TextPanelTimeName) as IMyTextPanel;
             if (myTextPanel == null)
                 throw new Exception("DisplayTime: Unable to access TextPanel: " + m_settings.TextPanelTimeName);
-            TextPanel.Write(myTextPanel,prePadding + DateTime.Now.ToString(format) + postPadding);
+            TextPanel.Write(myTextPanel, prePadding + DateTime.Now.ToString(format) + postPadding, false);
         }
     }
 
