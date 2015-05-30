@@ -63,10 +63,12 @@
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
+    <Compile Include="Classes\StationManager\StationManager.cs" />
     <Compile Include="Helpers\Battery.cs" />
     <Compile Include="Helpers\Block.cs" />
     <Compile Include="Helpers\Cockpit.cs" />
     <Compile Include="Helpers\Connector.cs" />
+    <Compile Include="Helpers\Door.cs" />
     <Compile Include="Helpers\Grid.cs" />
     <Compile Include="Helpers\Gyro.cs" />
     <Compile Include="Helpers\Str.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Helpers\TextPanel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
+    <Compile Include="Programs\StationManagerProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
