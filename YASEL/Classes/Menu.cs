@@ -12,17 +12,49 @@ using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using Sandbox.Game;
 
-
 namespace Menu
 {
     using Grid;
+    /// <summary>
+    /// Menu class for building menus
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// Menu myMenu;
+    /// void Main(string argument) {
+    ///     if (myMenu == null) {
+    ///         myMenu = new Menu("Menu TextPanel");
+    ///         var myMenuPage = new MenuPage("Main", "Main Menu");
+    ///         myMenuPage.AddOption(new MenuOption(1, "Option 1", "", OnAction1));
+    ///         myMenuPage.AddOption(new MenuOption(2, "Menu 2", "Menu 2"));
+    ///         myMenu.AddPage(myMenuPage);
+    ///         myMenuPage = new MenuPage("Menu 2", "Menu Page 2");
+    ///         myMenuPage.AddOption(new MenuOption(1, "Option 2", "", OnAction2));
+    ///         myMenuPage.AddOption(new MenuOption(2, "Main Menu", "Main"));
+    ///         myMenu.AddPage(myMenuPage);
+    ///     }
+    ///     int actionButton;
+    ///     if (int.TryParse(argument, out actionButton);
+    ///         myMenu.OnButtonPress(actionButton);
+    /// }
+    /// 
+    /// public void OnAction1()
+    /// {
+    ///     Echo("Option 1 Pressed");
+    /// }
+    /// public void OnAction2()
+    /// {
+    ///     Echo("Option 2 Pressed");
+    /// }
+    /// </code>
+    /// </example>
     public class Menu
     {
         Dictionary<string, MenuPage> pages;
         MenuPage curPage;
         IMyTextPanel display;
 
-        public Menu(string sensorName, string LCDName)
+        public Menu(string LCDName)
         {
             pages = new Dictionary<string, MenuPage>();
             display = (IMyTextPanel)Grid.GetBlock(LCDName);
