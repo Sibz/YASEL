@@ -9,19 +9,19 @@ namespace Airvent
 {
     class Airvent
     {
-        static void Depressurise(List<IMyTerminalBlock> vents)
+        public static void Depressurise(List<IMyTerminalBlock> vents)
         {
             vents.ForEach(vent => { Depressurise(vent as IMyAirVent); });
         }
-        static void Depressurise(IMyAirVent vent)
+        public static void Depressurise(IMyAirVent vent)
         {
             vent.GetActionWithName("Depressurize_On").Apply(vent);
         }
-        static void Pressurise(List<IMyTerminalBlock> vents)
+        public static void Pressurise(List<IMyTerminalBlock> vents)
         {
             vents.ForEach(vent => { Depressurise(vent as IMyAirVent); });
         }
-        static void Pressurise(IMyAirVent vent)
+        public static void Pressurise(IMyAirVent vent)
         {
             vent.GetActionWithName("Depressurize_Off").Apply(vent);
         }
