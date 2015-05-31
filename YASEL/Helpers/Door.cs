@@ -39,5 +39,18 @@ namespace Door
             if (door.OpenRatio != 0) return false;
             return true;
         }
+        static public bool IsOpen(List<IMyTerminalBlock> doors)
+        {
+            bool rVal = true;
+            doors.ForEach(d => { if (!IsOpen(d as IMyDoor)) rVal = false; });
+            return rVal;
+        }
+        static public bool IsOpen(IMyDoor door)
+        {
+            if (door == null)
+                throw new Exception("Door.IsOpen: Null Argument");
+            if (door.OpenRatio == (Str.Contains(door.BlockDefinition.ToString(),"hangar") ? 1 : 1.2)) return false;
+            return true;
+        }
     }
 }
