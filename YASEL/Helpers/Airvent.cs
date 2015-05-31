@@ -19,7 +19,7 @@ namespace Airvent
         }
         public static void Pressurise(List<IMyTerminalBlock> vents)
         {
-            vents.ForEach(vent => { Depressurise(vent as IMyAirVent); });
+            vents.ForEach(vent => { Pressurise(vent as IMyAirVent); });
         }
         public static void Pressurise(IMyAirVent vent)
         {
