@@ -26,7 +26,7 @@ namespace Door
                 throw new Exception("Door.Close: Null Argument");
             door.GetActionWithName("Open_Off").Apply(door);
         }
-        static public bool IsClosed(List<IMyDoor> doors)
+        static public bool IsClosed(List<IMyTerminalBlock> doors)
         {
             bool rVal = true;
             doors.ForEach(d => { if (!IsClosed(d as IMyDoor)) rVal = false; });
