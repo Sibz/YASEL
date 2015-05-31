@@ -25,6 +25,7 @@ namespace StationManagerProgram
 
             myStationManager.ManageAutoDoors();
             myStationManager.DisplayTime();
+            myStationManager.ManageAirlocks();
         }
     }
 }
