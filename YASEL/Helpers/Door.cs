@@ -11,6 +11,7 @@ using VRageMath;
 
 namespace Door
 {
+    using Str;
     static class Door
     {
         static public void Open(IMyDoor door)
@@ -24,6 +25,19 @@ namespace Door
             if (door == null)
                 throw new Exception("Door.Close: Null Argument");
             door.GetActionWithName("Open_Off").Apply(door);
+        }
+        static public bool IsClosed(List<IMyDoor> doors)
+        {
+            bool rVal = true;
+            doors.ForEach(d => { if (!IsClosed(d as IMyDoor)) rVal = false; });
+            return rVal;
+        }
+        static public bool IsClosed(IMyDoor door)
+        {
+            if (door == null)
+                throw new Exception("Door.IsClosed: Null Argument");
+            if (door.OpenRatio != 0) return false;
+            return true;
         }
     }
 }
