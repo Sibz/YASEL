@@ -21,7 +21,7 @@ namespace StationManager
     /// <summary>
     /// General station management functions
     /// </summary>
-    class StationManager
+    public class StationManager
     {
         StationManagerSettings m_settings;
         Dictionary<IMyDoor, DateTime> m_doorsToClose;
@@ -100,19 +100,23 @@ namespace StationManager
                 AirlockEnum.Current.Value.Tick();
             }
         }
-        class Airlock
+        public class Airlock
         {
             string m_name, m_state;
             List<IMyTerminalBlock> m_sensors;
             List<IMyTerminalBlock> m_airvents;
             List<IMyTerminalBlock> m_doorsEx;
             List<IMyTerminalBlock> m_doorsIn;
-            public Action<string, float> OnUpdate;
+            public Action<string, string, float> OnUpdate;
 
             public Airlock(string airlockName)
             {
                 m_name = airlockName;
                 m_state = "idle";
+                m_sensors = new List<IMyTerminalBlock>();
+                m_airvents = new List<IMyTerminalBlock>();
+                m_doorsEx = new List<IMyTerminalBlock>();
+                m_doorsIn = new List<IMyTerminalBlock>();
                 Grid.ts.GetBlocksOfType<IMySensorBlock>(m_sensors,
                     delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName) && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyAirVent>(m_airvents,
@@ -124,7 +128,7 @@ namespace StationManager
             }
             public void Tick()
             {
-                if (m_state == "idle" && sensorActive())
+                if ((m_state == "idle" || m_state == "opening" || m_state == "pressurise") && sensorActive())
                 {
                     activate();
                 }
@@ -140,7 +144,7 @@ namespace StationManager
                 {
                     cancelOpen();
                 } 
-                else if (m_state == "open" && !sensorActive())
+                else if ((m_state == "open" || m_state =="closing") && !sensorActive())
                 {
                     close();
                 }
@@ -152,11 +156,7 @@ namespace StationManager
                 {
                     deactivate();
                 }
-                else if (m_state == "pressurise" && sensorActive())
-                {
-                    activate();
-                }
-                if (OnUpdate != null) OnUpdate(m_state, (m_airvents.IsValidIndex(0) ? (m_airvents as IMyAirVent).GetOxygenLevel() : 0));
+                if (OnUpdate != null) OnUpdate(m_name, m_state, (m_airvents.IsValidIndex(0) ? (m_airvents[0] as IMyAirVent).GetOxygenLevel() : 0));
             }
             bool sensorActive()
             {
@@ -198,6 +198,7 @@ namespace StationManager
                     Door.Open(m_doorsEx);
                     if (Door.IsOpen(m_doorsEx))
                     {
+                        Grid.Echo("Door Is Open");
                         Block.TurnOnOff(m_doorsEx, false);
                         m_state = "open";
                     }
@@ -232,33 +233,37 @@ namespace StationManager
             }
             void deactivate()
             {
+                Airvent.Pressurise(m_airvents);
                 if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75)
                     m_state = "idle";
             }
 
         }
-        void initAirlocks()
+        public void initAirlocks()
         {
-            var AirlockSensors = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMySensorBlock>(AirlockSensors, delegate(IMyTerminalBlock b)
+            m_airlocks = new Dictionary<string,Airlock>();
+            var airlockSensors = new List<IMyTerminalBlock>();
+            Grid.ts.GetBlocksOfType<IMySensorBlock>(airlockSensors, delegate(IMyTerminalBlock b)
             {
                 return (Str.Contains(b.CustomName, "airlock") && Grid.BelongsToGrid(b));
             });
-            AirlockSensors.ForEach(sensor =>
+            airlockSensors.ForEach(sensor =>
             {
                 var names = sensor.CustomName.Split(' ');
-                if (names.IsValidIndex(2) && !m_airlocks.ContainsKey(names[2]))
+                if (names.Length>=2 && !m_airlocks.ContainsKey(names[2]))
                 {
                     m_airlocks.Add(names[2], new Airlock(names[2]));
+                    if (m_settings.OnAirlockUpdate!=null) m_airlocks[names[2]].OnUpdate = m_settings.OnAirlockUpdate;
                 }
             });
         }
+        
     }
 
     /// <summary>
     /// Settings to initialise StationManager with
     /// </summary>
-    class StationManagerSettings
+    public class StationManagerSettings
     {
         /// <summary>
         /// Number of seconds before closing an open door
@@ -275,5 +280,6 @@ namespace StationManager
         /// </summary>
         public string TextPanelTimeName;
 
+        public Action<string, string, float> OnAirlockUpdate;
     }
 }
