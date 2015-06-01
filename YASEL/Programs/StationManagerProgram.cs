@@ -17,6 +17,7 @@ namespace StationManagerProgram
     class StationManagerProgram : Program.Program
     {
         StationManager myStationManager;
+        TimeSpan TimeSinceRun;
         
         void Main(string argument)
         {
@@ -25,9 +26,16 @@ namespace StationManagerProgram
             if (myStationManager==null)
                 myStationManager = new StationManager(new StationManagerSettings() { TextPanelTimeName = "TP Time", OnAirlockUpdate = AirlockLog });
 
+            if (TimeSinceRun.TotalMilliseconds < 250)
+            {
+                TimeSinceRun += ElapsedTime;
+                return;
+            }
+            TimeSinceRun = TimeSpan.Zero;
             myStationManager.ManageAutoDoors();
             myStationManager.DisplayTime();
             myStationManager.ManageAirlocks();
+            Me.GetActionWithName("Run").Apply(Me);
         }
 
         void AirlockLog(string name, string state, float percent)
