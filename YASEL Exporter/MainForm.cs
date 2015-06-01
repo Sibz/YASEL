@@ -204,11 +204,11 @@ namespace YASEL_Exporter
             {
                 if (charsSinceLastNewLine > 80)
                 {
-                    string workingText = input.Remove(0, (output.Replace("\r\n","").Length));
+                    string workingText = input.Remove(0, (output.Replace("\r\n", "").Length));
                     int workingIdx = idx - (output.Replace("\r\n", "").Length);
                     if (" {};().,".Contains(workingText.Substring(workingIdx, 1)) &&
-                        ((workingText.Substring(0, workingIdx).Count(f => f == '"') % 2) == 0) &&
-                        ((workingText.Substring(0, workingIdx).Count(f => f == '\'') % 2) == 0))
+                        ((countNonEscapedQuotes(workingText.Substring(0, workingIdx)) % 2) == 0) &&
+                        ((countNonEscapedQuotes(workingText.Substring(0, workingIdx), '\'') % 2) == 0))
                     {
                         output += (workingText.Substring(0, workingIdx)) + "\r\n";
                         charsSinceLastNewLine = -1;
@@ -220,7 +220,14 @@ namespace YASEL_Exporter
             output = output.Replace("\r\n ", "\r\n");
             return output.Trim();
         }
-
+        int countNonEscapedQuotes(string searchString, char quote = '"')
+        {
+            int numberOfMatches = 0;
+            for (int i = 0; i < searchString.Length; i++)
+                if (searchString.ToCharArray()[i] == quote && i > 0 && searchString.ToCharArray()[i - 1] != '\\' && (countNonEscapedQuotes(searchString.Substring(0, i), quote=='"'?'\'':'"') % 2) == 0)
+                    numberOfMatches++;
+            return numberOfMatches;
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox1.Tag = listBox1.SelectedIndex;
