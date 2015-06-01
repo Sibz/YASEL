@@ -29,6 +29,7 @@ namespace StationManagerProgram
             myStationManager.DisplayTime();
             myStationManager.ManageAirlocks();
         }
+
         void AirlockLog(string name, string state, float percent)
         {
             TextPanel.Write("Airlock "+name+" TP", "Airlock: " + name + "\nState: " + state + "\nOxygen Level: " + percent*100 + "%", false);
