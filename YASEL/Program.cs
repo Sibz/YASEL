@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Sandbox.Common;
-using Sandbox.Common.Components;
-using Sandbox.Common.ObjectBuilders;
-using Sandbox.Definitions;
-using Sandbox.Engine;
+using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
-using Sandbox.Game;
+using VRageMath;
 
 namespace Program
 {
@@ -22,6 +15,6 @@ namespace Program
         public IMyGridTerminalSystem GridTerminalSystem;
         public IMyProgrammableBlock Me;
         public void Echo(string s) { }
-
+        public TimeSpan ElapsedTime;
     }
 }

@@ -83,26 +83,29 @@ namespace YASEL_Exporter
 
             try
             {
-                includeFiles = GetRequires(output);
-                if (output.Contains("Program.Program"))
-                {
-                    output = output.Remove(0, output.IndexOf("{", output.IndexOf("Program.Program")) + 1);
-                    output = output.Remove(output.LastIndexOf("}") - 1);
-                }
-                output = output.Replace("\r\n    ", "\r\n");
+                GetRequires(output, includeFiles);
+
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (output.Contains("Program.Program"))
+            {
+                output = output.Remove(0, output.IndexOf("{", output.IndexOf("Program.Program")) + 1);
+                output = output.Remove(output.LastIndexOf("}") - 1);
+            }
+            output = output.Replace("\r\n    ", "\r\n");
+            output = Clean(output);
             var fEnum = includeFiles.GetEnumerator();
+            string includes = "";
             while (fEnum.MoveNext())
             {
-                output += "\r\n\r\n" + fEnum.Current.Value;
+                includes += "\r\n\r\n" + fEnum.Current.Value;
             }
-
-            Clipboard.SetText(Clean(output));
+            output += minify(Clean(includes));
+            Clipboard.SetText(output);
         }
         private string GetFileCode(FileInfo codeFile)
         {
@@ -114,9 +117,8 @@ namespace YASEL_Exporter
 
             return text;
         }
-        private Dictionary<string, string> GetRequires(string text)
+        private void GetRequires(string text, Dictionary<string, string> includeFiles)
         {
-            Dictionary<string, string> includeFiles = new Dictionary<string, string>();
             int lastIndex = 0;
             int idx = text.IndexOf("using ", lastIndex);
             while (idx != -1)
@@ -134,7 +136,7 @@ namespace YASEL_Exporter
                         found = true;
                         string code = GetFileCode(new FileInfo(fName));
                         includeFiles.Add(fileName, code);
-                        includeFiles.Intersect(GetRequires(code));
+                        GetRequires(code, includeFiles);
                     }
                     if (!found) throw new Exception("Unable to load file:" + fileName);
 
@@ -143,7 +145,7 @@ namespace YASEL_Exporter
                 idx = text.IndexOf("using ", lastIndex);
 
             }
-            return includeFiles;
+
         }
         private string Clean(string text)
         {
@@ -169,20 +171,63 @@ namespace YASEL_Exporter
                 text = text.Replace("\r\n\r\n", "\r\n");
             }
             cleanText = text;
-            if (checkBox1.Checked)
-            {
-                cleanText = cleanText.Replace("\r\n    ", "\r\n");
-                //cleanText = cleanText.Replace("\t", " ");
 
-                cleanText = cleanText.Replace("\r\n", " ");
-                while (cleanText.Contains("  "))
-                {
-                    cleanText = cleanText.Replace("  ", " ");
-                }
-            }
             return cleanText;
         }
-
+        string minify(string input)
+        {
+            if (checkBox1.Checked)
+            {
+                input = input.Replace("\r\n    ", "\r\n");
+                //cleanText = cleanText.Replace("\t", " ");
+                while (input.IndexOf("//") != -1)
+                {
+                    int idx = input.IndexOf("//");
+                    input = input.Remove(idx, input.IndexOf("\r\n", idx) - idx);
+                }
+                input = input.Replace("\r\n", " ");
+                input = input.Replace("\r", " ");
+                input = input.Replace("\n", " ");
+                while (input.Contains("  "))
+                {
+                    input = input.Replace("  ", " ");
+                }
+                input = addLines(input);
+            }
+            return input;
+        }
+        string addLines(string input)
+        {
+            string output = "";
+            int charsSinceLastNewLine = 0;
+            for (int idx = 0; idx < input.Length; idx++)
+            {
+                if (charsSinceLastNewLine > 80)
+                {
+                    string workingText = input.Remove(0, (output.Replace("\r\n", "").Length));
+                    int workingIdx = idx - (output.Replace("\r\n", "").Length);
+                    if (" {};().,".Contains(workingText.Substring(workingIdx, 1)) &&
+                        ((countNonEscapedQuotes(workingText.Substring(0, workingIdx)) % 2) == 0) &&
+                        ((countNonEscapedQuotes(workingText.Substring(0, workingIdx), '\'') % 2) == 0))
+                    {
+                        output += (workingText.Substring(0, workingIdx)) + "\r\n";
+                        charsSinceLastNewLine = -1;
+                    }
+                }
+                charsSinceLastNewLine++;
+            }
+            output += input.Replace(output.Replace("\r\n", ""), "");
+            output = output.Replace("\r\n ", "\r\n");
+            return output.Trim();
+        }
+        int countNonEscapedQuotes(string searchString, char quote = '"')
+        {
+            int numberOfMatches = 0;
+            for (int i = 0; i < searchString.Length; i++)
+                if (searchString.ToCharArray()[i] == quote && i > 0 && searchString.ToCharArray()[i - 1] != '\\' && (countNonEscapedQuotes(searchString.Substring(0, i), quote=='"'?'\'':'"') % 2) == 0)
+                    numberOfMatches++;
+            return numberOfMatches;
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox1.Tag = listBox1.SelectedIndex;
