@@ -35,7 +35,6 @@ namespace StationManagerProgram
             myStationManager.ManageAutoDoors();
             myStationManager.DisplayTime();
             myStationManager.ManageAirlocks();
-            Me.GetActionWithName("Run").Apply(Me);
         }
 
         void AirlockLog(string name, string state, float percent)
