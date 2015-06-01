@@ -84,7 +84,7 @@ namespace YASEL_Exporter
             try
             {
                 GetRequires(output, includeFiles);
-                
+
             }
             catch (Exception e)
             {
@@ -97,13 +97,15 @@ namespace YASEL_Exporter
                 output = output.Remove(output.LastIndexOf("}") - 1);
             }
             output = output.Replace("\r\n    ", "\r\n");
+            output = Clean(output);
             var fEnum = includeFiles.GetEnumerator();
+            string includes = "";
             while (fEnum.MoveNext())
             {
-                output += "\r\n\r\n" + fEnum.Current.Value;
+                includes += "\r\n\r\n" + fEnum.Current.Value;
             }
-
-            Clipboard.SetText(Clean(output));
+            output += minify(Clean(includes));
+            Clipboard.SetText(output);
         }
         private string GetFileCode(FileInfo codeFile)
         {
@@ -134,7 +136,7 @@ namespace YASEL_Exporter
                         found = true;
                         string code = GetFileCode(new FileInfo(fName));
                         includeFiles.Add(fileName, code);
-                        GetRequires(code,includeFiles);
+                        GetRequires(code, includeFiles);
                     }
                     if (!found) throw new Exception("Unable to load file:" + fileName);
 
@@ -143,7 +145,7 @@ namespace YASEL_Exporter
                 idx = text.IndexOf("using ", lastIndex);
 
             }
-            
+
         }
         private string Clean(string text)
         {
@@ -169,18 +171,54 @@ namespace YASEL_Exporter
                 text = text.Replace("\r\n\r\n", "\r\n");
             }
             cleanText = text;
+
+            return cleanText;
+        }
+        string minify(string input)
+        {
             if (checkBox1.Checked)
             {
-                cleanText = cleanText.Replace("\r\n    ", "\r\n");
+                input = input.Replace("\r\n    ", "\r\n");
                 //cleanText = cleanText.Replace("\t", " ");
-
-                cleanText = cleanText.Replace("\r\n", " ");
-                while (cleanText.Contains("  "))
+                while (input.IndexOf("//") != -1)
                 {
-                    cleanText = cleanText.Replace("  ", " ");
+                    int idx = input.IndexOf("//");
+                    input = input.Remove(idx, input.IndexOf("\r\n", idx) - idx);
                 }
+                input = input.Replace("\r\n", " ");
+                input = input.Replace("\r", " ");
+                input = input.Replace("\n", " ");
+                while (input.Contains("  "))
+                {
+                    input = input.Replace("  ", " ");
+                }
+                input = addLines(input);
             }
-            return cleanText;
+            return input;
+        }
+        string addLines(string input)
+        {
+            string output = "";
+            int charsSinceLastNewLine = 0;
+            for (int idx = 0; idx < input.Length; idx++)
+            {
+                if (charsSinceLastNewLine > 80)
+                {
+                    string workingText = input.Remove(0, (output.Replace("\r\n","").Length));
+                    int workingIdx = idx - (output.Replace("\r\n", "").Length);
+                    if (" {};().,".Contains(workingText.Substring(workingIdx, 1)) &&
+                        ((workingText.Substring(0, workingIdx).Count(f => f == '"') % 2) == 0) &&
+                        ((workingText.Substring(0, workingIdx).Count(f => f == '\'') % 2) == 0))
+                    {
+                        output += (workingText.Substring(0, workingIdx)) + "\r\n";
+                        charsSinceLastNewLine = -1;
+                    }
+                }
+                charsSinceLastNewLine++;
+            }
+            output += input.Replace(output.Replace("\r\n", ""), "");
+            output = output.Replace("\r\n ", "\r\n");
+            return output.Trim();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
