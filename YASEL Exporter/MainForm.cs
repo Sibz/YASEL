@@ -178,13 +178,17 @@ namespace YASEL_Exporter
         {
             if (checkBox1.Checked)
             {
-                input = input.Replace("\r\n    ", "\r\n");
-                //cleanText = cleanText.Replace("\t", " ");
                 while (input.IndexOf("//") != -1)
                 {
                     int idx = input.IndexOf("//");
                     input = input.Remove(idx, input.IndexOf("\r\n", idx) - idx);
                 }
+                while (input.IndexOf("/*") != -1)
+                {
+                    int idx = input.IndexOf("/*");
+                    input = input.Remove(idx, input.IndexOf("*/", idx)+2 - idx);
+                }
+                
                 input = input.Replace("\r\n", " ");
                 input = input.Replace("\r", " ");
                 input = input.Replace("\n", " ");
