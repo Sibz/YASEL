@@ -114,7 +114,7 @@ namespace StationManager
             public Airlock(string airlockName)
             {
                 m_name = airlockName;
-                m_state = "idle";
+                m_state = "init";
                 m_sensors = new List<IMyTerminalBlock>();
                 m_airvents = new List<IMyTerminalBlock>();
                 m_doorsEx = new List<IMyTerminalBlock>();
@@ -130,7 +130,11 @@ namespace StationManager
             }
             public void Tick()
             {
-                if ((m_state == "idle" || m_state == "opening" || m_state == "pressurise") && sensorActive())
+                if (m_state == "init")
+                {
+                    initialise();
+                }
+                else if ((m_state == "idle" || m_state == "opening" || m_state == "pressurise") && sensorActive())
                 {
                     activate();
                 }
@@ -240,6 +244,29 @@ namespace StationManager
                 if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
                     (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3)
                     m_state = "idle";
+            }
+            void initialise()
+            {
+                Block.TurnOnOff(m_doorsEx);
+                Block.TurnOnOff(m_doorsIn);
+                Door.Close(m_doorsEx);
+                if (!Door.IsClosed(m_doorsEx))
+                    return;
+                Airvent.Pressurise(m_airvents);
+                if (m_airvents.IsValidIndex(0) && m_lastPressureChangeValue != (m_airvents[0] as IMyAirVent).GetOxygenLevel())
+                {
+                    m_lastPressureChangeTime = DateTime.Now;
+                    m_lastPressureChangeValue = (m_airvents[0] as IMyAirVent).GetOxygenLevel();
+                }
+                if (!(m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
+                    (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3))
+                    return;
+                Door.Open(m_doorsIn);
+                if (!Door.IsOpen(m_doorsIn))
+                    return;
+                Block.TurnOnOff(m_doorsEx,false);
+                Block.TurnOnOff(m_doorsIn,false);
+                m_state = "idle";
             }
 
         }
