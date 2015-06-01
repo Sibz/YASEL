@@ -107,6 +107,8 @@ namespace StationManager
             List<IMyTerminalBlock> m_airvents;
             List<IMyTerminalBlock> m_doorsEx;
             List<IMyTerminalBlock> m_doorsIn;
+            DateTime m_lastPressureChangeTime;
+            float m_lastPressureChangeValue;
             public Action<string, string, float> OnUpdate;
 
             public Airlock(string airlockName)
@@ -140,9 +142,9 @@ namespace StationManager
                 {
                     open();
                 }
-                else if (m_state == "depressurise" && !sensorActive())
+                else if ((m_state == "depressurise" || m_state == "pressurise" ) && !sensorActive())
                 {
-                    cancelOpen();
+                    deactivate();
                 } 
                 else if ((m_state == "open" || m_state =="closing") && !sensorActive())
                 {
@@ -151,10 +153,6 @@ namespace StationManager
                 else if (m_state == "closing" && sensorActive())
                 {
                     cancelClose();
-                }
-                else if (m_state == "pressurise" && !sensorActive())
-                {
-                    deactivate();
                 }
                 if (OnUpdate != null) OnUpdate(m_name, m_state, (m_airvents.IsValidIndex(0) ? (m_airvents[0] as IMyAirVent).GetOxygenLevel() : 0));
             }
@@ -192,7 +190,13 @@ namespace StationManager
             }
             void open()
             {
-                if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() == 0)
+                if (m_airvents.IsValidIndex(0) && m_lastPressureChangeValue != (m_airvents[0] as IMyAirVent).GetOxygenLevel())
+                {
+                    m_lastPressureChangeTime = DateTime.Now;
+                    m_lastPressureChangeValue = (m_airvents[0] as IMyAirVent).GetOxygenLevel();
+                }
+                if ((m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() == 0) ||
+                    (DateTime.Now - m_lastPressureChangeTime).TotalSeconds>=3)
                 {
                     Block.TurnOnOff(m_doorsEx);
                     Door.Open(m_doorsEx);
@@ -203,12 +207,6 @@ namespace StationManager
                         m_state = "open";
                     }
                 }
-            }
-            void cancelOpen()
-            {
-                Airvent.Pressurise(m_airvents);
-                if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75)
-                    m_state = "idle";
             }
             void close()
             {
@@ -234,7 +232,13 @@ namespace StationManager
             void deactivate()
             {
                 Airvent.Pressurise(m_airvents);
-                if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75)
+                if (m_airvents.IsValidIndex(0) && m_lastPressureChangeValue != (m_airvents[0] as IMyAirVent).GetOxygenLevel())
+                {
+                    m_lastPressureChangeTime = DateTime.Now;
+                    m_lastPressureChangeValue = (m_airvents[0] as IMyAirVent).GetOxygenLevel();
+                }
+                if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
+                    (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3)
                     m_state = "idle";
             }
 
