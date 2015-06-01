@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AirlockManager.cs" />
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Helpers\TextPanel.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
     <Compile Include="Programs\StationManagerProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
