@@ -15,6 +15,6 @@ namespace Program
         public IMyGridTerminalSystem GridTerminalSystem;
         public IMyProgrammableBlock Me;
         public void Echo(string s) { }
-        TimeSpan ElapsedTime;
+        public TimeSpan ElapsedTime;
     }
 }
