@@ -28,7 +28,7 @@
       <DocumentationSource sourceFile="YASEL\YASEL\YASEL.csproj" />
     </DocumentationSources>
     <VisibleItems>Internals, Protected, ProtectedInternalAsProtected</VisibleItems>
-    <MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
+    <MissingTags>None</MissingTags>
     <WebsiteSdkLinkType>None</WebsiteSdkLinkType>
     <HtmlSdkLinkType>None</HtmlSdkLinkType>
     <IncludeFavorites>False</IncludeFavorites>
@@ -49,60 +49,28 @@
     <FooterText>&amp;lt%3bbr /&amp;gt%3b&amp;lt%3ba href=&amp;quot%3bhttps://github.com/Sibz/YASEL&amp;quot%3b&amp;gt%3bView code on Github&amp;lt%3b/a&amp;gt%3b</FooterText>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="False" />
-      <NamespaceSummaryItem name="Program" isDocumented="False" />
-      <NamespaceSummaryItem name="ExampleProgram" isDocumented="False" />
-      <NamespaceSummaryItem name="Connector" isDocumented="True" />
-    </NamespaceSummaries>
+<NamespaceSummaryItem name="Program" isDocumented="False" />
+<NamespaceSummaryItem name="ExampleProgram" isDocumented="False" />
+<NamespaceSummaryItem name="Connector" isDocumented="True">Common Connector Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Battery" isDocumented="True">Common Battery Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Block" isDocumented="True">Common Block Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Cockpit" isDocumented="True">Common Cockpit/IMyShipController Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Graph" isDocumented="True">Text Graphs for TextPanels</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Grid" isDocumented="True">Program and GridTerminalSystem interface functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Gyro" isDocumented="True">Common Gryoscope Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Menu" isDocumented="True">Menu class for building menus for TextPanels</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Nav (Group)" isGroup="True" isDocumented="False">Navigation Library</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Nav.NavManager" isDocumented="False">Main NavManager Class</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Nav.NavSettings" isDocumented="False">Structure for settings to initilise NavManager with</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Nav.WpInfo" isDocumented="False">Waypoint Information class</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Str" isDocumented="True">Common String Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="TextPanel" isDocumented="True">Common TextPanel Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Thruster" isDocumented="True">Common Thruster Functions</NamespaceSummaryItem>
+<NamespaceSummaryItem name="StationManagerProgram" isDocumented="False" />
+<NamespaceSummaryItem name="AirlockManagerProgram" isDocumented="False" /></NamespaceSummaries>
     <ProjectSummary>&amp;lt%3bh2&amp;gt%3bWelcome to the YASEL Project.&amp;lt%3b/h2&amp;gt%3b&amp;lt%3bbr /&amp;gt%3b
-This project is designed to make creating in game scripts for Space Engineers game much easier.&amp;lt%3bbr /&amp;gt%3b
-&amp;lt%3bbr /&amp;gt%3b
-Essentially you can have re-usable scripts in different files, and using YASEL Exporter, compiled them into one string and send it to clipboard ready to be pasted in game.&amp;lt%3bbr /&amp;gt%3b
-&amp;lt%3bbr /&amp;gt%3b
-This makes it easier to update your scripts when you update one of the supporting files. Currently the project has many helper functions and can be included with the &amp;#39%3busing&amp;#39%3b keyword. &amp;lt%3bbr /&amp;gt%3b
 
-&amp;lt%3bcode&amp;gt%3b
-// standard using statments
-using System%3b
-using System.Linq%3b
-using System.Text%3b
-using System.Threading.Tasks%3b
-using System.Collections.Generic%3b
-using Sandbox.ModAPI.Ingame%3b
-using Sandbox.ModAPI.Interfaces%3b
-using VRage%3b
-using VRageMath%3b
-
-// Wrap your program in a custom namespace, This has to be your file name
-namespace ExampleProgram
-{
-    // Put using statements here
-    using Str%3b // Examply of inclusion of other file, this one is for string functions
-    using Grid%3b // This one is for Grid functions
-
-    // Your programs class, must extend Program.Program, otherwise YASEL Exporter won&amp;#39%3bt work.
-    class ExampleProgram : Program.Program
-    {
-
-        // You can use variables here that are initialised first time the PB runs, and the keep their values between runs
-        string myPersistantVariable%3b
-
-        // Add a main function just like in game
-        void Main%28string argument%29
-        {
-            // A Simple program that cylces doors print there names, and put Explaination marks after ones that have Auto in the name
-
-            // First we need to set Grid up
-            Grid.Set%28GridTerminalSystem, Me, Echo%29%3b
-
-            // Then we can do out stuff
-            var doors = Grid.GetBlocks&amp;amp%3blt%3bIMyDoor&amp;amp%3bgt%3b%28%29%3b
-            doors.ForEach%28door =&amp;gt%3b
-            {
-                Echo%28door.CustomName + %28Str.Contains%28door.CustomName, &amp;quot%3bAuto&amp;quot%3b%29 %3f &amp;quot%3b!!!&amp;quot%3b : &amp;quot%3b&amp;quot%3b%29%29%3b
-            }%29%3b
-        }
-    }
-}&amp;lt%3b/code&amp;gt%3b</ProjectSummary>
+For more help/support see us on GitHub: &amp;lt%3ba href=&amp;quot%3bhttp:\\github.com\Sibz\YASEL\&amp;quot%3b&amp;gt%3bYASEL&amp;lt%3b/a&amp;gt%3b</ProjectSummary>
     <BuildLogFile />
     <HtmlHelp1xCompilerPath />
     <HtmlHelp2xCompilerPath />
