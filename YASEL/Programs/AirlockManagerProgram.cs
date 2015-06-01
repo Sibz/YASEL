@@ -32,9 +32,9 @@ namespace AirlockManagerProgram
             myAirlockManager.ManageAirlocks();
         }
 
-        void AirlockLog(string name, string state, float percent)
+        void AirlockLog(string airlockName, string airlockState, float oxygenLevel)
         {
-            TextPanel.Write("Airlock " + name + " TP", "Airlock: " + name + "\nState: " + state + "\nOxygen Level: " + percent * 100 + "%", false);
+            TextPanel.Write("Airlock " + airlockName + " TP", "Airlock: " + airlockName + "\nState: " + airlockState + "\nOxygen Level: " + oxygenLevel * 100 + "%", false);
         }
     }
 }
