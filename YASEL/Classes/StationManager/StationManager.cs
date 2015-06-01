@@ -84,13 +84,16 @@ namespace StationManager
         /// Airlock Automation<br />
         /// Name components as follows<br />
         /// Airlock Sensor AIRLOCKNAME x - Sensor(s) covering Exit<br />
-        /// Airvent AIRLOCKNAME x - Airvent(s) for airlock<br />
-        /// Door AIRLOCKNAME Ex x - Exterior doors<br />
-        /// Door AIRLOCKNAME In x - Interior doors<br />
-        /// Light AIRLOCKNAME Ex x - Interior lights<br />
-        /// Light AIRLOCKNAME In x - Interior lights<br />
-        /// LCD AIRLOCKNAME x - TextPanel/LCD for status<br />
-        /// *x can be a number or ommited
+        /// xx AIRLOCKNAME x - Airvent(s) for airlock<br />
+        /// xx AIRLOCKNAME Ex x - Exterior doors<br />
+        /// xx AIRLOCKNAME In x - Interior doors<br />
+        /// *x can be a number (or word(s)) or ommited<br />
+        /// *xx can be word or words or ommited<br />
+        /// Example: An airlock called MyAirlock<br />
+        /// Sensor Name: Airlock Sensor MyAirlock<br />
+        /// Airvent Name: Airvent MyAirlock<br />
+        /// External Door: Hangar Door MyAirlock Ex 1, Hangar Door MyAirlock Ex 2, etc<br />
+        /// Internal Door: Door MyAirlock In<br />
         /// </summary>
         public void ManageAirlocks()
         {
@@ -122,11 +125,11 @@ namespace StationManager
                 Grid.ts.GetBlocksOfType<IMySensorBlock>(m_sensors,
                     delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName) && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyAirVent>(m_airvents,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, "Airvent " + airlockName) && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName) && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyDoor>(m_doorsEx,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, "Door " + airlockName + " Ex") && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName + " Ex") && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyDoor>(m_doorsIn,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, "Door " + airlockName + " In") && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName + " In") && Grid.BelongsToGrid(b)); });
             }
             public void Tick()
             {
