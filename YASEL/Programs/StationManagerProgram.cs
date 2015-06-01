@@ -31,7 +31,7 @@ namespace StationManagerProgram
                 TimeSinceRun += ElapsedTime;
                 return;
             }
-            TimeSinceRun = TimeSpan.Zero;
+            TimeSinceRun = new TimeSpan();
             myStationManager.ManageAutoDoors();
             myStationManager.DisplayTime();
             myStationManager.ManageAirlocks();
