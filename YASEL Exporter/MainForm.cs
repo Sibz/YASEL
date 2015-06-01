@@ -196,6 +196,14 @@ namespace YASEL_Exporter
                 {
                     input = input.Replace("  ", " ");
                 }
+                for (int i = 0; i < input.Length; i++)
+                {
+                    string spaceNeighbours = "()=;<>{}+,.?!:[]";
+                    if (input.ToCharArray()[i] == ' ' &&
+                        ((i > 0 && spaceNeighbours.Contains(input.ToCharArray()[i - 1])) ||
+                        (i < input.Length - 1 && spaceNeighbours.Contains(input.ToCharArray()[i + 1]))))
+                        input = input.Remove(i, 1);
+                }
                 input = addLines(input);
             }
             return input;
