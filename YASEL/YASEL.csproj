@@ -64,7 +64,7 @@
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
-    <Compile Include="Classes\StationManager\StationManager.cs" />
+    <Compile Include="Classes\StationManager.cs" />
     <Compile Include="Helpers\Airvent.cs" />
     <Compile Include="Helpers\Battery.cs" />
     <Compile Include="Helpers\Block.cs" />
