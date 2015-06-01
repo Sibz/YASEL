@@ -27,7 +27,7 @@ namespace Grid
         static public void Echo(string s)
         {
             if (echo == null)
-                throw new Exception("Static Echo function not set, set with 'Grid.echo = Echo' in Main hjhdask sdjkalj dsjkal sdjkal ' jdsklajdks la djsakl \" jdksla dsjkal djsakl dsjakl ");
+                throw new Exception("Static Echo function not set, set with 'Grid.echo = Echo' in Main");
             echo(s);
         }
 
