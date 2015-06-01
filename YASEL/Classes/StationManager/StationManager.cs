@@ -149,11 +149,11 @@ namespace StationManager
                 {
                     open();
                 }
-                else if ((m_state == "depressurise" || m_state == "pressurise" ) && !sensorActive())
+                else if (m_state == "pressurise" && !sensorActive())
                 {
                     deactivate();
-                } 
-                else if ((m_state == "open" || m_state =="closing") && !sensorActive())
+                }
+                else if ((m_state == "open" || m_state == "closing" || m_state == "depressurise") && !sensorActive())
                 {
                     close();
                 }
@@ -209,7 +209,7 @@ namespace StationManager
                     Door.Open(m_doorsEx);
                     if (Door.IsOpen(m_doorsEx))
                     {
-                        Grid.Echo("Door Is Open");
+                        m_lastPressureChangeValue = -1;
                         Block.TurnOnOff(m_doorsEx, false);
                         m_state = "open";
                     }
@@ -246,7 +246,10 @@ namespace StationManager
                 }
                 if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
                     (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3)
+                {
+                    m_lastPressureChangeValue = -1;
                     m_state = "idle";
+                }
             }
             void initialise()
             {
@@ -264,6 +267,7 @@ namespace StationManager
                 if (!(m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
                     (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3))
                     return;
+                m_lastPressureChangeValue = -1;
                 Door.Open(m_doorsIn);
                 if (!Door.IsOpen(m_doorsIn))
                     return;
