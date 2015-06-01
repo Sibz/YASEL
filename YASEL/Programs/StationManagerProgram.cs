@@ -34,6 +34,7 @@ namespace StationManagerProgram
             TimeSinceRun = new TimeSpan();
             myStationManager.ManageAutoDoors();
             myStationManager.DisplayTime();
+            myStationManager.ManageOxygen();
         }
 
     }
