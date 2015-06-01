@@ -9,7 +9,8 @@ namespace Grid
 {
     using Str;
     /// <summary>
-    /// Grid functions
+    /// Grid functions<br />
+    /// To use you must call Grid.Set(GridTerminalSystem, Me, Echo); from your Main function.
     /// </summary>
     public static class Grid
     {
