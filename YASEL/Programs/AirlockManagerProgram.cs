@@ -9,7 +9,6 @@ namespace AirlockManagerProgram
 {
     using AirlockManager;
     using Grid;
-    using TextPanel;
     class AirlockManagerProgram : Program.Program
     {
         /*
@@ -90,10 +89,7 @@ namespace AirlockManagerProgram
         /// <param name="oxygenLevel">Current level of oxygen in the airlock</param>
         void AirlockUpdate(string airlockName, string airlockState, float oxygenLevel)
         {
-            TextPanel.Write("Airlock " + airlockName + " TP", 
-                "Airlock: " + airlockName + 
-                "\nState: " + airlockState + 
-                "\nOxygen Level: " + oxygenLevel * 100 + "%", false);
+            // Here you can do custom stuff, like write to an LCD, or adjust lights etc
         }
     }
 }
