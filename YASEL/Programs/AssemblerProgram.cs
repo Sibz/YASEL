@@ -27,7 +27,7 @@ namespace AssemblerProgram
         AssemblerManager myAM;
         void Main(string argument)
         {
-            Grid.Set(GridTerminalSystem, Me, Echo);
+            Grid.Set(this);
 
             if (myAM == null)
             {

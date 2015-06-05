@@ -21,7 +21,7 @@ namespace StationManagerProgram
         
         void Main(string argument)
         {
-            Grid.Set(GridTerminalSystem, Me, Echo);
+            Grid.Set(this);
 
             if (myStationManager==null)
                 myStationManager = new StationManager(new StationManagerSettings() { TextPanelTimeName = "TP Time"});

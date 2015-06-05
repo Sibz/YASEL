@@ -26,7 +26,7 @@ namespace ExampleProgram
             // A Simple program that cylces doors print there names, and put Explanation marks after ones that have Auto in the name
 
             // First we need to set Grid up
-            Grid.Set(GridTerminalSystem, Me, Echo);
+            Grid.Set(this);
             
             // Then we can do out stuff
             var doors = new List<IMyTerminalBlock>();

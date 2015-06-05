@@ -14,11 +14,11 @@ namespace Grid
     /// </summary>
     public static class Grid
     {
-        static public void Set(IMyGridTerminalSystem l_ts, IMyProgrammableBlock l_pb, Action<string> l_echo)
+        static public void Set(MyGridProgram gp)
         {
-            ts = l_ts;
-            pb = l_pb;
-            echo = l_echo;
+            ts = gp.GridTerminalSystem;
+            pb = gp.Me;
+            echo = gp.Echo;
         }
         static public IMyGridTerminalSystem ts;
 
