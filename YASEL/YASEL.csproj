@@ -31,12 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sandbox.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Sandbox.Common">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Sandbox.Game, Version=0.1.5627.18828, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Sandbox.Game">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Game.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -46,16 +44,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VRage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="VRage">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="VRage.Game">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Library">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Library.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="VRage.Math">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
