@@ -42,7 +42,7 @@ namespace Battery
         /// <returns>True if charging</returns>
         public static bool IsCharging(IMyBatteryBlock b)
         {
-            return Str.Contains(b.DetailedInfo, "Fully recharged in");
+            return b.GetValueBool("Recharge");
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Battery
         public static bool IsCharging(List<IMyTerminalBlock> blocks)
         {
             bool rval = true;
-            blocks.ForEach(b => { if (rval) rval = IsCharging((IMyBatteryBlock)b); });
+            blocks.ForEach(b => { if (b is IMyBatteryBlock && rval) rval = IsCharging(b as IMyBatteryBlock); });
             return rval;
         }
     }
