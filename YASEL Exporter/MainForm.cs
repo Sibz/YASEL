@@ -93,7 +93,7 @@ namespace YASEL_Exporter
             }
             if (output.Contains("Program.Program"))
             {
-                output = output.Remove(0, output.IndexOf("{", output.IndexOf("Program.Program")) + 1);
+                output = output.Remove(0, output.IndexOf("{", output.IndexOf("MyGridProgram")) + 1);
                 output = output.Remove(output.LastIndexOf("}") - 1);
             }
             output = output.Replace("\r\n    ", "\r\n");

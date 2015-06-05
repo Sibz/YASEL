@@ -13,8 +13,8 @@ namespace ExampleProgram
     using Str; // Examply of inclusion of other file, this one is for string functions
     using Grid; // This one is for Grid functions
 
-    // Your programs class, must extend Program.Program, otherwise YASEL Exporter won't work.
-    class ExampleProgram : Program.Program
+    // Your programs class, must extend MyGridProgram, otherwise YASEL Exporter won't work.
+    class ExampleProgram : MyGridProgram
     {
 
         // You can use variables here that are initialised first time the PB runs, and the keep their values between runs

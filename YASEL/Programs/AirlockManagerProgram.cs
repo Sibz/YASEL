@@ -9,7 +9,7 @@ namespace AirlockManagerProgram
 {
     using AirlockManager;
     using Grid;
-    class AirlockManagerProgram : Program.Program
+    class AirlockManagerProgram : MyGridProgram
     {
         /*
          * Airlock Manager

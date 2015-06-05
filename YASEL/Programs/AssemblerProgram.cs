@@ -11,7 +11,7 @@ namespace AssemblerProgram
     using Grid;
     using AssemblerManager;
 
-    class AssemblerProgram : Program.Program
+    class AssemblerProgram : MyGridProgram
     {
         /*
          * AssemblerProgram

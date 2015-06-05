@@ -80,7 +80,6 @@
     <Compile Include="Helpers\Thruster.cs" />
     <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Helpers\TextPanel.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />

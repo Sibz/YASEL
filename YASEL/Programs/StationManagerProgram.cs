@@ -13,8 +13,8 @@ namespace StationManagerProgram
 {
     using StationManager;
     using Grid;
-    
-    class StationManagerProgram : Program.Program
+
+    class StationManagerProgram : MyGridProgram
     {
         StationManager myStationManager;
         TimeSpan TimeSinceRun;
