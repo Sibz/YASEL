@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace Grid
 {
-    using Str;
     /// <summary>
     /// Grid functions<br />
     /// To use you must call Grid.Set(GridTerminalSystem, Me, Echo); from your Main function.
@@ -64,7 +63,7 @@ namespace Grid
         }
         public static List<IMyTerminalBlock> GetBlockGrp(string grpName)
         {
-            var grp = ts.BlockGroups.Find(x => Str.Contains(x.Name, grpName));
+            var grp = ts.BlockGroups.Find(x => x.Name.Contains(grpName));
             if (grp == null)
                 return new List<IMyTerminalBlock>();
             else

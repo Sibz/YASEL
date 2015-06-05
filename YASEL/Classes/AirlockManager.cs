@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace AirlockManager
 {
-    using Str;
     using Grid;
     using Block;
     using Door;
@@ -26,7 +25,7 @@ namespace AirlockManager
             var airlockSensors = new List<IMyTerminalBlock>();
             Grid.ts.GetBlocksOfType<IMySensorBlock>(airlockSensors, delegate(IMyTerminalBlock b)
             {
-                return (Str.Contains(b.CustomName, "airlock") && Grid.BelongsToGrid(b));
+                return (b.CustomName.Contains("airlock") && Grid.BelongsToGrid(b));
             });
             airlockSensors.ForEach(sensor =>
             {
@@ -81,13 +80,13 @@ namespace AirlockManager
                 m_doorsEx = new List<IMyTerminalBlock>();
                 m_doorsIn = new List<IMyTerminalBlock>();
                 Grid.ts.GetBlocksOfType<IMySensorBlock>(m_sensors,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName) && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyAirVent>(m_airvents,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName) && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyDoor>(m_doorsEx,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName + " Ex") && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " Ex") && Grid.BelongsToGrid(b)); });
                 Grid.ts.GetBlocksOfType<IMyDoor>(m_doorsIn,
-                    delegate(IMyTerminalBlock b) { return (Str.Contains(b.CustomName, airlockName + " In") && Grid.BelongsToGrid(b)); });
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " In") && Grid.BelongsToGrid(b)); });
             }
             public void Tick()
             {

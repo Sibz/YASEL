@@ -11,7 +11,6 @@ using VRageMath;
 
 namespace StationManager
 {
-    using Str;
     using Grid;
     using Door;
     using TextPanel;
@@ -38,7 +37,7 @@ namespace StationManager
         public void ManageAutoDoors()
         {
             var doors = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return Str.Contains(b.CustomName, m_settings.AutoDoorCloseWord) && Grid.BelongsToGrid(b); });
+            Grid.ts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return b.CustomName.Contains(m_settings.AutoDoorCloseWord) && Grid.BelongsToGrid(b); });
             doors.ForEach(door =>
             {
                 if ((door as IMyDoor).OpenRatio >= 1 && !m_doorsToClose.ContainsKey((door as IMyDoor)))

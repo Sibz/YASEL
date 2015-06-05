@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace Battery
 {
-    using Str;
     /// <summary>
     /// Common battery block functions
     /// </summary>

@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace Block
 {
-    using Str;
     /// <summary>
     /// Static class for Block-level functions
     /// </summary>
@@ -41,7 +40,7 @@ namespace Block
             string[] lines = b.DetailedInfo.Split(new char[] { '\n' });
             Array.ForEach(lines, line =>
             {
-                if (Str.Contains(line, match))
+                if (line.Contains(match))
                 {
                     string[] vals = line.Split(new char[] { ':' });
                     if (vals.Length > 1)

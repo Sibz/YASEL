@@ -9,8 +9,7 @@ namespace VarStore
 {
     using TextPanel;
     using Grid;
-    using Str;
-   
+    
     public class VarStore
     {
         string LCDVariableStoreName;
@@ -73,7 +72,7 @@ namespace VarStore
             string[] lines = strText.Split(new char[] { '\n' });
             Array.ForEach(lines, line =>
             {
-                if (Str.Contains(line, ":"))
+                if (line.Contains(":"))
                 {
                     string[] vals = line.Split(new char[] { ':' });
                     varList.Add(vals[0], vals[1]);

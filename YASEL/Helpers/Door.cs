@@ -11,7 +11,6 @@ using VRageMath;
 
 namespace Door
 {
-    using Str;
     using Grid;
     static class Door
     {
@@ -58,7 +57,7 @@ namespace Door
         {
             if (door == null)
                 throw new Exception("Door.IsOpen: Null Argument");
-            if (door.OpenRatio == (float)(Str.Contains(door.BlockDefinition.ToString(),"hangar") ? 1 : 1.2)) return true;
+            if (door.OpenRatio == (float)(door.BlockDefinition.ToString().Contains("hangar") ? 1 : 1.2)) return true;
             return false;
         }
     }

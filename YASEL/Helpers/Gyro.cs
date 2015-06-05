@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace Gyro
 {
-    using Str;
     /// <summary>
     /// Common Gyroscope functions
     /// </summary>
@@ -70,9 +69,9 @@ namespace Gyro
         private static void SetGyro(IMyTerminalBlock gyro, string action, int gSpeed)
         {
             var g = gyro as IMyGyro;
-            if (Str.Contains(action, GYRO_YAW)) StopGyro(g, GYRO_YAW);
-            if (Str.Contains(action, GYRO_PITCH)) StopGyro(g, GYRO_PITCH);
-            if (Str.Contains(action, GYRO_ROLL)) StopGyro(g, GYRO_ROLL);
+            if (action.Contains(GYRO_YAW)) StopGyro(g, GYRO_YAW);
+            if (action.Contains(GYRO_PITCH)) StopGyro(g, GYRO_PITCH);
+            if (action.Contains(GYRO_ROLL)) StopGyro(g, GYRO_ROLL);
             for (int i = 1; i <= gSpeed && i <= 10; i++)
             { GyroOveride(g, action); }
         }

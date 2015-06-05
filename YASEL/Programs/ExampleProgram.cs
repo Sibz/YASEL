@@ -10,7 +10,6 @@ using VRageMath;
 namespace ExampleProgram
 {
     // Put using statements here
-    using Str; // Examply of inclusion of other file, this one is for string functions
     using Grid; // This one is for Grid functions
 
     // Your programs class, must extend MyGridProgram, otherwise YASEL Exporter won't work.
@@ -33,7 +32,7 @@ namespace ExampleProgram
             Grid.ts.GetBlocksOfType<IMyDoor>(doors);
             doors.ForEach(door =>
             {
-                Echo(door.CustomName + (Str.Contains(door.CustomName, "Auto") ? "!!!" : ""));
+                Echo(door.CustomName + (door.CustomName.Contains("Auto") ? "!!!" : ""));
             });
         }
     }

@@ -31,10 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sandbox.Common">
+    <Reference Include="Sandbox.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Sandbox.Game">
+    <Reference Include="Sandbox.Game, Version=0.1.5634.33280, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Game.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -44,16 +46,20 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VRage">
+    <Reference Include="VRage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Game">
+    <Reference Include="VRage.Game, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Game.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Library">
+    <Reference Include="VRage.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Library.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Math">
+    <Reference Include="VRage.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -73,7 +79,6 @@
     <Compile Include="Helpers\Door.cs" />
     <Compile Include="Helpers\Grid.cs" />
     <Compile Include="Helpers\Gyro.cs" />
-    <Compile Include="Helpers\Str.cs" />
     <Compile Include="Helpers\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />
     <Compile Include="Helpers\TextPanels.cs" />

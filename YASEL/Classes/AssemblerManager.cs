@@ -8,7 +8,6 @@ using VRageMath;
 namespace AssemblerManager
 {
     using Grid;
-    using Str;
     using TextPanel;
     using Inventory;
     using Block;
@@ -61,7 +60,7 @@ namespace AssemblerManager
             var itemAssemblers = new List<IMyTerminalBlock>();
             m_assemblers.ForEach(assembler =>
             {
-                if (assembler is IMyAssembler && Str.Contains(assembler.CustomName,itemName))
+                if (assembler is IMyAssembler && assembler.CustomName.Contains(itemName))
                     itemAssemblers.Add(assembler);
             });
             return itemAssemblers;

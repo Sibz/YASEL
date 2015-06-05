@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace Inventory
 {
-    using Str;
     class Inventory
     {
         static public float CountItems(List<IMyTerminalBlock> invBlocks, string itemType = "", string itemSubtypeName = "")
@@ -22,8 +21,8 @@ namespace Inventory
                         var items = (invBlock as IMyInventoryOwner).GetInventory(i).GetItems();
                         items.ForEach(item =>
                         {
-                            if (Str.Contains(item.Content.TypeId.ToString(), itemType) &&
-                                Str.Contains(item.Content.SubtypeName, itemSubtypeName))
+                            if (item.Content.TypeId.ToString().Contains(itemType) &&
+                                item.Content.SubtypeName.Contains(itemSubtypeName))
                                 count += (float)item.Amount;
                         });
                     }

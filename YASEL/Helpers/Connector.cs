@@ -9,7 +9,6 @@ namespace Connector
 {
     using Grid;
     using Block;
-    using Str;
     /// <summary>
     /// Common connector functions
     /// </summary>
@@ -88,7 +87,7 @@ namespace Connector
                 throw new Exception("Connector.IsReadyToLock: argument is null.");
             var builder = new StringBuilder();
             connector.GetActionWithName("SwitchLock").WriteValue(connector, builder);
-            return (Str.Contains(builder.ToString(), "Ready To Lock"));
+            return (builder.ToString().Contains("Ready To Lock"));
         }
 
         /// <summary>
