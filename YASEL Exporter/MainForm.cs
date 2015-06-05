@@ -91,7 +91,7 @@ namespace YASEL_Exporter
                 MessageBox.Show(e.Message, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (output.Contains("Program.Program"))
+            if (output.Contains("MyGridProgram"))
             {
                 output = output.Remove(0, output.IndexOf("{", output.IndexOf("MyGridProgram")) + 1);
                 output = output.Remove(output.LastIndexOf("}") - 1);
