@@ -35,7 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Sandbox.Game, Version=0.1.5627.18828, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="Sandbox.Game, Version=0.1.5634.33280, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\Sandbox.Game.dll</HintPath>
     </Reference>
@@ -50,6 +50,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.dll</HintPath>
     </Reference>
+    <Reference Include="VRage.Game, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Game.dll</HintPath>
+    </Reference>
     <Reference Include="VRage.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\SpaceEngineers\Bin\VRage.Library.dll</HintPath>
@@ -61,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AirlockManager.cs" />
+    <Compile Include="Classes\AssemblerManager.cs" />
+    <Compile Include="Classes\Inventory.cs" />
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
@@ -73,15 +79,14 @@
     <Compile Include="Helpers\Door.cs" />
     <Compile Include="Helpers\Grid.cs" />
     <Compile Include="Helpers\Gyro.cs" />
-    <Compile Include="Helpers\Str.cs" />
     <Compile Include="Helpers\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />
     <Compile Include="Helpers\TextPanels.cs" />
     <Compile Include="Helpers\Thruster.cs" />
     <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Helpers\TextPanel.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
+    <Compile Include="Programs\AssemblerProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
     <Compile Include="Programs\StationManagerProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

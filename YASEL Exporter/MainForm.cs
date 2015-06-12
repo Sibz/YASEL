@@ -91,9 +91,9 @@ namespace YASEL_Exporter
                 MessageBox.Show(e.Message, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (output.Contains("Program.Program"))
+            if (output.Contains("MyGridProgram"))
             {
-                output = output.Remove(0, output.IndexOf("{", output.IndexOf("Program.Program")) + 1);
+                output = output.Remove(0, output.IndexOf("{", output.IndexOf("MyGridProgram")) + 1);
                 output = output.Remove(output.LastIndexOf("}") - 1);
             }
             output = output.Replace("\r\n    ", "\r\n");
@@ -178,19 +178,31 @@ namespace YASEL_Exporter
         {
             if (checkBox1.Checked)
             {
-                input = input.Replace("\r\n    ", "\r\n");
-                //cleanText = cleanText.Replace("\t", " ");
                 while (input.IndexOf("//") != -1)
                 {
                     int idx = input.IndexOf("//");
                     input = input.Remove(idx, input.IndexOf("\r\n", idx) - idx);
                 }
+                while (input.IndexOf("/*") != -1)
+                {
+                    int idx = input.IndexOf("/*");
+                    input = input.Remove(idx, input.IndexOf("*/", idx)+2 - idx);
+                }
+                
                 input = input.Replace("\r\n", " ");
                 input = input.Replace("\r", " ");
                 input = input.Replace("\n", " ");
                 while (input.Contains("  "))
                 {
                     input = input.Replace("  ", " ");
+                }
+                for (int i = 0; i < input.Length; i++)
+                {
+                    string spaceNeighbours = "()=;<>{}+,.?!:[]";
+                    if (input.ToCharArray()[i] == ' ' &&
+                        ((i > 0 && spaceNeighbours.Contains(input.ToCharArray()[i - 1])) ||
+                        (i < input.Length - 1 && spaceNeighbours.Contains(input.ToCharArray()[i + 1]))))
+                        input = input.Remove(i, 1);
                 }
                 input = addLines(input);
             }

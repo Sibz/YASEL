@@ -7,17 +7,17 @@ using VRageMath;
 
 namespace Grid
 {
-    using Str;
     /// <summary>
-    /// Grid functions
+    /// Grid functions<br />
+    /// To use you must call Grid.Set(GridTerminalSystem, Me, Echo); from your Main function.
     /// </summary>
     public static class Grid
     {
-        static public void Set(IMyGridTerminalSystem l_ts, IMyProgrammableBlock l_pb, Action<string> l_echo)
+        static public void Set(MyGridProgram gp)
         {
-            ts = l_ts;
-            pb = l_pb;
-            echo = l_echo;
+            ts = gp.GridTerminalSystem;
+            pb = gp.Me;
+            echo = gp.Echo;
         }
         static public IMyGridTerminalSystem ts;
 
@@ -63,7 +63,7 @@ namespace Grid
         }
         public static List<IMyTerminalBlock> GetBlockGrp(string grpName)
         {
-            var grp = ts.BlockGroups.Find(x => Str.Contains(x.Name, grpName));
+            var grp = ts.BlockGroups.Find(x => x.Name.Contains(grpName));
             if (grp == null)
                 return new List<IMyTerminalBlock>();
             else

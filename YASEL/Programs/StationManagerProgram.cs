@@ -13,15 +13,15 @@ namespace StationManagerProgram
 {
     using StationManager;
     using Grid;
-    
-    class StationManagerProgram : Program.Program
+
+    class StationManagerProgram : MyGridProgram
     {
         StationManager myStationManager;
         TimeSpan TimeSinceRun;
         
         void Main(string argument)
         {
-            Grid.Set(GridTerminalSystem, Me, Echo);
+            Grid.Set(this);
 
             if (myStationManager==null)
                 myStationManager = new StationManager(new StationManagerSettings() { TextPanelTimeName = "TP Time"});

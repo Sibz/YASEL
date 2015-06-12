@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace TextPanel
 {
-    using Str;
     using Block;
     using Grid;
     /// <summary>
@@ -69,7 +68,7 @@ namespace TextPanel
                 string[] lines = strText.Split(new char[] { '\n' });
                 Array.ForEach(lines, line =>
                 {
-                    if (Str.Contains(line, ":"))
+                    if (line.Contains(":"))
                     {
                         string[] vals = line.Split(new char[] { ':' });
                         valueList.Add(vals[0], Convert.ToDouble(vals[1].Trim()));

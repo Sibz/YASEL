@@ -13,7 +13,6 @@ namespace Nav.NavManager
     using Nav.NavSettings;
     using Gyro;
     using Thruster;
-    using Str;
     using Grid;
     using Cockpit;
 
@@ -218,15 +217,15 @@ namespace Nav.NavManager
 
         public void Act(WpInfo wi)
         {
-            if (Str.Contains(wi.type, "wp") || Str.Contains(wi.type, "travel"))
+            if (wi.type.Contains("wp") || wi.type.Contains("travel"))
                 wi.TravelTo();
-            if (Str.Contains(wi.type, "align"))
+            if (wi.type.Contains("align"))
                 wi.AlignTo();
-            if (Str.Contains(wi.type, "level"))
+            if (wi.type.Contains("level"))
                 wi.LevelTo();
-            if (Str.Contains(wi.type, "wait"))
+            if (wi.type.Contains("wait"))
                 wi.WaitFor();
-            if (Str.Contains(wi.type, "center"))
+            if (wi.type.Contains("center"))
                 wi.CenterOn();
 
             wi.wpId = waypoints.Count;

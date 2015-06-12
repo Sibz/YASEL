@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace TextPanels
 {
-    using Str;
     using Block;
     using Grid;
     /// <summary>

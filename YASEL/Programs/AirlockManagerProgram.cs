@@ -9,7 +9,7 @@ namespace AirlockManagerProgram
 {
     using AirlockManager;
     using Grid;
-    class AirlockManagerProgram : Program.Program
+    class AirlockManagerProgram : MyGridProgram
     {
         /*
          * Airlock Manager
@@ -56,7 +56,7 @@ namespace AirlockManagerProgram
         void Main(string argument)
         {
             // Just some helper code
-            Grid.Set(GridTerminalSystem, Me, Echo);
+            Grid.Set(this);
 
             // If first run set up the AirlockManager
             // Note that if you change the airlock, i.e. add doors, you need to re-compile
