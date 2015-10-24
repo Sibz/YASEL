@@ -13,6 +13,13 @@ namespace Grid
     /// </summary>
     public static class Grid
     {
+
+        // Assemblable items
+        public const string Components = "BulletproofGlass,Computer,Construction,Detector,Display,Girder,GravityGenerator,InteriorPlate,LargeTube,Medical,MetalGrid,Motor,PowerCell,RadioCommunication,Reactor,SmallTube,SolarCell,SteelPlate,Thrust,Explosives";
+        public const string Ammos = "Missile200mm,NATO_25x184mm,NATO_5p56x45mm";
+        public const string Tools = "WelderItem,HandDrillItem,AngleGrinderItem,AutomaticRifleItem";
+        public const string OxygenContainers = "OxygenBottle";
+
         static public void Set(MyGridProgram gp)
         {
             ts = gp.GridTerminalSystem;
@@ -63,7 +70,9 @@ namespace Grid
         }
         public static List<IMyTerminalBlock> GetBlockGrp(string grpName)
         {
-            var grp = ts.BlockGroups.Find(x => x.Name.Contains(grpName));
+            List<IMyBlockGroup> grps = new List<IMyBlockGroup>();
+            ts.GetBlockGroups(grps);
+            var grp = grps.Find(x => x.Name.Contains(grpName));
             if (grp == null)
                 return new List<IMyTerminalBlock>();
             else
