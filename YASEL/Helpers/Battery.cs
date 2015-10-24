@@ -60,9 +60,9 @@ namespace Battery
         {
             b.SetValueBool("Recharge", on);
         }
-        public static void Recharge(List<IMyBatteryBlock> blocks, bool on = true)
+        public static void Recharge(List<IMyTerminalBlock> blocks, bool on = true)
         {
-            blocks.ForEach(b => Recharge(b, on));
+            blocks.ForEach(b => { if (b is IMyBatteryBlock) Recharge(b as IMyBatteryBlock, on); });
         }
     }
 }
