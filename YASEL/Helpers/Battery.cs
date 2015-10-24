@@ -55,5 +55,14 @@ namespace Battery
             blocks.ForEach(b => { if (b is IMyBatteryBlock && rval) rval = IsCharging(b as IMyBatteryBlock); });
             return rval;
         }
+
+        public static void Recharge(IMyBatteryBlock b, bool on = true)
+        {
+            b.SetValueBool("Recharge", on);
+        }
+        public static void Recharge(List<IMyBatteryBlock> blocks, bool on = true)
+        {
+            blocks.ForEach(b => Recharge(b, on));
+        }
     }
 }
