@@ -34,7 +34,7 @@ namespace Inventory
         static public List<IMyInventory> GetInventories(List<IMyTerminalBlock> invBlocks)
         {
             List<IMyInventory> invs = new List<IMyInventory>();
-            invs.ForEach(inv =>
+            invBlocks.ForEach(inv =>
             {
                 if (inv is IMyInventoryOwner)
                 {
