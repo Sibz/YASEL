@@ -23,11 +23,16 @@ namespace YASEL_Program1
 
             if (argument=="")
                 ManageDockingState();
-            else if (argument=="undock")
+            else if (argument=="undock" || argument =="dock")
             {
                 List<IMyTerminalBlock> listBats = new List<IMyTerminalBlock>();
+                List<IMyTerminalBlock> listConnectors = new List<IMyTerminalBlock>();
                 Grid.ts.GetBlocksOfType<IMyBatteryBlock>(listBats, Grid.BelongsToGrid);
-                // TODO set battery recharge to off.
+                Grid.ts.GetBlocksOfType<IMyShipConnector>(listConnectors, Grid.BelongsToGrid);
+
+                Battery.Recharge(listBats, false);
+                Connector.SwitchLock(listConnectors);
+                ManageDockingState();
 
             }
         }
@@ -41,7 +46,9 @@ namespace YASEL_Program1
             List<IMyTerminalBlock> listThrusters = new List<IMyTerminalBlock>();
             List<IMyTerminalBlock> listGyros = new List<IMyTerminalBlock>();
             List<IMyTerminalBlock> listSpots = new List<IMyTerminalBlock>();
+            List<IMyTerminalBlock> listBats = new List<IMyTerminalBlock>();
 
+            Grid.ts.GetBlocksOfType<IMyBatteryBlock>(listBats, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyShipConnector>(listConnectors, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyThrust>(listThrusters, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyGyro>(listGyros, Grid.BelongsToGrid);
@@ -52,13 +59,13 @@ namespace YASEL_Program1
                 Block.TurnOnOff(listThrusters, false);
                 Block.TurnOnOff(listGyros, false);
                 Block.TurnOnOff(listSpots, false);
-                // TODO set battery recharge to on.
+                Battery.Recharge(listBats);
             }
             else
             {
                 Block.TurnOnOff(listThrusters);
                 Block.TurnOnOff(listGyros);
-                Block.TurnOnOff(listSpots);
+                Block.TurnOnOff(listSpots); 
             }
         }
 
