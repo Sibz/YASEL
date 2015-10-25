@@ -30,10 +30,9 @@ namespace YASEL_Program1
                 Grid.ts.GetBlocksOfType<IMyBatteryBlock>(listBats, Grid.BelongsToGrid);
                 Grid.ts.GetBlocksOfType<IMyShipConnector>(listConnectors, Grid.BelongsToGrid);
 
-                Battery.Recharge(listBats, false);
+                if (Connector.IsDocked(listConnectors))
+                    Battery.Recharge(listBats, false);
                 Connector.SwitchLock(listConnectors);
-                ManageDockingState();
-
             }
         }
 
