@@ -30,5 +30,21 @@ namespace Inventory
             });
             return count;
         }
+
+        static public List<IMyInventory> GetInventories(List<IMyTerminalBlock> invBlocks)
+        {
+            List<IMyInventory> invs = new List<IMyInventory>();
+            invs.ForEach(inv =>
+            {
+                if (inv is IMyInventoryOwner)
+                {
+                    for (int i = 0; i < (inv as IMyInventoryOwner).InventoryCount; i++)
+                    {
+                        invs.Add((inv as IMyInventoryOwner).GetInventory(i));
+                    };
+                };
+            });
+            return invs;
+        }
     }
 }
