@@ -30,5 +30,41 @@ namespace Inventory
             });
             return count;
         }
+
+        static public List<IMyInventory> GetInventories(List<IMyTerminalBlock> invBlocks)
+        {
+            List<IMyInventory> invs = new List<IMyInventory>();
+            invs.ForEach(inv =>
+            {
+                if (inv is IMyInventoryOwner)
+                {
+                    for (int i = 0; i < (inv as IMyInventoryOwner).InventoryCount; i++)
+                    {
+                        invs.Add((inv as IMyInventoryOwner).GetInventory(i));
+                    };
+                };
+            });
+            return invs;
+        }
+
+        static public void MoveItems(IMyInventory invFrom, IMyInventory invTo, string itemNames="", string itemTypes="", int maxPercent = 98)
+        {
+            if (((float)invTo.CurrentVolume) / ((float)invTo.MaxVolume) > (maxPercent/100))
+                return; // can't move to full inventory, fail silently
+            var items = invFrom.GetItems();
+            if (items.Count == 0)
+                return; // No Items to move
+            int curIdx = 0;
+            items.ForEach(item =>
+            {
+                if ((itemNames == "" || itemNames.Contains(item.Content.SubtypeId.ToString())) &&
+                    itemTypes == "" || itemTypes.Contains(item.Content.TypeId.ToString().Replace("MyObjectBuilder_","")))
+                {
+                    invTo.TransferItemFrom(invFrom, curIdx);
+                    if (((float)invTo.CurrentVolume) / ((float)invTo.MaxVolume) > (maxPercent / 100))
+                        return;
+                }
+            });
+        }
     }
 }
