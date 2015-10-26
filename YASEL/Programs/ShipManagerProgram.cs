@@ -21,11 +21,16 @@ namespace ShipManagerProgram
         {
             Grid.Set(this);
 
-            ShipManager sm = new ShipManager();
+            var smSettings = new ShipManagerSettings() { LoadFromGroupName = "Cargo Components", LoadToGroupName = "Welder Cargo" };
 
-            if (argument=="")
+            ShipManager sm = new ShipManager(smSettings);
+
+            if (argument == "")
+            {
                 sm.ManageDockingState();
-            else if (argument=="undock" || argument =="dock")
+                sm.LoadFromGroup("Connector - Components");
+            }
+            else if (argument == "undock" || argument == "dock")
                 sm.Dock();
         }
     }

@@ -11,6 +11,7 @@ namespace ShipManager
     using Block;
     using Connector;
     using Battery;
+    using Inventory;
 
 
     class ShipManager
@@ -22,6 +23,8 @@ namespace ShipManager
         List<IMyTerminalBlock> listSpots;
         List<IMyTerminalBlock> listBats;
         List<IMyTerminalBlock> listReactors;
+        ShipManagerSettings s;
+
         public ShipManager()
         {
             listConnectors      = new List<IMyTerminalBlock>();
@@ -38,6 +41,10 @@ namespace ShipManager
             Grid.ts.GetBlocksOfType<IMyLightingBlock>   (listSpots, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyReactor>         (listReactors, Grid.BelongsToGrid);
         }
+        public ShipManager(ShipManagerSettings settings) : this()
+        {
+            s = settings;
+        } 
 
         /// <summary>
         /// Turns Engines, reactors, lights and gyros off when connected, and back on when disconnected.
@@ -78,5 +85,38 @@ namespace ShipManager
             }
             Connector.SwitchLock(listConnectors);
         }
+
+        public void LoadFromGroup(string checkConnector = "")
+        {
+            if (!Connector.IsDocked(listConnectors)) return;
+            if (checkConnector != "")
+            {
+                var con = Grid.GetBlock(checkConnector) as IMyShipConnector;
+                if ((con is IMyShipConnector) && Connector.IsDocked(con)) return;
+            }
+
+            var cargoGroup = Grid.GetBlockGrp(s.LoadFromGroupName);
+            if (Inventory.CountItems(cargoGroup) == 0)
+                return;
+            var invsFrom = Inventory.GetInventories(cargoGroup);
+            var invsTo = Inventory.GetInventories(Grid.GetBlockGrp(s.LoadToGroupName));
+            invsTo.ForEach(invTo =>
+            {
+                if ((float)invTo.CurrentVolume/(float)invTo.MaxVolume < 0.98)
+                {
+                    invsFrom.ForEach(invFrom =>
+                    {
+                        Inventory.MoveItems(invFrom, invTo); 
+                    });
+                }
+            });
+        }
+
+    }
+
+    public class ShipManagerSettings
+    {
+        public string LoadFromGroupName = "BaseCargoGroup";
+        public string LoadToGroupName = "ShipCargoGroup";
     }
 }
