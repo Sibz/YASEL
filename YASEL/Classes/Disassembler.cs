@@ -44,14 +44,14 @@ namespace Disassembler
 
             invAssemblers.ForEach(invAssembler =>
             {
-                if (((float)invAssembler.MaxVolume / (float)invAssembler.CurrentVolume) < 0.95)
+                if (((float)invAssembler.CurrentVolume / (float)invAssembler.MaxVolume) < 0.95)
                 {
                     invCargos.ForEach(invCargo =>
                     {
                         if (invCargo.CurrentVolume>0)
                         {
                             Inventory.MoveItems(invCargo, invAssembler);
-                            if (((float)invAssembler.MaxVolume / (float)invAssembler.CurrentVolume) < 0.95)
+                            if (((float)invAssembler.CurrentVolume / (float)invAssembler.MaxVolume) > 0.95)
                                 return;
                         }
                     });
