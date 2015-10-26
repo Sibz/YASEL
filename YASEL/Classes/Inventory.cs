@@ -47,7 +47,7 @@ namespace Inventory
             return invs;
         }
 
-        static public void MoveItems(IMyInventory invFrom, IMyInventory invTo, string itemNames="", string itemTypes="", int maxPercent = 98)
+        static public void MoveItems(IMyInventory invFrom, IMyInventory invTo, string itemNames="", string itemTypes="", float maxPercent = 98)
         {
             if (((float)invTo.CurrentVolume) / ((float)invTo.MaxVolume) > (maxPercent/100))
                 return; // can't move to full inventory, fail silently
@@ -61,6 +61,7 @@ namespace Inventory
                     itemTypes == "" || itemTypes.Contains(item.Content.TypeId.ToString().Replace("MyObjectBuilder_","")))
                 {
                     invTo.TransferItemFrom(invFrom, curIdx);
+                    curIdx++;
                     if (((float)invTo.CurrentVolume) / ((float)invTo.MaxVolume) > (maxPercent / 100))
                         return;
                 }
