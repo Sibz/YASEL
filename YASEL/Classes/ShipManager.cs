@@ -91,8 +91,8 @@ namespace ShipManager
             if (!Connector.IsDocked(listConnectors)) return;
             if (checkConnector != "")
             {
-                var con = Grid.GetBlock(checkConnector) as IMyShipConnector;
-                if ((con is IMyShipConnector) && Connector.IsDocked(con)) return;
+                var con = Grid.GetBlock(checkConnector, false) as IMyShipConnector;
+                if ((con is IMyShipConnector) && !Connector.IsDocked(con)) return;
             }
 
             var cargoGroup = Grid.GetBlockGrp(s.LoadFromGroupName);
