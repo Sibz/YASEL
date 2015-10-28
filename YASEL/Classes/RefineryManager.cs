@@ -105,7 +105,7 @@ namespace RefineryManager
             OreMultipliers.Add("Silver", 1f);
             OreMultipliers.Add("Iron", 1f);
             OreMultipliers.Add("Cobalt", 0.01f);
-            OreMultipliers.Add("Nickle", 0.33f);
+            OreMultipliers.Add("Nickel", 0.33f);
             OreMultipliers.Add("Silicon", 0.33f);
             
         }
