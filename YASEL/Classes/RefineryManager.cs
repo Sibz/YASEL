@@ -98,15 +98,15 @@ namespace RefineryManager
         public RefineryManagerSettings()
         {
             OreMultipliers = new Dictionary<string, float>();
-            OreMultipliers.Add("Uranium", 0.5f);
-            OreMultipliers.Add("Platinum", 0.33f);
-            OreMultipliers.Add("Gold", 0.75f);
-            OreMultipliers.Add("Magnesium", 0.33f);
-            OreMultipliers.Add("Silver", 1f);
+            OreMultipliers.Add("Uranium", 0.05f);
+            OreMultipliers.Add("Platinum", 0.033f);
+            OreMultipliers.Add("Gold", 0.33f);
+            OreMultipliers.Add("Magnesium", 0.1f);
+            OreMultipliers.Add("Silver", 0.45f);
             OreMultipliers.Add("Iron", 1f);
-            OreMultipliers.Add("Cobalt", 0.01f);
+            OreMultipliers.Add("Cobalt", 0.1f);
             OreMultipliers.Add("Nickel", 0.33f);
-            OreMultipliers.Add("Silicon", 0.33f);
+            OreMultipliers.Add("Silicon", 0.5f);
             
         }
     }
