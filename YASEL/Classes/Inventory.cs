@@ -31,6 +31,24 @@ namespace Inventory
             return count;
         }
 
+        static public float GetPercentFull(List<IMyTerminalBlock> invBlocks)
+        {
+            var listInvs = GetInventories(invBlocks);
+            return GetPercentFull(listInvs);
+
+        }
+
+        static public float GetPercentFull(List<IMyInventory> invs)
+        {
+            float maxVol = 0, curVol = 0;
+            invs.ForEach(inv =>
+            {
+                maxVol += (float)inv.MaxVolume;
+                curVol += (float)inv.CurrentVolume;
+            });
+            return curVol/maxVol;
+        }
+
         static public List<IMyInventory> GetInventories(List<IMyTerminalBlock> invBlocks)
         {
             List<IMyInventory> invs = new List<IMyInventory>();
