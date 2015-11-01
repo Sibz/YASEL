@@ -25,6 +25,9 @@ namespace ShipManager
         List<IMyTerminalBlock> listBats;
         List<IMyTerminalBlock> listReactors;
         Dictionary<string, float> VentCheckPressures;
+
+        Dictionary<string, AirlockNP> AirlockNPs;
+
         ShipManagerSettings s;
 
         public ShipManager()
@@ -176,11 +179,75 @@ namespace ShipManager
             }
         }
 
+        public void SwitchAirlockNonPressurised(string airlockName, bool open = true)
+        {
+            if (!AirlockNPs.ContainsKey(airlockName))
+            {
+                var inDoor = Grid.GetBlock("Airlock Door - " + airlockName + " In") as IMyDoor;
+                var outDoor = Grid.GetBlock("Airlock Door - " + airlockName + " Out") as IMyDoor;
+            
+                if (!(inDoor is IMyDoor) || !(outDoor is IMyDoor))
+                {
+                    Grid.Echo("AirlockNP Error: airlock " + airlockName + ": Unable to reference doors, check this exist, naming and ownership is correct.");
+                    return;
+                }
+            
+                AirlockNPs.Add(airlockName, new AirlockNP() { AirlockName = airlockName, InDoor = inDoor, OutDoor = outDoor});
+            }
+            AirlockNPs[airlockName].AirlockState = open ? "opening" : "closing";
+        }
+
+        private void Tick()
+        {
+            TickSwitchAirlockDoorNP();
+        }
+        private void TickSwitchAirlockDoorNP()
+        {
+            var AirlockNPsEnum = AirlockNPs.GetEnumerator();
+            while (AirlockNPsEnum.MoveNext())
+            {
+                var airlock = AirlockNPsEnum.Current.Value;
+                if (airlock.AirlockState == "opening")
+                {
+                    if (closeAndLockDoor(airlock.InDoor))
+                        airlock.AirlockState = "opening-2";
+                }
+                else if (airlock.AirlockState == "opening-2")
+                {
+                    if (Door.IsOpen(airlock.InDoor))
+                    {
+                        airlock.AirlockState = "opening";
+                        return;
+                    }
+                    if (openAndLockDoor(airlock.OutDoor))
+                    {
+                        airlock.AirlockState = "idle";
+                    }
+                }
+                else if (airlock.AirlockState == "closing")
+                {
+
+                }
+            }
+        }
+        
+        
+        private void TickCloseAirlockDoorNP()
+        {
+
+        }
+
     }
 
     public class ShipManagerSettings
     {
         public string LoadFromGroupName = "BaseCargoGroup";
         public string LoadToGroupName = "ShipCargoGroup";
+    }
+    public class AirlockNP
+    {
+        public string AirlockName = "";
+        public string AirlockState;
+        public IMyDoor InDoor, OutDoor;
     }
 }
