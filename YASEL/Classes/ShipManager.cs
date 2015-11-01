@@ -13,6 +13,7 @@ namespace ShipManager
     using Battery;
     using Inventory;
     using Door;
+    using TextPanel;
 
 
     class ShipManager
@@ -29,6 +30,8 @@ namespace ShipManager
         Dictionary<string, AirlockNP> AirlockNPs;
 
         ShipManagerSettings s;
+
+        IMyTextPanel tpDebug;
 
         public ShipManager()
         {
@@ -48,6 +51,16 @@ namespace ShipManager
             Grid.ts.GetBlocksOfType<IMyReactor>         (listReactors, Grid.BelongsToGrid);
 
             VentCheckPressures = new Dictionary<string, float>();
+
+            AirlockNPs = new Dictionary<string,AirlockNP>();
+            tpDebug = Grid.GetBlock("LCD Debug") as IMyTextPanel;
+            
+            debug("Initialised ShipManager.", false);
+        }
+        private void debug(string text, bool append = true)
+        {
+            if (tpDebug is IMyTextPanel)
+                TextPanel.Write(tpDebug, text+"\n", append);
         }
         public ShipManager(ShipManagerSettings settings) : this()
         {
@@ -183,21 +196,23 @@ namespace ShipManager
         {
             if (!AirlockNPs.ContainsKey(airlockName))
             {
+                debug("Initialising Airlock " + airlockName);
                 var inDoor = Grid.GetBlock("Airlock Door - " + airlockName + " In") as IMyDoor;
                 var outDoor = Grid.GetBlock("Airlock Door - " + airlockName + " Out") as IMyDoor;
             
                 if (!(inDoor is IMyDoor) || !(outDoor is IMyDoor))
                 {
-                    Grid.Echo("AirlockNP Error: airlock " + airlockName + ": Unable to reference doors, check this exist, naming and ownership is correct.");
+                    debug("AirlockNP Error: airlock " + airlockName + ": Unable to reference doors, check this exist, naming and ownership is correct.");
                     return;
                 }
             
                 AirlockNPs.Add(airlockName, new AirlockNP() { AirlockName = airlockName, InDoor = inDoor, OutDoor = outDoor});
             }
             AirlockNPs[airlockName].AirlockState = open ? "opening" : "closing";
+            debug(airlockName + " airlock is now " + AirlockNPs[airlockName].AirlockState);
         }
 
-        private void Tick()
+        public void Tick()
         {
             TickSwitchAirlockDoorNP();
         }
@@ -209,34 +224,49 @@ namespace ShipManager
                 var airlock = AirlockNPsEnum.Current.Value;
                 if (airlock.AirlockState == "opening")
                 {
-                    if (closeAndLockDoor(airlock.InDoor))
+                    debug(airlock.AirlockName + ": closing and locking internal door");
+                    if (Door.CloseAndLockDoor(airlock.InDoor))
                         airlock.AirlockState = "opening-2";
                 }
                 else if (airlock.AirlockState == "opening-2")
                 {
+
                     if (Door.IsOpen(airlock.InDoor))
                     {
+                        debug(airlock.AirlockName + ": Internal door open when should be shut, going back to close and lock.");
                         airlock.AirlockState = "opening";
                         return;
                     }
-                    if (openAndLockDoor(airlock.OutDoor))
+                    debug(airlock.AirlockName + ": opening and locking external door - or: " + airlock.OutDoor.OpenRatio);
+                    if (Door.OpenAndLockDoor(airlock.OutDoor))
                     {
+                        debug(airlock.AirlockName + ": Done opening, airlock now idle");
                         airlock.AirlockState = "idle";
                     }
                 }
                 else if (airlock.AirlockState == "closing")
                 {
-
+                    debug(airlock.AirlockName + ": closing and locking ex door");
+                    if (Door.CloseAndLockDoor(airlock.OutDoor))
+                        airlock.AirlockState = "closing-2";
+                }
+                else if (airlock.AirlockState == "closing-2")
+                {
+                    if (Door.IsOpen(airlock.OutDoor))
+                    {
+                        debug(airlock.AirlockName + ": ex door open when should be shut, going back to close and lock.");
+                        airlock.AirlockState = "closing";
+                        return;
+                    }
+                    if (Door.OpenAndLockDoor(airlock.InDoor))
+                    {
+                        debug(airlock.AirlockName + ": Done closing, airlock now idle");
+                        airlock.AirlockState = "idle";
+                    }
                 }
             }
         }
         
-        
-        private void TickCloseAirlockDoorNP()
-        {
-
-        }
-
     }
 
     public class ShipManagerSettings
