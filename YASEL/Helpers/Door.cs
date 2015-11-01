@@ -61,6 +61,12 @@ namespace Door
             if (door.OpenRatio == 1f) return true;
             return false;
         }
+        static public bool CloseAndLockDoor(List<IMyTerminalBlock> doors)
+        {
+            bool rVal = true;
+            doors.ForEach(d => { if (!CloseAndLockDoor(d as IMyDoor)) rVal = false; });
+            return rVal;
+        }
         static public bool CloseAndLockDoor(IMyDoor door)
         {
             if (Door.IsOpen(door))
@@ -74,6 +80,12 @@ namespace Door
                 return true;
             }
             return false;
+        }
+        static public bool OpenAndLockDoor(List<IMyTerminalBlock> doors)
+        {
+            bool rVal = true;
+            doors.ForEach(d => { if (!OpenAndLockDoor(d as IMyDoor)) rVal = false; });
+            return rVal;
         }
         static public bool OpenAndLockDoor(IMyDoor door)
         {
