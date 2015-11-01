@@ -145,13 +145,17 @@ namespace ShipManager
             int breachVal = checkBreach(ventSideA, ventA) + checkBreach(ventSideB, ventB);
             if (breachVal>0)
                 switchBreachDoors(doorA, doorB); // One area is breached, close doors
-            else if (breachVal==-2)
+            else if (breachVal<=-1 && ventA.GetOxygenLevel()>0.95 && ventB.GetOxygenLevel()>0.95)
                 switchBreachDoors(doorA, doorB, false); // Both areas are sealed with air, open doors
+
+            VentCheckPressures[ventSideA] = ventA.GetOxygenLevel();
+            VentCheckPressures[ventSideB] = ventB.GetOxygenLevel();
 
         }
         private int checkBreach(string ventName, IMyAirVent vent)
         {
-            if (VentCheckPressures[ventName] > vent.GetOxygenLevel()) // Pressure has dropped, Breach!
+            if (VentCheckPressures[ventName] > vent.GetOxygenLevel() &&
+                vent.GetOxygenLevel() < 0.95) // Pressure has dropped below breathable level, Breach!
                 return 1;
             else if (VentCheckPressures[ventName] < vent.GetOxygenLevel() &&
                 vent.GetOxygenLevel() > 0.95) // Pressure is rising and at breathable level, Breach sealed.

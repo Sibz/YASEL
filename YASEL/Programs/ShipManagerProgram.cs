@@ -23,11 +23,13 @@ namespace ShipManagerProgram
             Grid.Set(this);
 
             if (sm == null)
-                sm = new ShipManager();
+                sm = new ShipManager(new ShipManagerSettings() { LoadFromGroupName = "OreShipCargo", LoadToGroupName = "Js Cargo" });
 
             if (argument == "")
             {
-                sm.ManageDockingState();
+                sm.ManageDockingState("JS Base Connector");
+                sm.ManageBreachDoors("JS Air Vent - Hangar 1", "JS Door - BridgeToHangar", "JS Door - HangarToBridge", "JS Air Vent - Bridge");
+                sm.LoadFromGroup();
             }
             else if (argument == "undock" || argument == "dock")
                 sm.Dock();
