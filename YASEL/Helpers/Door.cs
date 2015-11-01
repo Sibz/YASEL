@@ -58,7 +58,7 @@ namespace Door
         {
             if (door == null)
                 throw new Exception("Door.IsOpen: Null Argument");
-            if (door.OpenRatio == (float)(door.BlockDefinition.ToString().Contains("hangar") ? 1 : 1.2)) return true;
+            if (door.OpenRatio == 1f) return true;
             return false;
         }
         static public bool CloseAndLockDoor(IMyDoor door)
