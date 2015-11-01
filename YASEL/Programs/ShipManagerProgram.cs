@@ -16,13 +16,14 @@ namespace ShipManagerProgram
 
     class ShipManagerProgram : MyGridProgram
     {
+        static ShipManager sm;
 
         void Main(string argument)
         {
             Grid.Set(this);
 
-            
-            ShipManager sm = new ShipManager();
+            if (sm == null)
+                sm = new ShipManager();
 
             if (argument == "")
             {

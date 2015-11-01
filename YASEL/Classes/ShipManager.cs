@@ -12,6 +12,7 @@ namespace ShipManager
     using Connector;
     using Battery;
     using Inventory;
+    using Door;
 
 
     class ShipManager
@@ -23,10 +24,12 @@ namespace ShipManager
         List<IMyTerminalBlock> listSpots;
         List<IMyTerminalBlock> listBats;
         List<IMyTerminalBlock> listReactors;
+        Dictionary<string, float> VentCheckPressures;
         ShipManagerSettings s;
 
         public ShipManager()
         {
+
             listConnectors      = new List<IMyTerminalBlock>();
             listThrusters       = new List<IMyTerminalBlock>();
             listGyros           = new List<IMyTerminalBlock>();
@@ -40,6 +43,8 @@ namespace ShipManager
             Grid.ts.GetBlocksOfType<IMyGyro>            (listGyros, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyLightingBlock>   (listSpots, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyReactor>         (listReactors, Grid.BelongsToGrid);
+
+            VentCheckPressures = new Dictionary<string, float>();
         }
         public ShipManager(ShipManagerSettings settings) : this()
         {
@@ -55,10 +60,16 @@ namespace ShipManager
         /// <param name="lights"></param>
         /// <param name="batteries"></param>
         /// <param name="reactors"></param>
-        public void ManageDockingState(bool thrusters = true, bool gyros = true, bool lights = true, bool batteries = true, bool reactors = true)
+        public void ManageDockingState(string connectedConnector = "", bool thrusters = true, bool gyros = true, bool lights = true, bool batteries = true, bool reactors = true)
         {
-
-            if (Connector.IsDocked(listConnectors))
+            bool doTurnOff = true;
+            if (connectedConnector != "")
+            {
+                var cCon = Grid.GetBlock(connectedConnector);
+                if (cCon is IMyShipConnector && !Connector.IsDocked(cCon as IMyShipConnector))
+                    doTurnOff = false;
+            }
+            if (Connector.IsDocked(listConnectors) && doTurnOff)
             {
                 if (thrusters)      Block.TurnOnOff(listThrusters, false);
                 if (gyros)          Block.TurnOnOff(listGyros, false);
@@ -110,6 +121,55 @@ namespace ShipManager
                     });
                 }
             });
+        }
+
+        public void ManageBreachDoors(string ventSideA, string doorSideA, string doorSideB, string ventSideB)
+        {
+            var ventA = Grid.GetBlock(ventSideA) as IMyAirVent;
+            var ventB = Grid.GetBlock(ventSideB) as IMyAirVent;
+            var doorA = Grid.GetBlock(doorSideA) as IMyDoor;
+            var doorB = Grid.GetBlock(doorSideB) as IMyDoor;
+            bool init = false;
+            if (!VentCheckPressures.ContainsKey(ventSideA))
+            {
+                VentCheckPressures.Add(ventSideA, ventA.GetOxygenLevel());
+                init = true;
+            }
+            if (!VentCheckPressures.ContainsKey(ventSideB))
+            {
+                VentCheckPressures.Add(ventSideB, ventB.GetOxygenLevel());
+                init = true;
+            }
+            if (init) return;
+
+            int breachVal = checkBreach(ventSideA, ventA) + checkBreach(ventSideB, ventB);
+            if (breachVal>0)
+                switchBreachDoors(doorA, doorB); // One area is breached, close doors
+            else if (breachVal==-2)
+                switchBreachDoors(doorA, doorB, false); // Both areas are sealed with air, open doors
+
+        }
+        private int checkBreach(string ventName, IMyAirVent vent)
+        {
+            if (VentCheckPressures[ventName] > vent.GetOxygenLevel()) // Pressure has dropped, Breach!
+                return 1;
+            else if (VentCheckPressures[ventName] < vent.GetOxygenLevel() &&
+                vent.GetOxygenLevel() > 0.95) // Pressure is rising and at breathable level, Breach sealed.
+                return -1;
+            else
+                return 0; // Pressure neither rising or falling
+        }
+        private void switchBreachDoors(IMyDoor a, IMyDoor b, bool close = true)
+        {
+            if (close)
+            {
+                Door.Close(a);
+                Door.Close(b);
+            } else
+            {
+                Door.Open(a);
+                Door.Open(b);
+            }
         }
 
     }
