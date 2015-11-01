@@ -21,7 +21,7 @@ namespace ShipManagerProgram
         {
             Grid.Set(this);
 
-            
+
             ShipManager sm = new ShipManager();
 
             if (argument == "")

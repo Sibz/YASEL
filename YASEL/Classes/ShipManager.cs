@@ -12,6 +12,8 @@ namespace ShipManager
     using Connector;
     using Battery;
     using Inventory;
+    using Door;
+    using TextPanel;
 
 
     class ShipManager
@@ -23,10 +25,17 @@ namespace ShipManager
         List<IMyTerminalBlock> listSpots;
         List<IMyTerminalBlock> listBats;
         List<IMyTerminalBlock> listReactors;
+        Dictionary<string, float> VentCheckPressures;
+
+        Dictionary<string, AirlockNP> AirlockNPs;
+
         ShipManagerSettings s;
+
+        IMyTextPanel tpDebug;
 
         public ShipManager()
         {
+
             listConnectors      = new List<IMyTerminalBlock>();
             listThrusters       = new List<IMyTerminalBlock>();
             listGyros           = new List<IMyTerminalBlock>();
@@ -40,6 +49,18 @@ namespace ShipManager
             Grid.ts.GetBlocksOfType<IMyGyro>            (listGyros, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyLightingBlock>   (listSpots, Grid.BelongsToGrid);
             Grid.ts.GetBlocksOfType<IMyReactor>         (listReactors, Grid.BelongsToGrid);
+
+            VentCheckPressures = new Dictionary<string, float>();
+
+            AirlockNPs = new Dictionary<string,AirlockNP>();
+            tpDebug = Grid.GetBlock("LCD Debug") as IMyTextPanel;
+            
+            debug("Initialised ShipManager.", false);
+        }
+        private void debug(string text, bool append = true)
+        {
+            if (tpDebug is IMyTextPanel)
+                TextPanel.Write(tpDebug, text+"\n", append);
         }
         public ShipManager(ShipManagerSettings settings) : this()
         {
@@ -55,10 +76,16 @@ namespace ShipManager
         /// <param name="lights"></param>
         /// <param name="batteries"></param>
         /// <param name="reactors"></param>
-        public void ManageDockingState(bool thrusters = true, bool gyros = true, bool lights = true, bool batteries = true, bool reactors = true)
+        public void ManageDockingState(string connectedConnector = "", bool thrusters = true, bool gyros = true, bool lights = true, bool batteries = true, bool reactors = true)
         {
-
-            if (Connector.IsDocked(listConnectors))
+            bool doTurnOff = true;
+            if (connectedConnector != "")
+            {
+                var cCon = Grid.GetBlock(connectedConnector);
+                if (cCon is IMyShipConnector && !Connector.IsDocked(cCon as IMyShipConnector))
+                    doTurnOff = false;
+            }
+            if (Connector.IsDocked(listConnectors) && doTurnOff)
             {
                 if (thrusters)      Block.TurnOnOff(listThrusters, false);
                 if (gyros)          Block.TurnOnOff(listGyros, false);
@@ -112,11 +139,145 @@ namespace ShipManager
             });
         }
 
+        public void ManageBreachDoors(string ventSideA, string doorSideA, string doorSideB, string ventSideB)
+        {
+            var ventA = Grid.GetBlock(ventSideA) as IMyAirVent;
+            var ventB = Grid.GetBlock(ventSideB) as IMyAirVent;
+            var doorA = Grid.GetBlock(doorSideA) as IMyDoor;
+            var doorB = Grid.GetBlock(doorSideB) as IMyDoor;
+            bool init = false;
+            if (!VentCheckPressures.ContainsKey(ventSideA))
+            {
+                VentCheckPressures.Add(ventSideA, ventA.GetOxygenLevel());
+                init = true;
+            }
+            if (!VentCheckPressures.ContainsKey(ventSideB))
+            {
+                VentCheckPressures.Add(ventSideB, ventB.GetOxygenLevel());
+                init = true;
+            }
+            if (init) return;
+
+            int breachVal = checkBreach(ventSideA, ventA) + checkBreach(ventSideB, ventB);
+            if (breachVal>0)
+                switchBreachDoors(doorA, doorB); // One area is breached, close doors
+            else if (breachVal<=-1 && ventA.GetOxygenLevel()>0.95 && ventB.GetOxygenLevel()>0.95)
+                switchBreachDoors(doorA, doorB, false); // Both areas are sealed with air, open doors
+
+            VentCheckPressures[ventSideA] = ventA.GetOxygenLevel();
+            VentCheckPressures[ventSideB] = ventB.GetOxygenLevel();
+
+        }
+        private int checkBreach(string ventName, IMyAirVent vent)
+        {
+            if (VentCheckPressures[ventName] > vent.GetOxygenLevel() &&
+                vent.GetOxygenLevel() < 0.95) // Pressure has dropped below breathable level, Breach!
+                return 1;
+            else if (VentCheckPressures[ventName] < vent.GetOxygenLevel() &&
+                vent.GetOxygenLevel() > 0.95) // Pressure is rising and at breathable level, Breach sealed.
+                return -1;
+            else
+                return 0; // Pressure neither rising or falling
+        }
+        private void switchBreachDoors(IMyDoor a, IMyDoor b, bool close = true)
+        {
+            if (close)
+            {
+                Door.Close(a);
+                Door.Close(b);
+            } else
+            {
+                Door.Open(a);
+                Door.Open(b);
+            }
+        }
+
+        public void SwitchAirlockNonPressurised(string airlockName, bool open = true)
+        {
+            if (!AirlockNPs.ContainsKey(airlockName))
+            {
+                debug("Initialising Airlock " + airlockName);
+                var inDoor = Grid.GetBlock("Airlock Door - " + airlockName + " In") as IMyDoor;
+                var outDoor = Grid.GetBlock("Airlock Door - " + airlockName + " Out") as IMyDoor;
+            
+                if (!(inDoor is IMyDoor) || !(outDoor is IMyDoor))
+                {
+                    debug("AirlockNP Error: airlock " + airlockName + ": Unable to reference doors, check this exist, naming and ownership is correct.");
+                    return;
+                }
+            
+                AirlockNPs.Add(airlockName, new AirlockNP() { AirlockName = airlockName, InDoor = inDoor, OutDoor = outDoor});
+            }
+            AirlockNPs[airlockName].AirlockState = open ? "opening" : "closing";
+            debug(airlockName + " airlock is now " + AirlockNPs[airlockName].AirlockState);
+        }
+
+        public void Tick()
+        {
+            TickSwitchAirlockDoorNP();
+        }
+        private void TickSwitchAirlockDoorNP()
+        {
+            var AirlockNPsEnum = AirlockNPs.GetEnumerator();
+            while (AirlockNPsEnum.MoveNext())
+            {
+                var airlock = AirlockNPsEnum.Current.Value;
+                if (airlock.AirlockState == "opening")
+                {
+                    debug(airlock.AirlockName + ": closing and locking internal door");
+                    if (Door.CloseAndLockDoor(airlock.InDoor))
+                        airlock.AirlockState = "opening-2";
+                }
+                else if (airlock.AirlockState == "opening-2")
+                {
+
+                    if (Door.IsOpen(airlock.InDoor))
+                    {
+                        debug(airlock.AirlockName + ": Internal door open when should be shut, going back to close and lock.");
+                        airlock.AirlockState = "opening";
+                        return;
+                    }
+                    debug(airlock.AirlockName + ": opening and locking external door - or: " + airlock.OutDoor.OpenRatio);
+                    if (Door.OpenAndLockDoor(airlock.OutDoor))
+                    {
+                        debug(airlock.AirlockName + ": Done opening, airlock now idle");
+                        airlock.AirlockState = "idle";
+                    }
+                }
+                else if (airlock.AirlockState == "closing")
+                {
+                    debug(airlock.AirlockName + ": closing and locking ex door");
+                    if (Door.CloseAndLockDoor(airlock.OutDoor))
+                        airlock.AirlockState = "closing-2";
+                }
+                else if (airlock.AirlockState == "closing-2")
+                {
+                    if (Door.IsOpen(airlock.OutDoor))
+                    {
+                        debug(airlock.AirlockName + ": ex door open when should be shut, going back to close and lock.");
+                        airlock.AirlockState = "closing";
+                        return;
+                    }
+                    if (Door.OpenAndLockDoor(airlock.InDoor))
+                    {
+                        debug(airlock.AirlockName + ": Done closing, airlock now idle");
+                        airlock.AirlockState = "idle";
+                    }
+                }
+            }
+        }
+        
     }
 
     public class ShipManagerSettings
     {
         public string LoadFromGroupName = "BaseCargoGroup";
         public string LoadToGroupName = "ShipCargoGroup";
+    }
+    public class AirlockNP
+    {
+        public string AirlockName = "";
+        public string AirlockState;
+        public IMyDoor InDoor, OutDoor;
     }
 }
