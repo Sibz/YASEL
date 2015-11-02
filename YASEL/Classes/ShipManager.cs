@@ -27,8 +27,6 @@ namespace ShipManager
         List<IMyTerminalBlock> listReactors;
         Dictionary<string, float> VentCheckPressures;
 
-        Dictionary<string, AirlockNP> AirlockNPs;
-
         ShipManagerSettings s;
 
         IMyTextPanel tpDebug;
@@ -52,7 +50,6 @@ namespace ShipManager
 
             VentCheckPressures = new Dictionary<string, float>();
 
-            AirlockNPs = new Dictionary<string,AirlockNP>();
             tpDebug = Grid.GetBlock("LCD Debug") as IMyTextPanel;
             
             debug("Initialised ShipManager.", false);
@@ -192,80 +189,7 @@ namespace ShipManager
             }
         }
 
-        public void SwitchAirlockNonPressurised(string airlockName, bool open = true)
-        {
-            if (!AirlockNPs.ContainsKey(airlockName))
-            {
-                debug("Initialising Airlock " + airlockName);
-                var inDoor = Grid.GetBlock("Airlock Door - " + airlockName + " In") as IMyDoor;
-                var outDoor = Grid.GetBlock("Airlock Door - " + airlockName + " Out") as IMyDoor;
-            
-                if (!(inDoor is IMyDoor) || !(outDoor is IMyDoor))
-                {
-                    debug("AirlockNP Error: airlock " + airlockName + ": Unable to reference doors, check this exist, naming and ownership is correct.");
-                    return;
-                }
-            
-                AirlockNPs.Add(airlockName, new AirlockNP() { AirlockName = airlockName, InDoor = inDoor, OutDoor = outDoor});
-            }
-            AirlockNPs[airlockName].AirlockState = open ? "opening" : "closing";
-            debug(airlockName + " airlock is now " + AirlockNPs[airlockName].AirlockState);
-        }
-
-        public void Tick()
-        {
-            TickSwitchAirlockDoorNP();
-        }
-        private void TickSwitchAirlockDoorNP()
-        {
-            var AirlockNPsEnum = AirlockNPs.GetEnumerator();
-            while (AirlockNPsEnum.MoveNext())
-            {
-                var airlock = AirlockNPsEnum.Current.Value;
-                if (airlock.AirlockState == "opening")
-                {
-                    debug(airlock.AirlockName + ": closing and locking internal door");
-                    if (Door.CloseAndLockDoor(airlock.InDoor))
-                        airlock.AirlockState = "opening-2";
-                }
-                else if (airlock.AirlockState == "opening-2")
-                {
-
-                    if (Door.IsOpen(airlock.InDoor))
-                    {
-                        debug(airlock.AirlockName + ": Internal door open when should be shut, going back to close and lock.");
-                        airlock.AirlockState = "opening";
-                        return;
-                    }
-                    debug(airlock.AirlockName + ": opening and locking external door - or: " + airlock.OutDoor.OpenRatio);
-                    if (Door.OpenAndLockDoor(airlock.OutDoor))
-                    {
-                        debug(airlock.AirlockName + ": Done opening, airlock now idle");
-                        airlock.AirlockState = "idle";
-                    }
-                }
-                else if (airlock.AirlockState == "closing")
-                {
-                    debug(airlock.AirlockName + ": closing and locking ex door");
-                    if (Door.CloseAndLockDoor(airlock.OutDoor))
-                        airlock.AirlockState = "closing-2";
-                }
-                else if (airlock.AirlockState == "closing-2")
-                {
-                    if (Door.IsOpen(airlock.OutDoor))
-                    {
-                        debug(airlock.AirlockName + ": ex door open when should be shut, going back to close and lock.");
-                        airlock.AirlockState = "closing";
-                        return;
-                    }
-                    if (Door.OpenAndLockDoor(airlock.InDoor))
-                    {
-                        debug(airlock.AirlockName + ": Done closing, airlock now idle");
-                        airlock.AirlockState = "idle";
-                    }
-                }
-            }
-        }
+        
         
     }
 
@@ -274,10 +198,5 @@ namespace ShipManager
         public string LoadFromGroupName = "BaseCargoGroup";
         public string LoadToGroupName = "ShipCargoGroup";
     }
-    public class AirlockNP
-    {
-        public string AirlockName = "";
-        public string AirlockState;
-        public IMyDoor InDoor, OutDoor;
-    }
+
 }
