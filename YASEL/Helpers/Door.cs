@@ -69,7 +69,7 @@ namespace Door
         }
         static public bool CloseAndLockDoor(IMyDoor door)
         {
-            if (Door.IsOpen(door))
+            if (!Door.IsClosed(door))
             {
                 Block.TurnOnOff(door);
                 Door.Close(door);
@@ -89,7 +89,7 @@ namespace Door
         }
         static public bool OpenAndLockDoor(IMyDoor door)
         {
-            if (Door.IsClosed(door))
+            if (!Door.IsOpen(door))
             {
                 Block.TurnOnOff(door);
                 Door.Open(door);
