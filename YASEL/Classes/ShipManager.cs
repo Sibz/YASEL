@@ -79,7 +79,7 @@ namespace ShipManager
             if (connectedConnector != "")
             {
                 var cCon = Grid.GetBlock(connectedConnector);
-                if (cCon is IMyShipConnector && !Connector.IsDocked(cCon as IMyShipConnector))
+                if (!(cCon is IMyShipConnector) || (cCon is IMyShipConnector && !Connector.IsDocked(cCon as IMyShipConnector)))
                     doTurnOff = false;
             }
             if (Connector.IsDocked(listConnectors) && doTurnOff)
