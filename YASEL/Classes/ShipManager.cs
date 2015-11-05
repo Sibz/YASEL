@@ -75,12 +75,12 @@ namespace ShipManager
         /// <param name="reactors"></param>
         public void ManageDockingState(string connectedConnector = "", bool thrusters = true, bool gyros = true, bool lights = true, bool batteries = true, bool reactors = true)
         {
-            bool doTurnOff = true;
+            bool doTurnOff = false;
             if (connectedConnector != "")
             {
-                var cCon = Grid.GetBlock(connectedConnector);
-                if (!(cCon is IMyShipConnector) || (cCon is IMyShipConnector && !Connector.IsDocked(cCon as IMyShipConnector)))
-                    doTurnOff = false;
+                var cCon = Grid.GetBlock(connectedConnector, false);
+                if (cCon is IMyShipConnector && Connector.IsDocked(cCon as IMyShipConnector))
+                    doTurnOff = true;
             }
             if (Connector.IsDocked(listConnectors) && doTurnOff)
             {
