@@ -14,11 +14,11 @@ namespace Inventory
             float count = 0;
             invBlocks.ForEach(invBlock =>
             {
-                if (invBlock is IMyInventoryOwner)
+                if (invBlock.HasInventory())
                 {
-                    for (int i = 0; i < (invBlock as IMyInventoryOwner).InventoryCount; i++)
+                    for (int i = 0; i < invBlock.GetInventoryCount(); i++)
                     {
-                        var items = (invBlock as IMyInventoryOwner).GetInventory(i).GetItems();
+                        var items = invBlock.GetInventory(i).GetItems();
                         items.ForEach(item =>
                         {
                             if (item.Content.TypeId.ToString().Contains(itemType) &&
@@ -54,11 +54,11 @@ namespace Inventory
             List<IMyInventory> invs = new List<IMyInventory>();
             invBlocks.ForEach(inv =>
             {
-                if (inv is IMyInventoryOwner)
+                if (inv.HasInventory())
                 {
-                    for (int i = 0; i < (inv as IMyInventoryOwner).InventoryCount; i++)
+                    for (int i = 0; i < inv.GetInventoryCount(); i++)
                     {
-                        invs.Add((inv as IMyInventoryOwner).GetInventory(i));
+                        invs.Add(inv.GetInventory(i));
                     };
                 };
             });
