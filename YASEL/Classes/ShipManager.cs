@@ -81,7 +81,8 @@ namespace ShipManager
                 var cCon = Grid.GetBlock(connectedConnector, false);
                 if (cCon is IMyShipConnector && Connector.IsDocked(cCon as IMyShipConnector))
                     doTurnOff = true;
-            }
+            } else
+                doTurnOff = true;
             if (Connector.IsDocked(listConnectors) && doTurnOff)
             {
                 if (thrusters)      Block.TurnOnOff(listThrusters, false);
