@@ -24,14 +24,14 @@ namespace Inventory
                     }
                 }
             });
-            return CountItems(invs);
+            return CountItems(invs, itemType, itemSubtypeName);
         }
         static public float CountItems(List<IMyInventory> invs, string itemType = "", string itemSubtypeName = "")
         {
             float count = 0;
             invs.ForEach(inv =>
             {
-                count += CountItems(inv);
+                count += CountItems(inv,itemType,itemSubtypeName);
             });
             return count;
         }
