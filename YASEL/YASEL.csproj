@@ -93,6 +93,7 @@
     <Compile Include="Programs\AirlockManagerProgram2.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
+    <Compile Include="Programs\InventoryTestProgram.cs" />
     <Compile Include="Programs\StationManagerProgram.cs" />
     <Compile Include="Programs\ShipManagerProgram.cs" />
     <Compile Include="Programs\DisassemblerProgram.cs" />
