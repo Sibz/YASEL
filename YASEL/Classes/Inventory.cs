@@ -107,18 +107,18 @@ namespace Inventory
             });
         }
 
-        static public void MoveItemAmount(List<IMyTerminalBlock> fromBlocks, List<IMyTerminalBlock> toBlocks, string itemName, VRage.MyFixedPoint amount, string? itemType=null)
+        static public void MoveItemAmount(List<IMyTerminalBlock> fromBlocks, List<IMyTerminalBlock> toBlocks, string itemName, VRage.MyFixedPoint amount, string itemType="")
         {
             var fromInvs = GetInventories(fromBlocks);
             var toInvs = GetInventories(toBlocks);
             MoveItemAmount(fromInvs, toInvs, itemName, amount, itemType);
         }
 
-        static public void MoveItemAmount(List<IMyInventory> fromInvs, List<IMyInventory> toInvs, string itemName, VRage.MyFixedPoint amount, string? itemType = null)
+        static public void MoveItemAmount(List<IMyInventory> fromInvs, List<IMyInventory> toInvs, string itemName, VRage.MyFixedPoint amount, string itemType = "")
         {
             if (fromInvs.Count == 0 || toInvs.Count == 0)
                 throw new Exception("MoveItemAmount: Unable to move, number of 'from' or 'to' inventories = 0.");
-            if (CountItems(fromInvs,itemType.HasValue?itemType.Value:"",itemName) == 0)
+            if (CountItems(fromInvs, itemType, itemName) == 0)
                 return; // No Items to move
             if (GetPercentFull(toInvs) > MaxInventoryPercent)
                 return; // No Space for items
@@ -131,24 +131,30 @@ namespace Inventory
                 {
                     fromInvs.ForEach(fromInv =>
                     {
-                        var itemCount = CountItems(fromInv,itemType.HasValue?itemType.Value:itemName);
+                        var itemCount = CountItems(fromInv, itemType, itemName);
                         if (itemCount > 0 && GetPercentFull(toInv) < MaxInventoryPercent && amountMoved < amount)
                         {
                             var items = fromInv.GetItems();
                             int itemIndex = 0;
                             items.ForEach(item =>
                             {
-                                if (amountMoved<amount && (item.Content.SubtypeId.ToString().Contains(itemName) &&
-                                (!itemType.HasValue || itemType.Value.Contains(item.Content.TypeId.ToString().Replace("MyObjectBuilder_","")))))
+                                if (amountMoved < amount && (item.Content.SubtypeId.ToString().Contains(itemName) &&
+                                (itemType == "" || itemType.Contains(item.Content.TypeId.ToString().Replace("MyObjectBuilder_", "")))))
                                 {
                                     toInv.TransferItemFrom(fromInv, itemIndex, null, null, amount - amountMoved);
                                 }
-                                amountMoved += (VRage.MyFixedPoint)(itemCount - CountItems(fromInv, itemType.HasValue ? itemType.Value : itemName));
+                                amountMoved += (VRage.MyFixedPoint)(itemCount - CountItems(fromInv, itemType, itemName));
+                                if (amountMoved >= amount)
+                                    return;
                                 itemIndex++;
                             });
                         }
+                        else if (amountMoved >= amount)
+                            return;
                     });
                 }
+                else if (amountMoved >= amount)
+                    return;
             });
 
         }
