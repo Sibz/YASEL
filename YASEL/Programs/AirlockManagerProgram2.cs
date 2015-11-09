@@ -8,24 +8,25 @@ using VRageMath;
 namespace AirlockManagerProgram2
 {
 
-    using Grid;
+    using GridHelper;
     using AirlockManager2;
     //using TextPanel;
 
     class AirlockManagerProgram2 : MyGridProgram
     {
         
-        static AirlockManager am;
+        AirlockManager am;
         //IMyTextPanel tp;
+        GridHelper gh;
 
         void Main(string argument)
         {
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
 
 
             if (am == null)
             {
-                am = new AirlockManager();
+                am = new AirlockManager(gh);
                 am.AddAirlock("HangarAirlock", "Airtight Hangar Door", "JS Air Vent - Hangar", "JS Door - BridgeToHangar");
                 am.AddAirlockNP("BridgeAirlock", "Airlock Door - Bridge Out", "Airlock Door - Bridge In");
                 //tp = Grid.GetBlock("LCD Debug") as IMyTextPanel;

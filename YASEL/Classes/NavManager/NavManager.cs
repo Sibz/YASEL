@@ -13,11 +13,12 @@ namespace Nav.NavManager
     using Nav.NavSettings;
     using Gyro;
     using Thruster;
-    using Grid;
+    using GridHelper;
     using Cockpit;
 
     public class NavManager
     {
+        GridHelper gh;
         public const string ERROR1 = "Nav Error 1: Unable to initialise nav, unable to acquire reference to one or more of position blocks. Check the names and that they exist.";
         public const string ERROR2 = "Nav Error 2: Unable to initialise nav, unable to acquire list of gyros check group name, and that there is atleast one gyro.";
         public const string ERROR3 = "Nav Error 3: Unable to initialise nav, unable to acquire list of fwd or rvs thrusters check group name, and that there is atleast one thruster.";
@@ -60,10 +61,11 @@ namespace Nav.NavManager
 
         Nullable<DateTime> waitTime;
 
-        public NavManager(NavSettings s = null)
+        public NavManager(GridHelper gh,NavSettings s = null)
         {
+            this.gh = gh;
             settings = (s == null) ? new NavSettings() : s;
-            vs = new VarStore(s.LCDVariableStoreName);
+            vs = new VarStore(gh,s.LCDVariableStoreName);
             controller = null;
 
 
@@ -72,36 +74,36 @@ namespace Nav.NavManager
 
             runCount = 0;
             // Setup GPS Blocks
-            leftBlock = Grid.GetBlock(settings.LeftBlockName);
-            rightBlock = Grid.GetBlock(settings.RightBlockName);
-            topBlock = Grid.GetBlock(settings.TopBlockName);
+            leftBlock = gh.GetBlock(settings.LeftBlockName);
+            rightBlock = gh.GetBlock(settings.RightBlockName);
+            topBlock = gh.GetBlock(settings.TopBlockName);
 
-            bottomBlock = Grid.GetBlock(settings.BottomBlockName);
-            rearBlock = Grid.GetBlock(settings.RearBlockName);
-            fwdBlock = Grid.GetBlock(settings.FwdBlockName);
+            bottomBlock = gh.GetBlock(settings.BottomBlockName);
+            rearBlock = gh.GetBlock(settings.RearBlockName);
+            fwdBlock = gh.GetBlock(settings.FwdBlockName);
 
             if (leftBlock == null || rightBlock == null || topBlock == null || bottomBlock == null || rearBlock == null || fwdBlock == null) { /*LCD.dbug(ERROR1);*/ throw new Exception(ERROR1); }
             //Setup block groups
-            gyros = Grid.GetBlockGrp(settings.GyroGroupName); if (gyros.Count == 0) { /*LCD.dbug(ERROR2);*/ throw new Exception(ERROR2); }
-            fwdThrusters = Grid.GetBlockGrp(settings.FwdThrustGroupName); if (fwdThrusters.Count == 0) { /*LCD.dbug(ERROR3*/ throw new Exception(ERROR3); }
-            rvsThrusters = Grid.GetBlockGrp(settings.RvsThrustGroupName); if (rvsThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
-            leftThrusters = Grid.GetBlockGrp(settings.LeftThrustGroupName); if (leftThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
-            rightThrusters = Grid.GetBlockGrp(settings.RightThrustGroupName); if (rightThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
-            upThrusters = Grid.GetBlockGrp(settings.UpThrustGroupName); if (upThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
-            downThrusters = Grid.GetBlockGrp(settings.DownThrustGroupName); if (downThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
+            gyros = gh.GetBlockGrp(settings.GyroGroupName); if (gyros.Count == 0) { /*LCD.dbug(ERROR2);*/ throw new Exception(ERROR2); }
+            fwdThrusters = gh.GetBlockGrp(settings.FwdThrustGroupName); if (fwdThrusters.Count == 0) { /*LCD.dbug(ERROR3*/ throw new Exception(ERROR3); }
+            rvsThrusters = gh.GetBlockGrp(settings.RvsThrustGroupName); if (rvsThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
+            leftThrusters = gh.GetBlockGrp(settings.LeftThrustGroupName); if (leftThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
+            rightThrusters = gh.GetBlockGrp(settings.RightThrustGroupName); if (rightThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
+            upThrusters = gh.GetBlockGrp(settings.UpThrustGroupName); if (upThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
+            downThrusters = gh.GetBlockGrp(settings.DownThrustGroupName); if (downThrusters.Count == 0) { /*LCD.dbug(ERROR3);*/ throw new Exception(ERROR3); }
 
             // Setup Controller Block (for dampener control)
             if (settings.CockpitName == null)
             {
                 var controllers = new List<IMyTerminalBlock>();
-                Grid.ts.GetBlocksOfType<IMyShipController>(controllers);
+                gh.Gts.GetBlocksOfType<IMyShipController>(controllers);
                 if (controllers.Count > 0)
                     controller = controllers[0];
 
             }
             else
             {
-                controller = Grid.GetBlock(settings.CockpitName);
+                controller = gh.GetBlock(settings.CockpitName);
             }
             if (controller == null) { /*LCD.dbug(ERROR4);*/
                 throw new Exception(ERROR4); }

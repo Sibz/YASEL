@@ -8,7 +8,7 @@ using VRageMath;
 namespace AssemblerProgram
 {
 
-    using Grid;
+    using GridHelper;
     using AssemblerManager;
 
     class AssemblerProgram : MyGridProgram
@@ -24,10 +24,12 @@ namespace AssemblerProgram
          * 
          */
 
+        GridHelper gh;
+
         AssemblerManager myAM;
         void Main(string argument)
         {
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
 
             if (myAM == null)
             {
@@ -49,7 +51,7 @@ namespace AssemblerProgram
                       Construction:1500
                      */
                 };
-                myAM = new AssemblerManager(myAM_Settings);
+                myAM = new AssemblerManager(gh,myAM_Settings);
             }
             myAM.Tick();
         }

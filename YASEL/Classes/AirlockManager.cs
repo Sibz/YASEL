@@ -7,7 +7,7 @@ using VRageMath;
 
 namespace AirlockManager
 {
-    using Grid;
+    using GridHelper;
     using Block;
     using Door;
     using Airvent;
@@ -17,22 +17,24 @@ namespace AirlockManager
         
         AirlockManagerSettings m_settings;
         Dictionary<string, Airlock> m_airlocks;
+        GridHelper gh;
 
-        public AirlockManager(AirlockManagerSettings settings)
+        public AirlockManager(GridHelper gh, AirlockManagerSettings settings)
         {
+            this.gh = gh;
             m_settings = settings;
             m_airlocks = new Dictionary<string, Airlock>();
             var airlockSensors = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMySensorBlock>(airlockSensors, delegate(IMyTerminalBlock b)
+            gh.Gts.GetBlocksOfType<IMySensorBlock>(airlockSensors, delegate(IMyTerminalBlock b)
             {
-                return (b.CustomName.Contains("airlock") && Grid.BelongsToGrid(b));
+                return (b.CustomName.Contains("airlock") && gh.BelongsToGrid(b));
             });
             airlockSensors.ForEach(sensor =>
             {
                 var names = sensor.CustomName.Split(' ');
                 if (names.Length >= 2 && !m_airlocks.ContainsKey(names[2]))
                 {
-                    m_airlocks.Add(names[2], new Airlock(names[2]));
+                    m_airlocks.Add(names[2], new Airlock(gh, names[2]));
                     if (m_settings.OnAirlockUpdate != null) m_airlocks[names[2]].OnUpdate = m_settings.OnAirlockUpdate;
                 }
             });
@@ -70,23 +72,25 @@ namespace AirlockManager
             DateTime m_lastPressureChangeTime;
             float m_lastPressureChangeValue;
             public Action<string, string, float> OnUpdate;
+            GridHelper gh;
 
-            public Airlock(string airlockName)
+            public Airlock(GridHelper gh, string airlockName)
             {
+                this.gh = gh;
                 m_name = airlockName;
                 m_state = "init";
                 m_sensors = new List<IMyTerminalBlock>();
                 m_airvents = new List<IMyTerminalBlock>();
                 m_doorsEx = new List<IMyTerminalBlock>();
                 m_doorsIn = new List<IMyTerminalBlock>();
-                Grid.ts.GetBlocksOfType<IMySensorBlock>(m_sensors,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && Grid.BelongsToGrid(b)); });
-                Grid.ts.GetBlocksOfType<IMyAirVent>(m_airvents,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && Grid.BelongsToGrid(b)); });
-                Grid.ts.GetBlocksOfType<IMyDoor>(m_doorsEx,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " Ex") && Grid.BelongsToGrid(b)); });
-                Grid.ts.GetBlocksOfType<IMyDoor>(m_doorsIn,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " In") && Grid.BelongsToGrid(b)); });
+                gh.Gts.GetBlocksOfType<IMySensorBlock>(m_sensors,
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && gh.BelongsToGrid(b)); });
+                gh.Gts.GetBlocksOfType<IMyAirVent>(m_airvents,
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && gh.BelongsToGrid(b)); });
+                gh.Gts.GetBlocksOfType<IMyDoor>(m_doorsEx,
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " Ex") && gh.BelongsToGrid(b)); });
+                gh.Gts.GetBlocksOfType<IMyDoor>(m_doorsIn,
+                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " In") && gh.BelongsToGrid(b)); });
             }
             public void Tick()
             {

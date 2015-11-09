@@ -10,12 +10,12 @@ using VRageMath;
 namespace ExampleProgram
 {
     // Put using statements here
-    using Grid; // This one is for Grid functions
+    using GridHelper; // This one is for Grid functions
 
     // Your programs class, must extend MyGridProgram, otherwise YASEL Exporter won't work.
     class ExampleProgram : MyGridProgram
     {
-
+        GridHelper gh;
         // You can use variables here that are initialised first time the PB runs, and the keep their values between runs
         string myPersistantVariable;
 
@@ -25,11 +25,11 @@ namespace ExampleProgram
             // A Simple program that cylces doors print there names, and put Explanation marks after ones that have Auto in the name
 
             // First we need to set Grid up
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
             
             // Then we can do out stuff
             var doors = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMyDoor>(doors);
+            gh.Gts.GetBlocksOfType<IMyDoor>(doors);
             doors.ForEach(door =>
             {
                 Echo(door.CustomName + (door.CustomName.Contains("Auto") ? "!!!" : ""));

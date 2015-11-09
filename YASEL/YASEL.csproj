@@ -81,7 +81,7 @@
     <Compile Include="Helpers\Cockpit.cs" />
     <Compile Include="Helpers\Connector.cs" />
     <Compile Include="Helpers\Door.cs" />
-    <Compile Include="Helpers\Grid.cs" />
+    <Compile Include="Helpers\GridHelper.cs" />
     <Compile Include="Helpers\Gyro.cs" />
     <Compile Include="Helpers\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />

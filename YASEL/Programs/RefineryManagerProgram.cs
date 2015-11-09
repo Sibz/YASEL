@@ -8,16 +8,17 @@ using VRageMath;
 namespace RefineryManagerProgram
 {
 
-    using Grid;
+    using GridHelper;
     using RefineryManager;
 
     class RefineryManagerProgram : MyGridProgram
     {
+        GridHelper gh;
 
         void Main(string argument)
         {
-            Grid.Set(this);
-            var rm = new RefineryManager();
+            if (gh == null) gh = new GridHelper(this);
+            var rm = new RefineryManager(gh);
             rm.LoadRefineries("Ore For Productivity","Productive Refineries", 1000);
             rm.LoadRefineries("Ore For Effectiveness", "Effective Refineries", 100);
         }

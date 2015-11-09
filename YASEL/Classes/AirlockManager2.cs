@@ -7,20 +7,22 @@ using VRageMath;
 
 namespace AirlockManager2
 {
-    using Grid;
+    using GridHelper;
     using Airvent;
     using Door;
     using Block;
 
     class AirlockManager
     {
+        GridHelper gh;
 
         Dictionary<string, AirlockNP> m_airlocks;
 
         public Action<string, string, float> OnUpdate;
 
-        public AirlockManager(Action<string, string, float> onUpdate = null)
+        public AirlockManager(GridHelper gh, Action<string, string, float> onUpdate = null)
         {
+            this.gh = gh;
             m_airlocks = new Dictionary<string, AirlockNP>();
             if (onUpdate != null)
                 OnUpdate = onUpdate;
@@ -33,7 +35,7 @@ namespace AirlockManager2
 
         public void AddAirlockNP(string airlockName, string outerDoorName, string innerDoorName)
         {
-            var newAirlock = new AirlockNP(airlockName, outerDoorName, innerDoorName, OnUpdate);
+            var newAirlock = new AirlockNP(gh, airlockName, outerDoorName, innerDoorName, OnUpdate);
             if (!m_airlocks.ContainsKey(airlockName))
                 m_airlocks.Add(airlockName, newAirlock);
             else
@@ -42,7 +44,7 @@ namespace AirlockManager2
 
         public void AddAirlock(string airlockName, string outerDoorName, string airventName, string innerDoorName = "")
         {
-            var newAirlock = new Airlock(airlockName, outerDoorName, innerDoorName, airventName, OnUpdate );
+            var newAirlock = new Airlock(gh, airlockName, outerDoorName, innerDoorName, airventName, OnUpdate );
             if (!m_airlocks.ContainsKey(airlockName))
                 m_airlocks.Add(airlockName, newAirlock);
             else
@@ -75,6 +77,8 @@ namespace AirlockManager2
 
     class AirlockNP
     {
+        GridHelper gh;
+
         protected string m_airlockName, m_outerDoorName, m_innerDoorName;
         
         protected List<IMyTerminalBlock> m_innerDoors;
@@ -90,7 +94,7 @@ namespace AirlockManager2
 
         protected string m_state = STATE_IDLE;
 
-        public AirlockNP(string airlockName, string outerDoorName, string innerDoorName, Action<string, string, float> onUpdate)
+        public AirlockNP(GridHelper gh, string airlockName, string outerDoorName, string innerDoorName, Action<string, string, float> onUpdate)
         {
             m_airlockName = airlockName;
             m_outerDoorName = outerDoorName;
@@ -100,8 +104,8 @@ namespace AirlockManager2
             m_outerDoors = new List<IMyTerminalBlock>();
 
             if (m_innerDoorName != "")
-                Grid.ts.GetBlocksOfType<IMyDoor>(m_innerDoors, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(m_innerDoorName) && Grid.BelongsToGrid(b)); });
-            Grid.ts.GetBlocksOfType<IMyDoor>(m_outerDoors, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(outerDoorName) && Grid.BelongsToGrid(b)); });
+                gh.Gts.GetBlocksOfType<IMyDoor>(m_innerDoors, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(m_innerDoorName) && gh.BelongsToGrid(b)); });
+            gh.Gts.GetBlocksOfType<IMyDoor>(m_outerDoors, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(outerDoorName) && gh.BelongsToGrid(b)); });
 
             if (m_outerDoors.Count == 0)
                 throw new Exception("Airlock Error: Unable to initialise airlock '" + m_airlockName + "' -  Outer doors not found");
@@ -167,8 +171,8 @@ namespace AirlockManager2
         List<IMyTerminalBlock> m_oxyTanks;
         
 
-        public Airlock(string airlockName, string outerDoorName, string innerDoorName, string airventName, Action<string, string, float> onUpdate) : 
-            base(airlockName,outerDoorName,innerDoorName,onUpdate)
+        public Airlock(GridHelper gh, string airlockName, string outerDoorName, string innerDoorName, string airventName, Action<string, string, float> onUpdate) : 
+            base(gh,airlockName,outerDoorName,innerDoorName,onUpdate)
         {
             m_airventName = airventName;
 
@@ -177,9 +181,9 @@ namespace AirlockManager2
 
             m_onUpdate = onUpdate;
 
-            Grid.ts.GetBlocksOfType<IMyOxygenTank>(m_oxyTanks, Grid.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyOxygenTank>(m_oxyTanks, gh.BelongsToGrid);
 
-            Grid.ts.GetBlocksOfType<IMyAirVent>(m_airvents, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(m_airventName) && Grid.BelongsToGrid(b)); });
+            gh.Gts.GetBlocksOfType<IMyAirVent>(m_airvents, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(m_airventName) && gh.BelongsToGrid(b)); });
             if (m_airvents.Count == 0)
                 throw new Exception("Airlock Error: Unable to initialise airlock '" + m_airlockName + "' -  Vents not found");
         }

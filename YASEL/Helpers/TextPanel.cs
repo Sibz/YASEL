@@ -8,7 +8,7 @@ using VRageMath;
 namespace TextPanel
 {
     using Block;
-    using Grid;
+    using GridHelper;
     /// <summary>
     /// Static class for common TextPanel functions
     /// </summary>
@@ -44,9 +44,9 @@ namespace TextPanel
         /// <example>
         /// TextPanel.Write("MyLCD", "Write this text");
         /// </example>
-        public static void Write(string textPanelName, string text, bool append = true, bool publicText = true)
+        public static void Write(GridHelper gh, string textPanelName, string text, bool append = true, bool publicText = true)
         {
-            var textPanel = Grid.GetBlock(textPanelName) as IMyTextPanel;
+            var textPanel = gh.GetBlock(textPanelName) as IMyTextPanel;
             if (textPanel == null)
                 throw new Exception("TextPanel.Write: textPanel (" + textPanelName + "is not accessible");
             Write(textPanel, text, append, publicText);
@@ -57,11 +57,11 @@ namespace TextPanel
         /// </summary>
         /// <param name="LCDName"></param>
         /// <returns></returns>
-        public static Dictionary<String, double> GetValueListFromLCD(string LCDName)
+        public static Dictionary<String, double> GetValueListFromLCD(GridHelper gh, string LCDName)
         {
             Dictionary<String, double> valueList = new Dictionary<String, double>();
 
-            IMyTextPanel lcd = (IMyTextPanel)Grid.ts.GetBlockWithName(LCDName);
+            IMyTextPanel lcd = (IMyTextPanel)gh.Gts.GetBlockWithName(LCDName);
             if ((lcd is IMyTextPanel) && lcd.IsFunctional)
             {
                 string strText = lcd.GetPublicText();

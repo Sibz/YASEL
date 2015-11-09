@@ -7,7 +7,7 @@ using VRageMath;
 
 namespace ShipManager
 {
-    using Grid;
+    using GridHelper;
     using Block;
     using Connector;
     using Battery;
@@ -18,6 +18,7 @@ namespace ShipManager
 
     class ShipManager
     {
+        GridHelper gh;
 
         List<IMyTerminalBlock> listConnectors;
         List<IMyTerminalBlock> listThrusters;
@@ -31,9 +32,9 @@ namespace ShipManager
 
         IMyTextPanel tpDebug;
 
-        public ShipManager()
+        public ShipManager(GridHelper gh)
         {
-
+            this.gh = gh;
             listConnectors      = new List<IMyTerminalBlock>();
             listThrusters       = new List<IMyTerminalBlock>();
             listGyros           = new List<IMyTerminalBlock>();
@@ -41,16 +42,16 @@ namespace ShipManager
             listBats            = new List<IMyTerminalBlock>();
             listReactors        = new List<IMyTerminalBlock>();
 
-            Grid.ts.GetBlocksOfType<IMyBatteryBlock>    (listBats, Grid.BelongsToGrid);
-            Grid.ts.GetBlocksOfType<IMyShipConnector>   (listConnectors, Grid.BelongsToGrid);
-            Grid.ts.GetBlocksOfType<IMyThrust>          (listThrusters, Grid.BelongsToGrid);
-            Grid.ts.GetBlocksOfType<IMyGyro>            (listGyros, Grid.BelongsToGrid);
-            Grid.ts.GetBlocksOfType<IMyLightingBlock>   (listSpots, Grid.BelongsToGrid);
-            Grid.ts.GetBlocksOfType<IMyReactor>         (listReactors, Grid.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyBatteryBlock>(listBats, gh.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyShipConnector>(listConnectors, gh.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyThrust>(listThrusters, gh.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyGyro>(listGyros, gh.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyLightingBlock>(listSpots, gh.BelongsToGrid);
+            gh.Gts.GetBlocksOfType<IMyReactor>(listReactors, gh.BelongsToGrid);
 
             VentCheckPressures = new Dictionary<string, float>();
 
-            tpDebug = Grid.GetBlock("LCD Debug") as IMyTextPanel;
+            tpDebug = gh.GetBlock("LCD Debug") as IMyTextPanel;
             
             debug("Initialised ShipManager.", false);
         }
@@ -59,7 +60,7 @@ namespace ShipManager
             if (tpDebug is IMyTextPanel)
                 TextPanel.Write(tpDebug, text+"\n", append);
         }
-        public ShipManager(ShipManagerSettings settings) : this()
+        public ShipManager(GridHelper gh, ShipManagerSettings settings) : this(gh)
         {
             s = settings;
         } 
@@ -78,7 +79,7 @@ namespace ShipManager
             bool doTurnOff = false;
             if (connectedConnector != "")
             {
-                var cCon = Grid.GetBlock(connectedConnector, false);
+                var cCon = gh.GetBlock(connectedConnector, false);
                 if (cCon is IMyShipConnector && Connector.IsDocked(cCon as IMyShipConnector))
                     doTurnOff = true;
             } else
@@ -116,15 +117,15 @@ namespace ShipManager
             if (!Connector.IsDocked(listConnectors)) return;
             if (checkConnector != "")
             {
-                var con = Grid.GetBlock(checkConnector, false) as IMyShipConnector;
+                var con = gh.GetBlock(checkConnector, false) as IMyShipConnector;
                 if ((con is IMyShipConnector) && !Connector.IsDocked(con)) return;
             }
 
-            var cargoGroup = Grid.GetBlockGrp(s.LoadFromGroupName);
+            var cargoGroup = gh.GetBlockGrp(s.LoadFromGroupName);
             if (Inventory.CountItems(cargoGroup) == 0)
                 return;
             var invsFrom = Inventory.GetInventories(cargoGroup);
-            var invsTo = Inventory.GetInventories(Grid.GetBlockGrp(s.LoadToGroupName));
+            var invsTo = Inventory.GetInventories(gh.GetBlockGrp(s.LoadToGroupName));
             invsTo.ForEach(invTo =>
             {
                 if ((float)invTo.CurrentVolume/(float)invTo.MaxVolume < 0.98)
@@ -139,10 +140,10 @@ namespace ShipManager
 
         public void ManageBreachDoors(string ventSideA, string doorSideA, string doorSideB, string ventSideB)
         {
-            var ventA = Grid.GetBlock(ventSideA) as IMyAirVent;
-            var ventB = Grid.GetBlock(ventSideB) as IMyAirVent;
-            var doorA = Grid.GetBlock(doorSideA) as IMyDoor;
-            var doorB = Grid.GetBlock(doorSideB) as IMyDoor;
+            var ventA = gh.GetBlock(ventSideA) as IMyAirVent;
+            var ventB = gh.GetBlock(ventSideB) as IMyAirVent;
+            var doorA = gh.GetBlock(doorSideA) as IMyDoor;
+            var doorB = gh.GetBlock(doorSideB) as IMyDoor;
             bool init = false;
             if (!VentCheckPressures.ContainsKey(ventSideA))
             {

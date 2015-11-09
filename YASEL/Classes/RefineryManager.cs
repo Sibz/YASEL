@@ -7,19 +7,22 @@ using VRageMath;
 
 namespace RefineryManager
 {
-    using Grid;
+    using GridHelper;
     using Inventory;
 
     class RefineryManager
     {
+        GridHelper gh;
         RefineryManagerSettings s;
 
-        public RefineryManager()
+        public RefineryManager(GridHelper gh)
         {
+            this.gh = gh;
             s = new RefineryManagerSettings();
         }
-        public RefineryManager(RefineryManagerSettings settings)
+        public RefineryManager(GridHelper gh,RefineryManagerSettings settings)
         {
+            this.gh = gh;
             s = settings;
         }
 
@@ -30,8 +33,8 @@ namespace RefineryManager
 
         public void LoadRefineries(string fromGroupName, string toGroupName, int stackSize=1000)
         {
-            var fromCargoBlocks = Grid.GetBlockGrp(fromGroupName);
-            var toRefBlocks = Grid.GetBlockGrp(toGroupName);
+            var fromCargoBlocks = gh.GetBlockGrp(fromGroupName);
+            var toRefBlocks = gh.GetBlockGrp(toGroupName);
             if (Inventory.CountItems(fromCargoBlocks, "Ore") == 0 || Inventory.GetPercentFull(toRefBlocks) > 0.95) return;
             
             var fromCargo = Inventory.GetInventories(fromCargoBlocks);

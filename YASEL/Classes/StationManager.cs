@@ -11,7 +11,7 @@ using VRageMath;
 
 namespace StationManager
 {
-    using Grid;
+    using GridHelper;
     using Door;
     using TextPanel;
     using Block;
@@ -21,11 +21,13 @@ namespace StationManager
     /// </summary>
     public class StationManager
     {
+        GridHelper gh;
         StationManagerSettings m_settings;
         Dictionary<IMyDoor, DateTime> m_doorsToClose;
 
-        public StationManager(StationManagerSettings settings)
+        public StationManager(GridHelper gh, StationManagerSettings settings)
         {
+            this.gh = gh;
             m_settings = settings;
             m_doorsToClose = new Dictionary<IMyDoor, DateTime>();
         }
@@ -37,7 +39,7 @@ namespace StationManager
         public void ManageAutoDoors()
         {
             var doors = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return b.CustomName.Contains(m_settings.AutoDoorCloseWord) && Grid.BelongsToGrid(b); });
+            gh.Gts.GetBlocksOfType<IMyDoor>(doors, delegate(IMyTerminalBlock b) { return b.CustomName.Contains(m_settings.AutoDoorCloseWord) && gh.BelongsToGrid(b); });
             doors.ForEach(door =>
             {
                 if ((door as IMyDoor).OpenRatio >= 1 && !m_doorsToClose.ContainsKey((door as IMyDoor)))
@@ -70,7 +72,7 @@ namespace StationManager
             if (m_settings.TextPanelTimeName == "")
                 throw new Exception("DisplayTime: TextPanelTimeName is empty");
 
-            var myTextPanel = Grid.GetBlock(m_settings.TextPanelTimeName) as IMyTextPanel;
+            var myTextPanel = gh.GetBlock(m_settings.TextPanelTimeName) as IMyTextPanel;
             if (myTextPanel == null)
                 throw new Exception("DisplayTime: Unable to access TextPanel: " + m_settings.TextPanelTimeName);
             TextPanel.Write(myTextPanel, prePadding + DateTime.Now.ToString(format) + postPadding, false);
@@ -85,17 +87,17 @@ namespace StationManager
             var gens = new List<IMyTerminalBlock>();
             var farms = new List<IMyTerminalBlock>();
             if (m_settings.OxygenTankGroup == "")
-                Grid.ts.GetBlocksOfType<IMyOxygenTank>(tanks, Grid.BelongsToGrid);
+                gh.Gts.GetBlocksOfType<IMyOxygenTank>(tanks, gh.BelongsToGrid);
             else
-                tanks = Grid.GetBlockGrp(m_settings.OxygenTankGroup);
+                tanks = gh.GetBlockGrp(m_settings.OxygenTankGroup);
             if (m_settings.OxygenGenGroup == "")
-                Grid.ts.GetBlocksOfType<IMyOxygenGenerator>(gens, Grid.BelongsToGrid);
+                gh.Gts.GetBlocksOfType<IMyOxygenGenerator>(gens, gh.BelongsToGrid);
             else
-                gens = Grid.GetBlockGrp(m_settings.OxygenGenGroup);
+                gens = gh.GetBlockGrp(m_settings.OxygenGenGroup);
             if (m_settings.OxygenFarmGroup == "")
-                Grid.ts.GetBlocksOfType<IMyOxygenFarm>(farms, Grid.BelongsToGrid);
+                gh.Gts.GetBlocksOfType<IMyOxygenFarm>(farms, gh.BelongsToGrid);
             else
-                farms = Grid.GetBlockGrp(m_settings.OxygenFarmGroup);
+                farms = gh.GetBlockGrp(m_settings.OxygenFarmGroup);
             if (tanks.Count == 0)
                 return;
             if (gens.Count == 0)

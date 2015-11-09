@@ -8,18 +8,20 @@ using VRageMath;
 namespace VarStore
 {
     using TextPanel;
-    using Grid;
+    using GridHelper;
     
     public class VarStore
     {
+        GridHelper gh;
         string LCDVariableStoreName;
         IMyTextPanel LCDVariableStore;
 
         private bool varStoreInit;
         private Dictionary<string, string> varList;
 
-        public VarStore(string lcdName = "LCDVariableStore")
+        public VarStore(GridHelper gh,string lcdName = "LCDVariableStore")
         {
+            this.gh = gh;
             LCDVariableStoreName = lcdName;
             varStoreInit = false;
             varList = new Dictionary<string, string>();
@@ -56,7 +58,7 @@ namespace VarStore
 
         public void initVarStore()
         {
-            LCDVariableStore = Grid.GetBlock(LCDVariableStoreName) as IMyTextPanel;
+            LCDVariableStore = gh.GetBlock(LCDVariableStoreName) as IMyTextPanel;
             if (LCDVariableStore == null)
                 throw new Exception("SEManager: Unable to initialise var store, check LCD '" + LCDVariableStoreName + "' exists");
 
@@ -91,7 +93,7 @@ namespace VarStore
 
             }
             contents.Trim(new char[] { '\n' });
-            TextPanel.Write(LCDVariableStoreName, contents, false);
+            TextPanel.Write(gh,LCDVariableStoreName, contents, false);
         }
     }
 }

@@ -7,8 +7,7 @@ using VRageMath;
 
 namespace Connector
 {
-    using Grid;
-    using Block;
+    using GridHelper;
     /// <summary>
     /// Common connector functions
     /// </summary>
@@ -35,9 +34,9 @@ namespace Connector
         /// <param name="connectorName">Name of connector</param>
         /// <returns>True if connected</returns>
         /// <exception cref="System.Exception">Thrown when <i>connectorName</i> is not accessible (doesn't exist, incorrect owner, etc)</exception>
-        public static bool IsDocked(string connectorName)
+        public static bool IsDocked(GridHelper gh, string connectorName)
         {
-            IMyShipConnector con = (IMyShipConnector)Grid.GetBlock(connectorName);
+            IMyShipConnector con = (IMyShipConnector)gh.GetBlock(connectorName);
             if (con==null)
                 throw new Exception("Connector.IsDocked: could not access connector:" + connectorName);
             return IsDocked(con);
@@ -68,10 +67,10 @@ namespace Connector
         /// </summary>
         /// <returns>True if any connector on current grid is connected<br />
         /// False if none are connected, or no connectors exist.</returns>
-        public static bool IsDocked()
+        public static bool IsDocked(GridHelper gh)
         {
             List<IMyTerminalBlock> cons = new List<IMyTerminalBlock>();
-            Grid.ts.GetBlocksOfType<IMyShipConnector>(cons);
+            gh.Gts.GetBlocksOfType<IMyShipConnector>(cons);
             return IsDocked(cons);
         }
 

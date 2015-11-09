@@ -5,13 +5,13 @@ using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
 
-namespace Grid
+namespace GridHelper
 {
     /// <summary>
     /// Grid functions<br />
-    /// To use you must call Grid.Set(GridTerminalSystem, Me, Echo); from your Main function.
+    /// 
     /// </summary>
-    public static class Grid
+    public class GridHelper
     {
 
         // Assemblable items
@@ -20,63 +20,65 @@ namespace Grid
         public const string Tools = "WelderItem,HandDrillItem,AngleGrinderItem,AutomaticRifleItem";
         public const string OxygenContainers = "OxygenBottle";
 
-        static public void Set(MyGridProgram gp)
+        public GridHelper(MyGridProgram gp)
         {
-            ts = gp.GridTerminalSystem;
-            pb = gp.Me;
-            echo = gp.Echo;
+            Gts = gp.GridTerminalSystem;
+            Pb = gp.Me;
+            Echo = gp.Echo;
+            Program = gp;
         }
-        static public IMyGridTerminalSystem ts;
 
-        static public IMyProgrammableBlock pb;
+        public MyGridProgram Program;
+        public IMyGridTerminalSystem Gts;
 
-        static public Action<string> echo {get;set;}
-        static public void Echo(string s)
-        {
-            if (echo == null)
-                throw new Exception("Static Echo function not set, set with 'Grid.echo = Echo' in Main");
-            echo(s);
-        }
+        public IMyProgrammableBlock Pb;
+
+        public Action<string> Echo;
 
         /// <summary>
         /// Checks if block is on same grid as currently running PB
         /// </summary>
         /// <param name="b">Block</param>
         /// <returns>True if block on this grid</returns>
-        public static bool BelongsToGrid(IMyTerminalBlock b)
+        public bool BelongsToGrid(IMyTerminalBlock b)
         {
-            return b.CubeGrid == pb.CubeGrid;
+            return b.CubeGrid == Pb.CubeGrid;
         }
-        public static IMyTerminalBlock GetBlock(string name, bool onGrid = true)
+
+        public IMyTerminalBlock GetBlock(string name, bool onGrid = true)
         {
             var blocks = new List<IMyTerminalBlock>();
 
             if (onGrid)
-                ts.SearchBlocksOfName(name, blocks, BelongsToGrid);
+                Gts.SearchBlocksOfName(name, blocks, BelongsToGrid);
             else
-                ts.SearchBlocksOfName(name, blocks);
+                Gts.SearchBlocksOfName(name, blocks);
             if (blocks.Count == 0)
                 return null;
             return blocks[0];
         }
-        public static List<IMyTerminalBlock> SearchBlocks(string name, bool onGrid = true)
+        public List<IMyTerminalBlock> SearchBlocks(string name, bool onGrid = true)
         {
             var lst = new List<IMyTerminalBlock>();
             if (onGrid)
-                ts.SearchBlocksOfName(name, lst, BelongsToGrid);
+                Gts.SearchBlocksOfName(name, lst, BelongsToGrid);
             else
-                ts.SearchBlocksOfName(name, lst);
+                Gts.SearchBlocksOfName(name, lst);
             return lst;
         }
-        public static List<IMyTerminalBlock> GetBlockGrp(string grpName)
+        public List<IMyTerminalBlock> GetBlockGroup(string groupName)
         {
             List<IMyBlockGroup> grps = new List<IMyBlockGroup>();
-            ts.GetBlockGroups(grps);
-            var grp = grps.Find(x => x.Name.Contains(grpName));
+            Gts.GetBlockGroups(grps);
+            var grp = grps.Find(x => x.Name.Contains(groupName));
             if (grp == null)
                 return new List<IMyTerminalBlock>();
             else
                 return grp.Blocks;
+        }
+        public List<IMyTerminalBlock> GetBlockGrp(string grpName)
+        {
+            return GetBlockGroup(grpName);
         }
 
     }

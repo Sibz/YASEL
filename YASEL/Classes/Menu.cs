@@ -7,7 +7,7 @@ using VRageMath;
 
 namespace Menu
 {
-    using Grid;
+    using GridHelper;
     /// <summary>
     /// Menu class for building menus
     /// </summary>
@@ -46,11 +46,13 @@ namespace Menu
         Dictionary<string, MenuPage> pages;
         MenuPage curPage;
         IMyTextPanel display;
+        GridHelper gh;
 
-        public Menu(string LCDName)
+        public Menu(GridHelper gh, string LCDName)
         {
+            this.gh = gh;
             pages = new Dictionary<string, MenuPage>();
-            display = (IMyTextPanel)Grid.GetBlock(LCDName);
+            display = (IMyTextPanel)gh.GetBlock(LCDName);
             if (!(display is IMyTextPanel)) throw new Exception("Unable to init Menu, unable to access LCD:" + LCDName);
         }
         public void AddPage(MenuPage page)

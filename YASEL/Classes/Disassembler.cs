@@ -7,24 +7,26 @@ using VRageMath;
 
 namespace Disassembler
 {
-    using Grid;
+    using GridHelper;
     using Inventory;
 
     public class Disassembler
     {
+        GridHelper gh;
         DisassemblerSettings s;
 
-        public Disassembler(DisassemblerSettings settings)
+        public Disassembler(GridHelper gh,DisassemblerSettings settings)
         {
+            this.gh = gh;
             s = settings;
         }
 
         public void FillDisassemblers()
         {
-            var cargos = Grid.GetBlockGrp(s.ScrapComponentsCargoGroup);
-            var assemblers = Grid.GetBlockGrp(s.DisassemblerGroup);
+            var cargos = gh.GetBlockGrp(s.ScrapComponentsCargoGroup);
+            var assemblers = gh.GetBlockGrp(s.DisassemblerGroup);
 
-            Grid.Echo("Counting Items In Cargo : " + Inventory.CountItems(cargos));
+            gh.Echo("Counting Items In Cargo : " + Inventory.CountItems(cargos));
 
             if (Inventory.CountItems(cargos) == 0)
                 return;
@@ -36,11 +38,11 @@ namespace Disassembler
                 invAssemblers.Add(assembler.GetInventory(1));
             });
 
-            Grid.Echo("Assembler Inventories:" + invAssemblers.Count);
+            gh.Echo("Assembler Inventories:" + invAssemblers.Count);
 
             var invCargos = Inventory.GetInventories(cargos);
 
-            Grid.Echo("Cargo Inventories:" + invCargos.Count);
+            gh.Echo("Cargo Inventories:" + invCargos.Count);
 
             invAssemblers.ForEach(invAssembler =>
             {
