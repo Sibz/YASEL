@@ -5,12 +5,12 @@ using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
 
-namespace Block
+namespace BlockExtensions
 {
     /// <summary>
     /// Static class for Block-level functions
     /// </summary>
-    static class Block
+    static class BlockExtensions
     {
         /// <summary>
         /// Checks if a functional block is enabled and working (ie. Turned on and powered)
@@ -23,7 +23,7 @@ namespace Block
         /// <br />
         /// false - Is not enabled (or not working)
         /// </returns>
-        public static bool IsEnabled(IMyTerminalBlock b, bool checkIsWorking = true)
+        public static bool IsEnabled(this IMyTerminalBlock b, bool checkIsWorking = true)
         {
             return (checkIsWorking ? b.IsWorking : true) && ((b is IMyFunctionalBlock) ? ((IMyFunctionalBlock)b).Enabled : true);
         }
@@ -34,7 +34,7 @@ namespace Block
         /// <param name="b">Block to get detail from</param>
         /// <param name="match">String to match</param>
         /// <returns>if there is a colon (':'), part of a line after colon. Otherwise returns whole line.</returns>
-        public static string GetDetail(IMyTerminalBlock b, string match)
+        public static string GetDetail(this IMyTerminalBlock b, string match)
         {
             string requestedDetail = "";
             string[] lines = b.DetailedInfo.Split(new char[] { '\n' });
@@ -53,18 +53,37 @@ namespace Block
             return requestedDetail;
         }
         /// <summary>
-        /// Turns a list of blocks On or Off
+        /// Turns a list of blocks On
         /// </summary>
         /// <param name="blocks"></param>
-        /// <param name="on">Default True (Turns Blocks On). Set to false to turn blocks off.</param>
-        public static void TurnOnOff(List<IMyTerminalBlock> blocks, bool on = true) { for (int i = 0; i <= blocks.Count - 1; i++) { TurnOnOff(blocks[i], on); } }
+        public static void TurnOn(this List<IMyTerminalBlock> blocks) 
+        {
+            blocks.ForEach(b => { b.TurnOn(); });
+        }
         /// <summary>
-        /// Turns a block on or off
+        /// Turns a block on
         /// </summary>
         /// <param name="b"></param>
-        /// <param name="on">Default True (Turns Block On). Set to false to turn block off.</param>
-        public static void TurnOnOff(IMyTerminalBlock b, bool on = true)
-        { if (b.IsFunctional)b.GetActionWithName("OnOff_" + (on ? "On" : "Off")).Apply(b); }
+        public static void TurnOn(this IMyTerminalBlock b)
+        { 
+            if (b.IsFunctional)b.GetActionWithName("OnOff_On").Apply(b);
+        }
+        /// <summary>
+        /// Turns a list of blocks Off
+        /// </summary>
+        /// <param name="blocks"></param>
+        public static void TurnOff(this List<IMyTerminalBlock> blocks)
+        {
+            blocks.ForEach(b => { b.TurnOff(); });
+        }
+        /// <summary>
+        /// Turns a block off
+        /// </summary>
+        /// <param name="b"></param>
+        public static void TurnOff(this IMyTerminalBlock b)
+        {
+            if (b.IsFunctional) b.GetActionWithName("OnOff_Off").Apply(b);
+        }
     }
 
 }

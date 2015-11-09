@@ -7,7 +7,6 @@ using VRageMath;
 
 namespace Graph
 {
-    using Grid;
 
     /// <summary>
     /// Functions for making text graphs for TextPanels

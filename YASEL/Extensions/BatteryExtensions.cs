@@ -5,19 +5,25 @@ using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
 
-namespace Battery
+namespace BatteryExtensions
 {
     /// <summary>
     /// Common battery block functions
     /// </summary>
-    static class Battery
+    public static class BatteryExtensions
     {
+        public static List<IMyBatteryBlock> ToBatteryBlocks(this List<IMyTerminalBlock> bs)
+        {
+            var l = new List<IMyBatteryBlock>();
+            bs.ForEach(b => { if (b is IMyBatteryBlock) l.Add(b as IMyBatteryBlock); });
+            return l;
+        }
         /// <summary>
         /// Charge of battery as % (0-1)
         /// </summary>
         /// <param name="b"></param>
         /// <returns>Percent charge</returns>
-        public static float ChargePercent(IMyBatteryBlock b)
+        public static float ChargePercent(this IMyBatteryBlock b)
         {
             return b.CurrentStoredPower / b.MaxStoredPower;
         }
@@ -27,10 +33,10 @@ namespace Battery
         /// </summary>
         /// <param name="blocks"></param>
         /// <returns>Percent charge</returns>
-        public static float ChargePercent(List<IMyTerminalBlock> blocks)
+        public static float ChargePercent(this List<IMyBatteryBlock> blocks)
         {
             float totalCharge = 0;
-            blocks.ForEach(b => { totalCharge += ChargePercent((IMyBatteryBlock)b); });
+            blocks.ForEach(b => { totalCharge += ChargePercent(b); });
             return totalCharge / blocks.Count;
         }
 
@@ -39,7 +45,7 @@ namespace Battery
         /// </summary>
         /// <param name="b"></param>
         /// <returns>True if charging</returns>
-        public static bool IsCharging(IMyBatteryBlock b)
+        public static bool IsCharging(this IMyBatteryBlock b)
         {
             return b.GetValueBool("Recharge");
         }
@@ -49,20 +55,28 @@ namespace Battery
         /// </summary>
         /// <param name="blocks"></param>
         /// <returns>True if all blocks are charging, false if one is not</returns>
-        public static bool IsCharging(List<IMyTerminalBlock> blocks)
+        public static bool IsCharging(this  List<IMyBatteryBlock> blocks)
         {
             bool rval = true;
-            blocks.ForEach(b => { if (b is IMyBatteryBlock && rval) rval = IsCharging(b as IMyBatteryBlock); });
+            blocks.ForEach(b => { if (rval) rval = IsCharging(b); });
             return rval;
         }
 
-        public static void Recharge(IMyBatteryBlock b, bool on = true)
+        public static void Recharge(this IMyBatteryBlock b, bool on = true)
         {
             b.SetValueBool("Recharge", on);
         }
-        public static void Recharge(List<IMyTerminalBlock> blocks, bool on = true)
+        public static void Recharge(this List<IMyBatteryBlock> blocks, bool on = true)
         {
-            blocks.ForEach(b => { if (b is IMyBatteryBlock) Recharge(b as IMyBatteryBlock, on); });
+            blocks.ForEach(b => { Recharge(b, on); });
+        }
+        public static void Discharge(this IMyBatteryBlock b, bool on = true)
+        {
+            b.SetValueBool("Discharge", on);
+        }
+        public static void Discharge(this List<IMyBatteryBlock> blocks, bool on = true)
+        {
+            blocks.ForEach(b => { Discharge(b, on); });
         }
     }
 }
