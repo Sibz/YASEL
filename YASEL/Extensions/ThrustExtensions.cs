@@ -9,13 +9,7 @@ namespace ThrustExtensions
 {
     public static class ThrustExtensions
     {
-        public static List<IMyThrust> ToThrusts(this List<IMyTerminalBlock> bs)
-        {
-            var ths = new List<IMyThrust>();
-            bs.ForEach(b => { if (b is IMyThrust) ths.Add(b as IMyThrust); });
-            return ths;
-        }
-        //# Requires GenericFunctions
+       
         public static void SetThrustOverride(this IMyThrust t, double ovrd)
         {
 
@@ -34,7 +28,5 @@ namespace ThrustExtensions
 
         }
 
-        public static void SetThrustOverride(this List<IMyThrust> thrusts, double ovrd)
-        { thrusts.ForEach(t => { t.SetThrustOverride(ovrd); }); }
     }
 }

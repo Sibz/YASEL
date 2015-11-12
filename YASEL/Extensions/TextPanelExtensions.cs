@@ -18,7 +18,7 @@ namespace TextPanelExtensions
         /// </summary>
         /// <param name="LCDName"></param>
         /// <returns></returns>
-        public static Dictionary<String, double> GetValueListFromLCD(this IMyTextPanel lcd)
+        public static Dictionary<String, double> GetValueList(this IMyTextPanel lcd)
         {
             Dictionary<String, double> valueList = new Dictionary<String, double>();
 

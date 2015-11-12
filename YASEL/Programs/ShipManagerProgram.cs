@@ -19,10 +19,8 @@ namespace ShipManagerProgram
             ShipManager sm = new ShipManager(this);
 
             if (argument == "")
-            {
                 sm.ManageDockingState();
-            }
-            else if (argument == "undock" || argument == "dock")
+            else if (argument == "Dock" || argument == "dock")
                 sm.Dock();
         }
     }

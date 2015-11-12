@@ -9,52 +9,42 @@ namespace ShipManager
 {
     using ProgramExtensions;
     using BlockExtensions;
-    using ThrustExtensions;
-    using ConnectorExtensions;
-    using BatteryExtensions;
-    using Inventory;
     using DoorExtensions;
+    using ConnectorManager;
+    using BatteryManager;
 
 
     class ShipManager
     {
         MyGridProgram gp;
 
-        List<IMyShipConnector> listConnectors;
-        List<IMyThrust> listThrusters;
+        ConnectorManager cm;
+        BatteryManager bm;
+
+        List<IMyTerminalBlock> listThrusters;
         List<IMyTerminalBlock> listGyros;
         List<IMyTerminalBlock> listSpots;
-        List<IMyBatteryBlock> listBats;
         List<IMyTerminalBlock> listReactors;
-        Dictionary<string, float> VentCheckPressures;
-
-        ShipManagerSettings s;
+        Dictionary<string, BreachDoorZone> breachDoorZones;
 
         IMyTextPanel tpDebug;
 
         public ShipManager(MyGridProgram gp)
         {
             this.gp = gp;
-            listConnectors      = new List<IMyShipConnector>();
-            listThrusters       = new List<IMyThrust>();
+            cm = new ConnectorManager(gp);
+            bm = new BatteryManager(gp);
+            
+            listThrusters       = new List<IMyTerminalBlock>();
             listGyros           = new List<IMyTerminalBlock>();
             listSpots           = new List<IMyTerminalBlock>();
-            listBats            = new List<IMyBatteryBlock>();
             listReactors        = new List<IMyTerminalBlock>();
 
-            var tmpList = new List<IMyTerminalBlock>();
-            gp.GridTerminalSystem.GetBlocksOfType<IMyBatteryBlock>(tmpList, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
-            listBats = tmpList.ToBatteryBlocks();
-            gp.GridTerminalSystem.GetBlocksOfType<IMyShipConnector>(tmpList, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
-            listConnectors = tmpList.ToShipConnectors();
-            gp.GridTerminalSystem.GetBlocksOfType<IMyThrust>(tmpList, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
-            listThrusters = tmpList.ToThrusts();
-            gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>(listGyros, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
-            gp.GridTerminalSystem.GetBlocksOfType<IMyLightingBlock>(listSpots, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
-            gp.GridTerminalSystem.GetBlocksOfType<IMyReactor>(listReactors, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyThrust>        (listThrusters, b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>          (listGyros,     b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyLightingBlock> (listSpots,     b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyReactor>       (listReactors,  b => { return b.CubeGrid == gp.Me.CubeGrid; });
             
-            VentCheckPressures = new Dictionary<string, float>();
-
             tpDebug = gp.GetBlock("LCD Debug") as IMyTextPanel;
             
             debug("Initialised ShipManager.", false);
@@ -64,11 +54,6 @@ namespace ShipManager
             if (tpDebug is IMyTextPanel)
                 tpDebug.WritePublicText(text + "\n", append);
         }
-        public ShipManager(MyGridProgram gp, ShipManagerSettings settings)
-            : this(gp)
-        {
-            s = settings;
-        } 
 
         /// <summary>
         /// Turns Engines, reactors, lights and gyros off when connected, and back on when disconnected.
@@ -89,123 +74,103 @@ namespace ShipManager
                     doTurnOff = true;
             } else
                 doTurnOff = true;
-            if (listConnectors.IsConnected() && doTurnOff)
+            if (cm.AnyConnected() && doTurnOff)
             {
-                if (thrusters)      listThrusters.ForEach(t => { t.TurnOff(); });
-                if (gyros)          listGyros.ForEach(t => { t.TurnOff(); });
+                if (thrusters)      listThrusters.TurnOff();
+                if (gyros)          listGyros.TurnOff();
                 if (lights)         listSpots.TurnOff();
                 if (reactors)       listReactors.TurnOff();
-                if (batteries)      listBats.Recharge(true);
+                if (batteries)      bm.Recharge(true);
             }
             else
             {
-                if (thrusters)      listThrusters.ForEach(t => { t.TurnOn(); });
-                if (gyros)          listGyros.ForEach(t => { t.TurnOn(); });
+                if (thrusters)      listThrusters.TurnOn();
+                if (gyros)          listGyros.TurnOn();
                 if (lights)         listSpots.TurnOn();
                 if (reactors)       listReactors.TurnOn();
-                if (batteries)      listBats.Recharge(false);
+                if (batteries) bm.Recharge(false);
             }
         }
 
         public void Dock()
         {
-            if (listConnectors.IsConnected())
+            if (cm.AnyConnected())
             {
                 listReactors.TurnOn();
-                listBats.Recharge(false);
-            }
-            listConnectors.SwitchLock();
+                bm.Recharge(false);
+                cm.UnLock();
+            }else 
+                cm.Lock();
         }
 
-        public void LoadFromGroup(string checkConnector = "")
+        public void AddBreachDoorZone(string ventSideA, string ventSideB, string doorSideA, string doorSideB)
         {
-            if (!listConnectors.IsConnected()) return;
-            if (checkConnector != "")
-            {
-                var con = gp.GetBlock(checkConnector, false) as IMyShipConnector;
-                if ((con is IMyShipConnector) && !con.IsConnected) return;
-            }
+            var bdz = new BreachDoorZone(gp, ventSideA, ventSideB, doorSideA, doorSideB);
+            if (breachDoorZones.ContainsKey(ventSideA + ventSideB + doorSideA + doorSideB))
+                breachDoorZones[ventSideA + ventSideB + doorSideA + doorSideB] = bdz;
+            else
+                breachDoorZones.Add(ventSideA + ventSideB + doorSideA + doorSideB,bdz);
+        }
+        public void ManageBreachDoors()
+        {
+            var bdzEnum = breachDoorZones.GetEnumerator();
+            while (bdzEnum.MoveNext())
+                bdzEnum.Current.Value.CheckBreach();
+        }
+        
+    }
 
-            var cargoGroup = gp.GetBlockGroup(s.LoadFromGroupName);
-            if (Inventory.CountItems(cargoGroup) == 0)
-                return;
-            var invsFrom = Inventory.GetInventories(cargoGroup);
-            var invsTo = Inventory.GetInventories(gp.GetBlockGroup(s.LoadToGroupName));
-            invsTo.ForEach(invTo =>
-            {
-                if ((float)invTo.CurrentVolume/(float)invTo.MaxVolume < 0.98)
-                {
-                    invsFrom.ForEach(invFrom =>
-                    {
-                        Inventory.MoveItems(invFrom, invTo); 
-                    });
-                }
-            });
+    class BreachDoorZone
+    {
+        public IMyAirVent VentA, VentB;
+        public List<IMyTerminalBlock> DoorsA, DoorsB;
+        public float VentACheckPressure;
+        public float VentBCheckPressure;
+
+        public BreachDoorZone(MyGridProgram gp, string ventA, string ventB, string doorA, string doorB)
+        {
+            VentA = gp.GetBlock(ventA) as IMyAirVent;
+            VentB = gp.GetBlock(ventB) as IMyAirVent;
+            DoorsA = gp.SearchBlocks(doorA);
+            DoorsB = gp.SearchBlocks(doorB);
+            if (VentA == null || VentB == null || DoorsA.Count == 0 || DoorsB.Count == 0)
+                throw new Exception("ManageBreachDoors: Unable to access a vent or door provided.");
+            UpdatePressures();
         }
 
-        public void ManageBreachDoors(string ventSideA, string doorSideA, string doorSideB, string ventSideB)
+        public void UpdatePressures()
         {
-            var ventA = gp.GetBlock(ventSideA) as IMyAirVent;
-            var ventB = gp.GetBlock(ventSideB) as IMyAirVent;
-            var doorA = gp.GetBlock(doorSideA) as IMyDoor;
-            var doorB = gp.GetBlock(doorSideB) as IMyDoor;
-            bool init = false;
-            if (!VentCheckPressures.ContainsKey(ventSideA))
-            {
-                VentCheckPressures.Add(ventSideA, ventA.GetOxygenLevel());
-                init = true;
-            }
-            if (!VentCheckPressures.ContainsKey(ventSideB))
-            {
-                VentCheckPressures.Add(ventSideB, ventB.GetOxygenLevel());
-                init = true;
-            }
-            if (init) return;
-
-            int breachVal = checkBreach(ventSideA, ventA) + checkBreach(ventSideB, ventB);
-            if (breachVal>0)
-                switchBreachDoors(doorA, doorB); // One area is breached, close doors
-            else if (breachVal<=-1 && ventA.GetOxygenLevel()>0.95 && ventB.GetOxygenLevel()>0.95)
-                switchBreachDoors(doorA, doorB, false); // Both areas are sealed with air, open doors
-
-            VentCheckPressures[ventSideA] = ventA.GetOxygenLevel();
-            VentCheckPressures[ventSideB] = ventB.GetOxygenLevel();
-
-        }
-       
-        private void switchBreachDoors(IMyDoor a, IMyDoor b, bool close = true)
-        {
-            if (close)
-            {
-                a.DoClose();
-                b.DoClose();
-            } else
-            {
-                a.DoOpen();
-                b.DoOpen();
-            }
+            VentACheckPressure = VentA.GetOxygenLevel();
+            VentBCheckPressure = VentB.GetOxygenLevel();
         }
 
-        private int checkBreach(string ventName, IMyAirVent vent)
+        public void CheckBreach()
         {
-            if (VentCheckPressures[ventName] > vent.GetOxygenLevel() &&
-                vent.GetOxygenLevel() < 0.95) // Pressure has dropped below breathable level, Breach!
+            int breachVal = checkSide(VentA, VentACheckPressure) + checkSide(VentB, VentBCheckPressure);
+            if (breachVal > 0)
+            {
+                DoorsA.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Shut();});
+                DoorsB.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Shut();});
+            }
+            else if (breachVal <= -1 && VentA.GetOxygenLevel() > 0.95 && VentB.GetOxygenLevel() > 0.95)
+            {
+                DoorsA.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Open();});
+                DoorsB.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Open();});
+            }
+            UpdatePressures();
+        }
+
+        private int checkSide(IMyAirVent vent, float lastPressure)
+        {
+            if (lastPressure > vent.GetOxygenLevel() &&
+                vent.GetOxygenLevel() < 0.95) // Pressure has dropped and is below breathable level, Breach!
                 return 1;
-            else if (VentCheckPressures[ventName] < vent.GetOxygenLevel() &&
+            else if (lastPressure < vent.GetOxygenLevel() &&
                 vent.GetOxygenLevel() > 0.95) // Pressure is rising and at breathable level, Breach sealed.
                 return -1;
             else
                 return 0; // Pressure neither rising or falling
         }
-
-        
-        
-    }
-
-    public class ShipManagerSettings
-    {
-        public string LoadFromGroupName = "BaseCargoGroup";
-        public string LoadToGroupName = "ShipCargoGroup";
     }
 
 }

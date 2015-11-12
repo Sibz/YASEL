@@ -20,22 +20,13 @@ namespace ProgramExtensions
         public const string Tools = "WelderItem,HandDrillItem,AngleGrinderItem,AutomaticRifleItem";
         public const string OxygenContainers = "OxygenBottle";
         */
-        /// <summary>
-        /// Checks if block is on same grid as currently running PB
-        /// </summary>
-        /// <param name="b">Block</param>
-        /// <returns>True if block on this grid</returns>
-        static public bool BelongsToGrid(this IMyTerminalBlock b, MyGridProgram gp)
-        {
-            return b.CubeGrid == gp.Me.CubeGrid;
-        }
 
         static public IMyTerminalBlock GetBlock(this MyGridProgram gp, string name, bool onGrid = true)
         {
             var blocks = new List<IMyTerminalBlock>();
 
             if (onGrid)
-                gp.GridTerminalSystem.SearchBlocksOfName(name, blocks, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
+                gp.GridTerminalSystem.SearchBlocksOfName(name, blocks, b => { return b.CubeGrid == gp.Me.CubeGrid; });
             else
                 gp.GridTerminalSystem.SearchBlocksOfName(name, blocks);
             if (blocks.Count == 0)
@@ -46,7 +37,7 @@ namespace ProgramExtensions
         {
             var lst = new List<IMyTerminalBlock>();
             if (onGrid)
-                gp.GridTerminalSystem.SearchBlocksOfName(name, lst, delegate(IMyTerminalBlock b) { return b.BelongsToGrid(gp); });
+                gp.GridTerminalSystem.SearchBlocksOfName(name, lst, b => { return b.CubeGrid == gp.Me.CubeGrid; });
             else
                 gp.GridTerminalSystem.SearchBlocksOfName(name, lst);
             return lst;
