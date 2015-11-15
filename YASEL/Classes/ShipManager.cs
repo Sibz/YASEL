@@ -32,8 +32,8 @@ namespace ShipManager
 
         public ShipManager(MyGridProgram gp, ShipManagerSettings settings = null)
         {
-            gp = gp;
-            settings = (settings == null) ? new ShipManagerSettings() : settings;
+            this.gp = gp;
+            this.settings = (settings == null) ? new ShipManagerSettings() : settings;
             
             cm = new ConnectorManager(gp);
             bm = new BatteryManager(gp);
