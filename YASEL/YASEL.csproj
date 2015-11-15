@@ -65,7 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AirlockManager.cs" />
+    <Compile Include="Classes\AirventManager.cs" />
     <Compile Include="Classes\AssemblerManager.cs" />
+    <Compile Include="Classes\BatteryManager.cs" />
+    <Compile Include="Classes\ConnectorManager.cs" />
+    <Compile Include="Classes\DoorManager.cs" />
+    <Compile Include="Classes\GyroManager.cs" />
     <Compile Include="Classes\Inventory.cs" />
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />

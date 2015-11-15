@@ -38,12 +38,12 @@ namespace ConnectorManager
 
         public void UnLock()
         {
-            Connectors.ForEach(c => { if (c is IMyShipConnector (c as IMyShipConnector).UnLock(); });
+            Connectors.ForEach(c => { if (c is IMyShipConnector) (c as IMyShipConnector).UnLock(); });
         }
 
         public void Lock()
         {
-            Connectors.ForEach(c => { if (c is IMyShipConnector (c as IMyShipConnector).Lock(); });
+            Connectors.ForEach(c => { if (c is IMyShipConnector) (c as IMyShipConnector).Lock(); });
         }
 
         public bool AnyConnected()
