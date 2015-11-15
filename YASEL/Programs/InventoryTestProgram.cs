@@ -8,18 +8,19 @@ using VRageMath;
 namespace InventoryTestProgram
 {
 
-    using Grid;
+    using GridHelper;
     using Inventory;
 
     class InventoryTestProgram : MyGridProgram
     {
+        GridHelper gh;
 
         void Main(string argument)
         {
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
 
-            var invBlocksFrom = Grid.GetBlockGrp("Cargo Components");
-            var invBlocksTo = Grid.GetBlockGrp("Welder Cargo"); 
+            var invBlocksFrom = gh.GetBlockGrp("Cargo Components");
+            var invBlocksTo = gh.GetBlockGrp("Welder Cargo"); 
             Inventory.MoveItemAmount(invBlocksFrom, invBlocksTo, "SteelPlate",110);
         }
 

@@ -8,17 +8,17 @@ using VRageMath;
 namespace DisassemblerProgram
 {
 
-    using Grid;
+    using GridHelper;
     using Disassembler;
 
     class DisassemblerProgram : MyGridProgram
     {
-
+        GridHelper gh;
         void Main(string argument)
         {
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
             var dSettings = new DisassemblerSettings() { DisassemblerGroup = "Disassemblers", ScrapComponentsCargoGroup = "Scrap Components" };
-            var d = new Disassembler(dSettings);
+            var d = new Disassembler(gh,dSettings);
             d.FillDisassemblers();
         }
 

@@ -12,19 +12,21 @@ using VRageMath;
 namespace StationManagerProgram
 {
     using StationManager;
-    using Grid;
+    using GridHelper;
+    using Block;
 
     class StationManagerProgram : MyGridProgram
     {
         StationManager myStationManager;
         TimeSpan TimeSinceRun;
+        GridHelper gh;
         
         void Main(string argument)
         {
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
 
             if (myStationManager==null)
-                myStationManager = new StationManager(new StationManagerSettings() { TextPanelTimeName = "TP Time"});
+                myStationManager = new StationManager(gh,new StationManagerSettings() { TextPanelTimeName = "TP Time"});
 
             if (TimeSinceRun.TotalMilliseconds < 250)
             {
@@ -35,6 +37,9 @@ namespace StationManagerProgram
             myStationManager.ManageAutoDoors();
             myStationManager.DisplayTime();
             myStationManager.ManageOxygen();
+            var b = gh.GetBlock("test");
+            var l = new List<IMyTerminalBlock>();
+
         }
 
     }

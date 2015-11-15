@@ -11,7 +11,7 @@ using VRageMath;
 
 namespace Door
 {
-    using Grid;
+    using GridHelper;
     using Block;
     static class Door
     {

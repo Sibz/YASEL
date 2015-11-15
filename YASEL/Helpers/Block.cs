@@ -66,4 +66,5 @@ namespace Block
         public static void TurnOnOff(IMyTerminalBlock b, bool on = true)
         { if (b.IsFunctional)b.GetActionWithName("OnOff_" + (on ? "On" : "Off")).Apply(b); }
     }
+
 }

@@ -8,7 +8,7 @@ using VRageMath;
 namespace AirlockManagerProgram
 {
     using AirlockManager;
-    using Grid;
+    using GridHelper;
     class AirlockManagerProgram : MyGridProgram
     {
         /*
@@ -53,15 +53,17 @@ namespace AirlockManagerProgram
         // Global to keep track of time since we ran airlock script
         TimeSpan TimeSinceRun;
 
+        GridHelper gh;
+
         void Main(string argument)
         {
             // Just some helper code
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this); ;
 
             // If first run set up the AirlockManager
             // Note that if you change the airlock, i.e. add doors, you need to re-compile
             if (myAirlockManager == null)
-                myAirlockManager = new AirlockManager(
+                myAirlockManager = new AirlockManager(gh,
                     new AirlockManagerSettings() { 
                         // Here you can set the update function, for the example it uses function below, can be ommited
                         OnAirlockUpdate = AirlockUpdate 

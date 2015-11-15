@@ -8,7 +8,7 @@ using VRageMath;
 namespace ShipManagerProgram
 {
 
-    using Grid;
+    using GridHelper;
     using Block;
     using Connector;
     using Battery;
@@ -16,13 +16,14 @@ namespace ShipManagerProgram
 
     class ShipManagerProgram : MyGridProgram
     {
+        GridHelper gh;
 
         void Main(string argument)
         {
-            Grid.Set(this);
+            if (gh == null) gh = new GridHelper(this);
 
 
-            ShipManager sm = new ShipManager();
+            ShipManager sm = new ShipManager(gh);
 
             if (argument == "")
             {

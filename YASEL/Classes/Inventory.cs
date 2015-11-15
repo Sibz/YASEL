@@ -9,7 +9,7 @@ namespace Inventory
 {
     class Inventory
     {
-        public static float MaxInventoryPercent = 0.98f; // Max percent of an inventory, after this stop trying to move items to that inventory.
+        public const float MaxInventoryPercent = 0.98f; // Max percent of an inventory, after this stop trying to move items to that inventory.
 
         static public float CountItems(List<IMyTerminalBlock> invBlocks, string itemType = "", string itemSubtypeName = "")
         {
