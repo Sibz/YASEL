@@ -108,7 +108,7 @@ namespace ShipManager
             }else 
                 cm.Lock();
         }
-
+        
         public void AddBreachDoorZone(string ventSideA, string ventSideB, string doorSideA, string doorSideB)
         {
             var bdz = new BreachDoorZone( gp, ventSideA, ventSideB, doorSideA, doorSideB);
@@ -133,7 +133,7 @@ namespace ShipManager
         public string BaseConnector = "";
         
     }
-
+    
     class BreachDoorZone
     {
         public IMyAirVent VentA, VentB;
@@ -157,19 +157,20 @@ namespace ShipManager
             VentACheckPressure = VentA.GetOxygenLevel();
             VentBCheckPressure = VentB.GetOxygenLevel();
         }
-
+        
         public void CheckBreach()
         {
             int breachVal = checkSide(VentA, VentACheckPressure) + checkSide(VentB, VentBCheckPressure);
+            var doors = new List<IMyTerminalBlock>();
+            doors.AddList(DoorsA);
+            doors.AddList(DoorsB);
             if (breachVal > 0)
             {
-                DoorsA.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Shut();});
-                DoorsB.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Shut();});
+                doors.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Shut(); });
             }
             else if (breachVal <= -1 && VentA.GetOxygenLevel() > 0.95 && VentB.GetOxygenLevel() > 0.95)
             {
-                DoorsA.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Open();});
-                DoorsB.ForEach(d => { if (d is IMyDoor) (d as IMyDoor).Open();});
+                doors.ForEach(d3 => { if (d3 is IMyDoor) (d3 as IMyDoor).Open(); });
             }
             UpdatePressures();
         }
