@@ -10,7 +10,7 @@ namespace ShipManagerProgram
 
     using ShipManager;
 
-    class ShipManagerProgram : MyGridProgram
+    partial class ShipManagerProgram : MyGridProgram
     {
 
         void Main(string argument)

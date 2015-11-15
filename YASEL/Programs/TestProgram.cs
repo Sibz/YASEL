@@ -7,19 +7,20 @@ using VRageMath;
 
 namespace TestProgram
 {
-    using DoorExtensions;
+    using ProgramExtensions;
+    using ShipManager;
+    using AirlockManager;
     
     class TestProgram : MyGridProgram
     {
 
+        ShipManager sm;
+
+
         void Main(string argument)
         {
-            var l = new List<IMyTerminalBlock>();
-            GridTerminalSystem.SearchBlocksOfName("Door", l);
-            l.ForEach(i => { Echo(i.CustomName); });
-            var doors = new List<IMyDoor>();
-            doors = l.ToDoors();
-            doors.DoClose();
+            
+
 
         }
 

@@ -7,46 +7,51 @@ using VRageMath;
 
 namespace RefineryManager
 {
-    using GridHelper;
-    using Inventory;
+    using InventoryExtensions;
+    using ProgramExtensions;
 
     class RefineryManager
     {
-        GridHelper gh;
+        MyGridProgram gp;
         RefineryManagerSettings s;
+        Dictionary<string, RefineryGroup> refineryGroups;
 
-        public RefineryManager(GridHelper gh)
+        public RefineryManager(MyGridProgram gp, RefineryManagerSettings settings = null)
         {
-            this.gh = gh;
-            s = new RefineryManagerSettings();
+            this.gp = gp;
+            s = settings == null ? new RefineryManagerSettings() : settings;
         }
-        public RefineryManager(GridHelper gh,RefineryManagerSettings settings)
+        public void AddRefineryGroup(string oreCargoGroupName, string refineryGroupName, int baseStackSize=1000)
         {
-            this.gh = gh;
-            s = settings;
+            RefineryGroup refineryGroup = new RefineryGroup(gp, oreCargoGroupName, refineryGroupName, baseStackSize);
+            if (refineryGroups.ContainsKey(oreCargoGroupName + refineryGroupName + baseStackSize))
+                refineryGroups[oreCargoGroupName + refineryGroupName + baseStackSize] = refineryGroup;
+            else
+                refineryGroups.Add(oreCargoGroupName + refineryGroupName + baseStackSize, refineryGroup);
         }
 
         public void ManageRefineries()
         {
-
+            var refineries = refineryGroups.GetEnumerator();
+            while(refineries.MoveNext())
+            {
+                transferOreToRefineries(refineries.Current.Value);
+            }
         }
 
-        public void LoadRefineries(string fromGroupName, string toGroupName, int stackSize=1000)
+        private void transferOreToRefineries(RefineryGroup refineryGroup)
         {
-            var fromCargoBlocks = gh.GetBlockGrp(fromGroupName);
-            var toRefBlocks = gh.GetBlockGrp(toGroupName);
-            if (Inventory.CountItems(fromCargoBlocks, "Ore") == 0 || Inventory.GetPercentFull(toRefBlocks) > 0.95) return;
-            
-            var fromCargo = Inventory.GetInventories(fromCargoBlocks);
-            var toRef = new List<IMyInventory>();
-            toRefBlocks.ForEach(refBlock =>
+            if (refineryGroup.OreContainerInventories.CountItems("Ore") == 0 || refineryGroup.RefineryInventories.GetPercentFull() > 0.95) return;
+
+
+            refineryGroup.RefineryInventories.ForEach(inventory =>
             {
-                if (refBlock is IMyRefinery)
-                    toRef.Add(refBlock.GetInventory(0));
+                if (!(inventory.Owner is IMyRefinery))
+                    refineryGroup.RefineryInventories.Remove(inventory);
             });
 
             int numberOfOres = 0;
-            fromCargo.ForEach(cargoInv =>
+            refineryGroup.OreContainerInventories.ForEach(cargoInv =>
             {
                 var items = cargoInv.GetItems();
                 if (items.Count > 0)
@@ -59,7 +64,7 @@ namespace RefineryManager
                 }
             });
 
-            toRef.ForEach(refInv =>
+            refineryGroup.RefineryInventories.ForEach(refInv =>
             {
                 var refItemCount = refInv.GetItems().Count;
                 IMyInventoryItem firstRefItem = refItemCount>0?refInv.GetItems()[0]:null;
@@ -67,10 +72,10 @@ namespace RefineryManager
                 if ((float)refInv.CurrentVolume / (float)refInv.MaxVolume < 0.95 && 
                     (refItemCount < numberOfOres || 
                         (numberOfOres==1 && 
-                        refItemCount == 1 && 
-                        firstRefItem.Amount<(VRage.MyFixedPoint)stackSize*(s.OreMultipliers.ContainsKey(firstRefItem.Content.SubtypeName)?s.OreMultipliers[firstRefItem.Content.SubtypeName]:1)))) 
+                        refItemCount == 1 &&
+                        firstRefItem.Amount < (VRage.MyFixedPoint)refineryGroup.BaseStackSize* (s.OreMultipliers.ContainsKey(firstRefItem.Content.SubtypeName) ? s.OreMultipliers[firstRefItem.Content.SubtypeName] : 1)))) 
                 {
-                    fromCargo.ForEach(cargoInv =>
+                    refineryGroup.OreContainerInventories.ForEach(cargoInv =>
                     {
                         var items = cargoInv.GetItems();
                         if (items.Count > 0)
@@ -82,7 +87,7 @@ namespace RefineryManager
                                 {
                                     
                                     refInv.TransferItemFrom(cargoInv, curIdx, refInv.GetItems().Count, false,
-                                        (VRage.MyFixedPoint)stackSize*(s.OreMultipliers.ContainsKey(item.Content.SubtypeName)?s.OreMultipliers[item.Content.SubtypeName]:1));
+                                        (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1));
                                 }
                                 curIdx++;
                             });
@@ -111,6 +116,17 @@ namespace RefineryManager
             OreMultipliers.Add("Nickel", 0.33f);
             OreMultipliers.Add("Silicon", 0.5f);
             
+        }
+    }
+    class RefineryGroup
+    {
+        public List<IMyInventory> OreContainerInventories, RefineryInventories;
+        public int BaseStackSize;
+        public RefineryGroup(MyGridProgram gp, string oreContainerGroupName, string refineryGroupName, int baseStackSize = 1000)
+        {
+            BaseStackSize = baseStackSize;
+            OreContainerInventories = gp.GetBlockGroup(oreContainerGroupName).GetInventories();
+            RefineryInventories = gp.GetBlockGroup(refineryGroupName).GetInventories();
         }
     }
 }

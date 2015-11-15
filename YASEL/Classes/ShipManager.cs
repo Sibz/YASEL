@@ -17,6 +17,7 @@ namespace ShipManager
     class ShipManager
     {
         MyGridProgram gp;
+        ShipManagerSettings settings;
 
         ConnectorManager cm;
         BatteryManager bm;
@@ -29,9 +30,11 @@ namespace ShipManager
 
         IMyTextPanel tpDebug;
 
-        public ShipManager(MyGridProgram gp)
+        public ShipManager(MyGridProgram gp, ShipManagerSettings settings = null)
         {
-            this.gp = gp;
+            gp = gp;
+            settings = (settings == null) ? new ShipManagerSettings() : settings;
+            
             cm = new ConnectorManager(gp);
             bm = new BatteryManager(gp);
             
@@ -40,10 +43,10 @@ namespace ShipManager
             listSpots           = new List<IMyTerminalBlock>();
             listReactors        = new List<IMyTerminalBlock>();
 
-            gp.GridTerminalSystem.GetBlocksOfType<IMyThrust>        (listThrusters, b => { return b.CubeGrid == gp.Me.CubeGrid; });
-            gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>          (listGyros,     b => { return b.CubeGrid == gp.Me.CubeGrid; });
-            gp.GridTerminalSystem.GetBlocksOfType<IMyLightingBlock> (listSpots,     b => { return b.CubeGrid == gp.Me.CubeGrid; });
-            gp.GridTerminalSystem.GetBlocksOfType<IMyReactor>       (listReactors,  b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyThrust>        ( listThrusters, b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>          ( listGyros,     b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyLightingBlock> ( listSpots,     b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyReactor>       ( listReactors,  b => { return b.CubeGrid == gp.Me.CubeGrid; });
             
             tpDebug = gp.GetBlock("LCD Debug") as IMyTextPanel;
             
@@ -64,40 +67,43 @@ namespace ShipManager
         /// <param name="lights"></param>
         /// <param name="batteries"></param>
         /// <param name="reactors"></param>
-        public void ManageDockingState(string connectedConnector = "", bool thrusters = true, bool gyros = true, bool lights = true, bool batteries = true, bool reactors = true)
+        public void ManageDockingState()
         {
             bool doTurnOff = false;
-            if (connectedConnector != "")
+            if ( settings.BaseConnector != "")
             {
-                var cCon = gp.GetBlock(connectedConnector, false);
+                var cCon = gp.GetBlock( settings.BaseConnector, false);
                 if (cCon is IMyShipConnector && (cCon as IMyShipConnector).IsConnected)
                     doTurnOff = true;
             } else
                 doTurnOff = true;
-            if (cm.AnyConnected() && doTurnOff)
+            if ( cm.AnyConnected() && doTurnOff)
             {
-                if (thrusters)      listThrusters.TurnOff();
-                if (gyros)          listGyros.TurnOff();
-                if (lights)         listSpots.TurnOff();
-                if (reactors)       listReactors.TurnOff();
-                if (batteries)      bm.Recharge(true);
+                if ( settings.SwitchThrusters)      listThrusters.TurnOff();
+                if ( settings.SwitchGyros) listGyros.TurnOff();
+                if ( settings.SwitchLights) listSpots.TurnOff();
+                if ( settings.SwitchReactors) listReactors.TurnOff();
+                if ( settings.DischargeBattteries) bm.Discharge(false);
+                if ( settings.RechargeBatteries) bm.Recharge(true);
             }
             else
             {
-                if (thrusters)      listThrusters.TurnOn();
-                if (gyros)          listGyros.TurnOn();
-                if (lights)         listSpots.TurnOn();
-                if (reactors)       listReactors.TurnOn();
-                if (batteries) bm.Recharge(false);
+                if ( settings.SwitchThrusters) listThrusters.TurnOn();
+                if ( settings.SwitchGyros) listGyros.TurnOn();
+                if ( settings.SwitchLights) listSpots.TurnOn();
+                if ( settings.SwitchReactors) listReactors.TurnOn();
+                if ( settings.RechargeBatteries) bm.Recharge(false);
+                if ( settings.DischargeBattteries) bm.Discharge(true);
             }
         }
 
         public void Dock()
         {
-            if (cm.AnyConnected())
+            if ( cm.AnyConnected())
             {
                 listReactors.TurnOn();
-                bm.Recharge(false);
+                if ( settings.RechargeBatteries) bm.Recharge(false);
+                if ( settings.DischargeBattteries) bm.Discharge(true);
                 cm.UnLock();
             }else 
                 cm.Lock();
@@ -105,8 +111,8 @@ namespace ShipManager
 
         public void AddBreachDoorZone(string ventSideA, string ventSideB, string doorSideA, string doorSideB)
         {
-            var bdz = new BreachDoorZone(gp, ventSideA, ventSideB, doorSideA, doorSideB);
-            if (breachDoorZones.ContainsKey(ventSideA + ventSideB + doorSideA + doorSideB))
+            var bdz = new BreachDoorZone( gp, ventSideA, ventSideB, doorSideA, doorSideB);
+            if ( breachDoorZones.ContainsKey(ventSideA + ventSideB + doorSideA + doorSideB))
                 breachDoorZones[ventSideA + ventSideB + doorSideA + doorSideB] = bdz;
             else
                 breachDoorZones.Add(ventSideA + ventSideB + doorSideA + doorSideB,bdz);
@@ -117,6 +123,14 @@ namespace ShipManager
             while (bdzEnum.MoveNext())
                 bdzEnum.Current.Value.CheckBreach();
         }
+        
+    }
+
+    class ShipManagerSettings
+    {
+        public bool SwitchThrusters = true, SwitchGyros = true, SwitchReactors = true, SwitchLights = true, RechargeBatteries = true,
+            DischargeBattteries = true;
+        public string BaseConnector = "";
         
     }
 

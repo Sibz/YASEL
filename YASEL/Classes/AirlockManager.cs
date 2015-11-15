@@ -7,242 +7,236 @@ using VRageMath;
 
 namespace AirlockManager
 {
-    using GridHelper;
-    using Block;
-    using Door;
-    using Airvent;
+    using AirventManager;
+    using DoorManager;
+    using BlockExtensions;
 
-    public class AirlockManager
+    class AirlockManager
     {
+        Dictionary<string, AirlockNP> airlocks;
+        MyGridProgram gp;
+
+        public Action<string, string, float> OnUpdate;
+
+        public AirlockManager(MyGridProgram gp, Action<string, string, float> onUpdate = null)
+        {
+            this.gp = gp;
+            airlocks = new Dictionary<string, AirlockNP>();
+            if (onUpdate != null)
+                OnUpdate = onUpdate;
+        }
+
+        public void Tick()
+        {
+            var alEnum = airlocks.GetEnumerator();
+            while (alEnum.MoveNext())
+                alEnum.Current.Value.Tick();
+        }
+
+        public void AddAirlockNP(string airlockName, string outerDoorName, string innerDoorName)
+        {
+            var newAirlock = new AirlockNP(gp, airlockName, outerDoorName, innerDoorName, OnUpdate);
+            if (!airlocks.ContainsKey(airlockName))
+                airlocks.Add(airlockName, newAirlock);
+            else
+                airlocks[airlockName] = newAirlock;
+        }
+
+        public void AddAirlock(string airlockName, string outerDoorName, string airventName, string innerDoorName = "")
+        {
+            var newAirlock = new Airlock(gp, airlockName, outerDoorName, innerDoorName, airventName, OnUpdate );
+            if (!airlocks.ContainsKey(airlockName))
+                airlocks.Add(airlockName, newAirlock);
+            else
+                airlocks[airlockName] = newAirlock;
+        }
+
+        public void OpenAirlock(string airlockName)
+        {
+            if (airlocks.ContainsKey(airlockName))
+                airlocks[airlockName].Open();
+            else
+                throw new Exception("AirlockManager: Unable to open airlock, name not found");
+        }
+
+        public void CloseAirlock(string airlockName)
+        {
+            if (airlocks.ContainsKey(airlockName))
+                airlocks[airlockName].Close();
+            else
+                throw new Exception("AirlockManager: Unable to close airlock, name not found");
+        }
+
+    }
+
+    class AirlockNP
+    {
+        MyGridProgram gp;
+
+        protected string airlockName, outerDoorName, innerDoorName;
+
+        protected DoorManager innerDoorManager;
+        protected DoorManager outerDoorManager;
         
-        AirlockManagerSettings m_settings;
-        Dictionary<string, Airlock> m_airlocks;
-        GridHelper gh;
+        protected Action<string, string, float> onUpdate;
 
-        public AirlockManager(GridHelper gh, AirlockManagerSettings settings)
+        protected const string Sealing = "Sealing";
+        protected const string Opening = "Opening";
+        protected const string Closing = "Closing";
+        protected const string Unsealing = "Unsealing";
+        protected const string Idle = "Idle";
+
+        protected string state = Idle;
+
+        public AirlockNP(MyGridProgram gp, string airlockName, string outerDoorName, string innerDoorName, Action<string, string, float> onUpdate)
         {
-            this.gh = gh;
-            m_settings = settings;
-            m_airlocks = new Dictionary<string, Airlock>();
-            var airlockSensors = new List<IMyTerminalBlock>();
-            gh.Gts.GetBlocksOfType<IMySensorBlock>(airlockSensors, delegate(IMyTerminalBlock b)
-            {
-                return (b.CustomName.Contains("airlock") && gh.BelongsToGrid(b));
-            });
-            airlockSensors.ForEach(sensor =>
-            {
-                var names = sensor.CustomName.Split(' ');
-                if (names.Length >= 2 && !m_airlocks.ContainsKey(names[2]))
-                {
-                    m_airlocks.Add(names[2], new Airlock(gh, names[2]));
-                    if (m_settings.OnAirlockUpdate != null) m_airlocks[names[2]].OnUpdate = m_settings.OnAirlockUpdate;
-                }
-            });
+            this.airlockName = airlockName;
+            this.outerDoorName = outerDoorName;
+            this.innerDoorName = innerDoorName;
+            this.onUpdate = onUpdate;
+            innerDoorManager = new DoorManager();
+            outerDoorManager = new DoorManager();
+
+            if (innerDoorName != "")
+                gp.GridTerminalSystem.GetBlocksOfType<IMyDoor>(innerDoorManager.Doors, b => { return (b.CustomName.Contains(innerDoorName) && b.CubeGrid==gp.Me.CubeGrid); });
+            gp.GridTerminalSystem.GetBlocksOfType<IMyDoor>(outerDoorManager.Doors, b => { return (b.CustomName.Contains(outerDoorName) && b.CubeGrid==gp.Me.CubeGrid); });
+
+            if (outerDoorManager.Doors.Count == 0)
+                throw new Exception("Airlock Error: Unable to initialise airlock '" + airlockName + "' -  Outer doors not found");
         }
-        /// <summary>
-        /// Airlock Automation<br />
-        /// Name components as follows<br />
-        /// Airlock Sensor AIRLOCKNAME x - Sensor(s) covering Exit<br />
-        /// xx AIRLOCKNAME x - Airvent(s) for airlock<br />
-        /// xx AIRLOCKNAME Ex x - Exterior doors<br />
-        /// xx AIRLOCKNAME In x - Interior doors<br />
-        /// *x can be a number (or word(s)) or ommited<br />
-        /// *xx can be word or words or ommited<br />
-        /// Example: An airlock called MyAirlock<br />
-        /// Sensor Name: Airlock Sensor MyAirlock<br />
-        /// Airvent Name: Airvent MyAirlock<br />
-        /// External Door: Hangar Door MyAirlock Ex 1, Hangar Door MyAirlock Ex 2, etc<br />
-        /// Internal Door: Door MyAirlock In<br />
-        /// </summary>
-        public void ManageAirlocks()
+
+        public void Open()
         {
-            var AirlockEnum = m_airlocks.GetEnumerator();
-            while (AirlockEnum.MoveNext())
-            {
-                AirlockEnum.Current.Value.Tick();
-            }
+            state = Sealing;
         }
-        public class Airlock
+        public void Close()
         {
-            string m_name, m_state;
-            List<IMyTerminalBlock> m_sensors;
-            List<IMyTerminalBlock> m_airvents;
-            List<IMyTerminalBlock> m_doorsEx;
-            List<IMyTerminalBlock> m_doorsIn;
-            DateTime m_lastPressureChangeTime;
-            float m_lastPressureChangeValue;
-            public Action<string, string, float> OnUpdate;
-            GridHelper gh;
+            state = Closing;
+        }
+        public virtual void Tick()
+        {
+            if (innerDoorManager.Doors.Count == 0)
+                throw new Exception("Airlock Error: Unable to initialise airlock '" + airlockName + "' -  Inner doors not found");
+            if (state == Sealing)
+            {
+                if (innerDoorManager.CloseAndLock())
+                    state = Opening;
+            }
+            else if (state == Opening)
+            {
 
-            public Airlock(GridHelper gh, string airlockName)
-            {
-                this.gh = gh;
-                m_name = airlockName;
-                m_state = "init";
-                m_sensors = new List<IMyTerminalBlock>();
-                m_airvents = new List<IMyTerminalBlock>();
-                m_doorsEx = new List<IMyTerminalBlock>();
-                m_doorsIn = new List<IMyTerminalBlock>();
-                gh.Gts.GetBlocksOfType<IMySensorBlock>(m_sensors,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && gh.BelongsToGrid(b)); });
-                gh.Gts.GetBlocksOfType<IMyAirVent>(m_airvents,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName) && gh.BelongsToGrid(b)); });
-                gh.Gts.GetBlocksOfType<IMyDoor>(m_doorsEx,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " Ex") && gh.BelongsToGrid(b)); });
-                gh.Gts.GetBlocksOfType<IMyDoor>(m_doorsIn,
-                    delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airlockName + " In") && gh.BelongsToGrid(b)); });
-            }
-            public void Tick()
-            {
-                if (m_state == "init")
+                if (!innerDoorManager.AreAllClosed())
                 {
-                    initialise();
-                }
-                else if ((m_state == "idle" || m_state == "opening" || m_state == "pressurise") && sensorActive())
-                {
-                    activate();
-                }
-                else if ((m_state == "opening" || m_state == "idle") && !sensorActive())
-                {
-                    cancelActivate();
-                }
-                else if (m_state == "depressurise" && sensorActive())
-                {
-                    open();
-                }
-                else if (m_state == "pressurise" && !sensorActive())
-                {
-                    deactivate();
-                }
-                else if ((m_state == "open" || m_state == "closing" || m_state == "depressurise") && !sensorActive())
-                {
-                    close();
-                }
-                else if (m_state == "closing" && sensorActive())
-                {
-                    cancelClose();
-                }
-                if (OnUpdate != null) OnUpdate(m_name, m_state, (m_airvents.IsValidIndex(0) ? (m_airvents[0] as IMyAirVent).GetOxygenLevel() : 0));
-            }
-            bool sensorActive()
-            {
-                bool rVal = false;
-                m_sensors.ForEach(sensor =>
-                {
-                    if ((sensor as IMySensorBlock).IsActive) rVal = true;
-                });
-                return rVal;
-            }
-            void activate()
-            {
-                m_state = "opening";
-                Block.TurnOnOff(m_doorsIn);
-                Door.Close(m_doorsIn);
-                if (Door.IsClosed(m_doorsIn))
-                {
-                    Block.TurnOnOff(m_doorsIn, false);
-                    Airvent.Depressurise(m_airvents);
-                    m_state = "depressurise";
-                }
-            }
-            void cancelActivate()
-            {
-                Block.TurnOnOff(m_doorsIn);
-                Door.Open(m_doorsIn);
-                if (Door.IsOpen(m_doorsIn))
-                {
-                    Block.TurnOnOff(m_doorsIn, false);
-                    Block.TurnOnOff(m_doorsEx, false);
-                    m_state = "idle";
-                }
-            }
-            void open()
-            {
-                if (m_airvents.IsValidIndex(0) && m_lastPressureChangeValue != (m_airvents[0] as IMyAirVent).GetOxygenLevel())
-                {
-                    m_lastPressureChangeTime = DateTime.Now;
-                    m_lastPressureChangeValue = (m_airvents[0] as IMyAirVent).GetOxygenLevel();
-                }
-                if ((m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() == 0) ||
-                    (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3)
-                {
-                    Block.TurnOnOff(m_doorsEx);
-                    Door.Open(m_doorsEx);
-                    if (Door.IsOpen(m_doorsEx))
-                    {
-                        m_lastPressureChangeValue = -1;
-                        Block.TurnOnOff(m_doorsEx, false);
-                        m_state = "open";
-                    }
-                }
-            }
-            void close()
-            {
-                m_state = "closing";
-                Block.TurnOnOff(m_doorsEx);
-                Door.Close(m_doorsEx);
-                if (Door.IsClosed(m_doorsEx))
-                {
-                    Block.TurnOnOff(m_doorsEx, false);
-                    Airvent.Pressurise(m_airvents);
-                    m_state = "pressurise";
-                }
-            }
-            void cancelClose()
-            {
-                Door.Open(m_doorsEx);
-                if (Door.IsOpen(m_doorsEx))
-                {
-                    Block.TurnOnOff(m_doorsEx, false);
-                    m_state = "open";
-                }
-            }
-            void deactivate()
-            {
-                Airvent.Pressurise(m_airvents);
-                if (m_airvents.IsValidIndex(0) && m_lastPressureChangeValue != (m_airvents[0] as IMyAirVent).GetOxygenLevel())
-                {
-                    m_lastPressureChangeTime = DateTime.Now;
-                    m_lastPressureChangeValue = (m_airvents[0] as IMyAirVent).GetOxygenLevel();
-                }
-                if (m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
-                    (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3)
-                {
-                    m_lastPressureChangeValue = -1;
-                    m_state = "idle";
-                }
-            }
-            void initialise()
-            {
-                Block.TurnOnOff(m_doorsEx);
-                Block.TurnOnOff(m_doorsIn);
-                Door.Close(m_doorsEx);
-                if (!Door.IsClosed(m_doorsEx))
+                    state = Sealing;
                     return;
-                Airvent.Pressurise(m_airvents);
-                if (m_airvents.IsValidIndex(0) && m_lastPressureChangeValue != (m_airvents[0] as IMyAirVent).GetOxygenLevel())
-                {
-                    m_lastPressureChangeTime = DateTime.Now;
-                    m_lastPressureChangeValue = (m_airvents[0] as IMyAirVent).GetOxygenLevel();
                 }
-                if (!(m_airvents.IsValidIndex(0) && (m_airvents[0] as IMyAirVent).GetOxygenLevel() > 0.75 ||
-                    (DateTime.Now - m_lastPressureChangeTime).TotalSeconds >= 3))
-                    return;
-                m_lastPressureChangeValue = -1;
-                Door.Open(m_doorsIn);
-                if (!Door.IsOpen(m_doorsIn))
-                    return;
-                Block.TurnOnOff(m_doorsEx, false);
-                Block.TurnOnOff(m_doorsIn, false);
-                m_state = "idle";
+                if (outerDoorManager.OpenAndLock())
+                    state = Idle;
             }
-
+            else if (state == Closing)
+            {
+                if (outerDoorManager.CloseAndLock())
+                    state = Unsealing;
+            }
+            else if (state == Unsealing)
+            {
+                if (!outerDoorManager.AreAllClosed())
+                {
+                    state = Closing;
+                    return;
+                }
+                if (innerDoorManager.OpenAndLock())
+                    state = Idle;
+            }
+            if (onUpdate != null)
+                onUpdate(airlockName, state, 0);
         }
     }
 
-    public class AirlockManagerSettings
+    class Airlock : AirlockNP
     {
-        public Action<string, string, float> OnAirlockUpdate;
+        string airventName;
+
+        const string Depressurising = "Depressurising";
+        const string Pressurising = "Pressurising";
+
+
+        AirventManager airlockVentManager;
+        List<IMyTerminalBlock> oxyTanks;
+        
+
+        public Airlock(MyGridProgram gp, string airlockName, string outerDoorName, string innerDoorName, string airventName, Action<string, string, float> onUpdate) :
+            base(gp, airlockName, outerDoorName, innerDoorName, onUpdate)
+        {
+            this.airventName = airventName;
+
+            airlockVentManager = new AirventManager();
+            oxyTanks = new List<IMyTerminalBlock>();
+
+            this.onUpdate = onUpdate;
+
+            gp.GridTerminalSystem.GetBlocksOfType<IMyOxygenTank>(oxyTanks, b => { return b.CubeGrid == gp.Me.CubeGrid; });
+
+            gp.GridTerminalSystem.GetBlocksOfType<IMyAirVent>(airlockVentManager.Airvents, delegate(IMyTerminalBlock b) { return (b.CustomName.Contains(airventName) && b.CubeGrid == gp.Me.CubeGrid); });
+            if (airlockVentManager.Airvents.Count == 0)
+                throw new Exception("Airlock Error: Unable to initialise airlock '" + airlockName + "' -  Vents not found");
+        }
+
+
+        public override void Tick()
+        {
+            if (state == Sealing)
+            {
+                // If we have inner doors, close them
+                if (innerDoorManager.Doors.Count>0)
+                    innerDoorManager.Shut();
+                state = Depressurising;
+            }
+            else if (state == Depressurising)
+            {
+                // Set Vents to depressurise
+                airlockVentManager.Depressurise();
+
+                // Wait for pressure to get to 0 - unless Oxygen tanks are full
+
+                if ((airlockVentManager.Airvents[0] as IMyAirVent).GetOxygenLevel() == 0 || oxyTanks.Count == 0 || oxyTankPercent() > 0.99)
+                    state = Opening;
+            }
+            else if (state == Opening)
+            {
+                if (outerDoorManager.OpenAndLock())
+                    state = Idle;
+            }
+            else if (state == Closing)
+            {
+                if (outerDoorManager.CloseAndLock())
+                    state = Pressurising;
+            }
+            else if (state == Pressurising)
+            {
+                airlockVentManager.Pressurise();
+                if ((airlockVentManager.Airvents[0] as IMyAirVent).GetOxygenLevel() > 0.90 || oxyTanks.Count == 0 || oxyTankPercent() < 0.01)
+                    state = Unsealing;
+            }
+            else if (state == Unsealing)
+            {
+                if (innerDoorManager.Doors.Count>0)
+                {
+                    innerDoorManager.Open();
+                    if (innerDoorManager.AreAllOpen())
+                        state = Idle;
+                } else
+                    state = Idle;
+            }
+            if (onUpdate!=null)
+                onUpdate(airlockName, state, (airlockVentManager.Airvents[0] as IMyAirVent).GetOxygenLevel());
+        }
+        private float oxyTankPercent()
+        {
+            float percentFull = 0;
+            oxyTanks.ForEach(tank => { percentFull += (tank as IMyOxygenTank).GetOxygenLevel(); });
+            percentFull = percentFull / oxyTanks.Count;
+            return percentFull;
+        }
     }
-    
 }

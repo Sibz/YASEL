@@ -52,7 +52,7 @@ namespace Disassembler
                     {
                         if (invCargo.CurrentVolume>0)
                         {
-                            Inventory.MoveItems(invCargo, invAssembler);
+                            Inventory.MoveItemsFrom(invCargo, invAssembler);
                             if (((float)invAssembler.CurrentVolume / (float)invAssembler.MaxVolume) > 0.95)
                                 return;
                         }

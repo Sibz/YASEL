@@ -40,7 +40,7 @@ namespace DoorExtensions
         }
         
         
-        static public bool CloseAndLockDoor(this IMyDoor door)
+        static public bool CloseAndLock(this IMyDoor door)
         {
             if (!door.IsClosed())
             {
@@ -55,7 +55,7 @@ namespace DoorExtensions
             return false;
         }
        
-        static public bool OpenAndLockDoor(this IMyDoor door)
+        static public bool OpenAndLock(this IMyDoor door)
         {
             if (!door.IsOpen())
             {

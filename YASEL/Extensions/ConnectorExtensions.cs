@@ -26,10 +26,12 @@ namespace ConnectorExtensions
         {
             if (c.IsConnected) c.SwitchLock();
         }
+
         public static void Lock(this IMyShipConnector c)
         {
             if (!c.IsConnected && c.IsLocked) c.SwitchLock();
         }
+
         /// <summary>
         /// Switches the throw out setting
         /// </summary>
