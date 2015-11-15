@@ -5,14 +5,14 @@ using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
 
-namespace Thruster
+namespace ThrustExtensions
 {
-    static class Thruster
+    public static class ThrustExtensions
     {
-        //# Requires GenericFunctions
-        public static void SetThrustOverride(IMyTerminalBlock thrust, double ovrd)
+       
+        public static void SetThrustOverride(this IMyThrust t, double ovrd)
         {
-            var t = thrust as IMyThrust;
+
             var bDef = t.BlockDefinition.ToString();
             double percentOvrd = ((double)ovrd) / 100;
             double ovrdVal = 0;
@@ -28,7 +28,5 @@ namespace Thruster
 
         }
 
-        public static void SetThrustOverride(List<IMyTerminalBlock> thrusts, double ovrd)
-        { thrusts.ForEach(t => { SetThrustOverride(t, ovrd); }); }
     }
 }

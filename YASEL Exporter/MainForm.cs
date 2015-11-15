@@ -100,11 +100,16 @@ namespace YASEL_Exporter
             output = Clean(output);
             var fEnum = includeFiles.GetEnumerator();
             string includes = "";
+            string extensions = "";
             while (fEnum.MoveNext())
             {
-                includes += "\r\n\r\n" + fEnum.Current.Value;
+                if (fEnum.Current.Key.Contains("Extension"))
+                    extensions += "\r\n\r\n" + fEnum.Current.Value;
+                else
+                    includes += "\r\n\r\n" + fEnum.Current.Value;
             }
-            output += minify(Clean(includes));
+            extensions = extensions.Remove(extensions.LastIndexOf("}") - 1);
+            output += minify(Clean(includes) + "}" + Clean(extensions));
             Clipboard.SetText(output);
         }
         private string GetFileCode(FileInfo codeFile)
