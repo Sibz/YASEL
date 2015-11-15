@@ -80,6 +80,7 @@
     <Compile Include="Extensions\CockpitExtensions.cs" />
     <Compile Include="Extensions\ConnectorExtensions.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
+    <Compile Include="Extensions\InventoryExtensions.cs" />
     <Compile Include="Extensions\ProgramExtensions.cs" />
     <Compile Include="Extensions\GyroExtensions.cs" />
     <Compile Include="Classes\Graph.cs" />
