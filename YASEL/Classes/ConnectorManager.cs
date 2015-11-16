@@ -49,14 +49,14 @@ namespace ConnectorManager
         public bool AnyConnected()
         {
             bool rval = false;
-            Connectors.ForEach(c => { if (c is IMyShipConnector) rval&=(c as IMyShipConnector).IsConnected; });
+            Connectors.ForEach(c => { if (c is IMyShipConnector) rval|=(c as IMyShipConnector).IsConnected; });
             return rval;
         }
 
         public bool AnyReadyToLock()
         {
             bool rval = false;
-            Connectors.ForEach(c => { if (c is IMyShipConnector) rval &= (c as IMyShipConnector).IsLocked; });
+            Connectors.ForEach(c => { if (c is IMyShipConnector) rval |= (c as IMyShipConnector).IsLocked; });
             return rval;
         }
 
