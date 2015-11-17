@@ -80,6 +80,7 @@
     <Compile Include="Classes\Disassembler.cs" />
     <Compile Include="Classes\ShipManager.cs" />
     <Compile Include="Classes\RefineryManager.cs" />
+    <Compile Include="Classes\SunTracker.cs" />
     <Compile Include="Extensions\AirventExtensions.cs" />
     <Compile Include="Extensions\BatteryExtensions.cs" />
     <Compile Include="Extensions\BlockExtensions.cs" />
