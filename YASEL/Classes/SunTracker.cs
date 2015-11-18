@@ -10,7 +10,6 @@ namespace SunTracker
     using ProgramExtensions;
     using SolarExtensions;
     using RotorExtensions;
-    using BlockExtensions;
 
     public class SunTracker
     {
@@ -81,9 +80,9 @@ namespace SunTracker
                 lastAngle = (float)Math.Round(rotor.Angle,2);
             } else if (state == waitingForSun)
             {
-                if (panel.GetCurrentPowerOutput() > 0f)
+                if (panel.GetMaxPowerOutput() > 0f)
                 {
-                    lastPowerReading = panel.GetCurrentPowerOutput();
+                    lastPowerReading = panel.GetMaxPowerOutput();
                     state = tracking; // logging;
                 }
             }
@@ -95,7 +94,7 @@ namespace SunTracker
     
         private void track()
         {
-            var currentPower = panel.GetCurrentPowerOutput();
+            var currentPower = panel.GetMaxPowerOutput();
 
             gp.Echo("Track:\n Curent Power:" + currentPower + "\n LastPower: " + lastPowerReading + "\n Moving: " + rotor.GetValueFloat("Velocity"));
 
