@@ -80,6 +80,7 @@
     <Compile Include="Classes\Disassembler.cs" />
     <Compile Include="Classes\ShipManager.cs" />
     <Compile Include="Classes\RefineryManager.cs" />
+    <Compile Include="Classes\SunTracker.cs" />
     <Compile Include="Extensions\AirventExtensions.cs" />
     <Compile Include="Extensions\BatteryExtensions.cs" />
     <Compile Include="Extensions\BlockExtensions.cs" />
@@ -105,7 +106,10 @@
     <Compile Include="Programs\ShipManagerProgram.cs" />
     <Compile Include="Programs\DisassemblerProgram.cs" />
     <Compile Include="Programs\RefineryManagerProgram.cs" />
-    <Compile Include="Programs\TestProgram.cs" />
+    <Compile Include="Programs\SunTrackerProgram.cs" />
+    <Compile Include="Programs\TestProgram.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
