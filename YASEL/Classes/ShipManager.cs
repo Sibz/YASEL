@@ -102,8 +102,7 @@ namespace ShipManager
             if ( cm.AnyConnected())
             {
                 listReactors.TurnOn();
-                if ( settings.RechargeBatteries) bm.Recharge(false);
-                if ( settings.DischargeBattteries) bm.Discharge(true);
+                bm.Recharge(false);
                 cm.UnLock();
             }else 
                 cm.Lock();

@@ -27,6 +27,12 @@ namespace BlockExtensions
         {
             return (checkIsWorking ? b.IsWorking : true) && ((b is IMyFunctionalBlock) ? ((IMyFunctionalBlock)b).Enabled : true);
         }
+        public static bool AreEnabled(this List<IMyTerminalBlock> blocks, bool checkIsWorking = true)
+        {
+            bool rval = true;
+            blocks.ForEach(b => { rval &= b.IsEnabled(); });
+            return rval;
+        }
 
         /// <summary>
         /// Retrieves details from DetailedInfo of a block

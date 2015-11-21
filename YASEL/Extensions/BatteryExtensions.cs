@@ -45,6 +45,11 @@ namespace BatteryExtensions
         {
             b.SetValueBool("Discharge", on);
         }
+
+        public static float GetChargePercent(this IMyBatteryBlock b)
+        {
+            return b.CurrentStoredPower / b.MaxStoredPower;
+        }
         
     }
 }

@@ -38,5 +38,11 @@ namespace BatteryManager
         {
             Batteries.ForEach(b => { if (b is IMyBatteryBlock) (b as IMyBatteryBlock).Discharge(on); });
         }
+        public float GetChargePercent()
+        {
+            float totalPercent = 0;
+            Batteries.ForEach(b => { if (b is IMyBatteryBlock) totalPercent+=(b as IMyBatteryBlock).GetChargePercent(); });
+            return totalPercent / Batteries.Count;
+        }
     }
 }
