@@ -14,13 +14,6 @@ namespace ProgramExtensions
     static public class ProgramExtensions
     {
 
-        /* Assemblable items
-        public const string Components = "BulletproofGlass,Computer,Construction,Detector,Display,Girder,GravityGenerator,InteriorPlate,LargeTube,Medical,MetalGrid,Motor,PowerCell,RadioCommunication,Reactor,SmallTube,SolarCell,SteelPlate,Thrust,Explosives";
-        public const string Ammos = "Missile200mm,NATO_25x184mm,NATO_5p56x45mm";
-        public const string Tools = "WelderItem,HandDrillItem,AngleGrinderItem,AutomaticRifleItem";
-        public const string Bottles = "OxygenBottle,HydrogenBottle";
-        */
-
         static public IMyTerminalBlock GetBlock(this MyGridProgram gp, string name, bool onGrid = true)
         {
             var blocks = new List<IMyTerminalBlock>();

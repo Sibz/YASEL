@@ -10,22 +10,15 @@ namespace ThrustExtensions
     public static class ThrustExtensions
     {
        
-        public static void SetThrustOverride(this IMyThrust t, double ovrd)
+        public static void SetThrustOverride(this IMyThrust t, double overridePercent)
         {
-
-            var bDef = t.BlockDefinition.ToString();
-            double percentOvrd = ((double)ovrd) / 100;
-            double ovrdVal = 0;
-
-            if (bDef.Contains("SmallBlockLargeThrust"))
-                ovrdVal = (((144000 * percentOvrd) < 1500) && (ovrd > 0)) ? 1500 : (144000 * percentOvrd);
-            else if (bDef.Contains("SmallBlockSmallThrust"))
-                ovrdVal = (((12000 * percentOvrd) < 150) && (ovrd > 0)) ? 150 : (12000 * percentOvrd);
-            else
-                throw new Exception("Unsupported Thruster TYPE:" + t.BlockDefinition.ToString());
-
+            double ovrdVal = Math.Max(t.GetMaxThrust() * 0.1, t.GetMaxThrust() * overridePercent);
             t.SetValue("Override", (float)(ovrdVal));
 
+        }
+        public static float GetMaxThrust(this IMyThrust thruster)
+        {
+            return thruster.GetMaximum<float>("Override");
         }
 
     }

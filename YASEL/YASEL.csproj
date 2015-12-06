@@ -81,6 +81,9 @@
     <Compile Include="Classes\ShipManager.cs" />
     <Compile Include="Classes\RefineryManager.cs" />
     <Compile Include="Classes\SunTracker.cs" />
+    <Compile Include="Classes\YaNavLib\YaNav.cs" />
+    <Compile Include="Classes\YaNavLib\YaNavControl.cs" />
+    <Compile Include="Classes\YaNavLib\YaNavThrusterControl.cs" />
     <Compile Include="Extensions\AirventExtensions.cs" />
     <Compile Include="Extensions\BatteryExtensions.cs" />
     <Compile Include="Extensions\BlockExtensions.cs" />
@@ -110,6 +113,7 @@
     <Compile Include="Programs\TestProgram.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\YaNavTestProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
