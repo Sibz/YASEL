@@ -83,6 +83,7 @@
     <Compile Include="Classes\SunTracker.cs" />
     <Compile Include="Classes\YaNavLib\YaNav.cs" />
     <Compile Include="Classes\YaNavLib\YaNavControl.cs" />
+    <Compile Include="Classes\YaNavLib\YaNavGyroControl.cs" />
     <Compile Include="Classes\YaNavLib\YaNavThrusterControl.cs" />
     <Compile Include="Extensions\AirventExtensions.cs" />
     <Compile Include="Extensions\BatteryExtensions.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Extensions\ThrustExtensions.cs" />
     <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Extensions\TextPanelExtensions.cs" />
+    <Compile Include="Extensions\YaNavBlockExtensions.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
@@ -114,6 +116,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Programs\YaNavTestProgram.cs" />
+    <Compile Include="Programs\YaNavThrusterControlTestProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

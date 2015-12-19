@@ -8,33 +8,30 @@ using VRageMath;
 namespace YaNavGyroControl
 {
     using YaNav;
+    using YaNavBlockExtensions;
     using GyroExtensions;
     using ProgramExtensions;
 
     public class YaNavGyroControl
     {
         MyGridProgram gp;
-        List<IMyTerminalBlock> gyroscopes;
-        Vector3D targetVector;
+        YaNavGyroControlSettings settings;
+        Vector3D? targetVector;
         string vectorDirection = "forward";
 
         public bool IsRotating = false;
 
 
-        public YaNavGyroControl(MyGridProgram gp, List<IMyTerminalBlock> gyroscopes = null)
+        public YaNavGyroControl(MyGridProgram gp, YaNavGyroControlSettings s)
         {
             this.gp = gp;
-            targetVector = Vector3D.Zero;
-            if (gyroscopes == null)
-            {
-                this.gyroscopes = new List<IMyTerminalBlock>();
-                gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>(this.gyroscopes, b => { return b.CubeGrid == gp.Me.CubeGrid; });
-            }
-            else
-            {
-                this.gyroscopes = gyroscopes;
-            }
-            if (this.gyroscopes.Count == 0)
+            this.settings = s;
+            targetVector = null;
+            
+            if (settings.Gyroscopes.Count == 0)
+                gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>(settings.Gyroscopes, b => { return b.CubeGrid == gp.Me.CubeGrid; });
+            
+            if (settings.Gyroscopes.Count == 0)
                 throw new YaNavGyroControlException(lang.ErrorNoGyroBlocks);
         }
 
@@ -45,18 +42,31 @@ namespace YaNavGyroControl
         }
         public void ClearVectorAndDirection()
         {
-            targetVector = Vector3D.Zero;
+            targetVector = null;
             vectorDirection = "";
-            gyroscopes.ForEach(gyroscope => { (gyroscope as IMyGyro).Stop(); });
+            settings.Gyroscopes.ForEach(gyroscope => { (gyroscope as IMyGyro).Stop(); (gyroscope as IMyGyro).OverrideOff(); });
+            IsRotating = false;
         }
         public void Tick()
         {
-            if (!Vector3D.IsZero(targetVector) && vectorDirection != "")
-                gyroscopes.ForEach(gyroscope =>
+            if ((targetVector.HasValue) && vectorDirection != "")
+                settings.Gyroscopes.ForEach(gyroscope =>
                 {
-                    IsRotating |= (gyroscope as IMyGyro).Rotate(targetVector, gyroscope.GetDirectionalVector(vectorDirection));
+                    IsRotating =
+                        settings.UseGravityVector ?
+                        !(gyroscope as IMyGyro).Rotate(targetVector.Value,settings.Remote.GetNaturalGravity(),
+                         settings.OrientationReferenceBlock == null ? gyroscope.GetDirectionalVector(vectorDirection, true) : settings.OrientationReferenceBlock.GetDirectionalVector(vectorDirection, true),
+                         settings.OrientationReferenceBlock.GetDirectionalVector("down",true),settings.GyroCoEff
+                        )
+                        :
+                        !(gyroscope as IMyGyro).Rotate(targetVector.Value, 
+                        settings.OrientationReferenceBlock == null ? gyroscope.GetDirectionalVector(vectorDirection,true) : settings.OrientationReferenceBlock.GetDirectionalVector(vectorDirection, true),
+                        settings.GyroCoEff
+                        );
+                    
                 });
         }
+        
     }
     public class YaNavGyroControlException : YaNavException
     {
@@ -64,6 +74,18 @@ namespace YaNavGyroControl
             : base("GyroControl: " + message)
         {
 
+        }
+    }
+    public class YaNavGyroControlSettings
+    {
+        public IMyRemoteControl Remote;
+        public bool UseGravityVector = true;
+        public float GyroCoEff = 1f;
+        public IMyTerminalBlock OrientationReferenceBlock;
+        public List<IMyTerminalBlock> Gyroscopes;
+        public YaNavGyroControlSettings()
+        {
+            Gyroscopes = new List<IMyTerminalBlock>();
         }
     }
 }
