@@ -57,6 +57,7 @@ namespace YASEL_Exporter
         private void button1_Click(object sender, EventArgs e)
         {
             CopyCode();
+            Application.Exit();
         }
 
         private void AddFilesToList(string d)
