@@ -54,9 +54,12 @@ namespace YaNavGyroControl
                 {
                     IsRotating =
                         settings.UseGravityVector ?
-                        !(gyroscope as IMyGyro).Rotate(targetVector.Value,settings.Remote.GetNaturalGravity(),
+                        !(gyroscope as IMyGyro).Rotate(
                          settings.OrientationReferenceBlock == null ? gyroscope.GetDirectionalVector(vectorDirection, true) : settings.OrientationReferenceBlock.GetDirectionalVector(vectorDirection, true),
-                         settings.OrientationReferenceBlock.GetDirectionalVector("down",true),settings.GyroCoEff
+                         settings.OrientationReferenceBlock.GetDirectionalVector("down",true),
+                         targetVector.Value,
+                         settings.Remote.GetNaturalGravity(), 
+                         settings.GyroCoEff
                         )
                         :
                         !(gyroscope as IMyGyro).Rotate(targetVector.Value, 

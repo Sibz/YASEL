@@ -64,14 +64,14 @@ namespace YaNavBlockExtensions
 
         // Rotation methods made with help from JoeTheDestoyer
         // See Thread: http://forums.keenswh.com/threads/gravity-aware-rotation.7376549/
-        public static bool Rotate(this IMyGyro gyroscope, Vector3 targetDirection, Vector3 gravDirection, Vector3 targetIndicator, Vector3 gravityIndicator, float coEff = 0.8f, float accuracy = 0.01f)
+        public static bool Rotate(this IMyGyro gyroscope, Vector3 targetIndicator, Vector3 gravityIndicator, Vector3 targetDirection, Vector3 gravDirection, float coEff = 0.8f, float accuracy = 0.01f)
         {
             // transform indicators into ones for the gyroscope, supports gyros placed in different directions
             Matrix localOrientation;
             gyroscope.Orientation.GetMatrix(out localOrientation);
             Matrix.Transpose(ref localOrientation, out localOrientation);
-            targetIndicator = Vector3.Negate(Vector3.Transform(targetIndicator, localOrientation));
-            gravityIndicator = Vector3.Negate(Vector3.Transform(gravityIndicator, localOrientation));
+            targetIndicator = Vector3.Transform(targetIndicator, localOrientation);
+            gravityIndicator = Vector3.Transform(gravityIndicator, localOrientation);
 
             // Transform to targetVector into a vector relative to the gyroscrope
             targetDirection = Vector3.Transform(targetDirection, MatrixD.Transpose(gyroscope.WorldMatrix.GetOrientation()));

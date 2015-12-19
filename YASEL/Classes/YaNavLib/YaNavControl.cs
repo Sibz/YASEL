@@ -51,9 +51,8 @@ namespace YaNavControl
         }
         public void Tick()
         {
-            GyroscopeController.Tick();
             ThrusterController.Tick();
-            
+            GyroscopeController.Tick();
             if (tasks.Count>0)
             {
                 if (tasks[0] is YaNavTravelTask) (tasks[0] as YaNavTravelTask).Process();
@@ -111,6 +110,7 @@ namespace YaNavControl
 
         private bool orientateToTarget = false;
         private bool orientated = false;
+        private bool firstRun = true;
 
         public override void Process()
         {
@@ -120,7 +120,7 @@ namespace YaNavControl
                 this.complete();
                 return;
             }
-            Target = navController.Settings.Remote.GetFreeDestination(Target.Value, 100f, 10f);
+            Target = navController.Settings.Remote.GetFreeDestination(Target.Value, 1000000f, 10f);
             if (navController.Settings.Debug.Contains("travelProcess")) gp.Echo("calculating difference");
             var difference = Target.Value - navController.Settings.Remote.GetPosition();
             if (difference.Length()<Precision)
@@ -145,17 +145,19 @@ namespace YaNavControl
             if (orientateToTarget)
                 OrientateTo = Vector3D.Normalize(Target.Value - navController.Settings.Remote.GetPosition());
 
-            // IF 
+            // If no indicator given, use remotes forward vector.
             if (!OrientationIndicator.HasValue)
             {
                 OrientationIndicator = navController.Settings.Remote.GetDirectionalVector();
             }
             if (navController.Settings.Debug.Contains("travelProcess")) gp.Echo("moving forward @ " + adjustedSpeed + " m/s");
-            navController.Settings.GyroSettings.OrientationReferenceBlock = gp.GetBlock("Cockpit");
             navController.GyroscopeController.SetVectorAndDirection(OrientateTo.Value);
-            navController.GyroscopeController.Tick();
-            
-            orientated |= !navController.GyroscopeController.IsRotating;
+
+
+            if (!firstRun)
+                orientated |= !navController.GyroscopeController.IsRotating;
+            else
+                firstRun = false;
             
             var localAngle = Vector3D.Transform(Target.Value - navController.Settings.Remote.GetPosition(), MatrixD.Transpose(navController.Settings.Remote.WorldMatrix.GetOrientation()));
 
@@ -166,6 +168,9 @@ namespace YaNavControl
                 navController.ThrusterController.MoveUp(0f);
                 navController.ThrusterController.MoveLeft(0f);
             }
+
+            
+            
 
         }
 
