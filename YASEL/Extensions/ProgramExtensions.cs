@@ -16,12 +16,8 @@ namespace ProgramExtensions
 
         static public IMyTerminalBlock GetBlock(this MyGridProgram gp, string name, bool onGrid = true)
         {
-            var blocks = new List<IMyTerminalBlock>();
+            var blocks = gp.SearchBlocks(name, onGrid);
 
-            if (onGrid)
-                gp.GridTerminalSystem.SearchBlocksOfName(name, blocks, b => { return b.CubeGrid == gp.Me.CubeGrid; });
-            else
-                gp.GridTerminalSystem.SearchBlocksOfName(name, blocks);
             if (blocks.Count == 0)
                 return null;
             return blocks[0];

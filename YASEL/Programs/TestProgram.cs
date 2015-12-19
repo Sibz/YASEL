@@ -8,41 +8,26 @@ using VRageMath;
 namespace TestProgram
 {
     using ProgramExtensions;
-    using YaNavThrusterControl;
+    using YaNavGyroControl;
 
     class TestProgram : MyGridProgram
     {
 
-        YaNavThrusterControl tc;
+        YaNavGyroControl gyroControl;
         int ticks = 0;
+        int ticksPerRun = 15;
 
         void Main(string argument)
         {
-            if (tc == null)
+            if (gyroControl == null)
             {
-                tc = new YaNavThrusterControl(this, new YaNavThrusterSettings()
-                {
-                    positionReferenceBlock = this.GetBlock("Cockpit"),
-                    remote = this.GetBlock("Remote") as IMyRemoteControl,
-                    thrusterGroupNames = new YaNavThrusterGroupNames()
-                    {
-                        Forward = "ft",
-                        Backward = "bt",
-                        Left = "lt",
-                        Right = "rt",
-                        Up = "ut",
-                        Down = "dt"
-                    }
-                });
+                gyroControl = new YaNavGyroControl(this, new YaNavGyroControlSettings() { OrientationReferenceBlock = this.GetBlock("Cockpit"), GyroCoEff = 0.2f } );
+                gyroControl.SetVectorAndDirection((this.GetBlock("Remote") as IMyRemoteControl).GetNaturalGravity(), "down");
             }
-            if (ticks % 15 == 0)
+            if (ticks % ticksPerRun == 0)
             {
-                tc.Tick();
-                tc.MoveForward(0f); // 50 m/s works ok, 1-5 m/s not so well.
-                tc.MoveUp(0f); // 50 m/s works ok, 1-5 m/s not so well.
-                tc.MoveRight(0f); // 50 m/s works ok, 1-5 m/s not so well.
-                IMyTextPanel tp = this.GetBlock("LCD test") as IMyTextPanel;
-                tp.WritePublicText(Me.DetailedInfo);
+                gyroControl.Tick();
+
             }
             ticks++;
 

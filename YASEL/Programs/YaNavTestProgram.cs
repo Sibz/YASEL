@@ -7,34 +7,43 @@ using VRageMath;
 
 namespace YaNavTestProgram
 {
-    using YaNav;
-    using YaNavThrusterControl;
+    using YaNavControl;
+    using YaNavGyroControl;
     using ProgramExtensions;
 
     class YaNavTestProgram : MyGridProgram
     {
 
-        YaNav myYaNav;
-        IMyTextPanel tp;
+        YaNavControl navController;
+        int ticks = 0;
+        int ticksPerRun = 15;
+
 
         void Main(string argument)
         {
-            tp = this.GetBlock("debug") as IMyTextPanel;
-            myYaNav = new YaNav(this, new YaNavSettings()
+            if (navController == null)
             {
-                ThrusterGroupNames = new YaNavThrusterGroupNames() {
-                    Forward = "ft",
-                    Backward = "bt",
-                    Left = "lt",
-                    Right = "rt",
-                    Up = "ut",
-                    Down = "dt"
-                },
-                InNatrualGravityOnly = true,
-            });
-            //var v = myYaNav.GetShipPosition();
-            //tp.WritePublicText("GPS:TEST:" + v.GetDim(0) + ":" + v.GetDim(1) + ":" + v.GetDim(2) + ":");
-            //GPS:Sibz #1:53557.72:-26756.97:11968.78:
+
+                navController = new YaNavControl(this, new YaNavSettings()
+                {
+                    Remote = this.GetBlock("Remote") as IMyRemoteControl,
+                    TickCount = ticksPerRun,
+                    Debug = new List<string>() { "tick", "initControl", "initThruster", "travelProcess", "move" },
+                    GyroSettings = new YaNavGyroControlSettings() { GyroCoEff = 0.3f }
+                    
+                });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(54044.06, -30534.40, -1936.67), Speed = 95f });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53279.77,-30374.92,-2806.39), Speed = 75 });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53505.71, -29514.11, -2170.06), Speed = 25f });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(54044.06, -30534.40, -1936.67), Speed = 95f });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53279.77, -30374.92, -2806.39), Speed = 75 });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53505.71, -29514.11, -2170.06), Speed = 25f });
+            }
+            if (ticks % ticksPerRun == 0)
+            {
+                navController.Tick();
+            }
+            ticks++;
 
         }
 
