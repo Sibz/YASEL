@@ -161,6 +161,9 @@ namespace YaNavControl
                 firstRun = false;
             
             var localAngle = Vector3D.Transform(Target.Value - navController.Settings.Remote.GetPosition(), MatrixD.Transpose(navController.Settings.Remote.WorldMatrix.GetOrientation()));
+            // If we are orientating ourself towards our target while moving towards it, we should move towards a halfway mark
+            if ((!OrientateFirst && !orientated) && orientateToTarget)
+                localAngle = Vector3D.Normalize(OrientationIndicator.Value + Vector3D.Normalize(localAngle));
 
             if ((OrientateFirst && orientated) || !OrientateFirst) navController.ThrusterController.MoveAngle(localAngle, adjustedSpeed);
             else
