@@ -15,8 +15,8 @@ namespace YaNavGyroControl
     {
         MyGridProgram gp;
         YaNavGyroControlSettings settings;
-        Vector3D? targetVector;
-        string vectorDirection = "forward";
+        Vector3D? targetDirection;
+        Vector3D? indicatorDirection;
 
         public bool IsRotating = false;
 
@@ -25,7 +25,7 @@ namespace YaNavGyroControl
         {
             this.gp = gp;
             this.settings = s;
-            targetVector = null;
+            targetDirection = null;
             
             if (settings.Gyroscopes.Count == 0)
                 gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>(settings.Gyroscopes, b => { return b.CubeGrid == gp.Me.CubeGrid; });
@@ -34,36 +34,36 @@ namespace YaNavGyroControl
                 throw new YaNavGyroControlException(lang.ErrorNoGyroBlocks);
         }
 
-        public void SetVectorAndDirection(Vector3D v, string d = "forward")
+        public void SetTargetAndIndicator(Vector3D target, Vector3D? indicator = null)
         {
-            targetVector = v;
-            vectorDirection = d;
+            targetDirection = target;
+            indicatorDirection = indicator ?? settings.OrientationReferenceBlock.GetDirectionalVector("forward", true);
         }
         public void ClearVectorAndDirection()
         {
-            targetVector = null;
-            vectorDirection = "";
+            targetDirection = null;
+            indicatorDirection = null;
             settings.Gyroscopes.ForEach(gyroscope => { (gyroscope as IMyGyro).Stop(); (gyroscope as IMyGyro).OverrideOff(); });
             IsRotating = false;
         }
         public void Tick()
         {
-            if ((targetVector.HasValue) && vectorDirection != "")
+            if ((targetDirection.HasValue) && (indicatorDirection.HasValue))
                 settings.Gyroscopes.ForEach(gyroscope =>
                 {
                     IsRotating =
                         settings.UseGravityVector ?
                         !(gyroscope as IMyGyro).Rotate(
-                         settings.OrientationReferenceBlock == null ? gyroscope.GetDirectionalVector(vectorDirection, true) : settings.OrientationReferenceBlock.GetDirectionalVector(vectorDirection, true),
+                         indicatorDirection.Value,
                          settings.OrientationReferenceBlock.GetDirectionalVector("down",true),
-                         targetVector.Value,
+                         targetDirection.Value,
                          settings.Remote.GetNaturalGravity(), 
                          settings.GyroCoEff,
                          settings.GyroAccuracy
                         )
                         :
-                        !(gyroscope as IMyGyro).Rotate(targetVector.Value, 
-                        settings.OrientationReferenceBlock == null ? gyroscope.GetDirectionalVector(vectorDirection,true) : settings.OrientationReferenceBlock.GetDirectionalVector(vectorDirection, true),
+                        !(gyroscope as IMyGyro).Rotate(targetDirection.Value,
+                        indicatorDirection.Value,
                         settings.GyroCoEff,
                         settings.GyroAccuracy
                         );

@@ -140,7 +140,8 @@ namespace YaNavControl
             } else 
                 adjustedSpeed = Speed;
 
-
+            // If no orientation specified, orientate towards target 
+            // (otherwise we'll orientate the ship in specified direction and move towards target, i.e. face 'forward', move 'left')
             if (!OrientateTo.HasValue)
                 orientateToTarget = true;
             if (orientateToTarget)
@@ -152,9 +153,9 @@ namespace YaNavControl
                 OrientationIndicator = navController.Settings.Remote.GetDirectionalVector();
             }
             if (navController.Settings.Debug.Contains("travelProcess")) gp.Echo("moving forward @ " + adjustedSpeed + " m/s");
-            navController.GyroscopeController.SetVectorAndDirection(OrientateTo.Value);
+            navController.GyroscopeController.SetTargetAndIndicator(OrientateTo.Value, OrientationIndicator);
 
-
+            // Will not be rotating on first run
             if (!firstRun)
                 orientated |= !navController.GyroscopeController.IsRotating;
             else
