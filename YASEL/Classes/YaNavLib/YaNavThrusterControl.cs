@@ -138,7 +138,7 @@ namespace YaNavThrusterControl
             if (settings.Debug.Contains("move")) gp.Echo("gravity coefficient: " + gravCoEff);
 
             // Our PID variables for tuning
-            float p = 0.08f * settings.MassCoEff * speedCoEff * gravCoEff;
+            float p = 0.10f * settings.MassCoEff * speedCoEff * gravCoEff;
             float i = 0.15f * settings.MassCoEff * speedCoEff;
             float d = 0.24f * settings.MassCoEff;
 
