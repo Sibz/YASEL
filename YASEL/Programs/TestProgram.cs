@@ -9,6 +9,7 @@ namespace TestProgram
 {
     using ProgramExtensions;
     using YaNavGyroControl;
+    using GyroExtensions;
 
     class TestProgram : MyGridProgram
     {
@@ -21,8 +22,8 @@ namespace TestProgram
         {
             if (gyroControl == null)
             {
-                gyroControl = new YaNavGyroControl(this, new YaNavGyroControlSettings() { OrientationReferenceBlock = this.GetBlock("Cockpit"), GyroCoEff = 0.2f } );
-                gyroControl.SetVectorAndDirection((this.GetBlock("Remote") as IMyRemoteControl).GetNaturalGravity(), "down");
+                gyroControl = new YaNavGyroControl(this, new YaNavGyroControlSettings() { OrientationReferenceBlock = this.GetBlock("Cockpit"), GyroCoEff = 0.2f });
+                gyroControl.SetTargetAndIndicator((this.GetBlock("Remote") as IMyRemoteControl).GetNaturalGravity(), (this.GetBlock("Remote") as IMyRemoteControl).GetDirectionalVector("down", true));
             }
             if (ticks % ticksPerRun == 0)
             {
