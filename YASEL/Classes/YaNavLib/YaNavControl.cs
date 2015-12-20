@@ -105,6 +105,7 @@ namespace YaNavControl
         public float Precision = 10f;
         public bool OrientateFirst = false;
         public bool SlowForTarget = true;
+        public bool ResetThrusters = false;
         public Vector3D? OrientateTo = null;
         public Vector3D? OrientationIndicator = null;
 
@@ -177,7 +178,7 @@ namespace YaNavControl
         protected override void complete()
         {
             navController.GyroscopeController.ClearVectorAndDirection();
-            navController.ThrusterController.StopThrusters();
+            if (ResetThrusters) navController.ThrusterController.StopThrusters();
             base.complete();
         }
     
