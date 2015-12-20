@@ -102,7 +102,6 @@
     <Compile Include="Extensions\ThrustExtensions.cs" />
     <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Extensions\TextPanelExtensions.cs" />
-    <Compile Include="Extensions\YaNavBlockExtensions.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />

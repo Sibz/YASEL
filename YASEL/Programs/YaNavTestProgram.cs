@@ -34,10 +34,10 @@ namespace YaNavTestProgram
                 });
                 navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(54044.06, -30534.40, -1936.67), Speed = 95f });
                 navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53279.77,-30374.92,-2806.39), Speed = 75 });
-                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53505.71, -29514.11, -2170.06), Speed = 25f });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53505.71, -29514.11, -2170.06), Speed = 55f });
                 navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(54044.06, -30534.40, -1936.67), Speed = 95f });
                 navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53279.77, -30374.92, -2806.39), Speed = 75 });
-                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53505.71, -29514.11, -2170.06), Speed = 25f });
+                navController.AddTask(new YaNavTravelTask() { Target = new Vector3D(53505.71, -29514.11, -2170.06), Speed = 55f });
             }
             if (ticks % ticksPerRun == 0)
             {

@@ -11,7 +11,7 @@ namespace YaNavControl
     using ThrustExtensions;
     using BlockExtensions;
     using YaNavThrusterControl;
-    using YaNavBlockExtensions;
+    using GyroExtensions;
     using YaNavGyroControl;
     using YaNav;
 

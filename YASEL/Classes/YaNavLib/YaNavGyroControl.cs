@@ -8,7 +8,6 @@ using VRageMath;
 namespace YaNavGyroControl
 {
     using YaNav;
-    using YaNavBlockExtensions;
     using GyroExtensions;
     using ProgramExtensions;
 
@@ -59,12 +58,14 @@ namespace YaNavGyroControl
                          settings.OrientationReferenceBlock.GetDirectionalVector("down",true),
                          targetVector.Value,
                          settings.Remote.GetNaturalGravity(), 
-                         settings.GyroCoEff
+                         settings.GyroCoEff,
+                         settings.GyroAccuracy
                         )
                         :
                         !(gyroscope as IMyGyro).Rotate(targetVector.Value, 
                         settings.OrientationReferenceBlock == null ? gyroscope.GetDirectionalVector(vectorDirection,true) : settings.OrientationReferenceBlock.GetDirectionalVector(vectorDirection, true),
-                        settings.GyroCoEff
+                        settings.GyroCoEff,
+                        settings.GyroAccuracy
                         );
                     
                 });
@@ -84,6 +85,7 @@ namespace YaNavGyroControl
         public IMyRemoteControl Remote;
         public bool UseGravityVector = true;
         public float GyroCoEff = 1f;
+        public float GyroAccuracy = 0.01f;
         public IMyTerminalBlock OrientationReferenceBlock;
         public List<IMyTerminalBlock> Gyroscopes;
         public YaNavGyroControlSettings()
