@@ -106,6 +106,7 @@ namespace YaNavControl
         public bool OrientateFirst = false;
         public bool SlowForTarget = true;
         public bool ResetThrusters = false;
+        public bool CollisionDetection = true;
         public Vector3D? OrientateTo = null;
         public Vector3D? OrientationIndicator = null;
 
@@ -121,7 +122,7 @@ namespace YaNavControl
                 this.complete();
                 return;
             }
-            Target = navController.Settings.Remote.GetFreeDestination(Target.Value, 1000000f, 10f);
+            if (CollisionDetection) Target = navController.Settings.Remote.GetFreeDestination(Target.Value, 1000000f, 10f);
             if (navController.Settings.Debug.Contains("travelProcess")) gp.Echo("calculating difference");
             var difference = Target.Value - navController.Settings.Remote.GetPosition();
             if (difference.Length()<Precision)
