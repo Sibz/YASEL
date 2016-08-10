@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
+using VRage.Game.ModAPI.Ingame;
 using VRageMath;
 
 namespace RefineryManager
@@ -14,7 +15,8 @@ namespace RefineryManager
     {
         MyGridProgram gp;
         RefineryManagerSettings s;
-        Dictionary<string, RefineryGroup> refineryGroups;
+        Dictionary<string, RefineryGroup> refineryGroups = new Dictionary<string, RefineryGroup>();
+        Random rnd = new Random();
 
         public RefineryManager(MyGridProgram gp, RefineryManagerSettings settings = null)
         {
@@ -41,7 +43,7 @@ namespace RefineryManager
 
         private void transferOreToRefineries(RefineryGroup refineryGroup)
         {
-            if (refineryGroup.OreContainerInventories.CountItems("Ore") == 0 || refineryGroup.RefineryInventories.GetPercentFull() > 0.95) return;
+            if (refineryGroup.OreContainerInventories.CountItems("","Ore") == 0 || refineryGroup.RefineryInventories.GetPercentFull() > 0.95) return;
 
 
             refineryGroup.RefineryInventories.ForEach(inventory =>
@@ -81,23 +83,36 @@ namespace RefineryManager
                         if (items.Count > 0)
                         {
                             int curIdx = 0;
+
+                            List<invItemToMove> itemsToMove = new List<invItemToMove>();
                             items.ForEach(item =>
                             {
                                 if (item.Content.TypeId.ToString().Contains("Ore"))
                                 {
-                                    
-                                    refInv.TransferItemFrom(cargoInv, curIdx, refInv.GetItems().Count, false,
-                                        (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1));
+                                    itemsToMove.Add( new invItemToMove() { itemIdx = curIdx, itemAmount = (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1) });
+                                    //refInv.TransferItemFrom(cargoInv, curIdx, refInv.GetItems().Count, false,
+                                      //  (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1));
                                 }
                                 curIdx++;
                             });
-                           
+                            
+                            for (int itemsCount = itemsToMove.Count; itemsCount > 0; itemsCount--)
+                            {
+                                int nxt = rnd.Next(itemsToMove.Count);
+                                refInv.TransferItemFrom(cargoInv, itemsToMove[nxt].itemIdx, refInv.GetItems().Count, false,
+                                        itemsToMove[nxt].itemAmount);
+                                itemsToMove.RemoveAt(nxt);
+                            }
                         }
                     });
                 }
             });
 
-
+        }
+        public class invItemToMove
+        {
+            public int itemIdx;
+            public VRage.MyFixedPoint itemAmount;
         }
     }
     class RefineryManagerSettings
@@ -106,15 +121,15 @@ namespace RefineryManager
         public RefineryManagerSettings()
         {
             OreMultipliers = new Dictionary<string, float>();
-            OreMultipliers.Add("Uranium", 0.05f);
+            OreMultipliers.Add("Uranium", 0.005f);
             OreMultipliers.Add("Platinum", 0.033f);
-            OreMultipliers.Add("Gold", 0.33f);
+            OreMultipliers.Add("Gold", 0.033f);
             OreMultipliers.Add("Magnesium", 0.1f);
-            OreMultipliers.Add("Silver", 0.45f);
+            OreMultipliers.Add("Silver", 0.02f);
             OreMultipliers.Add("Iron", 1f);
-            OreMultipliers.Add("Cobalt", 0.1f);
-            OreMultipliers.Add("Nickel", 0.33f);
-            OreMultipliers.Add("Silicon", 0.5f);
+            OreMultipliers.Add("Cobalt", 0.01f);
+            OreMultipliers.Add("Nickel", 0.015f);
+            OreMultipliers.Add("Silicon", 0.08f);
             
         }
     }
