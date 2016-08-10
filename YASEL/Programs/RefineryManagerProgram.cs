@@ -18,8 +18,8 @@ namespace RefineryManagerProgram
             if (refineryManager == null)
             {
                 refineryManager = new RefineryManager(this);
-                refineryManager.AddRefineryGroup("Ore For Productivity", "Productive Refineries", 1000);
-                refineryManager.AddRefineryGroup("Ore For Effectiveness", "Effective Refineries", 100);
+                refineryManager.AddRefineryGroup("Ore For Productivity", "Productive Refineries");
+                refineryManager.AddRefineryGroup("Ore For Effectiveness", "Effective Refineries");
             }
             refineryManager.ManageRefineries();
         }
