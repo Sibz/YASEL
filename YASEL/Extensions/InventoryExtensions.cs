@@ -4,29 +4,32 @@ using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
+using VRage.Game.ModAPI.Ingame;
 
 namespace InventoryExtensions
 {
     static class InventoryExtensions
     {
-        static public float CountItems(this IMyInventory inventory, string itemType = "", string itemSubtypeName = "")
+        static public float CountItems(this IMyInventory inventory, string itemName = "", string itemGroup = "")
         {
             float count = 0;
             var items = inventory.GetItems();
             items.ForEach(item =>
             {
-                if (item.Content.TypeId.ToString().Contains(itemType) &&
-                    item.Content.SubtypeName.Contains(itemSubtypeName))
+
+                if (item.Content.TypeId.ToString().Contains(itemGroup) &&
+                    item.Content.SubtypeName.Contains(itemName))
                     count += (float)item.Amount;
             });
             return count;
         }
-        static public float CountItems(this List<IMyInventory> inventories, string itemType = "", string itemSubtypeName = "")
+        static public float CountItems(this List<IMyInventory> inventories, string itemName = "", string itemGroup = "")
         {
             float count = 0;
+
             inventories.ForEach(inventory =>
             {
-                count += inventory.CountItems(itemType, itemSubtypeName);
+                count += inventory.CountItems(itemName, itemGroup);
             });
             return count;
         }
@@ -54,17 +57,20 @@ namespace InventoryExtensions
                 }
             });
         }
-        static public List<IMyInventory> GetInventories(this List<IMyTerminalBlock> invBlocks)
+        static public List<IMyInventory> GetInventories(this List<IMyTerminalBlock> invBlocks, int? index = null)
         {
             List<IMyInventory> invs = new List<IMyInventory>();
             invBlocks.ForEach(inv =>
             {
                 if (inv.HasInventory())
                 {
-                    for (int i = 0; i < inv.GetInventoryCount(); i++)
-                    {
-                        invs.Add(inv.GetInventory(i));
-                    };
+                    if (index.HasValue)
+                        invs.Add(inv.GetInventory(index.Value));
+                    else
+                        for (int i = 0; i < inv.GetInventoryCount(); i++)
+                        {
+                            invs.Add(inv.GetInventory(i));
+                        };
                 };
             });
             return invs;
@@ -79,12 +85,11 @@ namespace InventoryExtensions
             });
             return curVol / maxVol;
         }
-
         static public void MoveItemAmount(this List<IMyInventory> sources, List<IMyInventory> destinations, string itemName, VRage.MyFixedPoint amount, string itemType = "", float destinationMaxPercent = 0.98f)
         {
             if (sources.Count == 0 || destinations.Count == 0)
                 throw new Exception("MoveItemAmount: Unable to move, number of 'source' or 'destination' inventories = 0.");
-            if (sources.CountItems(itemType, itemName) == 0)
+            if (sources.CountItems(itemName, itemType) == 0)
                 return; // No Items to move
             if (destinations.GetPercentFull() > destinationMaxPercent)
                 return; // No Space for items
@@ -97,7 +102,7 @@ namespace InventoryExtensions
                 {
                     sources.ForEach(fromInv =>
                     {
-                        var itemCount = fromInv.CountItems(itemType, itemName);
+                        var itemCount = fromInv.CountItems(itemName, itemType);
                         if (itemCount > 0 && toInv.GetPercentFull() < destinationMaxPercent && amountMoved < amount)
                         {
                             var items = fromInv.GetItems();
@@ -109,7 +114,7 @@ namespace InventoryExtensions
                                 {
                                     toInv.TransferItemFrom(fromInv, itemIndex, null, null, amount - amountMoved);
                                 }
-                                amountMoved += (VRage.MyFixedPoint)(itemCount - fromInv.CountItems(itemType, itemName));
+                                amountMoved += (VRage.MyFixedPoint)(itemCount - fromInv.CountItems(itemName, itemType));
                                 if (amountMoved >= amount)
                                     return;
                                 itemIndex++;
@@ -122,7 +127,8 @@ namespace InventoryExtensions
                 else if (amountMoved >= amount)
                     return;
             });
-
+            
         }
+        
     }
 }
