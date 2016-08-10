@@ -4,67 +4,54 @@ using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
+using VRage.Game.ModAPI.Ingame;
 
 namespace Disassembler
 {
-    using GridHelper;
-    using Inventory;
-
+    using InventoryExtensions;
+    using ProgramExtensions;
+    using TextPanelExtensions;
+    
     public class Disassembler
     {
-        GridHelper gh;
+        MyGridProgram gp;
         DisassemblerSettings s;
 
-        public Disassembler(GridHelper gh,DisassemblerSettings settings)
+        public Disassembler(MyGridProgram gp,DisassemblerSettings settings)
         {
-            this.gh = gh;
+            this.gp = gp;
             s = settings;
         }
 
         public void FillDisassemblers()
         {
-            var cargos = gh.GetBlockGrp(s.ScrapComponentsCargoGroup);
-            var assemblers = gh.GetBlockGrp(s.DisassemblerGroup);
+            var cargos = gp.GetBlockGroup(s.ComponentsCargoGroup);
+            var assemblers = gp.GetBlockGroup(s.DisassemblerGroup);
+            var invCargos = cargos.GetInventories();
+            var invAssemblers = assemblers.GetInventories(1);
+            gp.Echo("Block Counts:" + cargos.Count + " / " + assemblers.Count);
+            gp.Echo("Inv Counts:" + invCargos.Count + " / " + invAssemblers.Count);
+            var targetValues = (gp.GetBlock(s.LCDTargetValues) as IMyTextPanel).GetValueList();
 
-            gh.Echo("Counting Items In Cargo : " + Inventory.CountItems(cargos));
-
-            if (Inventory.CountItems(cargos) == 0)
-                return;
+            var tvEnum = targetValues.GetEnumerator();
+            while (tvEnum.MoveNext())
+            {
+                var target = (tvEnum.Current.Value * (1 + s.OveragePercent));
+                var count = Math.Round(invCargos.CountItems(tvEnum.Current.Key) - target);
+                gp.Echo("Checking " + tvEnum.Current.Key);
+                gp.Echo("Count:" + invCargos.CountItems(tvEnum.Current.Key) + " target:" + target + " = " + count);
+                if (count > 0)
+                    invCargos.MoveItemAmount(invAssemblers, tvEnum.Current.Key, (VRage.MyFixedPoint)count);
+            }
             
-            var invAssemblers = new List<IMyInventory>();
-
-            assemblers.ForEach(assembler =>
-            {
-                invAssemblers.Add(assembler.GetInventory(1));
-            });
-
-            gh.Echo("Assembler Inventories:" + invAssemblers.Count);
-
-            var invCargos = Inventory.GetInventories(cargos);
-
-            gh.Echo("Cargo Inventories:" + invCargos.Count);
-
-            invAssemblers.ForEach(invAssembler =>
-            {
-                if (((float)invAssembler.CurrentVolume / (float)invAssembler.MaxVolume) < 0.95)
-                {
-                    invCargos.ForEach(invCargo =>
-                    {
-                        if (invCargo.CurrentVolume>0)
-                        {
-                            Inventory.MoveItemsFrom(invCargo, invAssembler);
-                            if (((float)invAssembler.CurrentVolume / (float)invAssembler.MaxVolume) > 0.95)
-                                return;
-                        }
-                    });
-                }
-            });
         }
     }
 
     public class DisassemblerSettings
     {
-        public string ScrapComponentsCargoGroup;
+        public string ComponentsCargoGroup;
         public string DisassemblerGroup;
+        public string LCDTargetValues = "LCDList";
+        public double OveragePercent = 0.25;
     }
 }
