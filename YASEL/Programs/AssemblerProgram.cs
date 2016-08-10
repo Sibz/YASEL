@@ -8,7 +8,6 @@ using VRageMath;
 namespace AssemblerProgram
 {
 
-    using GridHelper;
     using AssemblerManager;
 
     class AssemblerProgram : MyGridProgram
@@ -24,14 +23,13 @@ namespace AssemblerProgram
          * 
          */
 
-        GridHelper gh;
+
 
         AssemblerManager myAM;
         void Main(string argument)
         {
-            if (gh == null) gh = new GridHelper(this);
 
-            if (myAM == null)
+            if (myAM== null)
             {
                 // settings
                 AssemblerManagerSettings myAM_Settings = new AssemblerManagerSettings
@@ -39,11 +37,11 @@ namespace AssemblerProgram
                     // if you want to only use some assemblers in checks uncomment line below and provide group name
                     // AssemblerGroupName = "", 
 
-                    // RECOMMENDED - provide a group of cargo containers to count items from, otherwise it counts from all inventories
-                    // CargoGroupName = "", 
+                    // REQUIRED - provide a group of cargo containers to count items from, otherwise it counts from all inventories
+                    CargoGroupName = "Cargo Components", 
 
                     // REQUIRED, LCD with list of items and stock levels:
-                    LCDStockLevelsName = ""
+                    LCDStockLevelsName = "LCDList"
                     /*
                      Example List:
                       SteelPlate:1000
@@ -51,7 +49,7 @@ namespace AssemblerProgram
                       Construction:1500
                      */
                 };
-                myAM = new AssemblerManager(gh,myAM_Settings);
+                myAM = new AssemblerManager(this,myAM_Settings);
             }
             myAM.Tick();
         }

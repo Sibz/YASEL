@@ -2,26 +2,26 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
-using Sandbox.ModAPI.Interfaces;
-using VRageMath;
+
 
 namespace AssemblerManager
 {
-    using GridHelper;
-    using TextPanel;
-    using Inventory;
-    using Block;
+    using TextPanelExtensions;
+    using ProgramExtensions;
+    using InventoryExtensions;
+    using BlockExtensions;
+
     class AssemblerManager
     {
-        GridHelper gh;
+        MyGridProgram gp;
         AssemblerManagerSettings m_settings;
         List<IMyTerminalBlock> m_assemblers;
         List<IMyTerminalBlock> m_cargo;
         Dictionary<string, double> m_stockLevels;
 
-        public AssemblerManager(GridHelper gh,AssemblerManagerSettings settings)
+        public AssemblerManager(MyGridProgram gp, AssemblerManagerSettings settings)
         {
-            this.gh = gh;
+            this.gp = gp;
             m_settings = settings;
 
             m_assemblers = new List<IMyTerminalBlock>();
@@ -30,30 +30,35 @@ namespace AssemblerManager
 
             if (m_settings.LCDStockLevelsName == "")
                 throw new Exception("No LCD specified for item levels. Set LCDStockLevelNames in settings.");
-            if ((gh.GetBlock(m_settings.LCDStockLevelsName) as IMyTextPanel)==null)
+            if ((gp.GetBlock(m_settings.LCDStockLevelsName) as IMyTextPanel)==null)
                 throw new Exception("Unable to access LCD with name provided. Check Name, that block exists and ownership is same as programmable block.");
 
             if (m_settings.AssemblerGroupName == "")
-                gh.Gts.GetBlocksOfType<IMyAssembler>(m_assemblers, gh.BelongsToGrid);
+                gp.GridTerminalSystem.GetBlocksOfType<IMyAssembler>(m_assemblers, gp.OnGrid);
             else
-                m_assemblers = gh.GetBlockGroup(m_settings.AssemblerGroupName);
+                m_assemblers = gp.GetBlockGroup(m_settings.AssemblerGroupName);
 
             if (m_settings.CargoGroupName == "")
-                gh.Gts.GetBlocksOfType<IMyInventoryOwner>(m_cargo, gh.BelongsToGrid);
+            {
+                throw new Exception("CargoGroupName is required.");
+            }
             else
-                m_cargo = gh.GetBlockGroup(m_settings.CargoGroupName);
-
+                m_cargo = gp.GetBlockGroup(m_settings.CargoGroupName);
+            if (m_cargo.Count == 0)
+                throw new Exception("No blocks found in cargo group.");
         }
         public void Tick()
         {
-            m_stockLevels = TextPanel.GetValueListFromLCD(gh,m_settings.LCDStockLevelsName);
+            var tp = gp.GetBlock(m_settings.LCDStockLevelsName) as IMyTextPanel;
+
+            m_stockLevels = tp.GetValueList();
             var stockEnum = m_stockLevels.GetEnumerator();
             while (stockEnum.MoveNext())
             {
-                if (Inventory.CountItems(m_cargo, "", stockEnum.Current.Key) < stockEnum.Current.Value)
-                    Block.TurnOnOff(getItemAssemblers(stockEnum.Current.Key));
+                if (m_cargo.GetInventories().CountItems(stockEnum.Current.Key) < stockEnum.Current.Value)
+                    getItemAssemblers(stockEnum.Current.Key).TurnOn();
                 else
-                    Block.TurnOnOff(getItemAssemblers(stockEnum.Current.Key), false);
+                    getItemAssemblers(stockEnum.Current.Key).TurnOff();
             }
         }
 

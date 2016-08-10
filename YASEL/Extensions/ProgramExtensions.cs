@@ -39,9 +39,16 @@ namespace ProgramExtensions
             if (group == null)
                 return new List<IMyTerminalBlock>();
             else
-                return group.Blocks;
+            {
+                List<IMyTerminalBlock> blocks = new List<IMyTerminalBlock>();
+                group.GetBlocks(blocks);
+                return blocks;
+            }
             
         }
-        
+        static public bool OnGrid(this MyGridProgram gp, IMyTerminalBlock b)
+        {
+            return b.CubeGrid == gp.Me.CubeGrid;
+        }
     }
 }
