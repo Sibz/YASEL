@@ -39,6 +39,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\Sandbox.Game.dll</HintPath>
     </Reference>
+    <Reference Include="SpaceEngineers.Game">
+      <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\SpaceEngineers.Game.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +65,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\VRage.Math.dll</HintPath>
     </Reference>
+    <Reference Include="VRage.Scripting">
+      <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\VRage.Scripting.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AirlockManager.cs" />
@@ -80,6 +86,8 @@
     <Compile Include="Classes\Disassembler.cs" />
     <Compile Include="Classes\ShipManager.cs" />
     <Compile Include="Classes\RefineryManager.cs" />
+    <Compile Include="Classes\StatusDisplay.cs" />
+    <Compile Include="Classes\BatteryInfoModule.cs" />
     <Compile Include="Classes\SunTracker.cs" />
     <Compile Include="Classes\YaNavLib\YaNav.cs" />
     <Compile Include="Classes\YaNavLib\YaNavControl.cs" />
@@ -112,6 +120,7 @@
     <Compile Include="Programs\RefineryManagerProgram.cs" />
     <Compile Include="Programs\SunTrackerProgram.cs" />
     <Compile Include="Programs\ComponentLevelsProgram.cs" />
+    <Compile Include="Programs\StatusDisplayProgram.cs" />
     <Compile Include="Programs\TestProgram.cs">
       <SubType>Code</SubType>
     </Compile>
