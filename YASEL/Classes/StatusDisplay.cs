@@ -15,7 +15,7 @@ namespace StatusDisplay
     public class StatusDisplay
     {
         public MyGridProgram gp;
-        List<StatusDisplayLCD> lcds = new List<StatusDisplayLCD>();
+        List<StatusDisplayLCD> displays = new List<StatusDisplayLCD>();
         StatusDisplaySettings settings;
         public int incrementer = 0;
 
@@ -24,26 +24,32 @@ namespace StatusDisplay
         {
             this.gp = gp;
             this.settings = settings == null ? new StatusDisplaySettings() : settings;
-            if (this.settings.lcds == null)
+            foreach (var module in settings.Modules)
             {
-                this.settings.lcds = new List<IMyTerminalBlock>();
-                gp.GridTerminalSystem.GetBlocksOfType<IMyTextPanel>(this.settings.lcds, gp.OnGrid);
+                if (!Modules.ContainsKey(module.CommandName))
+                    AddModule(module);
             }
-            gp.dbout("Settings loaded. Cylcing " + this.settings.lcds.Count + " TextPanels");
-            foreach (IMyTextPanel lcd in this.settings.lcds)
+            if (this.settings.textPanels == null)
+            {
+                this.settings.textPanels = new List<IMyTerminalBlock>();
+                gp.GridTerminalSystem.GetBlocksOfType<IMyTextPanel>(this.settings.textPanels, gp.OnGrid);
+            }
+            gp.dbout("Settings loaded. Cylcing " + this.settings.textPanels.Count + " TextPanels");
+            foreach (IMyTextPanel lcd in this.settings.textPanels)
             {
                 var pt = lcd.GetPrivateTitle();
-                gp.dbout("Checking TextPanel " + lcd.CustomName + " which has pt of:\n " + pt);
+                //gp.dbout("Checking TextPanel " + lcd.CustomName + " which has pt of:\n " + pt);
                 if (!pt.Contains("$display"))
                     continue;
-                gp.dbout("Found LCD with trigger title");
+                //gp.dbout("Found LCD with trigger title");
+
+                var statusDisplayLCDSettings = new StatusDisplayLCDSettings();
                 if (pt.Contains("$displaySpan#"))
                 {
                     try
                     {
-                        var newLCDS = gp.SearchBlocks(pt.Split('#')[1], true);
-                        if (newLCDS.Count > 0)
-                            lcds.Add(new StatusDisplayLCDSpan(this, newLCDS));
+                        statusDisplayLCDSettings.Displays = gp.SearchBlocks(pt.Split('#')[1], true);
+                        statusDisplayLCDSettings.Displays.Sort((x, y) => { return x.CustomName.CompareTo(y.CustomName); });
                     }
                     catch (Exception e)
                     {
@@ -52,8 +58,9 @@ namespace StatusDisplay
                 }
                 else
                 {
-                    lcds.Add(new StatusDisplayLCD(this, lcd));
+                    statusDisplayLCDSettings.Displays = new List<IMyTerminalBlock>() { lcd };
                 }
+                displays.Add(new StatusDisplayLCD(this, statusDisplayLCDSettings));
             }
         }
         public void AddModule(StatusDisplayModule mod)
@@ -63,7 +70,7 @@ namespace StatusDisplay
         }
         public void UpdateDisplays()
         {
-            foreach (StatusDisplayLCD lcd in lcds)
+            foreach (StatusDisplayLCD lcd in displays)
             {
                 lcd.Update();
             }
@@ -73,106 +80,115 @@ namespace StatusDisplay
 
     public class StatusDisplaySettings
     {
-        public List<IMyTerminalBlock> lcds = null;
+        public List<IMyTerminalBlock> textPanels = null;
+        public List<StatusDisplayModule> Modules = new List<StatusDisplayModule>();
         public bool debug = true;
     }
 
-    public class StatusDisplayLCDSpan : StatusDisplayLCD
+    public class StatusDisplayLCDSettings
     {
-        List<IMyTerminalBlock> lcds = new List<IMyTerminalBlock>();
-        public StatusDisplayLCDSpan(StatusDisplay sd, List<IMyTerminalBlock> lcds) : base(sd)
-        {
-            sd.gp.dbout("Creating new SpannedLCD set with " + lcds.Count + " lcds");
-            if (lcds.Count == 0)
-                throw new InvalidOperationException("SpannedLCDS Write(): lcds.Count==0 ");
-            else if (lcds == null)
-                throw new NullReferenceException("SpannedLCDS Write(): lcds==null ");
-            this.lcds = lcds;
-            lcds.Sort((x, y) => { return x.CustomName.CompareTo(y.CustomName); });
-            lcd = lcds[0] as IMyTextPanel;
-            loadCommands();
-        }
-        internal override void Write()
-        {
-            if (lcds.Count == 0)
-                throw new InvalidOperationException("SpannedLCDS Write(): lcds.Count==0 ");
-            else if (lcds == null)
-                throw new NullReferenceException("SpannedLCDS Write(): lcds==null ");
-            lcds.WriteToScreens(displayString);
-        }
+        public IMyTextPanel PrimaryLCD { get { return Displays[0] as IMyTextPanel; } }  
+        public List<IMyTerminalBlock> Displays = new List<IMyTerminalBlock>();
     }
 
-    public class BaseStatusDisplayLCD
+    public class StatusDisplayLCD 
     {
-        internal StatusDisplay sd;
-        public BaseStatusDisplayLCD(StatusDisplay sd)
-        {
-            this.sd = sd;
-        }
-    }
-    public class StatusDisplayLCD : BaseStatusDisplayLCD
-    {
-        internal IMyTextPanel lcd;
         internal List<StatusDisplayCommand> commands = new List<StatusDisplayCommand>();
+        Dictionary<int, string> commandResults = new Dictionary<int, string>();
         internal string displayString = "";
         internal string textWithSubstitutedCommands = "";
+        StatusDisplayLCDSettings settings;
+        StatusDisplay sd;
 
-        public StatusDisplayLCD(StatusDisplay sd) : base(sd)
+        public StatusDisplayLCD(StatusDisplay sd, StatusDisplayLCDSettings settings)
         {
-
-        }
-        public StatusDisplayLCD(StatusDisplay sd, IMyTextPanel lcd) : base(sd)
-        {
+            this.sd = sd;
+            this.settings = settings;
             sd.gp.dbout("Creating new LCD");
-            if (lcd == null)
-                throw new NullReferenceException("LCD Ctor: LCD is Null");
-            this.lcd = lcd;
-            loadCommands();
+            if (this.settings.PrimaryLCD == null)
+                throw new NullReferenceException("LCD Ctor: settings.primaryLCD is Null");
+            parseCommands();
+        }
+        private void parseCommands()
+        {
+            sd.gp.dbout("parsing commands...");
+            textWithSubstitutedCommands = settings.PrimaryLCD.GetPrivateText();
+            var commandstringMatch = System.Text.RegularExpressions.Regex.Match(textWithSubstitutedCommands, @"{[^#][^}]*}");
+            while(commandstringMatch.Success)
+            {
+                int id = sd.incrementer++;
+                textWithSubstitutedCommands = textWithSubstitutedCommands.Replace(commandstringMatch.Value, "{#%" + id + "}");
+                var commandMatch = System.Text.RegularExpressions.Regex.Match(commandstringMatch.Value, @"{(.*?)[}(]");
+                if (commandMatch.Success)
+                {
+                    var argsMatch = System.Text.RegularExpressions.Regex.Match(commandstringMatch.Value, @"\(([\s\S]*?)\)");
+                    var cmdMatchTrimmed = commandMatch.Value.Trim('{').Trim('}').Trim('(');
+                    sd.gp.dbout("Command Parts:\n -" + cmdMatchTrimmed);
+                    var commandParts = cmdMatchTrimmed.Split('.');
+                    var rawArgs = argsMatch.Success ? argsMatch.Value.Trim('(').Trim(')') : "";
+                    if (commandParts.Length == 2)
+                    {
+                        sd.gp.dbout("Value request:" + commandParts[1] + " from " + commandParts[0]);
+                        var command = commands.Find(x => { return x.Name == commandParts[0]; });
+                        if (command != null)
+                            commandResults.Add(id, command.GetValue(commandParts[1], parseArgs(rawArgs)));
+                    }
+                    else
+                    {
+                        sd.gp.dbout("New Command:" + commandParts[0]);
+                        var newCmd = new StatusDisplayCommand(sd, commandParts[0], parseArgs(rawArgs), id);
+                        commands.Add(newCmd);
+                        commandResults.Add(id,newCmd.Execute());
+                    }
+                }
+                else
+                    throw new Exception("Unable to parseCommands from LCD");
+
+                commandstringMatch = System.Text.RegularExpressions.Regex.Match(textWithSubstitutedCommands, @"{[^#][^}]*}");
+            }
+            sd.gp.dbout("Parsed Commands:");
+            foreach(var cmd in commands)
+            {
+                sd.gp.dbout(cmd.Name + " - " + cmd.Id);
+            }
+        }
+        private Dictionary<string, string> parseArgs(string rawArgs)
+        {
+            sd.gp.dbout("Parsing Args... (" + rawArgs + ")");
+            var result = new Dictionary<string, string>();
+            // Remove quoted strings and replace with a placeholder so we don't get confused with quoted , and =
+            Dictionary<int, string> removedStrings = new Dictionary<int, string>();
+            var quotedStringMatches = System.Text.RegularExpressions.Regex.Matches(rawArgs, @"""([\s\S]*?)""");
+
+            foreach (System.Text.RegularExpressions.Match quotedStringMatch in quotedStringMatches)
+            {
+                int id = removedStrings.Count;
+                if (quotedStringMatch.Success)
+                    removedStrings.Add(id, quotedStringMatch.Value.Replace("\"",""));
+                rawArgs = rawArgs.Replace(quotedStringMatch.Value, "{#%" + id + "}");
+            }
+            sd.gp.dbout("Removed Strings\n " + rawArgs);
+            rawArgs = rawArgs.Replace("\n", "").Replace(" ", "");
+
+            var argArray = rawArgs.Split(',');
+            foreach (var arg in argArray)
+            {
+                var argParts = arg.Split('=');
+                if (argParts.Length == 2) result.Add(argParts[0], replaceSubstitutedArgs(argParts[1], removedStrings));
+            }
+
+            sd.gp.dbout("Parsed Args:");
+            foreach (var r in result)
+            {
+                sd.gp.dbout(r.Key + "/" + r.Value);
+            }
+            return result;
         }
         public void Update()
         {
-            Dictionary<int, string> commandResults = new Dictionary<int, string>();
-
-            foreach (StatusDisplayCommand cmd in commands)
-            {
-                sd.gp.dbout("Updating command " + cmd.Id + " " + cmd.Name);
-                commandResults.Add(Convert.ToInt32(cmd.Id), cmd.Execute(Convert.ToInt32(cmd.Id)));
-            }
-            sd.gp.dbout("Replacing commands:" + textWithSubstitutedCommands);
+            sd.gp.dbout("StatusDisplayLCD.Update:\n -Replacing commands in:\n\n" + textWithSubstitutedCommands);
             displayString = replaceSubstitutedArgs(textWithSubstitutedCommands, commandResults);
             Write();
-        }
-        internal void loadCommands()
-        {
-            // display:Write("Batteries:\n");BatteryInfo(group="Station Batteries",count=true);
-            string rawText = lcd.GetPrivateText();
-            // Batteries:\n{batteryInfo(group = 'groupName' , count=false)}
-
-            var chars = rawText.ToCharArray();
-            sd.gp.dbout("LCD: Loading Commands...");
-            string newCommand = "";
-            bool inBrackets = false;
-            foreach (char c in chars)
-            {
-                if (!inBrackets && c != '{')
-                    textWithSubstitutedCommands += c;
-                else if (!inBrackets && c == '{')
-                {
-                    inBrackets = true;
-                    newCommand = "";
-                }
-                else if (inBrackets && c != '}')
-                    newCommand += c;
-                else if (inBrackets && c == '}')
-                {
-                    sd.gp.dbout("Creating new arg from: " + newCommand);
-                    var cmd = new StatusDisplayCommand(sd, newCommand, sd.incrementer++);
-                    commands.Add(cmd);
-                    textWithSubstitutedCommands += "{#%" + cmd.Id + "}";
-                    inBrackets = false;
-                }
-            }
-
         }
         static public string replaceSubstitutedArgs(string arg, Dictionary<int, string> substitutedArgs)
         {
@@ -199,79 +215,68 @@ namespace StatusDisplay
         }
         internal virtual void Write()
         {
-            if (lcd == null)
-                throw new NullReferenceException("LCD Write: LCD is Null");
-            lcd.WritePublicText(displayString);
+            if (settings.PrimaryLCD == null)
+                throw new NullReferenceException("StatusDisplayLCD.Write: LCD is Null");
+            if (settings.Displays.Count>1)
+                settings.Displays.WriteToScreens(displayString);
+            else
+                settings.PrimaryLCD.WritePublicText(displayString);
         }
     }
     public class StatusDisplayCommand
 
     {
         StatusDisplay sd;
-        public StatusDisplayCommand(StatusDisplay sd, string rawCommand, int instanceId)
+        public StatusDisplayCommand(StatusDisplay sd, string name, Dictionary<string,string> args, int id)
         {
             this.sd = sd;
-            Name = rawCommand.Split('(')[0];
-            Id = instanceId.ToString();
-            string rawArgs = rawCommand.Substring(rawCommand.IndexOf('(') + 1).Trim(')');
-            string argsWithSubstitutedQuotedStrings = "";
-            string quotedString = "";
-            Dictionary<int, string> quotedStrings = new Dictionary<int, string>();
-            bool inQuotes = false;
-            foreach (char c in rawArgs)
-            {
-                if (!inQuotes && c != '"')
-                    argsWithSubstitutedQuotedStrings += c;
-                else if (!inQuotes && c == '"')
-                {
-                    inQuotes = true;
-                    quotedString = "";
-                }
-                else if (inQuotes && c != '"')
-                    quotedString += c;
-                else if (inQuotes && c == '"')
-                {
-                    argsWithSubstitutedQuotedStrings += "{#%" + quotedStrings.Count + "}";
-                    quotedStrings.Add(quotedStrings.Count, quotedString);
-                    inQuotes = false;
-                }
-            }
-            argsWithSubstitutedQuotedStrings = argsWithSubstitutedQuotedStrings.Replace("\n", "").Replace(" ", "");
-            var argList = argsWithSubstitutedQuotedStrings.Split(',');
-            sd.gp.dbout("Cycling arglist from " + argsWithSubstitutedQuotedStrings);
-            foreach (string arg in argList)
-            {
-                sd.gp.dbout("Creating arg from " + StatusDisplayLCD.replaceSubstitutedArgs(arg, quotedStrings));
-                var argParts = arg.Split('=');
-                if (argParts.Length == 1)
-                    Args.Add("default", StatusDisplayLCD.replaceSubstitutedArgs(arg, quotedStrings));
-                else
-                    Args.Add(argParts[0], StatusDisplayLCD.replaceSubstitutedArgs(argParts[1], quotedStrings));
-            }
-
-
+            Name = name;
+            Id = id;
+            Args = args;
         }
-        public string Id;
+        public int Id;
         public string Name;
         public Dictionary<string, string> Args = new Dictionary<string, string>();
-        public string Execute(int instanceId)
+        public string Execute()
         {
             if (sd.Modules.ContainsKey(Name))
-                return sd.Modules[Name].Execute(instanceId, Args);
+                return sd.Modules[Name].Execute(Id, Args);
             return "Module " + Name + " Not Loaded";
+        }
+
+        internal string GetValue(string key, Dictionary<string, string> args)
+        {
+            if (!sd.Modules.ContainsKey(Name)) return "Module for value not loaded - " + Name + "." + key;
+            sd.gp.Echo("Getting Value " + key + " from " + Name);
+
+            if ( args.ContainsKey("formatAs"))
+            {
+                switch (args["formatAs"])
+                {
+                    case "time":
+                        return sd.Modules[Name].getValueTime(key);
+                    case "percent":
+                        return sd.Modules[Name].getValuePercent(key);
+                    case "power":
+                        return sd.Modules[Name].getValuePower(key);
+                    default:
+                        return sd.Modules[Name].getValue(key);
+                }
+            }
+            return sd.Modules[Name].getTypedValue(key);
         }
     }
     public abstract class StatusDisplayModule
     {
-        public StatusDisplay sd;
+        public MyGridProgram gp;
         internal int id;
         internal int currentInstanceId;
         internal Dictionary<string, string> defaultArgs = new Dictionary<string, string>();
         internal Dictionary<int, Dictionary<string, string>> instanceArgs = new Dictionary<int, Dictionary<string, string>>();
         internal Dictionary<int, Dictionary<string, string>> instanceValues = new Dictionary<int, Dictionary<string, string>>();
-        public StatusDisplayModule(StatusDisplay sd, Dictionary<string, string> defaultArgs, int id = -1)
+        public StatusDisplayModule(MyGridProgram gp, Dictionary<string, string> defaultArgs, int id = -1)
         {
-            this.sd = sd;
+            this.gp = gp;
             this.id = id;
             defaultArgs.Add("pad", "");
             defaultArgs.Add("group", "#all#");
@@ -281,7 +286,7 @@ namespace StatusDisplay
         public string CommandName { get { return commandName + (id == -1 ? "" : "-" + id); } }
         public string Execute(int instanceId, Dictionary<string, string> args)
         {
-            sd.gp.dbout("Executing " + CommandName + "/" + instanceId);
+            gp.dbout("Executing " + CommandName + "/" + instanceId);
             currentInstanceId = instanceId;
             if (!instanceArgs.ContainsKey(instanceId))
                 instanceArgs.Add(instanceId, new Dictionary<string, string>());
@@ -296,7 +301,7 @@ namespace StatusDisplay
                     instanceArgs[instanceId].Add(defaultArg.Key, defaultArg.Value);
             }
             if (!instanceValues.ContainsKey(currentInstanceId)) instanceValues.Add(currentInstanceId, new Dictionary<string, string>());
-            sd.gp.dbout("Loaded args");
+            gp.dbout("Loaded args");
 
             // Update values
             update();
@@ -350,10 +355,10 @@ namespace StatusDisplay
         }
         internal string getValue(string key, bool zeroOnError = false)
         {
-            sd.gp.dbout("Getting instance value:" + key);
+            gp.dbout("Getting instance value:" + key);
             if (instanceValues[currentInstanceId].ContainsKey(key))
             {
-                sd.gp.dbout(key + " = " + instanceValues[currentInstanceId][key]);
+                gp.dbout(key + " = " + instanceValues[currentInstanceId][key]);
                 return instanceValues[currentInstanceId][key];
             }
             return zeroOnError ? "0" : "";
