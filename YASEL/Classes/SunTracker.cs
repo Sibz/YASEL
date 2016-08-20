@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
+using SpaceEngineers.Game.ModAPI.Ingame;
 
 namespace SunTracker
 {
@@ -45,14 +46,16 @@ namespace SunTracker
         const string resetting = "Resetting";
         const string tracking = "Tracking";
         
-        float lastAngle = 0f, lastPowerReading = 0f;
+        float lastAngle = 0f, lastPowerReading = 0f, minPower, lastMoveReading;
         int logPosition = 0;
+        bool movementReset = true;
+        bool countedLossOnce = true;
 
-        public SolarArray(MyGridProgram gp, string panelName, string rotorName, float rotorVelocity = 0.1f)
+        public SolarArray(MyGridProgram gp, string panelName, string rotorName, float rotorVelocity = 0.1f, float minPower = 0.04f)
         {
             this.gp = gp;
             this.rotorVelocity = rotorVelocity;
-
+            this.minPower = minPower;
             panel = gp.GetBlock(panelName, false) as IMySolarPanel;
             if (panel == null) throw new Exception("SunTracker: Unable to creat solar array, can not access panel: " + panelName);
             
@@ -80,9 +83,10 @@ namespace SunTracker
                 lastAngle = (float)Math.Round(rotor.Angle,2);
             } else if (state == waitingForSun)
             {
-                if (panel.GetMaxPowerOutput() > 0f)
+                if (panel.MaxOutput > 0f)
                 {
-                    lastPowerReading = panel.GetMaxPowerOutput();
+                    lastPowerReading = panel.MaxOutput;
+                    lastMoveReading = panel.MaxOutput;
                     state = tracking; // logging;
                 }
             }
@@ -94,24 +98,37 @@ namespace SunTracker
     
         private void track()
         {
-            var currentPower = panel.GetMaxPowerOutput();
+            var currentPower = panel.MaxOutput;
 
             gp.Echo("Track:\n Curent Power:" + currentPower + "\n LastPower: " + lastPowerReading + "\n Moving: " + rotor.GetValueFloat("Velocity"));
-
-            if (currentPower<lastPowerReading && rotor.GetValueFloat("Velocity")==0f)
+            gp.Echo("lastMoveReading" + lastMoveReading + "\n");
+            if (movementReset)
+            {
+                lastMoveReading = currentPower;
+                movementReset = false;
+            }
+            if (currentPower<(lastMoveReading - 0.00005f) && rotor.GetValueFloat("Velocity")==0f)
             {
                 gp.Echo("Track: power is less and rotor is not moving, so moving rotor.");
                 rotor.SetValueFloat("Velocity", rotorVelocity);
             }
-            else if (currentPower <= lastPowerReading && rotor.GetValueFloat("Velocity") != 0f)
+            else if (currentPower < lastPowerReading && rotor.GetValueFloat("Velocity") != 0f)
             {
-                gp.Echo("Track: power is less or equal and rotor IS moving, so stopping rotor.");
-                rotor.SetValueFloat("Velocity", 0f);
+                if (countedLossOnce)
+                {
+                    countedLossOnce = false;
+                    gp.Echo("Track: power is less or equal and rotor IS moving, so stopping rotor.");
+                    rotor.SetValueFloat("Velocity", 0f);
+                    movementReset = true;
+                }
+                else
+                    countedLossOnce = true;
+                
             } 
             
-            if (currentPower ==0f && lastPowerReading == 0f)
+            if (currentPower < 0.02f && lastPowerReading < 0.02f)
             {
-                gp.Echo("Track: Two 0 power readouts, resseting.");
+                gp.Echo("Track: Two <0.02 power readouts, resseting.");
 
                 state = resetting;
             }

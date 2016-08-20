@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using VRageMath;
+using SpaceEngineers.Game.ModAPI.Ingame;
 
 namespace SolarManager
 {
     using SolarExtensions;
+    
     class SolarManager
     {
         List<IMyTerminalBlock> SolarPanels;
