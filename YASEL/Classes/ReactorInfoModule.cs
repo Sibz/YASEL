@@ -8,24 +8,23 @@ using Sandbox.ModAPI.Ingame;
 
 namespace ReactorInfoModule
 {
-    
+
     using StatusDisplay;
     using ProgramExtensions;
     using InventoryExtensions;
     using BlockExtensions;
     class ReactorInfoModule : StatusDisplayModule
     {
-        public ReactorInfoModule(MyGridProgram gp, int id = -1) : base(gp, id)
+        public ReactorInfoModule(MyGridProgram gp, Dictionary<string, string> defaultArgs = null, int id = -1) : base(gp, defaultArgs, id)
         {
-            defaultArgs.Add("display", "count;output;fuel;reactors;reactorName;reactorState;reactorOutput;reactorFuel");
-            defaultArgs.Add("countPrefix", "Count: ");
-            defaultArgs.Add("outputPrefix", "Power output: ");
-            defaultArgs.Add("fuelPrefix", "Uranium: ");
-            defaultArgs.Add("reactorNamePrefix", " ");
-            defaultArgs.Add("reactorStatePrefix", "\n  Status: ");
-            defaultArgs.Add("reactorOutputPrefix", "\n  Power output: ");
-            defaultArgs.Add("reactorFuelPrefix", "\n  Uranium: ");
-            defaultArgs.Add("outputType", "power");
+            addValueDefinition("count", "Count: ");
+            addValueDefinition("output", "Power output: ", "power");
+            addValueDefinition("fuel", "Uranium: ");
+            addValueDefinition("reactors");
+            addValueDefinition("reactorName", " ");
+            addValueDefinition("reactorState", "\n" + getDefaultArg("pad") + "  Status: ");
+            addValueDefinition("reactorOutput", "\n" + getDefaultArg("pad") + "  Power output: ");
+            addValueDefinition("reactorFuel", "\n" + getDefaultArg("pad") + "  Uranium: ");
         }
 
         internal override string commandName
