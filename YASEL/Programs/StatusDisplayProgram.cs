@@ -13,13 +13,12 @@ namespace StatusDisplayProgram
     class StatusDisplayProgram : MyGridProgram
     {
         StatusDisplay statusDisplay;
-        BatteryInfoModule bModule;
+        StatusDisplaySettings settings = new StatusDisplaySettings();
         void Main(string argument)
         {
             ProgramExtensions.Debug = true;
-            statusDisplay = new StatusDisplay(this);
-            if (bModule == null) bModule = new BatteryInfoModule(statusDisplay);
-            statusDisplay.AddModule(bModule);
+            settings.Modules.Add(new BatteryInfoModule(this));
+            statusDisplay = new StatusDisplay(this, settings);
             statusDisplay.UpdateDisplays();
         }
 

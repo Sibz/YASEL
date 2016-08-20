@@ -16,8 +16,9 @@ namespace BatteryInfoModule
     {
         private string groupName = "#all#";
         private Dictionary<int, avgDiff> instanceDiffs = new Dictionary<int, avgDiff>();
-        public BatteryInfoModule(StatusDisplay sd, int id = -1) : base(sd, new Dictionary<string, string>(), id)
+        public BatteryInfoModule(MyGridProgram gp, int id = -1) : base(gp, new Dictionary<string, string>(), id)
         {
+            this.gp = gp;
             defaultArgs.Add("display", "count;percent;input;output;maxStored;stored;time");
 
             defaultArgs.Add("countPrefix", "Quantity: ");
@@ -52,7 +53,7 @@ namespace BatteryInfoModule
 
         internal override void update()
         {
-            sd.gp.dbout(" - inside batteryInfo.execute");
+            gp.dbout(" - inside batteryInfo.execute");
 
             groupName = getArg("group");
 
@@ -60,14 +61,14 @@ namespace BatteryInfoModule
             if (groupName == "#all#")
             {
                 Func<IMyTerminalBlock, bool> collect = null;
-                if (getArgBool("onGrid")) collect = sd.gp.OnGrid;
-                sd.gp.GridTerminalSystem.GetBlocksOfType<IMyBatteryBlock>(batteries, collect);
+                if (getArgBool("onGrid")) collect = gp.OnGrid;
+                gp.GridTerminalSystem.GetBlocksOfType<IMyBatteryBlock>(batteries, collect);
             }
             else
             {
-                batteries = sd.gp.GetBlockGroup(groupName);
+                batteries = gp.GetBlockGroup(groupName);
             }
-            sd.gp.dbout("Loaded batteries");
+            gp.dbout("Loaded batteries");
             float input = 0f, output = 0f, maxStored = 0f, stored = 0f;
 
             foreach (IMyBatteryBlock b in batteries)
@@ -89,10 +90,10 @@ namespace BatteryInfoModule
             setValueFloat("lastPercent", percent);
             bool charging = lastPercent < percent;
             setValueBool("charging", charging);
-            sd.gp.dbout("charging: " + charging);
+            gp.dbout("charging: " + charging);
 
             int chargeTime = getChargeTime(charging, percent, lastPercent);
-            sd.gp.dbout("Charging Time: " + chargeTime);
+            gp.dbout("Charging Time: " + chargeTime);
 
             if (charging)
                 setValueInt("timeToCharge", chargeTime);
@@ -108,9 +109,9 @@ namespace BatteryInfoModule
                 setValue("fullyCharged", "");
             else
                 removeValue("fullyCharged");
-            sd.gp.dbout("roundedPercent:" + roundedPercent);
-            //sd.gp.dbout("timeToCharge:" + getTypedValue("timeToCharge"));
-            //sd.gp.dbout("timeToDischarge:" + getTypedValue("timeToDischarge"));
+            gp.dbout("roundedPercent:" + roundedPercent);
+            //gp.dbout("timeToCharge:" + getTypedValue("timeToCharge"));
+            //gp.dbout("timeToDischarge:" + getTypedValue("timeToDischarge"));
             setValue("time", roundedPercent == 1 ? getTypedValue("fullyCharged") :
                 (charging ? getTypedValue("timeToCharge") : getTypedValue("timeToDischarge")));
         }
@@ -121,7 +122,7 @@ namespace BatteryInfoModule
                 instanceDiffs.Add(currentInstanceId, new avgDiff());
             instanceDiffs[currentInstanceId].addDiff(chargeDiff);
             var runsTillCharged = (charging ? 1 - (percent) : percent) / instanceDiffs[currentInstanceId].avg();
-            return (int)(sd.gp.Runtime.TimeSinceLastRun.TotalMilliseconds * runsTillCharged);
+            return (int)(gp.Runtime.TimeSinceLastRun.TotalMilliseconds * runsTillCharged);
         }
         private string timeToCharge()
         {
@@ -131,14 +132,14 @@ namespace BatteryInfoModule
             if (Math.Round(percent * 100, getArgInt("chargeRounding")) == 100)
                 return "Fully Charged";
             bool charging = lastPercent < percent;
-            sd.gp.dbout("LastPercent" + lastPercent + "\nvs\vChargePercent" + percent);
-            sd.gp.dbout("Updated LastPercen=" + getValueFloat("lastPercent"));
+            gp.dbout("LastPercent" + lastPercent + "\nvs\vChargePercent" + percent);
+            gp.dbout("Updated LastPercen=" + getValueFloat("lastPercent"));
             float chargeDiff = (charging ? percent - lastPercent : lastPercent - percent);
             if (!instanceDiffs.ContainsKey(currentInstanceId))
                 instanceDiffs.Add(currentInstanceId, new avgDiff());
             instanceDiffs[currentInstanceId].addDiff(chargeDiff);
             var runsTillCharged = (charging ? 1 - (percent) : percent) / instanceDiffs[currentInstanceId].avg();
-            double msTillCharged = sd.gp.Runtime.TimeSinceLastRun.TotalMilliseconds * runsTillCharged;
+            double msTillCharged = gp.Runtime.TimeSinceLastRun.TotalMilliseconds * runsTillCharged;
             TimeSpan chargeTime = new TimeSpan(0, 0, 0, 0, (int)msTillCharged);
             return (charging ? "Charged in" : "Depleted in") + ": "
                 + (chargeTime.Hours > 0 ? chargeTime.Hours + "Hr" + (chargeTime.Hours > 1 ? "s " : " ") : " ") + chargeTime.Minutes + "min\n";
