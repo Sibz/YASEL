@@ -45,11 +45,11 @@ namespace SunTracker
         const string waitingForSun = "Waiting for sun";
         const string resetting = "Resetting";
         const string tracking = "Tracking";
-        
-        float lastAngle = 0f, lastPowerReading = 0f, minPower, lastMoveReading;
-        int logPosition = 0;
-        bool movementReset = true;
-        bool countedLossOnce = true;
+
+        float lastAngle = 0f, lastPowerReading = 0f, minPower;
+
+        PowerReadings powerReadings = new PowerReadings(3);
+        int movementRestCount = 0;
 
         public SolarArray(MyGridProgram gp, string panelName, string rotorName, float rotorVelocity = 0.1f, float minPower = 0.04f)
         {
@@ -86,7 +86,6 @@ namespace SunTracker
                 if (panel.MaxOutput > 0f)
                 {
                     lastPowerReading = panel.MaxOutput;
-                    lastMoveReading = panel.MaxOutput;
                     state = tracking; // logging;
                 }
             }
@@ -98,32 +97,34 @@ namespace SunTracker
     
         private void track()
         {
+            
+            
             var currentPower = panel.MaxOutput;
-
-            gp.Echo("Track:\n Curent Power:" + currentPower + "\n LastPower: " + lastPowerReading + "\n Moving: " + rotor.GetValueFloat("Velocity"));
-            gp.Echo("lastMoveReading" + lastMoveReading + "\n");
-            if (movementReset)
+            powerReadings.addReading(currentPower);
+            float diff = (float)Math.Round(currentPower - powerReadings.avg(), 7);
+            
+            gp.Echo("Track:\n Curent Power:" + currentPower + "\n powerAvg: " + powerReadings.avg() + "\n Moving: " + rotor.GetValueFloat("Velocity"));
+            gp.Echo("Diff:" + Math.Round(diff * 1000*1000,4) + "W");
+            
+            if (movementRestCount>0)
             {
-                lastMoveReading = currentPower;
-                movementReset = false;
+                gp.Echo("Recent movement made, resting");
+                movementRestCount--;
+                return;
             }
-            if (currentPower<(lastMoveReading - 0.00005f) && rotor.GetValueFloat("Velocity")==0f)
+            
+           
+            if (diff < 0 && rotor.GetValueFloat("Velocity")==0f)
             {
                 gp.Echo("Track: power is less and rotor is not moving, so moving rotor.");
                 rotor.SetValueFloat("Velocity", rotorVelocity);
+                movementRestCount = 2;
             }
-            else if (currentPower < lastPowerReading && rotor.GetValueFloat("Velocity") != 0f)
+            else if (diff <= 0 && rotor.GetValueFloat("Velocity") != 0f)
             {
-                if (countedLossOnce)
-                {
-                    countedLossOnce = false;
                     gp.Echo("Track: power is less or equal and rotor IS moving, so stopping rotor.");
                     rotor.SetValueFloat("Velocity", 0f);
-                    movementReset = true;
-                }
-                else
-                    countedLossOnce = true;
-                
+                movementRestCount = 6;
             } 
             
             if (currentPower < 0.02f && lastPowerReading < 0.02f)
@@ -131,10 +132,33 @@ namespace SunTracker
                 gp.Echo("Track: Two <0.02 power readouts, resseting.");
 
                 state = resetting;
+
             }
-            lastPowerReading = currentPower;
+            lastPowerReading = powerReadings.avg();
 
         }
 
+        class PowerReadings
+        {
+            int qSize;
+            public PowerReadings(int queueSize = 5)
+            {
+                qSize = queueSize;
+            }
+            Queue<float> readings = new Queue<float>();
+            public void addReading(float r)
+            {
+                readings.Enqueue(r);
+                if (readings.Count>qSize)
+                    readings.Dequeue();
+            }
+            public float avg()
+            {
+                float total = 0f;
+                foreach (var r in readings)
+                    total += r;
+                return total / readings.Count;
+            }
+        }
     }
 }

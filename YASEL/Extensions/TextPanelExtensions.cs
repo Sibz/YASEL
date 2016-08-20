@@ -34,7 +34,12 @@ namespace TextPanelExtensions
                     (screen as IMyTextPanel).WritePublicText("");
                     while (currentLine < lines.Length && linesWrittenToThisScreen < LinePerFontSize[fontSize])
                     {
-                        (screen as IMyTextPanel).WritePublicText(lines[currentLine] + "\n", true);
+                        var line = lines[currentLine];
+                        if (line.Contains("**line**"))
+                        {
+                            line = drawLine(screen, line);
+                        }
+                        (screen as IMyTextPanel).WritePublicText(line + "\n", true);
                         currentLine++;
                         linesWrittenToThisScreen++;
                     }
@@ -60,6 +65,18 @@ namespace TextPanelExtensions
                 });
             }
             return valueList;
+        }
+        private static string drawLine(this IMyTerminalBlock textPanel, string line)
+        {
+            var fontSize = (textPanel as IMyTextPanel).GetValueFloat("FontSize");
+            string result = "";
+            var multiplier = (118 / fontSize) - (fontSize / 6) - line.IndexOf("**line**");
+            if (!textPanel.BlockDefinition.SubtypeName.Contains("Wide")) multiplier = multiplier/2-1;
+            for (float i = 0; i <= multiplier; i++)
+            {
+                result += "-";
+            }
+            return line.Replace("**line**", result);
         }
         static private Dictionary<double, int> linePerFontSize()
         {
@@ -94,7 +111,7 @@ namespace TextPanelExtensions
             result.Add(2.8, 6);
             result.Add(2.9, 6);
             result.Add(3, 6);
-            for (double i = 3.1; i <= 3.7; i += 0.1)
+            for (double i = 3.1; i <= 3.71; i += 0.1)
                 result.Add(Math.Round(i, 1), 5);
             for (double i = 3.8; i <= 4.6; i += 0.1)
                 result.Add(Math.Round(i, 1), 4);

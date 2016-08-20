@@ -138,7 +138,7 @@ namespace StatusDisplay
                         sd.gp.dbout("New Command:" + commandParts[0]);
                         var newCmd = new StatusDisplayCommand(sd, commandParts[0], parseArgs(rawArgs), id);
                         commands.Add(newCmd);
-                        commandResults.Add(id,newCmd.Execute());
+                        commandResults.Add(id, newCmd.Execute());
                     }
                 }
                 else
@@ -152,6 +152,7 @@ namespace StatusDisplay
                 sd.gp.dbout(cmd.Name + " - " + cmd.Id);
             }
         }
+        
         private Dictionary<string, string> parseArgs(string rawArgs)
         {
             sd.gp.dbout("Parsing Args... (" + rawArgs + ")");
@@ -274,13 +275,20 @@ namespace StatusDisplay
         internal Dictionary<string, string> defaultArgs = new Dictionary<string, string>();
         internal Dictionary<int, Dictionary<string, string>> instanceArgs = new Dictionary<int, Dictionary<string, string>>();
         internal Dictionary<int, Dictionary<string, string>> instanceValues = new Dictionary<int, Dictionary<string, string>>();
-        public StatusDisplayModule(MyGridProgram gp, Dictionary<string, string> defaultArgs, int id = -1)
+        public StatusDisplayModule(MyGridProgram gp, Dictionary<string,string> defaultArgs = null, int id = -1)
         {
             this.gp = gp;
             this.id = id;
-            defaultArgs.Add("pad", "");
-            defaultArgs.Add("group", "#all#");
-            this.defaultArgs = defaultArgs;
+
+            setDefaultArg("pad", "");
+            setDefaultArg("group", "#all#");
+            setDefaultArgBool("onGrid", true);
+
+            if (defaultArgs != null)
+                foreach (var arg in defaultArgs)
+                    setDefaultArg(arg.Key, arg.Value);
+
+
         }
         internal abstract string commandName { get; }
         public string CommandName { get { return commandName + (id == -1 ? "" : "-" + id); } }
@@ -370,13 +378,17 @@ namespace StatusDisplay
         internal string getValueTime(string key)
         {
             TimeSpan chargeTime = new TimeSpan(0, 0, 0, 0, getValueInt(key));
-            return (chargeTime.Hours > 0 ? chargeTime.Hours + "Hr" + (chargeTime.Hours > 1 ? "s " : " ") : " ") + chargeTime.Minutes + "min";
+            return (chargeTime.Hours > 0 ? 
+                chargeTime.Hours + "Hr" + (chargeTime.Hours > 1 ? "s " : " ") : 
+                " ") + (chargeTime.Minutes > 0 ? chargeTime.Minutes + "min" : (chargeTime.Hours>0?"": chargeTime.Seconds + "sec"));
         }
-        internal string getValuePower(string key)
+        internal string getValuePower(string key, float? value = null)
         {
-            var power = getValueFloat(key);
+            var power = value.HasValue ? value.Value : getValueFloat(key);
+            if (power == 0)
+                return ("-");
             var unit = "MW";
-            if (power < 1)
+            if (power < 1 && power > 0.001)
             {
                 power = power * 1000;
                 unit = "kW";
@@ -407,10 +419,39 @@ namespace StatusDisplay
         {
             return Convert.ToBoolean(getArg(key));
         }
+        internal void setArgBool(string key, bool val)
+        {
+            setArg(key, val.ToString());
+        }
         internal string getArg(string key)
         {
             if (instanceArgs[currentInstanceId].ContainsKey(key))
                 return instanceArgs[currentInstanceId][key];
+            return "";
+        }
+        
+        internal void setArg(string key, string val)
+        {
+            if (instanceArgs[currentInstanceId].ContainsKey(key))
+                instanceArgs[currentInstanceId][key] = val;
+            else
+                instanceArgs[currentInstanceId].Add(key, val);
+        }
+        internal void setDefaultArgBool(string key, bool val)
+        {
+            setDefaultArg(key, val.ToString());
+        }
+        internal void setDefaultArg(string key, string val)
+        {
+            if (defaultArgs.ContainsKey(key))
+                defaultArgs[key] = val;
+            else
+                defaultArgs.Add(key, val);
+        }
+        internal string getDefaultArg(string key)
+        {
+            if (defaultArgs.ContainsKey(key))
+                return defaultArgs[key];
             return "";
         }
         internal abstract void update();
@@ -456,6 +497,15 @@ namespace StatusDisplay
         {
             if (hasValue(key))
                 instanceValues[currentInstanceId].Remove(key);
+        }
+        internal void addValueDefinition(string name, string prefix = "", string type = "", bool displayByDefault = true)
+        {
+            if (displayByDefault)
+                setDefaultArg("display", (getDefaultArg("display") + ";" + name).TrimStart(';'));
+            if (prefix != "")
+                setDefaultArg(name + "Prefix", prefix);
+            if (type != "")
+                setDefaultArg(name + "Type", type);
         }
     }
 
