@@ -15,7 +15,8 @@ namespace TestProgram
 
     class ComponentLevelsProgram : MyGridProgram
     {
-        IMyTerminalBlock lcdListTargetValues, lcdGraph;
+        IMyTerminalBlock lcdListTargetValues;
+        List<IMyTerminalBlock> lcdsGraph = new List<IMyTerminalBlock>();
         List<IMyInventory> componentCargo;
         Dictionary<string, double> currentValues = new Dictionary<string, double>();
        
@@ -27,11 +28,11 @@ namespace TestProgram
                 if (lcdListTargetValues == null)
                     throw new Exception("Unable to load LCD with target values");
             }
-            if (lcdGraph == null)
+            if (lcdsGraph.Count == 0)
             {
-                lcdGraph = this.GetBlock("LCDGraph", true);
-                if (lcdGraph == null)
-                    throw new Exception("Unable to load LCD for graph");
+                lcdsGraph = this.SearchBlocks("LCD Components", true);
+                if (lcdsGraph.Count == 0)
+                    throw new Exception("Unable to load LCDs for graph");
             }
             if (componentCargo == null)
             {
@@ -49,7 +50,7 @@ namespace TestProgram
                     currentValues.Add(tvEnum.Current.Key, componentCargo.CountItems(tvEnum.Current.Key));
             }
             string graph = Graph.PrepareBarGraph(targetValues, currentValues, 0.43);
-            (lcdGraph as IMyTextPanel).WritePublicText(graph);
+            lcdsGraph.WriteToScreens(graph);
         }
 
     }
