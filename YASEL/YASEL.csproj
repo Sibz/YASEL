@@ -80,6 +80,7 @@
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
+    <Compile Include="Classes\ReactorInfoModule.cs" />
     <Compile Include="Classes\SolarManager.cs" />
     <Compile Include="Classes\StationManager.cs" />
     <Compile Include="Classes\Disassembler.cs" />

@@ -9,6 +9,7 @@ namespace StatusDisplayProgram
 {
     using StatusDisplay;
     using BatteryInfoModule;
+    using ReactorInfoModule;
     using ProgramExtensions;
     class StatusDisplayProgram : MyGridProgram
     {
@@ -18,6 +19,7 @@ namespace StatusDisplayProgram
         {
             ProgramExtensions.Debug = true;
             settings.Modules.Add(new BatteryInfoModule(this));
+            settings.Modules.Add(new ReactorInfoModule(this));
             statusDisplay = new StatusDisplay(this, settings);
             statusDisplay.UpdateDisplays();
         }

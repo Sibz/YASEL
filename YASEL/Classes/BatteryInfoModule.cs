@@ -16,9 +16,8 @@ namespace BatteryInfoModule
     {
         private string groupName = "#all#";
         private Dictionary<int, avgDiff> instanceDiffs = new Dictionary<int, avgDiff>();
-        public BatteryInfoModule(MyGridProgram gp, int id = -1) : base(gp, new Dictionary<string, string>(), id)
+        public BatteryInfoModule(MyGridProgram gp, int id = -1) : base(gp, id)
         {
-            this.gp = gp;
             defaultArgs.Add("display", "count;percent;input;output;maxStored;stored;time");
 
             defaultArgs.Add("countPrefix", "Quantity: ");
@@ -40,7 +39,6 @@ namespace BatteryInfoModule
             defaultArgs.Add("timeToDischargeType", "time");
 
             defaultArgs.Add("chargeRounding", "1");
-            defaultArgs.Add("onGrid", "true");
 
         }
         internal override string commandName

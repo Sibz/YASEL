@@ -274,13 +274,14 @@ namespace StatusDisplay
         internal Dictionary<string, string> defaultArgs = new Dictionary<string, string>();
         internal Dictionary<int, Dictionary<string, string>> instanceArgs = new Dictionary<int, Dictionary<string, string>>();
         internal Dictionary<int, Dictionary<string, string>> instanceValues = new Dictionary<int, Dictionary<string, string>>();
-        public StatusDisplayModule(MyGridProgram gp, Dictionary<string, string> defaultArgs, int id = -1)
+        public StatusDisplayModule(MyGridProgram gp, int id = -1)
         {
             this.gp = gp;
             this.id = id;
             defaultArgs.Add("pad", "");
             defaultArgs.Add("group", "#all#");
-            this.defaultArgs = defaultArgs;
+            defaultArgs.Add("onGrid", "true");
+
         }
         internal abstract string commandName { get; }
         public string CommandName { get { return commandName + (id == -1 ? "" : "-" + id); } }
@@ -372,11 +373,13 @@ namespace StatusDisplay
             TimeSpan chargeTime = new TimeSpan(0, 0, 0, 0, getValueInt(key));
             return (chargeTime.Hours > 0 ? chargeTime.Hours + "Hr" + (chargeTime.Hours > 1 ? "s " : " ") : " ") + chargeTime.Minutes + "min";
         }
-        internal string getValuePower(string key)
+        internal string getValuePower(string key, float? value = null)
         {
-            var power = getValueFloat(key);
+            var power = value.HasValue ? value.Value : getValueFloat(key);
+            if (power == 0)
+                return ("-");
             var unit = "MW";
-            if (power < 1)
+            if (power < 1 && power > 0.001)
             {
                 power = power * 1000;
                 unit = "kW";
