@@ -13,7 +13,7 @@ namespace ProgramExtensions
     /// </summary>
     static public class ProgramExtensions
     {
-
+        static public bool Debug = false;
         static public IMyTerminalBlock GetBlock(this MyGridProgram gp, string name, bool onGrid = true)
         {
             var blocks = gp.SearchBlocks(name, onGrid);
@@ -35,7 +35,7 @@ namespace ProgramExtensions
         {
             List<IMyBlockGroup> groups = new List<IMyBlockGroup>();
             gp.GridTerminalSystem.GetBlockGroups(groups);
-            var group = groups.Find(x => x.Name.Contains(groupName));
+            var group = groups.Find(x => { return x.Name.Contains(groupName); });
             if (group == null)
                 return new List<IMyTerminalBlock>();
             else
@@ -50,5 +50,10 @@ namespace ProgramExtensions
         {
             return b.CubeGrid == gp.Me.CubeGrid;
         }
+        static public void dbout(this MyGridProgram gp, string message)
+        {
+            if (ProgramExtensions.Debug) gp.Echo(message);
+        }
+        
     }
 }
