@@ -109,6 +109,8 @@
     <Compile Include="Extensions\TextPanelExtensions.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
+    <Compile Include="Programs\PowerStatusProgram.cs" />
+    <Compile Include="Programs\IngotLevelsProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
     <Compile Include="Programs\InventoryTestProgram.cs" />
     <Compile Include="Programs\StationManagerProgram.cs" />
