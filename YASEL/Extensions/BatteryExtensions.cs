@@ -22,8 +22,16 @@ namespace BatteryExtensions
         {
             return b.CurrentStoredPower / b.MaxStoredPower;
         }
+        public static float ChargePercent(this List<IMyTerminalBlock> batteries)
+        {
+            float totalPercent = 0;
+            foreach (IMyBatteryBlock b in batteries)
+            {
+                totalPercent += b.ChargePercent();
+            }
+            return totalPercent / batteries.Count;
+        }
 
-      
         /// <summary>
         /// Determines if battery is charging from DetailedInfo
         /// </summary>
