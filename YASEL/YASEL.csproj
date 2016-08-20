@@ -39,6 +39,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\Sandbox.Game.dll</HintPath>
     </Reference>
+    <Reference Include="SpaceEngineers.Game">
+      <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\SpaceEngineers.Game.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +65,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\VRage.Math.dll</HintPath>
     </Reference>
+    <Reference Include="VRage.Scripting">
+      <HintPath>O:\SteamLibrary\steamapps\common\SpaceEngineers\Bin64\VRage.Scripting.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AirlockManager.cs" />
@@ -71,7 +77,6 @@
     <Compile Include="Classes\ConnectorManager.cs" />
     <Compile Include="Classes\DoorManager.cs" />
     <Compile Include="Classes\GyroManager.cs" />
-    <Compile Include="Classes\Inventory.cs" />
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
@@ -80,6 +85,8 @@
     <Compile Include="Classes\Disassembler.cs" />
     <Compile Include="Classes\ShipManager.cs" />
     <Compile Include="Classes\RefineryManager.cs" />
+    <Compile Include="Classes\StatusDisplay.cs" />
+    <Compile Include="Classes\BatteryInfoModule.cs" />
     <Compile Include="Classes\SunTracker.cs" />
     <Compile Include="Classes\YaNavLib\YaNav.cs" />
     <Compile Include="Classes\YaNavLib\YaNavControl.cs" />
@@ -96,14 +103,14 @@
     <Compile Include="Extensions\GyroExtensions.cs" />
     <Compile Include="Classes\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />
-    <Compile Include="Classes\TextPanels.cs" />
     <Compile Include="Extensions\RotorExtensions.cs" />
     <Compile Include="Extensions\SolarExtensions.cs" />
     <Compile Include="Extensions\ThrustExtensions.cs" />
-    <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Extensions\TextPanelExtensions.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
+    <Compile Include="Programs\PowerStatusProgram.cs" />
+    <Compile Include="Programs\IngotLevelsProgram.cs" />
     <Compile Include="Programs\ExampleProgram.cs" />
     <Compile Include="Programs\InventoryTestProgram.cs" />
     <Compile Include="Programs\StationManagerProgram.cs" />
@@ -112,6 +119,7 @@
     <Compile Include="Programs\RefineryManagerProgram.cs" />
     <Compile Include="Programs\SunTrackerProgram.cs" />
     <Compile Include="Programs\ComponentLevelsProgram.cs" />
+    <Compile Include="Programs\StatusDisplayProgram.cs" />
     <Compile Include="Programs\TestProgram.cs">
       <SubType>Code</SubType>
     </Compile>

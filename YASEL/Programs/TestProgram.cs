@@ -7,30 +7,19 @@ using VRageMath;
 
 namespace TestProgram
 {
+    using TextPanelExtensions;
     using ProgramExtensions;
-    using YaNavGyroControl;
-    using GyroExtensions;
-
+    
     class TestProgram : MyGridProgram
     {
 
-        YaNavGyroControl gyroControl;
-        int ticks = 0;
-        int ticksPerRun = 15;
+        
 
         void Main(string argument)
         {
-            if (gyroControl == null)
-            {
-                gyroControl = new YaNavGyroControl(this, new YaNavGyroControlSettings() { OrientationReferenceBlock = this.GetBlock("Cockpit"), GyroCoEff = 0.2f });
-                gyroControl.SetTargetAndIndicator((this.GetBlock("Remote") as IMyRemoteControl).GetNaturalGravity(), (this.GetBlock("Remote") as IMyRemoteControl).GetDirectionalVector("down", true));
-            }
-            if (ticks % ticksPerRun == 0)
-            {
-                gyroControl.Tick();
-
-            }
-            ticks++;
+            var inv = this.GetBlock("test").GetInventory(0);
+            var items = inv.GetItems();
+            
 
         }
 
