@@ -11,6 +11,7 @@ namespace BatteryInfoModule
 {
     using StatusDisplay;
     using ProgramExtensions;
+    using BlockExtensions;
 
     public class BatteryInfoModule : StatusDisplayModule
     {
@@ -39,6 +40,9 @@ namespace BatteryInfoModule
             defaultArgs.Add("timeToDischargeType", "time");
 
             defaultArgs.Add("chargeRounding", "1");
+            defaultArgs.Add("switchReactors", "false");
+            defaultArgs.Add("switchReactorsOn", "5");
+            defaultArgs.Add("switchReactorsOff", "50");
 
         }
         internal override string commandName
@@ -112,6 +116,28 @@ namespace BatteryInfoModule
             //gp.dbout("timeToDischarge:" + getTypedValue("timeToDischarge"));
             setValue("time", roundedPercent == 1 ? getTypedValue("fullyCharged") :
                 (charging ? getTypedValue("timeToCharge") : getTypedValue("timeToDischarge")));
+
+            //Switch Reactors
+            if (getArgBool("switchReactors"))
+            {
+                var reactors = new List<IMyTerminalBlock>();
+                if (getArg("reactorName") != "")
+                {
+                    var block = gp.GetBlock(getArg("reactorName"));
+                    if (block != null)
+                    {
+                        reactors.Add(block);
+                    }
+                } else if (getArg("reactorGroup") != "")
+                {
+                    reactors = gp.GetBlockGroup(getArg("reactorGroup"));
+                } else
+                    gp.GridTerminalSystem.GetBlocksOfType<IMyReactor>(reactors, gp.OnGrid);
+                if (roundedPercent * 100 > getArgInt("switchReactorsOff"))
+                    reactors.TurnOff();
+                else if (roundedPercent * 100 < getArgInt("switchReactorsOn"))
+                    reactors.TurnOn();
+            }
         }
         private int getChargeTime(bool charging, float percent, float lastPercent)
         {
