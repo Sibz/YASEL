@@ -77,7 +77,6 @@
     <Compile Include="Classes\ConnectorManager.cs" />
     <Compile Include="Classes\DoorManager.cs" />
     <Compile Include="Classes\GyroManager.cs" />
-    <Compile Include="Classes\Inventory.cs" />
     <Compile Include="Classes\NavManager\NavManager.cs" />
     <Compile Include="Classes\NavManager\NavSettings.cs" />
     <Compile Include="Classes\NavManager\WpInfo.cs" />
@@ -104,11 +103,9 @@
     <Compile Include="Extensions\GyroExtensions.cs" />
     <Compile Include="Classes\Graph.cs" />
     <Compile Include="Classes\Menu.cs" />
-    <Compile Include="Classes\TextPanels.cs" />
     <Compile Include="Extensions\RotorExtensions.cs" />
     <Compile Include="Extensions\SolarExtensions.cs" />
     <Compile Include="Extensions\ThrustExtensions.cs" />
-    <Compile Include="Classes\VarStore.cs" />
     <Compile Include="Extensions\TextPanelExtensions.cs" />
     <Compile Include="Programs\AirlockManagerProgram.cs" />
     <Compile Include="Programs\AssemblerProgram.cs" />
