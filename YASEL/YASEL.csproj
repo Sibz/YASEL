@@ -125,6 +125,7 @@
     <Compile Include="Programs\TestProgram.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Programs\AutoLevelProgram.cs" />
     <Compile Include="Programs\YaNavTestProgram.cs" />
     <Compile Include="Programs\YaNavThrusterControlTestProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

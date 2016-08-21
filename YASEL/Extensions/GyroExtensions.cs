@@ -38,6 +38,8 @@ namespace GyroExtensions
             return refVec;
         }
 
+
+
         /// <summary>
         /// Rotate ship around a single axis to align indicator to target
         /// </summary>
@@ -97,6 +99,18 @@ namespace GyroExtensions
             // not aligned so rotate
             gyroscope.Rotate(rotationAxis, (float)angle, coEff);
             return false;
+        }
+
+        public static bool Rotate(this List<IMyTerminalBlock> gyros, Vector3 target, Vector3? indicator = null, float coEff = 0.8f, float accuracy = 0.01f)
+        {
+            bool result = true;
+            foreach (IMyTerminalBlock gyro in gyros)
+            {
+                if (gyro is IMyGyro)
+                    if (!(gyro as IMyGyro).Rotate(target, indicator, coEff, accuracy))
+                        result = false;
+            }
+            return result;
         }
 
         /// Rotation methods made with help from JoeTheDestoyer
@@ -198,23 +212,74 @@ namespace GyroExtensions
         {
             gyroscope.SetValueBool("Override", false);
         }
+        public static void OverrideOff(this List<IMyTerminalBlock> gyros)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro)
+                    (gyro as IMyGyro).OverrideOff();
+        }
+        public static void OverrideOn(this List<IMyTerminalBlock> gyros)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro)
+                    (gyro as IMyGyro).OverrideOn();
+        }
         public static void Stop(this IMyGyro gyroscope)
         {
             gyroscope.SetPitch(0f);
             gyroscope.SetYaw(0f);
             gyroscope.SetRoll(0f);
         }
+        public static void Stop(this List<IMyTerminalBlock> gyros)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro)
+                    (gyro as IMyGyro).Stop();
+        }
         public static void SetPitch(this IMyGyro gyroscope, float pitch)
         {
             gyroscope.SetValueFloat("Pitch", pitch);
+        }
+        public static void SetPitch(this List<IMyTerminalBlock> gyros, float pitch)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro)
+                    (gyro as IMyGyro).SetPitch(pitch);
+        }
+        public static bool IsPitching(this IMyGyro gyroscope, float accuracy = 0.001f)
+        {
+            return gyroscope.GetValueFloat("Pitch") > accuracy || gyroscope.GetValueFloat("Pitch") < -accuracy;
+        }
+        public static bool IsPitching(this List<IMyTerminalBlock> gyros, float accuracy = 0.001f)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro && (gyro as IMyGyro).IsPitching(accuracy)) return true;
+            return false;
         }
         public static void SetYaw(this IMyGyro gyroscope, float yaw)
         {
             gyroscope.SetValueFloat("Yaw", yaw);
         }
+        public static void SetYaw(this List<IMyTerminalBlock> gyros, float yaw)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro)
+                    (gyro as IMyGyro).SetPitch(yaw);
+        }
         public static void SetRoll(this IMyGyro gyroscope, float roll)
         {
             gyroscope.SetValueFloat("Roll", roll);
         }
+        public static bool IsRolling(this IMyGyro gyroscope, float accuracy = 0.001f)
+        {
+            return gyroscope.GetValueFloat("Roll") > accuracy || gyroscope.GetValueFloat("Roll") < -accuracy;
+        }
+        public static bool IsRolling(this List<IMyTerminalBlock> gyros, float accuracy = 0.001f)
+        {
+            foreach (var gyro in gyros)
+                if (gyro is IMyGyro && (gyro as IMyGyro).IsRolling(accuracy)) return true;
+            return false;
+        }
+
     }
 }
