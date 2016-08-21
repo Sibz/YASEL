@@ -14,6 +14,7 @@ namespace ProgramExtensions
     static public class ProgramExtensions
     {
         static public bool Debug = false;
+        static public List<string> DebugSources = new List<string>();
         static public IMyTerminalBlock GetBlock(this MyGridProgram gp, string name, bool onGrid = true)
         {
             var blocks = gp.SearchBlocks(name, onGrid);
@@ -50,9 +51,13 @@ namespace ProgramExtensions
         {
             return b.CubeGrid == gp.Me.CubeGrid;
         }
-        static public void dbout(this MyGridProgram gp, string message)
+        static public void dbout(this MyGridProgram gp, string message, string source = "")
         {
-            if (ProgramExtensions.Debug) gp.Echo(message);
+            if (ProgramExtensions.Debug && (source== "" || DebugSources.Contains(source))) gp.Echo(message);
+        }
+        static public void AddDebugSource(string source)
+        {
+            if (!DebugSources.Contains(source)) DebugSources.Add(source);
         }
         
     }
