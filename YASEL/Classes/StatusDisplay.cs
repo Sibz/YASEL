@@ -35,8 +35,15 @@ namespace StatusDisplay
                 gp.GridTerminalSystem.GetBlocksOfType<IMyTextPanel>(this.settings.textPanels, gp.OnGrid);
             }
             gp.dbout("Settings loaded. Cylcing " + this.settings.textPanels.Count + " TextPanels");
+            importLCDs();
+        }
+        private void importLCDs()
+        {
             foreach (IMyTextPanel lcd in this.settings.textPanels)
             {
+                if (displays.Find(x => x.Name == lcd.CustomName) != null)
+                    continue;
+                
                 var pt = lcd.GetPrivateTitle();
                 //gp.dbout("Checking TextPanel " + lcd.CustomName + " which has pt of:\n " + pt);
                 if (!pt.Contains("$display"))
@@ -70,8 +77,11 @@ namespace StatusDisplay
         }
         public void UpdateDisplays()
         {
+            incrementer = 0;
+            importLCDs();
             foreach (StatusDisplayLCD lcd in displays)
             {
+                gp.dbout("updating display...");
                 lcd.Update();
             }
         }
@@ -99,6 +109,7 @@ namespace StatusDisplay
         internal string textWithSubstitutedCommands = "";
         StatusDisplayLCDSettings settings;
         StatusDisplay sd;
+        public string Name;
 
         public StatusDisplayLCD(StatusDisplay sd, StatusDisplayLCDSettings settings)
         {
@@ -107,11 +118,14 @@ namespace StatusDisplay
             sd.gp.dbout("Creating new LCD");
             if (this.settings.PrimaryLCD == null)
                 throw new NullReferenceException("LCD Ctor: settings.primaryLCD is Null");
-            parseCommands();
+            this.Name = settings.PrimaryLCD.CustomName;
+
         }
         private void parseCommands()
         {
             sd.gp.dbout("parsing commands...");
+            commandResults.Clear();
+            commands.Clear();
             textWithSubstitutedCommands = settings.PrimaryLCD.GetPrivateText();
             var commandstringMatch = System.Text.RegularExpressions.Regex.Match(textWithSubstitutedCommands, @"{[^#][^}]*}");
             while(commandstringMatch.Success)
@@ -187,9 +201,12 @@ namespace StatusDisplay
         }
         public void Update()
         {
+            parseCommands();
             sd.gp.dbout("StatusDisplayLCD.Update:\n -Replacing commands in:\n\n" + textWithSubstitutedCommands);
             displayString = replaceSubstitutedArgs(textWithSubstitutedCommands, commandResults);
+            sd.gp.dbout("Replaced. Writing to screens");
             Write();
+            sd.gp.dbout("Screen text updated");
         }
         static public string replaceSubstitutedArgs(string arg, Dictionary<int, string> substitutedArgs)
         {
@@ -373,7 +390,7 @@ namespace StatusDisplay
         }
         internal string getValuePercent(string key)
         {
-            return getValueFloat(key) * 100 + "%";
+            return Math.Round(getValueFloat(key) * 100,2) + "%";
         }
         internal string getValueTime(string key)
         {
