@@ -53,6 +53,7 @@ namespace RefineryManager
             });
 
             int numberOfOres = 0;
+            List<string> CountedOres = new List<string>();
             refineryGroup.OreContainerInventories.ForEach(cargoInv =>
             {
                 var items = cargoInv.GetItems();
@@ -60,17 +61,21 @@ namespace RefineryManager
                 {
                     items.ForEach(item =>
                     {
-                        if (item.Content.TypeId.ToString().Contains("Ore"))
+                        if (!CountedOres.Contains(item.Content.SubtypeName) && item.Content.TypeId.ToString().Contains("Ore"))
+                        {
+                            CountedOres.Add(item.Content.SubtypeName);
                             numberOfOres++;
+                        }
                     });
                 }
             });
-
+            
             refineryGroup.RefineryInventories.ForEach(refInv =>
             {
+                
                 var refItemCount = refInv.GetItems().Count;
                 IMyInventoryItem firstRefItem = refItemCount>0?refInv.GetItems()[0]:null;
-
+                List<string> MovedOres = new List<string>();
                 if ((float)refInv.CurrentVolume / (float)refInv.MaxVolume < 0.95 && 
                     (refItemCount < numberOfOres || 
                         (numberOfOres==1 && 
@@ -79,6 +84,7 @@ namespace RefineryManager
                 {
                     refineryGroup.OreContainerInventories.ForEach(cargoInv =>
                     {
+                        
                         var items = cargoInv.GetItems();
                         if (items.Count > 0)
                         {
@@ -89,9 +95,13 @@ namespace RefineryManager
                             {
                                 if (item.Content.TypeId.ToString().Contains("Ore"))
                                 {
-                                    itemsToMove.Add( new invItemToMove() { itemIdx = curIdx, itemAmount = (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1) });
+                                    if (!MovedOres.Contains(item.Content.SubtypeName))
+                                    {
+                                        itemsToMove.Add(new invItemToMove() { ItemName = item.Content.SubtypeName, itemIdx = curIdx, itemAmount = (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1) });
+                                        MovedOres.Add(item.Content.SubtypeName);
+                                    }
                                     //refInv.TransferItemFrom(cargoInv, curIdx, refInv.GetItems().Count, false,
-                                      //  (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1));
+                                    //  (VRage.MyFixedPoint)refineryGroup.BaseStackSize * (s.OreMultipliers.ContainsKey(item.Content.SubtypeName) ? s.OreMultipliers[item.Content.SubtypeName] : 1));
                                 }
                                 curIdx++;
                             });
@@ -113,6 +123,7 @@ namespace RefineryManager
         {
             public int itemIdx;
             public VRage.MyFixedPoint itemAmount;
+            public string ItemName;
         }
     }
     class RefineryManagerSettings
