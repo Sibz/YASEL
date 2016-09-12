@@ -11,6 +11,7 @@ namespace StatusDisplayProgram
     using BatteryInfoModule;
     using ReactorInfoModule;
     using SolarInfoModule;
+    using OreInfoModule;
     using ProgramExtensions;
     class StatusDisplayProgram : MyGridProgram
     {
@@ -19,13 +20,19 @@ namespace StatusDisplayProgram
         void Main(string argument)
         {
             ProgramExtensions.Debug = true;
-            Dictionary<string, string> args = new Dictionary<string, string>();
-            args.Add("pad", "  ");
-            settings.Modules.Add(new BatteryInfoModule(this, args));
-            settings.Modules.Add(new ReactorInfoModule(this, args));
-            settings.Modules.Add(new SolarInfoModule(this, args));
-            
-            statusDisplay = new StatusDisplay(this, settings);
+
+            if (statusDisplay == null)
+            {
+                Dictionary<string, string> args = new Dictionary<string, string>();
+                args.Add("pad", "  ");
+
+                settings.Modules.Add(new BatteryInfoModule(this, args));
+                settings.Modules.Add(new ReactorInfoModule(this, args));
+                settings.Modules.Add(new SolarInfoModule(this, args));
+                settings.Modules.Add(new OreInfoModule(this, args));
+
+                statusDisplay = new StatusDisplay(this, settings);
+            }
             statusDisplay.UpdateDisplays();
         }
 
