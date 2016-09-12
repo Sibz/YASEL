@@ -87,10 +87,13 @@ namespace InventoryExtensions
         }
         static public void MoveItemAmount(this List<IMyInventory> sources, List<IMyInventory> destinations, string itemName, VRage.MyFixedPoint amount, string itemType = "", float destinationMaxPercent = 0.98f)
         {
+            if (amount.RawValue == 0)
+                amount = (VRage.MyFixedPoint)999999f;
             if (sources.Count == 0 || destinations.Count == 0)
                 throw new Exception("MoveItemAmount: Unable to move, number of 'source' or 'destination' inventories = 0.");
             if (sources.CountItems(itemName, itemType) == 0)
                 return; // No Items to move
+            amount.RawValue = Math.Min(((VRage.MyFixedPoint)sources.CountItems(itemName, itemType)).RawValue, amount.RawValue);
             if (destinations.GetPercentFull() > destinationMaxPercent)
                 return; // No Space for items
 
