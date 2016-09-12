@@ -55,7 +55,7 @@ namespace BatteryInfoModule
             if (groupName == "#all#")
             {
                 Func<IMyTerminalBlock, bool> collect = null;
-                if (getArgBool("onGrid")) collect = gp.OnGrid;
+                if (getArgBool("onGrid")) collect =  x=> { return x.IsFunctional && gp.OnGrid(x); };
                 gp.GridTerminalSystem.GetBlocksOfType<IMyBatteryBlock>(batteries, collect);
             }
             else
