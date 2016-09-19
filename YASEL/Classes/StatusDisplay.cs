@@ -11,6 +11,7 @@ namespace StatusDisplay
     using ProgramExtensions;
     using TextPanelExtensions;
     using RotorExtensions;
+    using TaskQueue;
 
     public class StatusDisplay
     {
@@ -18,9 +19,10 @@ namespace StatusDisplay
         List<StatusDisplayLCD> displays = new List<StatusDisplayLCD>();
         StatusDisplaySettings settings;
         public int incrementer = 0;
+        TaskQueue queue;
 
         public Dictionary<string, StatusDisplayModule> Modules = new Dictionary<string, StatusDisplayModule>();
-        public StatusDisplay(MyGridProgram gp, StatusDisplaySettings settings = null)
+        public StatusDisplay(MyGridProgram gp, ref TaskQueue queue, StatusDisplaySettings settings = null)
         {
             this.gp = gp;
             this.settings = settings == null ? new StatusDisplaySettings() : settings;
@@ -34,8 +36,10 @@ namespace StatusDisplay
                 this.settings.textPanels = new List<IMyTerminalBlock>();
                 gp.GridTerminalSystem.GetBlocksOfType<IMyTextPanel>(this.settings.textPanels, gp.OnGrid);
             }
-            gp.dbout("Settings loaded. Cylcing " + this.settings.textPanels.Count + " TextPanels");
-            importLCDs();
+            gp.dbout("Settings loaded. Cylcing " + this.settings.textPanels.Count + " TextPanels", "SD");
+            this.queue = queue;
+            queue.Enqueue(importLCDs);
+            queue.Enqueue(UpdateDisplays);
         }
         private void importLCDs()
         {
@@ -72,18 +76,19 @@ namespace StatusDisplay
         }
         public void AddModule(StatusDisplayModule mod)
         {
-            gp.dbout("Adding Module " + mod.CommandName);
+            gp.dbout("Adding Module " + mod.CommandName, "SD");
             Modules.Add(mod.CommandName, mod);
         }
         public void UpdateDisplays()
         {
             incrementer = 0;
-            importLCDs();
+            queue.Enqueue(importLCDs);
             foreach (StatusDisplayLCD lcd in displays)
             {
-                gp.dbout("updating display...");
-                lcd.Update();
+                gp.dbout("updating display..." , "SD:update");
+                queue.Enqueue(lcd.Update);
             }
+            queue.Enqueue(UpdateDisplays);
         }
 
     }
@@ -115,7 +120,7 @@ namespace StatusDisplay
         {
             this.sd = sd;
             this.settings = settings;
-            sd.gp.dbout("Creating new LCD");
+            sd.gp.dbout("Creating new LCD", "SD");
             if (this.settings.PrimaryLCD == null)
                 throw new NullReferenceException("LCD Ctor: settings.primaryLCD is Null");
             this.Name = settings.PrimaryLCD.CustomName;
@@ -123,7 +128,7 @@ namespace StatusDisplay
         }
         private void parseCommands()
         {
-            sd.gp.dbout("parsing commands...");
+            sd.gp.dbout("parsing commands...", "SD:parseCmds");
             commandResults.Clear();
             commands.Clear();
             textWithSubstitutedCommands = settings.PrimaryLCD.GetPrivateText();
@@ -137,19 +142,19 @@ namespace StatusDisplay
                 {
                     var argsMatch = System.Text.RegularExpressions.Regex.Match(commandstringMatch.Value, @"\(([\s\S]*?)\)");
                     var cmdMatchTrimmed = commandMatch.Value.Trim('{').Trim('}').Trim('(');
-                    sd.gp.dbout("Command Parts:\n -" + cmdMatchTrimmed);
+                    sd.gp.dbout("Command Parts:\n -" + cmdMatchTrimmed, "SD:parseCmds");
                     var commandParts = cmdMatchTrimmed.Split('.');
                     var rawArgs = argsMatch.Success ? argsMatch.Value.Trim('(').Trim(')') : "";
                     if (commandParts.Length == 2)
                     {
-                        sd.gp.dbout("Value request:" + commandParts[1] + " from " + commandParts[0]);
+                        sd.gp.dbout("Value request:" + commandParts[1] + " from " + commandParts[0], "SD:parseCmds");
                         var command = commands.Find(x => { return x.Name == commandParts[0]; });
                         if (command != null)
                             commandResults.Add(id, command.GetValue(commandParts[1], parseArgs(rawArgs)));
                     }
                     else
                     {
-                        sd.gp.dbout("New Command:" + commandParts[0]);
+                        sd.gp.dbout("New Command:" + commandParts[0], "SD:parseCmds");
                         var newCmd = new StatusDisplayCommand(sd, commandParts[0], parseArgs(rawArgs), id);
                         commands.Add(newCmd);
                         commandResults.Add(id, newCmd.Execute());
@@ -160,16 +165,16 @@ namespace StatusDisplay
 
                 commandstringMatch = System.Text.RegularExpressions.Regex.Match(textWithSubstitutedCommands, @"{[^#][^}]*}");
             }
-            sd.gp.dbout("Parsed Commands:");
+            sd.gp.dbout("Parsed Commands:", "SD:parseCmds");
             foreach(var cmd in commands)
             {
-                sd.gp.dbout(cmd.Name + " - " + cmd.Id);
+                sd.gp.dbout(cmd.Name + " - " + cmd.Id, "SD:parseCmds");
             }
         }
         
         private Dictionary<string, string> parseArgs(string rawArgs)
         {
-            sd.gp.dbout("Parsing Args... (" + rawArgs + ")");
+            sd.gp.dbout("Parsing Args... (" + rawArgs + ")", "SD:parseArgs");
             var result = new Dictionary<string, string>();
             // Remove quoted strings and replace with a placeholder so we don't get confused with quoted , and =
             Dictionary<int, string> removedStrings = new Dictionary<int, string>();
@@ -182,7 +187,7 @@ namespace StatusDisplay
                     removedStrings.Add(id, quotedStringMatch.Value.Replace("\"",""));
                 rawArgs = rawArgs.Replace(quotedStringMatch.Value, "{#%" + id + "}");
             }
-            sd.gp.dbout("Removed Strings\n " + rawArgs);
+            sd.gp.dbout("Removed Strings\n " + rawArgs, "SD:parseArgs");
             rawArgs = rawArgs.Replace("\n", "").Replace(" ", "");
 
             var argArray = rawArgs.Split(',');
@@ -192,21 +197,21 @@ namespace StatusDisplay
                 if (argParts.Length == 2) result.Add(argParts[0], replaceSubstitutedArgs(argParts[1], removedStrings));
             }
 
-            sd.gp.dbout("Parsed Args:");
+            sd.gp.dbout("Parsed Args:", "SD:parseArgs");
             foreach (var r in result)
             {
-                sd.gp.dbout(r.Key + "/" + r.Value);
+                sd.gp.dbout(r.Key + "/" + r.Value, "SD:parseArgs");
             }
             return result;
         }
         public void Update()
         {
             parseCommands();
-            sd.gp.dbout("StatusDisplayLCD.Update:\n -Replacing commands in:\n\n" + textWithSubstitutedCommands);
+            sd.gp.dbout("StatusDisplayLCD.Update:\n -Replacing commands in:\n\n" + textWithSubstitutedCommands, "SD:update");
             displayString = replaceSubstitutedArgs(textWithSubstitutedCommands, commandResults);
-            sd.gp.dbout("Replaced. Writing to screens");
+            sd.gp.dbout("Replaced. Writing to screens", "SD:update");
             Write();
-            sd.gp.dbout("Screen text updated");
+            sd.gp.dbout("Screen text updated", "SD:update");
         }
         static public string replaceSubstitutedArgs(string arg, Dictionary<int, string> substitutedArgs)
         {
@@ -265,7 +270,7 @@ namespace StatusDisplay
         internal string GetValue(string key, Dictionary<string, string> args)
         {
             if (!sd.Modules.ContainsKey(Name)) return "Module for value not loaded - " + Name + "." + key;
-            sd.gp.Echo("Getting Value " + key + " from " + Name);
+            sd.gp.dbout("Getting Value " + key + " from " + Name, "SD:Cmd");
 
             if ( args.ContainsKey("formatAs"))
             {
@@ -300,6 +305,7 @@ namespace StatusDisplay
             setDefaultArg("pad", "");
             setDefaultArg("group", "#all#");
             setDefaultArgBool("onGrid", true);
+            addValueDefinition("instanceId", "", "", false);
 
             if (defaultArgs != null)
                 foreach (var arg in defaultArgs)
@@ -311,8 +317,9 @@ namespace StatusDisplay
         public string CommandName { get { return commandName + (id == -1 ? "" : "-" + id); } }
         public string Execute(int instanceId, Dictionary<string, string> args)
         {
-            gp.dbout("Executing " + CommandName + "/" + instanceId);
+            gp.dbout("Executing " + CommandName + "/" + instanceId, "SD:Module");
             currentInstanceId = instanceId;
+            
             if (!instanceArgs.ContainsKey(instanceId))
                 instanceArgs.Add(instanceId, new Dictionary<string, string>());
             else
@@ -326,9 +333,10 @@ namespace StatusDisplay
                     instanceArgs[instanceId].Add(defaultArg.Key, defaultArg.Value);
             }
             if (!instanceValues.ContainsKey(currentInstanceId)) instanceValues.Add(currentInstanceId, new Dictionary<string, string>());
-            gp.dbout("Loaded args");
+            gp.dbout("Loaded args", "SD:Module");
 
             // Update values
+            setValueInt("instanceId", instanceId);
             update();
 
             return buildString();
@@ -380,10 +388,10 @@ namespace StatusDisplay
         }
         internal string getValue(string key, bool zeroOnError = false)
         {
-            gp.dbout("Getting instance value:" + key);
+            gp.dbout("Getting instance value:" + key, "SD:Module");
             if (instanceValues[currentInstanceId].ContainsKey(key))
             {
-                gp.dbout(key + " = " + instanceValues[currentInstanceId][key]);
+                gp.dbout(key + " = " + instanceValues[currentInstanceId][key], "SD:Module");
                 return instanceValues[currentInstanceId][key];
             }
             return zeroOnError ? "0" : "";
@@ -395,9 +403,10 @@ namespace StatusDisplay
         internal string getValueTime(string key)
         {
             TimeSpan chargeTime = new TimeSpan(0, 0, 0, 0, getValueInt(key));
-            return (chargeTime.Hours > 0 ? 
+            return (chargeTime.Days> 0 ? chargeTime.Days + " Days " : (
+                chargeTime.Hours > 0 ? 
                 chargeTime.Hours + "Hr" + (chargeTime.Hours > 1 ? "s " : " ") : 
-                " ") + (chargeTime.Minutes > 0 ? chargeTime.Minutes + "min" : (chargeTime.Hours>0?"": chargeTime.Seconds + "sec"));
+                " ") + (chargeTime.Minutes > 0 ? chargeTime.Minutes + "min" : (chargeTime.Hours>0?"": chargeTime.Seconds + "sec")));
         }
         internal string getValuePower(string key, float? value = null)
         {
