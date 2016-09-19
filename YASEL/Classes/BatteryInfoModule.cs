@@ -17,7 +17,7 @@ namespace BatteryInfoModule
     {
         private string groupName = "#all#";
         private Dictionary<int, avgDiff> instanceDiffs = new Dictionary<int, avgDiff>();
-        public BatteryInfoModule(MyGridProgram gp, Dictionary<string,string> defaultArgs = null, int id = -1) : base(gp, defaultArgs, id)
+        public BatteryInfoModule(MyGridProgram gp, Dictionary<string, string> defaultArgs = null, int id = -1) : base(gp, defaultArgs, id)
         {
             addValueDefinition("count", "Quantity: ");
             addValueDefinition("percent", "Total charge: ", "percent");
@@ -33,8 +33,14 @@ namespace BatteryInfoModule
 
             setDefaultArg("chargeRounding", "1");
             setDefaultArg("switchReactors", "false");
-            setDefaultArg("switchReactorsOn", "5");
+            setDefaultArg("switchReactorsOn", "15");
             setDefaultArg("switchReactorsOff", "50");
+            setDefaultArg("lowPowerGroup", "none");
+            setDefaultArg("lowPowerOff", "10");
+            setDefaultArg("lowPowerOn", "25");
+            setDefaultArg("emergencyShutdownGroup", "none");
+            setDefaultArg("emergencyShutdownOff", "5");
+            setDefaultArg("emergencyShutdownOn", "15");
 
         }
         internal override string commandName
@@ -47,7 +53,7 @@ namespace BatteryInfoModule
 
         internal override void update()
         {
-            gp.dbout(" - inside batteryInfo.execute");
+            gp.dbout(" - inside batteryInfo.execute", "SD:Module:battInfo");
 
             groupName = getArg("group");
 
@@ -55,14 +61,14 @@ namespace BatteryInfoModule
             if (groupName == "#all#")
             {
                 Func<IMyTerminalBlock, bool> collect = null;
-                if (getArgBool("onGrid")) collect =  x=> { return x.IsFunctional && gp.OnGrid(x); };
+                if (getArgBool("onGrid")) collect = x => { return x.IsFunctional && gp.OnGrid(x); };
                 gp.GridTerminalSystem.GetBlocksOfType<IMyBatteryBlock>(batteries, collect);
             }
             else
             {
                 batteries = gp.GetBlockGroup(groupName);
             }
-            gp.dbout("Loaded batteries");
+            gp.dbout("Loaded batteries", "SD:Module:battInfo");
             float input = 0f, output = 0f, maxStored = 0f, stored = 0f;
 
             foreach (IMyBatteryBlock b in batteries)
@@ -84,10 +90,10 @@ namespace BatteryInfoModule
             setValueFloat("lastPercent", percent);
             bool charging = lastPercent < percent;
             setValueBool("charging", charging);
-            gp.dbout("charging: " + charging);
+            gp.dbout("charging: " + charging, "SD:Module:battInfo");
 
             int chargeTime = getChargeTime(charging, percent, lastPercent);
-            gp.dbout("Charging Time: " + chargeTime);
+            gp.dbout("Charging Time: " + chargeTime, "SD:Module:battInfo");
 
             if (charging)
                 setValueInt("timeToCharge", chargeTime);
@@ -103,7 +109,7 @@ namespace BatteryInfoModule
                 setValue("fullyCharged", "");
             else
                 removeValue("fullyCharged");
-            gp.dbout("roundedPercent:" + roundedPercent);
+            gp.dbout("roundedPercent:" + roundedPercent, "SD:Module:battInfo");
             //gp.dbout("timeToCharge:" + getTypedValue("timeToCharge"));
             //gp.dbout("timeToDischarge:" + getTypedValue("timeToDischarge"));
             setValue("time", roundedPercent == 1 ? getTypedValue("fullyCharged") :
@@ -120,15 +126,35 @@ namespace BatteryInfoModule
                     {
                         reactors.Add(block);
                     }
-                } else if (getArg("reactorGroup") != "")
+                }
+                else if (getArg("reactorGroup") != "")
                 {
                     reactors = gp.GetBlockGroup(getArg("reactorGroup"));
-                } else
+                }
+                else
                     gp.GridTerminalSystem.GetBlocksOfType<IMyReactor>(reactors, gp.OnGrid);
                 if (roundedPercent * 100 > getArgInt("switchReactorsOff"))
                     reactors.TurnOff();
                 else if (roundedPercent * 100 < getArgInt("switchReactorsOn"))
                     reactors.TurnOn();
+            }
+
+            // 
+            if (getArg("lowPowerGroup") != "none")
+            {
+                var blocks = gp.GetBlockGroup(getArg("lowPowerGroup"));
+                if (roundedPercent * 100 > getArgInt("lowPowerOn"))
+                    blocks.TurnOn();
+                else if (roundedPercent * 100 < getArgInt("lowPowerOff"))
+                    blocks.TurnOff();
+            }
+            if (getArg("emergencyShutdownGroup") != "none")
+            {
+                var blocks = gp.GetBlockGroup(getArg("emergencyShutdownGroup"));
+                if (roundedPercent * 100 > getArgInt("emergencyShutdownOn"))
+                    blocks.TurnOn();
+                else if (roundedPercent * 100 < getArgInt("emergencyShutdownOff"))
+                    blocks.TurnOff();
             }
         }
         private int getChargeTime(bool charging, float percent, float lastPercent)
