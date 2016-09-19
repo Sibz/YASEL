@@ -75,6 +75,19 @@ namespace InventoryExtensions
             });
             return invs;
         }
+        static public List<IMyInventory> GetInventories( this MyGridProgram program)
+        {
+            List<IMyInventory> invs = new List<IMyInventory>();
+            var blocks = new List<IMyTerminalBlock>();
+            program.GridTerminalSystem.GetBlocks(blocks);
+            foreach (var b in blocks)
+                if (b.CubeGrid==program.Me.CubeGrid && b.HasInventory())
+                {
+                    for (int i = 0; i < b.GetInventoryCount(); i++)
+                        invs.Add(b.GetInventory(i));
+                }
+            return invs;
+        }
         static public float GetPercentFull(this List<IMyInventory> invs)
         {
             float maxVol = 0, curVol = 0;
@@ -85,19 +98,27 @@ namespace InventoryExtensions
             });
             return curVol / maxVol;
         }
+
         static public void MoveItemAmount(this List<IMyInventory> sources, List<IMyInventory> destinations, string itemName, VRage.MyFixedPoint amount, string itemType = "", float destinationMaxPercent = 0.98f)
         {
-            if (amount.RawValue == 0)
-                amount = (VRage.MyFixedPoint)999999f;
+            sources.MoveItemAmount(destinations, itemName, Math.Round((double)amount, 0), itemType, destinationMaxPercent); 
+        }
+
+        static public void MoveItemAmount(this List<IMyInventory> sources, List<IMyInventory> destinations, string itemName = "", double amount = 0, string itemType = "", float destinationMaxPercent = 0.98f, MyGridProgram gp = null)
+        {
+            if (amount == 0)
+                amount = sources.CountItems(itemName, itemType);
             if (sources.Count == 0 || destinations.Count == 0)
-                throw new Exception("MoveItemAmount: Unable to move, number of 'source' or 'destination' inventories = 0.");
+                return; // No source or dest inventories
             if (sources.CountItems(itemName, itemType) == 0)
                 return; // No Items to move
-            amount.RawValue = Math.Min(((VRage.MyFixedPoint)sources.CountItems(itemName, itemType)).RawValue, amount.RawValue);
+            amount = Math.Min(sources.CountItems(itemName, itemType), amount);
             if (destinations.GetPercentFull() > destinationMaxPercent)
                 return; // No Space for items
 
-            VRage.MyFixedPoint amountMoved = 0;
+            double amountMoved = 0;
+
+            if (gp != null) gp.Echo("Amount to move:" + amount);
 
             destinations.ForEach(toInv =>
             {
@@ -112,12 +133,14 @@ namespace InventoryExtensions
                             int itemIndex = 0;
                             items.ForEach(item =>
                             {
+                                if (gp != null) gp.Echo("moving item:" + item.Content.SubtypeName);
                                 if (amountMoved < amount && (item.Content.SubtypeId.ToString().Contains(itemName) &&
                                 (itemType == "" || itemType.Contains(item.Content.TypeId.ToString().Replace("MyObjectBuilder_", "")))))
                                 {
-                                    toInv.TransferItemFrom(fromInv, itemIndex, null, null, amount - amountMoved);
+                                    var fpToMove = (VRage.MyFixedPoint)(item.Content.TypeId.ToString().Contains("Ingot") || item.Content.TypeId.ToString().Contains("Ore") ? (amount - amountMoved) : Math.Round((double)(amount - amountMoved), 0));
+                                    toInv.TransferItemFrom(fromInv, itemIndex, null, null, fpToMove);
                                 }
-                                amountMoved += (VRage.MyFixedPoint)(itemCount - fromInv.CountItems(itemName, itemType));
+                                amountMoved += (itemCount - fromInv.CountItems(itemName, itemType));
                                 if (amountMoved >= amount)
                                     return;
                                 itemIndex++;
