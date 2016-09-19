@@ -16,6 +16,7 @@ namespace ShipManager
 
     class ShipManager
     {
+        public bool IsDocked {  get { return cm.AnyConnected(); } }
         MyGridProgram gp;
         ShipManagerSettings settings;
 
@@ -26,7 +27,7 @@ namespace ShipManager
         List<IMyTerminalBlock> listGyros;
         List<IMyTerminalBlock> listSpots;
         List<IMyTerminalBlock> listReactors;
-        Dictionary<string, BreachDoorZone> breachDoorZones;
+        Dictionary<string, BreachDoorZone> breachDoorZones = null;
 
         IMyTextPanel tpDebug;
 
