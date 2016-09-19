@@ -17,8 +17,16 @@ namespace YaNavGyroControl
         YaNavGyroControlSettings settings;
         Vector3D? targetDirection;
         Vector3D? indicatorDirection;
+        float _angle;
 
         public bool IsRotating = false;
+        public float Angle
+        {
+            get
+            {
+                return _angle;
+            }
+        }
 
 
         public YaNavGyroControl(MyGridProgram gp, YaNavGyroControlSettings s)
@@ -26,10 +34,10 @@ namespace YaNavGyroControl
             this.gp = gp;
             this.settings = s;
             targetDirection = null;
-            
+
             if (settings.Gyroscopes.Count == 0)
                 gp.GridTerminalSystem.GetBlocksOfType<IMyGyro>(settings.Gyroscopes, b => { return b.CubeGrid == gp.Me.CubeGrid; });
-            
+
             if (settings.Gyroscopes.Count == 0)
                 throw new YaNavGyroControlException(lang.ErrorNoGyroBlocks);
         }
@@ -55,9 +63,9 @@ namespace YaNavGyroControl
                         settings.UseGravityVector ?
                         !(gyroscope as IMyGyro).Rotate(
                          indicatorDirection.Value,
-                         settings.OrientationReferenceBlock.GetDirectionalVector("down",true),
+                         settings.OrientationReferenceBlock.GetDirectionalVector("down", true),
                          targetDirection.Value,
-                         settings.Remote.GetNaturalGravity(), 
+                         settings.Remote.GetNaturalGravity(),
                          settings.GyroCoEff,
                          settings.GyroAccuracy
                         )
@@ -67,10 +75,13 @@ namespace YaNavGyroControl
                         settings.GyroCoEff,
                         settings.GyroAccuracy
                         );
-                    
+                    Vector3 rt = new Vector3();
+                    // Transform to targetVector into a vector relative to the gyroscrope
+                    Vector3 target = Vector3.Transform(targetDirection.Value, MatrixD.Transpose(gyroscope.WorldMatrix.GetOrientation()));
+                    GyroExtensions.GetChangeInDirection(indicatorDirection.Value, target, out rt, out _angle);
                 });
         }
-        
+
     }
     public class YaNavGyroControlException : YaNavException
     {
