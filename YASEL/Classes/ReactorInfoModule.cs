@@ -15,11 +15,13 @@ namespace ReactorInfoModule
     using BlockExtensions;
     class ReactorInfoModule : StatusDisplayModule
     {
+        Dictionary<int, FuelReadings> instanceReadings = new Dictionary<int, FuelReadings>();
         public ReactorInfoModule(MyGridProgram gp, Dictionary<string, string> defaultArgs = null, int id = -1) : base(gp, defaultArgs, id)
         {
             addValueDefinition("count", "Count: ");
             addValueDefinition("output", "Power output: ", "power");
             addValueDefinition("fuel", "Uranium: ");
+            addValueDefinition("fuelRate", "Uranium used per hour: ");
             addValueDefinition("reactors");
             addValueDefinition("reactorName", " ");
             addValueDefinition("reactorState", "\n" + getDefaultArg("pad") + "  Status: ");
@@ -37,6 +39,7 @@ namespace ReactorInfoModule
 
         internal override void update()
         {
+
             // get reactors
             var groupName = getArg("group");
             var reactors = new List<IMyTerminalBlock>();
@@ -85,8 +88,49 @@ namespace ReactorInfoModule
             setValueInt("count", reactors.Count);
             setValueFloat("output", output);
             setValueFloat("fuel", (float)Math.Round(fuel, 2));
-            setValue("reactors", reactorsString + "\n");
+            if (!instanceReadings.ContainsKey(currentInstanceId))
+                instanceReadings.Add(currentInstanceId, new FuelReadings(fuel));
+            instanceReadings[currentInstanceId].AddReading(fuel);
+            setValueFloat("fuelRate", (float)Math.Round(instanceReadings[currentInstanceId].GetAvg(),2));
+            setValue("reactors", reactorsString);
 
+        }
+        class FuelReadings
+        {
+            Queue<KeyValuePair<DateTime, float>> readings = new Queue<KeyValuePair<DateTime, float>>();
+            KeyValuePair<DateTime, float> lastReading = new KeyValuePair<DateTime, float>();
+            float fuel;
+            bool firstReading = true;
+            public FuelReadings(float startingFuel)
+            {
+                fuel = startingFuel;
+            }
+            public void AddReading(float reading)
+            {
+                if (lastReading.Key < DateTime.Now.AddMinutes(-10))
+                {
+                    lastReading = new KeyValuePair<DateTime, float>(DateTime.Now, fuel-reading);
+                    fuel = reading;
+                    readings.Enqueue(lastReading);
+                    if (firstReading == true && readings.Count>1)
+                    {
+                        firstReading = false;
+                        readings.Dequeue();
+                    }
+                }
+                if (readings.Count > 6*12)
+                    readings.Dequeue();
+            }
+            public float LastReading { get { return lastReading.Value; } }
+            public float GetAvg()
+            {
+                float result = 0f;
+                foreach (var r in readings)
+                {
+                    result += r.Value;
+                }
+                return result / readings.Count*6;
+            }
         }
     }
 }
