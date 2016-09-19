@@ -119,6 +119,9 @@ namespace YaNavThrusterControl
             thrusters.Right.ForEach(t => { t.SetValueFloat("Override", 0f); });
             thrusters.Up.ForEach(t => { t.SetValueFloat("Override", 0f); });
             thrusters.Down.ForEach(t => { t.SetValueFloat("Override", 0f); });
+            forward.Thrust = -1f;
+            right.Thrust = -1f;
+            up.Thrust = -1f;
         }
 
         private void move(float targetSpeed = 50, YaNavThrusterVars thrusterVars = null)
@@ -132,8 +135,10 @@ namespace YaNavThrusterControl
 
             // Magic formula to create a gravity coefficient.
             float gravCoEff = Math.Max(1f, Math.Abs((float)Vector3D.Dot(Vector3D.Normalize(localOrientation.Forward), Vector3D.Normalize(Vector3D.Transform(settings.Remote.GetNaturalGravity(), MatrixD.Transpose(settings.Remote.WorldMatrix.GetOrientation())))) * 5));
+            if (thrusterVars.Thrust == -1f)
+                thrusterVars.Thrust = gravCoEff/12;
             // Forumla for speed coefficient
-            float speedCoEff = Math.Max(targetSpeed / settings.MaxSpeed, 0.3f);
+            float speedCoEff = Math.Max(targetSpeed / settings.MaxSpeed, 0.7f);
 
             if (settings.Debug.Contains("move")) gp.Echo("gravity coefficient: " + gravCoEff);
 
@@ -248,7 +253,7 @@ namespace YaNavThrusterControl
     public class YaNavThrusterVars
     {
         public List<IMyTerminalBlock> PositiveThrusters, NegativeThrusters;
-        public float Speed, LastSpeed, Acceleration, Thrust, Time, TickTime;
+        public float Speed, LastSpeed, Acceleration, Thrust = -1f, Time, TickTime;
         public YaNavThrusterVars(List<IMyTerminalBlock> positiveThrusters, List<IMyTerminalBlock> negativeThrusters, float tickTime)
         {
             PositiveThrusters = positiveThrusters;
@@ -270,8 +275,8 @@ namespace YaNavThrusterControl
         public bool InNatrualGravityOnly = true;
         public float MassCoEff = 1f;
         public float MaxSpeed = 100f;
-        public float MinThrustPercent = 0.011f;
-        public float SettleThrustPercent = 0.005f;
+        public float MinThrustPercent = 0.05f;
+        public float SettleThrustPercent = 0.02f;
         public List<string> Debug;
         public YaNavThrusterSettings()
         {
