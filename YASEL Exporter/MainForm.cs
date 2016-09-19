@@ -40,7 +40,7 @@ namespace YASEL_Exporter
             listBox1.Items.Clear();
             if (textBox1.Text == "")
                 return;
-            var dirs = Directory.EnumerateDirectories(textBox1.Text, "Programs", SearchOption.AllDirectories);
+            var dirs = Directory.EnumerateDirectories(textBox1.Text, "Programs");
             foreach (string d in dirs)
             {
                 AddFilesToList(d);
@@ -64,10 +64,10 @@ namespace YASEL_Exporter
         {
 
             DirectoryInfo di = new DirectoryInfo(d);
-            var files = di.EnumerateFiles("*.cs");
+            var files = di.EnumerateFiles("*.cs", SearchOption.AllDirectories);
             foreach (FileInfo file in files)
             {
-                listBox1.Items.Add(d.Replace(textBox1.Text + "\\", "") + "\\" + file.ToString());
+                listBox1.Items.Add( file.FullName.Replace(d + "\\","") );
             }
         }
 
@@ -78,7 +78,7 @@ namespace YASEL_Exporter
             string output = "";
             Dictionary<string, string> includeFiles = new Dictionary<string, string>();
 
-            output = GetFileCode(new FileInfo(textBox1.Text + "\\" + listBox1.SelectedItem.ToString()));
+            output = GetFileCode(new FileInfo(textBox1.Text + "\\Programs\\" + listBox1.SelectedItem.ToString()));
 
 
 
