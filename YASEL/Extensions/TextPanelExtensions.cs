@@ -10,6 +10,7 @@ namespace TextPanelExtensions
     /// <summary>
     /// Static class for common TextPanel functions
     /// </summary>
+    using ProgramExtensions;
     static class TextPanelExtensions
     {
         static public Dictionary<double, int> LinePerFontSize = linePerFontSize();
@@ -20,7 +21,7 @@ namespace TextPanelExtensions
             {
                 var e = LinePerFontSize.GetEnumerator();
                 while (e.MoveNext())
-                    gp.Echo("k:" + e.Current.Key + " / " + e.Current.Value);
+                    gp.dbout("k:" + e.Current.Key + " / " + e.Current.Value, "TP:WriteToScreens");
             }
             screens.Sort((x, y) => { return x.CustomName.CompareTo(y.CustomName); });
             var lines = text.Split('\n');
